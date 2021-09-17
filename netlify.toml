@@ -1,0 +1,6 @@
+[build]
+  publish = "_site"
+  command = "npm run build"
+
+[context.production]
+  environment = { ACCESS_TOKEN = "super secret", NODE_VERSION = "14.15.3" }

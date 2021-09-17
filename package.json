@@ -1,0 +1,54 @@
+{
+  "name": "bootstrap-11ty-starter",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm-run-all clean --parallel watch-css watch-html",
+    "watch-html": "eleventy --serve --incremental",
+    "watch-css": "npm-run-all compile-sass --parallel \"compile-sass -- --watch\" post-css",
+    "build": "npm-run-all clean build-css build-html",
+    "build-html": "eleventy",
+    "build-css": "npm-run-all \"compile-sass -- --style=compressed\" post-css",
+    "compile-sass": "sass --load-path=node_modules src/sass/main.scss:src/css/main.css",
+    "post-css": "postcss src/css/*.css --replace",
+    "clean": "shx rm -rf _site/ src/css/",
+    "prepare": "husky install",
+    "format": "prettier --write *.{js,html,css,scss,json,md}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubaraqwahab/bootstrap-11ty-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mubaraqwahab/bootstrap-11ty-starter/issues"
+  },
+  "homepage": "https://github.com/mubaraqwahab/bootstrap-11ty-starter#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "autoprefixer": "^10.3.1",
+    "bootstrap": "^5.0.2",
+    "bootstrap-icons": "^1.5.0",
+    "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "popper.js": "^1.16.1",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.35.2",
+    "shx": "^0.3.3",
+    "terser": "^5.7.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.1",
+    "prettier": "2.3.2"
+  },
+  "lint-staged": {
+    "*.{js,html,css,scss,json,md}": "npx prettier --write"
+  }
+}

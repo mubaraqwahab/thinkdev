@@ -1,0 +1,4 @@
+node_modules/
+.husky/
+_site/
+src/css/
