@@ -42,7 +42,7 @@ The starter uses these:
 - [Babel](https://babeljs.io/) to transpile JS for older (relevant) browsers.
 - [Terser](https://terser.org/) to minify JS.
 - [Browserslist](https://github.com/browserslist/browserslist) (see `.browserslistrc` file) to specify supported browsers. Babel and Autoprefixer use this.
-- [Husky](https://typicode.github.io/husky) to auto-format changed files with [Prettier](https://prettier.io/) whenever you commit. Only files with these extensions are formatted: `.js`, `.html`, `.css`, `.scss`, `.json`, `.md`.
+- [Husky](https://typicode.github.io/husky) to auto-format changed files with [Prettier](https://prettier.io/) whenever you commit. Only files with these extensions are formatted: `.js`, `.html`, `.css`, `.scss`, `.json`.
 
 Check the respective documentations of the tools to learn more about them.
 
