@@ -1,7 +1,13 @@
+// @ts-check
+
 const htmlmin = require("html-minifier")
 const babel = require("@babel/core")
 const terser = require("terser")
 
+/**
+ * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
+ * @returns {Partial<ReturnType<import('@11ty/eleventy/src/defaultConfig')>>}
+ */
 module.exports = function (eleventyConfig) {
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
@@ -15,7 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("padstart", padStart)
 
   // Copy compiled CSS folder to output folder
-  eleventyConfig.addPassthroughCopy("src/css/")
+  eleventyConfig.addPassthroughCopy({ "src/dist/css/": "css/" })
 
   // Copy Bootstrap's JS and icons to output folder
   eleventyConfig.addPassthroughCopy({
@@ -36,7 +42,6 @@ module.exports = function (eleventyConfig) {
   })
 
   return {
-    // Some of these are the defaults!
     dir: {
       input: "src/",
       includes: "_includes/", // Relative to input folder
