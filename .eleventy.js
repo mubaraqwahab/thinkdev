@@ -42,8 +42,9 @@ module.exports = function (eleventyConfig) {
       data: "_data/", // Relative to input folder
       output: "_site/",
     },
-    templateFormats: ["njk"],
+    templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk"
   }
 }
 

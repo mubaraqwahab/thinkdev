@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {# If page title is absent, show only site title #}
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
-    <link rel="stylesheet" href="{{ 'css/main.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}" />
   </head>
   <body>
-    {{ content | safe }}
+    <nav class="navbar navbar-light bg-light border-bottom">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+      </div>
+    </nav>
 
-    <script src="{{ 'js/bootstrap.bundle.min.js' | url }}"></script>
-    {#
-      Use the one below instead,
-      if you're not using components that require Popper (like tooltips)
-    #}
-    {# <script src="{{ 'js/bootstrap.min.js' | url }}"></script> #}
+    <main class="container py-4">
+      {{ content | safe }}
+    </main>
+
+    <script src="{{ '/js/bootstrap.min.js' | url }}"></script>
 
     {# Optimize and inline JavaScript: https://www.11ty.dev/docs/quicktips/inline-js/ #}
     {% set js %}
