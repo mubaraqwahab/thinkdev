@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   </head>
   <body>
-    <header class="bg-light text-dark py-2 border-bottom">
+    <header class="py-3 border-b">
       <div class="container">
-        <a class="text-reset text-decoration-none fs-5" href="{{ '/' | url }}">Navbar</a>
+        <a class="" href="{{ '/' | url }}">Navbar</a>
       </div>
     </header>
 
     {{ content | safe }}
 
-    <script src="{{ '/js/bootstrap.min.js' | url }}"></script>
-
-    {# Optimize and inline JavaScript: https://www.11ty.dev/docs/quicktips/inline-js/ #}
-    {% set js %}
+    {# {% set js %}
       {% include "js/index.js" %}
     {% endset %}
 
@@ -26,6 +23,6 @@
       <script>{{ js | transpilejs | minifyjs | safe }}</script>
     {% else %}
       <script>{{ js | safe }}</script>
-    {% endif %}
+    {% endif %} #}
   </body>
 </html>

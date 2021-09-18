@@ -20,21 +20,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
   eleventyConfig.addNunjucksFilter("padstart", padStart)
 
-  // Copy compiled CSS folder to output folder
-  eleventyConfig.addPassthroughCopy({ "src/dist/css/": "css/" })
-
-  // Copy Bootstrap's JS and icons to output folder
+  // Copy Bootstrap icons to output folder
   eleventyConfig.addPassthroughCopy({
-    "node_modules/bootstrap/dist/js/bootstrap.min.js": "js/bootstrap.min.js",
-    "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js":
-      "js/bootstrap.bundle.min.js",
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "images/bootstrap-icons.svg",
   })
 
-  // Don't ignore files in .gitignore. Only use .eleventyignore
-  // This is necessary since the compiled CSS file is git-ignored.
-  eleventyConfig.setUseGitIgnore(false)
+  eleventyConfig.addWatchTarget("src/css/")
 
   // Watch and serve even when offline
   eleventyConfig.setBrowserSyncConfig({

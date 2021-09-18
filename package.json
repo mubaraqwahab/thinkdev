@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm-run-all clear --parallel watch-css watch-html",
-    "watch-css": "tailwindcss -i src/css/main.css -o src/dist/css/style.css --watch",
+    "start": "npm-run-all clear --parallel watch-html watch-css",
+    "watch-css": "tailwindcss -i src/css/main.css -o _site/css/style.css --watch",
     "watch-html": "eleventy --serve --incremental",
     "build": "npm-run-all clear build-css build-html",
     "build-html": "eleventy",

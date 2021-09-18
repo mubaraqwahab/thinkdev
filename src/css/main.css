@@ -4,6 +4,10 @@
 
 @layer base {}
 
-@layer components {}
+@layer components {
+  .container {
+    @apply bg-blue-300;
+  }
+}
 
 @layer utilities {}

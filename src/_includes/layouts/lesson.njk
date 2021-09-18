@@ -10,7 +10,6 @@ layout: layouts/base
       </button>
       <nav class="collapse.show mt-3 mt-md-0" id="outlineNav" aria-label="Outline">
         <ul class="nav nav-pills flex-column">
-          {% for i in range(20) %}
           {% for entry in pagination.pages %}
             <li class="nav-item">
               {% set entryUrl = pagination.hrefs[loop.index0] %}
@@ -23,7 +22,6 @@ layout: layouts/base
                 {{ entry.title }}
               </a>
             </li>
-          {% endfor %}
           {% endfor %}
         </ul>
       </nav>
