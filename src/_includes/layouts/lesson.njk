@@ -1,0 +1,26 @@
+---
+layout: layouts/base
+---
+
+{{ content | safe }}
+
+<nav aria-label="Previous/next lesson" class="position-fixed bottom-0 start-0 end-0 border-top">
+  <div class="container d-flex justify-content-between py-3">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center me-auto">
+        <svg class="bi me-1" width="12" height="12">
+          <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
+        </svg>
+        Previous
+      </a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center ms-auto">
+        Next
+        <svg class="bi ms-1" width="12" height="12">
+          <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</nav>

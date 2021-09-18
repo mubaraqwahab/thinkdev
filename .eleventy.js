@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addNunjucksAsyncFilter("transpilejs", transpileJS)
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
+  eleventyConfig.addNunjucksFilter("padstart", padStart)
 
   // Copy compiled CSS folder to output folder
   eleventyConfig.addPassthroughCopy("src/css/")
@@ -44,7 +45,7 @@ module.exports = function (eleventyConfig) {
     },
     templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
   }
 }
 
@@ -83,4 +84,14 @@ async function minifyJS(code, callback) {
     console.error("Terser error", error)
     callback(null, code)
   }
+}
+
+/**
+ *
+ * @param {string} str
+ * @param {number} maxLength
+ * @param {string} fillString
+ */
+function padStart(str, maxLength, fillString) {
+  return str.padStart(maxLength, fillString)
 }
