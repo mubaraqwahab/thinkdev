@@ -1,6 +1,5 @@
 node_modules/
 .husky/
 _site/
-src/css/
 src/**/*.njk
 src/**/*.md

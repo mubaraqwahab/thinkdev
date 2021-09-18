@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {}
-
-@layer components {
-  .container {
-    @apply bg-blue-300;
-  }
+@layer base {
 }
 
-@layer utilities {}
+@layer components {
+}
+
+@layer utilities {
+}
