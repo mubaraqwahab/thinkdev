@@ -2,37 +2,34 @@
 layout: layouts/base
 ---
 
-<header class="py-3 border-b border-indigo-200">
+<header class="sticky top-0 left-0 z-20 py-2 bg-white border-b shadow-sm border-indigo-200">
   <div class="container">
-    <a class="text-lg" href="{{ '/' | url }}">Navbar</a>
+    <a class="mr-3 text-lg" href="{{ '/' | url }}">Navbar</a>
+    <a class="sr-only focus:not-sr-only" href="#main">Skip to content</a>
   </div>
 </header>
 
-<div class="container py-8 md:grid md:grid-cols-4">
-  <div class="">
+<div class="container pt-4 pb-8 mx-auto md:pt-8 md:grid md:grid-cols-5 md:gap-8">
+  <div class="mb-8 md:mb-0">
     <button
       id="outlineToggle"
       type="button"
       aria-expanded="false"
       aria-controls="outlineNav"
-      class="inline-flex items-center md:hidden"
+      class="inline-flex font-bold items-center md:hidden"
     >
       <svg class="bi bi-caret-right mr-2 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
         <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right' | url }}"/>
       </svg>
       Outline
     </button>
-    <nav class="hidden md:block" id="outlineNav" aria-label="Outline">
-      <ul class="nav nav-pills flex-column">
+    <nav class="hidden mt-3 md:mt-0 md:block md:border-r md:h-[calc(100vh-118px)] md:overflow-y-auto md:sticky md:top-[72px] md:left-0" id="outlineNav" aria-label="Outline">
+      <ul class="prose">
         {% for entry in pagination.pages %}
-          <li class="nav-item">
+          <li class="">
             {% set entryUrl = pagination.hrefs[loop.index0] %}
             {% set isActive = page.url === entryUrl %}
-            <a
-              class="nav-link {{ 'active' if isActive }}"
-              {% if isActive %} aria-current="page" {% endif %}
-              href="{{ entryUrl }}"
-            >
+            <a {% if isActive %} aria-current="page" {% endif %} href="{{ entryUrl }}">
               {{ entry.title }}
             </a>
           </li>
@@ -40,10 +37,10 @@ layout: layouts/base
       </ul>
     </nav>
   </div>
-  <main class="md:col-span-3">
-    <div class="prose prose-indigo mx-auto md:px-4 md:mx-0">
+  <main id="main" class="md:col-span-3">
+    <div class="prose prose-indigo max-w-none mx-auto md:mx-0 relative">
       {{ content | safe }}
-      <nav aria-label="Previous/next lesson" class="flex justify-between mt-4">
+      <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 bg-white border-t flex justify-between py-4 mt-8">
         {% if pagination.href.previous %}
           <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
             <svg class="bi mr-2" width="12" height="12">

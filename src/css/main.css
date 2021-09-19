@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  :focus {
+    outline: 2px dashed;
+  }
 }
 
 @layer components {
@@ -12,6 +15,10 @@
 
   button[aria-expanded="true"] > .bi-caret-right {
     @apply rotate-90;
+  }
+
+  .prose a[aria-current="page"] {
+    @apply text-indigo-600;
   }
 }
 

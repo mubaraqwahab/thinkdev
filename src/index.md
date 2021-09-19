@@ -4,7 +4,7 @@ layout: layouts/home
 
 # Hello, world
 
-Lorem ipsum...
+<p class="lead">Lorem ipsum...</p>
 
 ## Outline
 

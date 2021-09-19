@@ -13,6 +13,8 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: theme("spacing.4"),
+        sm: theme("spacing.8"),
+        md: theme("spacing.16"),
         // sm: "2rem",
         // lg: "4rem",
         // xl: "5rem",
