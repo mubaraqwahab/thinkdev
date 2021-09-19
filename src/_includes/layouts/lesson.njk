@@ -11,17 +11,17 @@ layout: layouts/base
       aria-controls="outlineNav"
       class="inline-flex font-bold items-center md:hidden text-gray-900"
     >
-      <svg aria-hidden="true" class="bi bi-caret-right-fill mr-2 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
+      <svg aria-hidden="true" class="bi bi-caret-right-fill mr-2 motion-safe:transition-transform" width="12" height="12">
         <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right-fill' | url }}"/>
       </svg>
       Outline
     </button>
-    <nav class="hidden mt-3 md:mt-0 md:block md:border-r md:h-[calc(100vh-118px)] md:overflow-y-auto md:sticky md:top-[72px] md:left-0" id="outlineNav" aria-label="Outline">
+    <nav class="hidden mt-3 md:mt-0 md:block md:border-r md:h-[calc(100vh-118px)] md:sticky md:top-[72px] md:left-0" id="outlineNav" aria-label="Outline">
       <ul class="prose">
         {% for entry in pagination.pages %}
-          <li class="">
-            {% set entryUrl = pagination.hrefs[loop.index0] %}
-            {% set isActive = page.url === entryUrl %}
+          {% set entryUrl = pagination.hrefs[loop.index0] %}
+          {% set isActive = page.url === entryUrl %}
+          <li>
             <a {% if isActive %} aria-current="page" {% endif %} href="{{ entryUrl }}">
               {{ entry.title }}
             </a>
