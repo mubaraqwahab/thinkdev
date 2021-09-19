@@ -24,6 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "images/bootstrap-icons.svg",
+    "node_modules/reveal.js/dist/": "reveal/",
   })
 
   eleventyConfig.addWatchTarget("src/css/")
