@@ -9,16 +9,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
-    container: {
+    container: (theme) => ({
       center: true,
       padding: {
-        // DEFAULT: "1rem",
+        DEFAULT: theme("spacing.4"),
         // sm: "2rem",
         // lg: "4rem",
         // xl: "5rem",
         // '2xl': '6rem',
       },
-    },
+    }),
   },
   variants: {
     extend: {},

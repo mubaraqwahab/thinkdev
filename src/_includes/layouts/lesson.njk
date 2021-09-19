@@ -2,60 +2,70 @@
 layout: layouts/base
 ---
 
-<header class="py-3 border-b">
+<header class="py-3 border-b border-indigo-200">
   <div class="container">
-    <a class="" href="{{ '/' | url }}">Navbar</a>
+    <a class="text-lg" href="{{ '/' | url }}">Navbar</a>
   </div>
 </header>
 
-<div class="container py-4">
-  <div class="row">
-    <div class="col-md-2 position-md-sticky">
-      <button class="btn btn-outline-primary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#outlineNav" aria-expanded="true" aria-controls="outlineNav">
-        Outline
-      </button>
-      <nav class="collapse.show mt-3 mt-md-0" id="outlineNav" aria-label="Outline">
-        <ul class="nav nav-pills flex-column">
-          {% for entry in pagination.pages %}
-            <li class="nav-item">
-              {% set entryUrl = pagination.hrefs[loop.index0] %}
-              {% set isActive = page.url === entryUrl %}
-              <a
-                class="nav-link {{ 'active' if isActive }}"
-                {% if isActive %} aria-current="page" {% endif %}
-                href="{{ entryUrl }}"
-              >
-                {{ entry.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-    <main class="col pt-4 pt-md-0">
-      <div class="px-md-4">
-        {{ content | safe }}
-
-        {# <hr class="mt-4" /> #}
-        <nav aria-label="Previous/next lesson" class="bg-white d-flex justify-content-between mt-4">
-          {% if pagination.href.previous %}
-            <a href="{{ pagination.href.previous }}" class="d-inline-flex align-items-center me-auto">
-              <svg class="bi me-1" width="12" height="12">
-                <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
-              </svg>
-              Previous
+<div class="container py-8 md:grid md:grid-cols-4">
+  <div class="">
+    <button id="outlineToggle" type="button" aria-expanded="false" aria-controls="outlineNav">
+      <svg class="bi bi-caret-right mr-1 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
+        <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right' | url }}"/>
+      </svg>
+      Outline
+    </button>
+    <nav class="hidden md:block" id="outlineNav" aria-label="Outline">
+      <ul class="nav nav-pills flex-column">
+        {% for entry in pagination.pages %}
+          <li class="nav-item">
+            {% set entryUrl = pagination.hrefs[loop.index0] %}
+            {% set isActive = page.url === entryUrl %}
+            <a
+              class="nav-link {{ 'active' if isActive }}"
+              {% if isActive %} aria-current="page" {% endif %}
+              href="{{ entryUrl }}"
+            >
+              {{ entry.title }}
             </a>
-          {% endif %}
-          {% if pagination.href.next %}
-            <a href="{{ pagination.href.next }}" class="d-inline-flex align-items-center ms-auto">
-              Next
-              <svg class="bi ms-1" width="12" height="12">
-                <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
-              </svg>
-            </a>
-          {% endif %}
-        </nav>
-      </div>
-    </main>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
+  <main class="md:col-span-3">
+    <div class="prose prose-indigo mx-auto md:px-4 md:mx-0">
+      {{ content | safe }}
+    </div>
+  </main>
 </div>
+
+<nav aria-label="Previous/next lesson" class="bg-white d-flex justify-content-between mt-4">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="d-inline-flex align-items-center me-auto">
+      <svg class="bi me-1" width="12" height="12">
+        <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
+      </svg>
+      Previous
+    </a>
+  {% endif %}
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="d-inline-flex align-items-center ms-auto">
+      Next
+      <svg class="bi ms-1" width="12" height="12">
+        <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
+      </svg>
+    </a>
+  {% endif %}
+</nav>
+
+
+{% set js %}
+  {% include "js/toggle-outline.js" %}
+{% endset %}
+{% if site.environment == "production" %}
+  <script>{{ js | transpilejs | minifyjs | safe }}</script>
+{% else %}
+  <script>{{ js | safe }}</script>
+{% endif %}

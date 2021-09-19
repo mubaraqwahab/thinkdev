@@ -6,6 +6,9 @@
 }
 
 @layer components {
+  button[aria-expanded="true"] > .bi-caret-right {
+    @apply rotate-90;
+  }
 }
 
 @layer utilities {

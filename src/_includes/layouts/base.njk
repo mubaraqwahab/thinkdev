@@ -8,15 +8,5 @@
   </head>
   <body>
     {{ content | safe }}
-
-    {# {% set js %}
-      {% include "js/index.js" %}
-    {% endset %}
-
-    {% if site.environment == "production" %}
-      <script>{{ js | transpilejs | minifyjs | safe }}</script>
-    {% else %}
-      <script>{{ js | safe }}</script>
-    {% endif %} #}
   </body>
 </html>
