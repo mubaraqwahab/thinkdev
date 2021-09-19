@@ -1,4 +1,5 @@
 module.exports = {
-  title: "Bootstrap + Eleventy Starter",
+  title: "thinkdev",
   environment: process.env.NODE_ENV,
-};
+  repoUrl: "https://github.com/mubaraqwahab/thinkdev",
+}

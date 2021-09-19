@@ -2,13 +2,6 @@
 layout: layouts/base
 ---
 
-<header class="sticky top-0 left-0 z-20 py-2 bg-white border-b shadow-sm border-indigo-200">
-  <div class="container">
-    <a class="mr-3 text-lg" href="{{ '/' | url }}">Navbar</a>
-    <a class="sr-only focus:not-sr-only" href="#main">Skip to content</a>
-  </div>
-</header>
-
 <div class="container pt-4 pb-8 mx-auto md:pt-8 md:grid md:grid-cols-5 md:gap-8">
   <div class="mb-8 md:mb-0">
     <button
@@ -16,10 +9,10 @@ layout: layouts/base
       type="button"
       aria-expanded="false"
       aria-controls="outlineNav"
-      class="inline-flex font-bold items-center md:hidden"
+      class="inline-flex font-bold items-center md:hidden text-gray-900"
     >
-      <svg class="bi bi-caret-right mr-2 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
-        <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right' | url }}"/>
+      <svg aria-hidden="true" class="bi bi-caret-right-fill mr-2 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
+        <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right-fill' | url }}"/>
       </svg>
       Outline
     </button>
@@ -37,14 +30,14 @@ layout: layouts/base
       </ul>
     </nav>
   </div>
-  <main id="main" class="md:col-span-3">
+  <main id="main" class="md:col-span-4">
     <div class="prose prose-indigo max-w-none mx-auto md:mx-0 relative">
       {{ content | safe }}
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 bg-white border-t flex justify-between py-4 mt-8">
         {% if pagination.href.previous %}
           <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
-            <svg class="bi mr-2" width="12" height="12">
-              <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
+            <svg aria-hidden="true" class="bi mr-2" width="12" height="12">
+              <use xlink:href="{{ '/images/bootstrap-icons.svg#arrow-left' | url }}"/>
             </svg>
             Previous
           </a>
@@ -52,8 +45,8 @@ layout: layouts/base
         {% if pagination.href.next %}
           <a href="{{ pagination.href.next }}" class="inline-flex items-center ml-auto">
             Next
-            <svg class="bi ml-2" width="12" height="12">
-              <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
+            <svg aria-hidden="true" class="bi ml-2" width="12" height="12">
+              <use xlink:href="{{ '/images/bootstrap-icons.svg#arrow-right' | url }}"/>
             </svg>
           </a>
         {% endif %}

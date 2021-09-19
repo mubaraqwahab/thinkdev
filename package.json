@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm-run-all clear --parallel watch-html watch-css",
     "watch-css": "tailwindcss -i src/css/main.css -o _site/css/style.css --watch",
-    "watch-html": "eleventy --serve --incremental",
+    "watch-html": "eleventy --serve",
     "build": "npm-run-all clear build-css build-html",
     "build-html": "eleventy",
     "build-css": "tailwindcss -i src/css/main.css -o _site/css/style.css --minify",

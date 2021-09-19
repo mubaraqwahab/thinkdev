@@ -13,7 +13,7 @@
     fill: currentColor;
   }
 
-  button[aria-expanded="true"] > .bi-caret-right {
+  button[aria-expanded="true"] > .bi-caret-right-fill {
     @apply rotate-90;
   }
 
