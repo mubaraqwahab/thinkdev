@@ -8,7 +8,7 @@
     "watch-html": "eleventy --serve --incremental",
     "build": "npm-run-all clear build-css build-html",
     "build-html": "eleventy",
-    "build-css": "tailwindcss -i src/css/main.css -o src/dist/css/style.css --minify",
+    "build-css": "tailwindcss -i src/css/main.css -o _site/css/style.css --minify",
     "clear": "shx rm -rf _site/ src/dist/",
     "prepare": "husky install",
     "format": "prettier --write *.{js,html,css,scss,json}"
