@@ -10,8 +10,14 @@ layout: layouts/base
 
 <div class="container py-8 md:grid md:grid-cols-4">
   <div class="">
-    <button id="outlineToggle" type="button" aria-expanded="false" aria-controls="outlineNav">
-      <svg class="bi bi-caret-right mr-1 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
+    <button
+      id="outlineToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="outlineNav"
+      class="inline-flex items-center md:hidden"
+    >
+      <svg class="bi bi-caret-right mr-2 motion-safe:transition-transform motion-safe:duration-200" width="12" height="12">
         <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right' | url }}"/>
       </svg>
       Outline
@@ -37,28 +43,28 @@ layout: layouts/base
   <main class="md:col-span-3">
     <div class="prose prose-indigo mx-auto md:px-4 md:mx-0">
       {{ content | safe }}
+      <nav aria-label="Previous/next lesson" class="flex justify-between mt-4">
+        {% if pagination.href.previous %}
+          <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
+            <svg class="bi mr-2" width="12" height="12">
+              <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
+            </svg>
+            Previous
+          </a>
+        {% endif %}
+        {% if pagination.href.next %}
+          <a href="{{ pagination.href.next }}" class="inline-flex items-center ml-auto">
+            Next
+            <svg class="bi ml-2" width="12" height="12">
+              <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
+            </svg>
+          </a>
+        {% endif %}
+      </nav>
     </div>
   </main>
 </div>
 
-<nav aria-label="Previous/next lesson" class="bg-white d-flex justify-content-between mt-4">
-  {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}" class="d-inline-flex align-items-center me-auto">
-      <svg class="bi me-1" width="12" height="12">
-        <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-left' | url }}"/>
-      </svg>
-      Previous
-    </a>
-  {% endif %}
-  {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}" class="d-inline-flex align-items-center ms-auto">
-      Next
-      <svg class="bi ms-1" width="12" height="12">
-        <use xlink:href="{{ '/images/bootstrap-icons.svg#chevron-right' | url }}"/>
-      </svg>
-    </a>
-  {% endif %}
-</nav>
 
 
 {% set js %}

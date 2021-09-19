@@ -6,6 +6,10 @@
 }
 
 @layer components {
+  .bi {
+    fill: currentColor;
+  }
+
   button[aria-expanded="true"] > .bi-caret-right {
     @apply rotate-90;
   }
