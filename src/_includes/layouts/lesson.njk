@@ -33,7 +33,7 @@ layout: layouts/base
   <main id="main" class="md:col-span-4">
     <div class="prose prose-indigo max-w-none mx-auto md:mx-0 relative">
       {{ content | safe }}
-      <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 bg-white border-t flex justify-between py-4 mt-8">
+      <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
         {% if pagination.href.previous %}
           <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
             <svg aria-hidden="true" class="bi mr-2" width="12" height="12">
