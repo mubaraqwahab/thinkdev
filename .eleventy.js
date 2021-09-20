@@ -1,6 +1,12 @@
 // @ts-check
 
-const { minifyHTML, transpileJS, minifyJS, padStart } = require("./utils.js")
+const {
+  minifyHTML,
+  transpileJS,
+  minifyJS,
+  padStart,
+  lessonSlug,
+} = require("./utils.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -17,6 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("transpilejs", transpileJS)
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
   eleventyConfig.addNunjucksFilter("padstart", padStart)
+  eleventyConfig.addNunjucksFilter("lessonslug", lessonSlug)
 
   // Copy Bootstrap icons to output folder
   eleventyConfig.addPassthroughCopy({

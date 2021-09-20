@@ -1,3 +1,5 @@
+const { lessonSlug } = require("../../utils")
+
 module.exports = {
   layout: "layouts/presentation",
   eleventyComputed: {
@@ -6,6 +8,9 @@ module.exports = {
       const lesson = data.lessons[+serialNo]
       return `${serialNo} ${lesson.title}`
     },
-    permalink: (data) => `/lessons/${data.page.fileSlug}/slides/`
-  }
+    permalink: (data) => {
+      const slug = lessonSlug({ title: data.title }, data.lessons)
+      return `/lessons/${slug}/slides/`
+    },
+  },
 }

@@ -4,9 +4,7 @@ pagination:
   data: lessons
   size: 1
   alias: lesson
-permalink: "lessons/{{
-    (pagination.pageNumber + 1) | string | padstart(2, '0')
-  }}-{{ lesson.title | slug }}/"
+permalink: "lessons/{{ lesson | lessonslug(lessons) }}/"
 ---
 
 # {{ lesson.title }}

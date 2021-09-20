@@ -1,9 +1,17 @@
 // @ts-check
 
-import htmlmin from "html-minifier"
-import babel from "@babel/core"
-import * as terser from "terser"
-import slugify from "@sindresorhus/slugify"
+const htmlmin = require("html-minifier")
+const babel = require("@babel/core")
+const terser = require("terser")
+const slugify = require("@sindresorhus/slugify")
+
+module.exports = {
+  minifyHTML,
+  transpileJS,
+  minifyJS,
+  padStart,
+  lessonSlug,
+}
 
 // Get rid of slugify; no ES6!
 
@@ -26,7 +34,7 @@ import slugify from "@sindresorhus/slugify"
  * @param {string} outputPath
  * @returns string
  */
-export function minifyHTML(content, outputPath) {
+function minifyHTML(content, outputPath) {
   const isProd = process.env.NODE_ENV === "production"
   if (isProd && outputPath.endsWith(".html")) {
     let minified = htmlmin.minify(content, {
@@ -47,7 +55,7 @@ export function minifyHTML(content, outputPath) {
  * @param {string} code
  * @param {FilterCallback} callback
  */
-export async function transpileJS(code, callback) {
+async function transpileJS(code, callback) {
   try {
     const transpiled = await babel.transformAsync(code, {
       presets: ["@babel/preset-env"],
@@ -65,7 +73,7 @@ export async function transpileJS(code, callback) {
  * @param {string} code
  * @param {FilterCallback} callback
  */
-export async function minifyJS(code, callback) {
+async function minifyJS(code, callback) {
   try {
     const minified = await terser.minify(code)
     callback(null, minified.code)
@@ -82,7 +90,7 @@ export async function minifyJS(code, callback) {
  * @param {string} fillString
  * @returns {string}
  */
-export function padStart(str, maxLength, fillString) {
+function padStart(str, maxLength, fillString) {
   return str.padStart(maxLength, fillString)
 }
 
@@ -93,9 +101,10 @@ export function padStart(str, maxLength, fillString) {
  * @param {Array<Lesson>} lessons
  * @return {string}
  */
-export function lessonSlug(lesson, lessons) {
+function lessonSlug(lesson, lessons) {
   const lessonNo = lessons.findIndex((l) => l.title === lesson.title) + 1
   return slugify(`${lessonNo.toString().padStart(2, "0")} ${lesson.title}`, {
-    decamelize: false, // Eleventy's slugify decamelizes. See https://github.com/11ty/eleventy/blob/master/src/Filters/Slugify.js
+    // Eleventy's slugify decamelizes. See https://github.com/11ty/eleventy/blob/master/src/Filters/Slugify.js
+    decamelize: false,
   })
 }
