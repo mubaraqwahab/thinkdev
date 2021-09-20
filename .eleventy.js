@@ -1,8 +1,13 @@
 // @ts-check
 
-const htmlmin = require("html-minifier")
-const babel = require("@babel/core")
-const terser = require("terser")
+const {
+  minifyHTML,
+  transpileJS,
+  minifyJS,
+  padStart,
+  lessonSlug,
+  strSlice,
+} = require("./utils.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -19,6 +24,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("transpilejs", transpileJS)
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
   eleventyConfig.addNunjucksFilter("padstart", padStart)
+  eleventyConfig.addNunjucksFilter("lessonslug", lessonSlug)
+  eleventyConfig.addNunjucksFilter("strslice", strSlice)
 
   // Copy Bootstrap icons to output folder
   eleventyConfig.addPassthroughCopy({
@@ -45,51 +52,4 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
   }
-}
-
-function minifyHTML(content, outputPath) {
-  const isProd = process.env.NODE_ENV === "production"
-  if (isProd && outputPath.endsWith(".html")) {
-    let minified = htmlmin.minify(content, {
-      useShortDoctype: true,
-      removeComments: true,
-      removeEmptyAttributes: true,
-      collapseWhitespace: true,
-    })
-    return minified
-  }
-  return content
-}
-
-async function transpileJS(code, callback) {
-  try {
-    const transpiled = await babel.transformAsync(code, {
-      presets: ["@babel/preset-env"],
-    })
-    callback(null, transpiled.code)
-  } catch (error) {
-    console.error("Babel error:", error)
-    // Fail gracefully
-    callback(null, code)
-  }
-}
-
-async function minifyJS(code, callback) {
-  try {
-    const minified = await terser.minify(code)
-    callback(null, minified.code)
-  } catch (error) {
-    console.error("Terser error", error)
-    callback(null, code)
-  }
-}
-
-/**
- *
- * @param {string} str
- * @param {number} maxLength
- * @param {string} fillString
- */
-function padStart(str, maxLength, fillString) {
-  return str.padStart(maxLength, fillString)
 }
