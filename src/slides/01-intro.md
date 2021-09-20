@@ -1,5 +1,4 @@
 ---
-title: "Slides 01: Introduction"
 ---
 
 <section>
