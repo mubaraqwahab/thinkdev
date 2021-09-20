@@ -1,6 +1,5 @@
 ---
-layout: layouts/presentation
-permalink: "/lessons/{{ page.fileSlug }}/slides/"
+title: "Slides 01: Introduction"
 ---
 
 <section>
