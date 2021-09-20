@@ -6,6 +6,6 @@ module.exports = {
       const lesson = data.lessons[+serialNo]
       return `${serialNo} ${lesson.title}`
     },
-    permalink: (data) => `/lessons/${data.title}/slides/`
+    permalink: (data) => `/lessons/${data.page.fileSlug}/slides/`
   }
 }
