@@ -11,6 +11,6 @@ permalink: "lessons/{{
 
 # {{ lesson.title }}
 
-Slides here
+[Slides](slides/)
 
 Video and other resources
