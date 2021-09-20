@@ -4,7 +4,8 @@ module.exports = {
     title: (data) => {
       `data.collections.lessons`
       const sn = +data.page.fileSlug.slice(0, 2)
-      const lesson = data.collections.lessons[sn]
+      const lesson = data.collections.lesson[sn]
+console.log({ sn, lesson })
       return `Slide ${sn}: ${lesson.title}`
     },
     permalink: (data) => `/lessons/${data.page.fileSlug}/slides/`
