@@ -1,4 +1,0 @@
-{
-  "layout": "layouts/presentation",
-  "permalink": "/lessons/{{ page.fileSlug }}/slides/"
-}
