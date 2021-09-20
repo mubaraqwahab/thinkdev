@@ -6,6 +6,7 @@ const {
   minifyJS,
   padStart,
   lessonSlug,
+  strSlice,
 } = require("./utils.js")
 
 /**
@@ -24,6 +25,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
   eleventyConfig.addNunjucksFilter("padstart", padStart)
   eleventyConfig.addNunjucksFilter("lessonslug", lessonSlug)
+  eleventyConfig.addNunjucksFilter("strslice", strSlice)
 
   // Copy Bootstrap icons to output folder
   eleventyConfig.addPassthroughCopy({

@@ -5,6 +5,8 @@ pagination:
   size: 1
   alias: lesson
 permalink: "lessons/{{ lesson | lessonslug(lessons) }}/"
+eleventyComputed:
+  title: "{{ lesson.title }}"
 ---
 
 # {{ lesson.title }}

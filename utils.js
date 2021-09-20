@@ -11,6 +11,7 @@ module.exports = {
   minifyJS,
   padStart,
   lessonSlug,
+  strSlice,
 }
 
 // Get rid of slugify; no ES6!
@@ -107,4 +108,15 @@ function lessonSlug(lesson, lessons) {
     // Eleventy's slugify decamelizes. See https://github.com/11ty/eleventy/blob/master/src/Filters/Slugify.js
     decamelize: false,
   })
+}
+
+/**
+ *
+ * @param {string} str
+ * @param {number} start
+ * @param {number} end
+ * @returns {string}
+ */
+function strSlice(str, start, end) {
+  return str.slice(start, end)
 }
