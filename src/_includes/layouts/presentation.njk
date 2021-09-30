@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>(Slides) {{ title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/reveal/reveal.css' | url }}">
-  <link rel="stylesheet" href="{{ '/reveal/theme/black.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/theme/white.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}">
 </head>
 <body>
   <div class="reveal">
@@ -16,8 +17,14 @@
   </div>
 
   <script src="{{ '/reveal/reveal.js' | url }}"></script>
+  <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
   <script>
-    Reveal.initialize();
+    // See https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      hashOneBasedIndex: true,
+      plugins: [RevealHighlight]
+    });
   </script>
 </body>
 </html>

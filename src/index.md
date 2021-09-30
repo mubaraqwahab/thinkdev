@@ -2,11 +2,15 @@
 layout: layouts/home
 ---
 
-# Hello, world
+{% from "macros.njk" import icon %}
 
-<p class="lead">Lorem ipsum...</p>
+# Think like a developer
 
-## Outline
+Lorem ipsum... {.lead}
+
+<h2 class="flex items-center">
+  {{ icon('list-ul', class='mr-3 mt-1', width='18', height='18') }} Outline
+</h2>
 
 {% for lesson in lessons %}
   {% set paddedIndex = loop.index | string | padstart(2, '0') -%}

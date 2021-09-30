@@ -2,6 +2,8 @@
 layout: layouts/base
 ---
 
+{% from "macros.njk" import icon %}
+
 <div class="container pt-4 pb-8 mx-auto md:pt-8 md:grid md:grid-cols-5 md:gap-8">
   <div class="mb-8 md:mb-0">
     <button
@@ -11,9 +13,7 @@ layout: layouts/base
       aria-controls="outlineNav"
       class="inline-flex font-bold items-center md:hidden text-gray-900"
     >
-      <svg aria-hidden="true" class="bi bi-caret-right-fill mr-2 motion-safe:transition-transform" width="12" height="12">
-        <use xlink:href="{{ '/images/bootstrap-icons.svg#caret-right-fill' | url }}"/>
-      </svg>
+      {{ icon('caret-right-fill', class='mr-2 motion-safe:transition-transform') }}
       Outline
     </button>
     <nav class="hidden mt-3 md:mt-0 md:block md:border-r md:h-[calc(100vh-118px)] md:sticky md:top-[72px] md:left-0" id="outlineNav" aria-label="Outline">
@@ -36,18 +36,14 @@ layout: layouts/base
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
         {% if pagination.href.previous %}
           <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
-            <svg aria-hidden="true" class="bi mr-2" width="12" height="12">
-              <use xlink:href="{{ '/images/bootstrap-icons.svg#arrow-left' | url }}"/>
-            </svg>
+            {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
         {% if pagination.href.next %}
           <a href="{{ pagination.href.next }}" class="inline-flex items-center ml-auto">
             Next
-            <svg aria-hidden="true" class="bi ml-2" width="12" height="12">
-              <use xlink:href="{{ '/images/bootstrap-icons.svg#arrow-right' | url }}"/>
-            </svg>
+            {{ icon('arrow-right', class='ml-2') }}
           </a>
         {% endif %}
       </nav>

@@ -6,15 +6,13 @@ const terser = require("terser")
 const slugify = require("@sindresorhus/slugify")
 
 module.exports = {
-  minifyHTML,
+  minifyHTMLTransform,
   transpileJS,
   minifyJS,
   padStart,
   lessonSlug,
   strSlice,
 }
-
-// Get rid of slugify; no ES6!
 
 /**
  * @callback FilterCallback
@@ -35,7 +33,7 @@ module.exports = {
  * @param {string} outputPath
  * @returns string
  */
-function minifyHTML(content, outputPath) {
+function minifyHTMLTransform(content, outputPath) {
   const isProd = process.env.NODE_ENV === "production"
   if (isProd && outputPath.endsWith(".html")) {
     let minified = htmlmin.minify(content, {
