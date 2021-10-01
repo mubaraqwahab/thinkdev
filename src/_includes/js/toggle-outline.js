@@ -8,6 +8,6 @@ const outlineNav = document.getElementById(
 
 toggleBtn.addEventListener("click", () => {
   toggleBtn.ariaExpanded = toggleBtn.ariaExpanded === "true" ? "false" : "true"
-  toggleIcon.classList.toggle("rotate-90", toggleBtn.ariaExpanded !== "false")
+  toggleIcon.classList.toggle("rotate-90", toggleBtn.ariaExpanded === "true")
   outlineNav.classList.toggle("hidden", toggleBtn.ariaExpanded === "false")
 })
