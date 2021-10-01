@@ -4,7 +4,7 @@ layout: layouts/base
 
 {% from "macros.njk" import icon %}
 
-<div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-5 lg:gap-8">
+<div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-[240px,1fr] lg:gap-10">
   <div class="mb-8 lg:mb-0">
     <button
       id="outlineToggle"
@@ -13,17 +13,16 @@ layout: layouts/base
       aria-controls="outlineNav"
       class="inline-flex font-bold items-center text-gray-900 lg:hidden"
     >
-      {# TOGGLE #}
-      {{ icon("caret-right-fill", class="mr-2 motion-safe:transition-transform") }}
+      {{ icon("caret-right-fill", class="mr-2 motion-safe:transition-transform motion-safe:duration-300") }}
       Outline
     </button>
-    <nav class="hidden mt-3 lg:mt-0 lg:block lg:border-r lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0" id="outlineNav" aria-label="Outline">
+    <nav class="hidden mt-3 lg:mt-0 lg:block lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
       <ol class="prose">
         {% for entry in pagination.pages %}
           {% set entryUrl = pagination.hrefs[loop.index0] %}
           {% set isActive = page.url === entryUrl %}
           <li>
-            <a {% if isActive %} aria-current="page" {% endif %} href="{{ entryUrl }}">
+            <a {% if isActive %} aria-current="page" {% endif %} class="inline-block leading-snug" href="{{ entryUrl }}">
               {{ entry.title }}
             </a>
           </li>
@@ -31,7 +30,7 @@ layout: layouts/base
       </ol>
     </nav>
   </div>
-  <main id="main" class="lg:col-span-4">
+  <main id="main" class="">
     <div class="prose prose-indigo max-w-none mx-auto relative lg:mx-0">
       {{ content | safe }}
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
