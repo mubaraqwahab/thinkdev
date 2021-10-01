@@ -4,14 +4,7 @@ const fs = require("fs")
 const yaml = require("js-yaml")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
-const {
-  minifyHTMLTransform,
-  transpileJS,
-  minifyJS,
-  padStart,
-  lessonSlug,
-  strSlice,
-} = require("./utils.js")
+const { filters, transforms } = require("./utils.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -28,14 +21,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents))
 
   if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", minifyHTMLTransform)
+    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
-  eleventyConfig.addNunjucksAsyncFilter("transpilejs", transpileJS)
-  eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
-  eleventyConfig.addNunjucksFilter("padstart", padStart)
-  eleventyConfig.addNunjucksFilter("lessonslug", lessonSlug)
-  eleventyConfig.addNunjucksFilter("strslice", strSlice)
+  eleventyConfig.addNunjucksAsyncFilter("transpilejs", filters.transpileJS)
+  eleventyConfig.addNunjucksAsyncFilter("minifyjs", filters.minifyJS)
+  eleventyConfig.addNunjucksFilter("shortdate", filters.shortDate)
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":

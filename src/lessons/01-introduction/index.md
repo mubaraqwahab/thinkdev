@@ -2,11 +2,7 @@
 layout: layouts/lesson
 title: Introduction
 tags: lesson
+date: Created
 ---
-
-{% from "macros.njk" import emoji %}
-
-<!-- Consider partial? -->
-[Slides {{ emoji("▶") }}](slides/)
 
 Videos and other resources

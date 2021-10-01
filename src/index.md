@@ -10,7 +10,6 @@ Lorem ipsum... {.lead}
 
 ## {{ emoji('📃') }} Outline
 
-{% for lesson in lessons %}
-  {% set paddedIndex = loop.index | string | padstart(2, '0') -%}
-  1. [{{ lesson.title }}](/lessons/{{ lesson | lessonslug(lessons) }}/)
+{% for lesson in collections.lesson | reverse %}
+  1. [{{ lesson.data.title }}]({{ lesson.url | url }})
 {%- endfor %}
