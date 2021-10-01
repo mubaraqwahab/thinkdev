@@ -2,15 +2,13 @@
 layout: layouts/home
 ---
 
-{% from "macros.njk" import icon %}
+{% from "macros.njk" import icon, emoji %}
 
 # Think like a developer
 
 Lorem ipsum... {.lead}
 
-<h2 class="flex items-center">
-  {{ icon('list-ul', class='mr-3 mt-1', width='18', height='18') }} Outline
-</h2>
+## {{ emoji('📃') }} Outline
 
 {% for lesson in lessons %}
   {% set paddedIndex = loop.index | string | padstart(2, '0') -%}

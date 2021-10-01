@@ -9,10 +9,10 @@ eleventyComputed:
   title: "{{ lesson.title }}"
 ---
 
-{% from "macros.njk" import icon %}
+{% from "macros.njk" import icon, emoji %}
 
 # {{ lesson.title }}
 
-[Slides {{ icon('play-circle-fill', class="ml-2") }}](slides/){.inline-flex .items-center}
+[Slides {{ emoji("▶") }}](slides/)
 
 Video and other resources
