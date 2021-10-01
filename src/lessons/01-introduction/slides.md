@@ -1,11 +1,9 @@
 ---
+layout: layouts/slides
+title: Introduction
+tags: slides
 ---
 
-<section>
-
-# Slide 1: Intro
-
-</section>
 
 <section>
 

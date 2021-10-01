@@ -40,8 +40,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "images/bootstrap-icons.svg",
-    "node_modules/reveal.js/dist/": "reveal/",
-    "node_modules/highlight.js/styles/": "reveal/plugin/highlight/",
+    "node_modules/reveal.js/dist/": "reveal/dist/",
+    "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight",
+    "node_modules/highlight.js/styles/github.css":
+      "reveal/plugin/highlight/github.css",
   })
 
   eleventyConfig.addWatchTarget("src/css/")

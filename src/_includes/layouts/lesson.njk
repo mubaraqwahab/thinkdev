@@ -18,12 +18,10 @@ layout: layouts/base
     </button>
     <nav class="hidden mt-3 lg:mt-0 lg:block lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
       <ol class="prose">
-        {% for entry in pagination.pages %}
-          {% set entryUrl = pagination.hrefs[loop.index0] %}
-          {% set isActive = page.url === entryUrl %}
+        {% for lesson in collections.lesson %}
           <li>
-            <a {% if isActive %} aria-current="page" {% endif %} class="inline-block leading-snug" href="{{ entryUrl }}">
-              {{ entry.title }}
+            <a href="{{ lesson.url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="inline-block leading-snug">
+              {{ lesson.data.title }}
             </a>
           </li>
         {% endfor %}
@@ -32,6 +30,7 @@ layout: layouts/base
   </div>
   <main id="main" class="">
     <div class="prose prose-indigo max-w-none mx-auto relative lg:mx-0">
+      <h1>{{ title }}</h1>
       {{ content | safe }}
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
         {% if pagination.href.previous %}
