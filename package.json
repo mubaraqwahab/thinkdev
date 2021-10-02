@@ -33,6 +33,7 @@
     "bootstrap-icons": "^1.5.0",
     "highlight.js": "^11.2.0",
     "html-minifier": "^4.0.0",
+    "html-minifier-terser": "^6.0.2",
     "js-yaml": "^3.14.0",
     "markdown-it": "^10.0.0",
     "markdown-it-attrs": "^4.1.0",

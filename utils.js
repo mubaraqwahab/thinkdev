@@ -1,48 +1,41 @@
 // @ts-check
 
-const htmlmin = require("html-minifier")
+const htmlmin = require("html-minifier-terser")
 const babel = require("@babel/core")
 const terser = require("terser")
 
 module.exports = {
   transforms: {
     minifyHTML(content, outputPath) {
-      const isProd = process.env.NODE_ENV === "production"
-      if (isProd && outputPath.endsWith(".html")) {
-        let minified = htmlmin.minify(content, {
-          useShortDoctype: true,
-          removeComments: true,
-          removeEmptyAttributes: true,
-          collapseWhitespace: true,
-        })
-        return minified
-      }
-      return content
+      if (!outputPath.endsWith(".html")) return content
+
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyJS: true,
+      })
+      return minified
     },
   },
 
   filters: {
-    async transpileJS(code, callback) {
-      try {
-        const transpiled = await babel.transformAsync(code, {
-          presets: ["@babel/preset-env"],
-        })
-        callback(null, transpiled.code)
-      } catch (error) {
-        console.error("Babel error:", error)
-        // Fail gracefully
-        callback(null, code)
-      }
+    transpileJS(code) {
+      const transpiled = babel.transform(code, {
+        presets: ["@babel/preset-env"],
+      })
+      return transpiled.code
     },
 
     async minifyJS(code, callback) {
-      try {
-        const minified = await terser.minify(code)
-        callback(null, minified.code)
-      } catch (error) {
-        console.error("Terser error", error)
-        callback(null, code)
-      }
+      // try {
+      //   const minified = await terser.minify(code)
+      //   callback(null, minified.code)
+      // } catch (error) {
+      //   console.error("Terser error", error)
+      //   callback(null, code)
+      // }
+      callback(null, code)
     },
 
     shortDate(dateObj) {

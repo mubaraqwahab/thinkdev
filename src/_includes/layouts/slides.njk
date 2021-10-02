@@ -11,6 +11,10 @@ tags: slides
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
   <link rel="stylesheet" href="{{ '/reveal/dist/theme/white.css' | url }}">
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}">
+  {% set css %}
+    {% include "css/slides.css" %}
+  {% endset %}
+  <style>{{ css | safe }}</style>
 </head>
 <body>
   <div class="reveal">
