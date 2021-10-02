@@ -72,6 +72,10 @@ module.exports = {
       const key = pathkey(path)
       return array.find((elem) => key(elem) === value)
     },
+
+    prop(obj, path) {
+      return pathkey(path)(obj)
+    },
   },
 }
 

@@ -1,6 +1,7 @@
 // @ts-check
 
 const fs = require("fs")
+const util = require("util")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
@@ -24,11 +25,16 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
-  eleventyConfig.addFilter("babel", filters.babel)
-  eleventyConfig.addFilter("postcss", filters.postcss)
-  eleventyConfig.addFilter("shortdate", filters.shortDate)
-  eleventyConfig.addFilter("arraysort", filters.arraySort)
-  eleventyConfig.addFilter("find", filters.find)
+  eleventyConfig.addNunjucksFilter("babel", filters.babel)
+  eleventyConfig.addNunjucksFilter("postcss", filters.postcss)
+  eleventyConfig.addNunjucksFilter("shortdate", filters.shortDate)
+  eleventyConfig.addNunjucksFilter("arraysort", filters.arraySort)
+  eleventyConfig.addNunjucksFilter("find", filters.find)
+  // For debugging
+  eleventyConfig.addNunjucksFilter("prop", filters.prop)
+  eleventyConfig.addNunjucksFilter("inspect", (obj) =>
+    util.inspect(obj, { depth: 3 })
+  )
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":

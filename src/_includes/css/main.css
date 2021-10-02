@@ -1,30 +1,27 @@
 @tailwind base;
+
+/* For some reason, @layer is not working */
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+  outline: 2px dashed;
+}
+
 @tailwind components;
+
+.bi {
+  fill: currentColor;
+}
+
+button[aria-expanded="true"] > .bi-caret-right-fill {
+  @apply rotate-90;
+}
+
+.prose a[aria-current="page"] {
+  @apply text-indigo-600;
+}
+
 @tailwind utilities;
-
-@layer base {
-  body {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  :focus {
-    outline: 2px dashed;
-  }
-}
-
-@layer components {
-  .bi {
-    fill: currentColor;
-  }
-
-  button[aria-expanded="true"] > .bi-caret-right-fill {
-    @apply rotate-90;
-  }
-
-  .prose a[aria-current="page"] {
-    @apply text-indigo-600;
-  }
-}
-
-@layer utilities {
-}
