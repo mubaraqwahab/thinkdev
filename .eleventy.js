@@ -27,6 +27,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("transpilejs", filters.transpileJS)
   eleventyConfig.addNunjucksAsyncFilter("minifyjs", filters.minifyJS)
   eleventyConfig.addNunjucksFilter("shortdate", filters.shortDate)
+  eleventyConfig.addNunjucksFilter("arraysort", filters.arraySort)
+  eleventyConfig.addNunjucksFilter("find", filters.find)
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":

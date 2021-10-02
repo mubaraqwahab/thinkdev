@@ -10,6 +10,6 @@ Lorem ipsum... {.lead}
 
 ## {{ emoji('📃') }} Outline
 
-{% for lesson in collections.lesson | reverse %}
+{% for lesson in collections.lesson | arraysort("data.order") %}
   1. [{{ lesson.data.title }}]({{ lesson.url | url }})
 {%- endfor %}

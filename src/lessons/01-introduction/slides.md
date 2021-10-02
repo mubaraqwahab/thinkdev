@@ -1,7 +1,6 @@
 ---
 layout: layouts/slides
 title: Introduction
-tags: slides
 ---
 
 

@@ -1,9 +1,10 @@
 ---
 layout: layouts/base
+tags: lesson
 ---
 
 {% from "macros.njk" import icon, emoji %}
-{{ collections.lesson | log }}
+
 <div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-[240px,1fr] lg:gap-10">
   <div class="mb-8 lg:mb-0">
     <button
@@ -18,7 +19,7 @@ layout: layouts/base
     </button>
     <nav class="hidden mt-3 lg:mt-0 lg:block lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
       <ol class="prose">
-        {% for lesson in collections.lesson | reverse %}
+        {% for lesson in collections.lesson | arraysort("data.order") %}
           <li>
             <a href="{{ lesson.url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="inline-block leading-snug">
               {{ lesson.data.title }}
@@ -33,20 +34,21 @@ layout: layouts/base
     <div class="prose prose-indigo max-w-none mx-auto relative lg:mx-0">
       <h1>{{ title }}</h1>
       <p class="text-gray-500 text-sm">Last updated {{ page.date | shortdate }}</p>
-      <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
+      {% if collections.slides | find("data.order", order) %}
+        <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
+      {% endif %}
 
       {{ content | safe }}
 
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
-        {# Awkward thing: the "prev" lesson is the "next" item in collection because of the sort order #}
-        {% set prevLesson = collections.lesson | getNextCollectionItem(page) %}
+        {% set prevLesson = collections.lesson | find("data.order", order - 1) %}
         {% if prevLesson %}
           <a href="{{ prevLesson.url }}" class="inline-flex items-center mr-auto">
             {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
-        {% set nextLesson = collections.lesson | getPreviousCollectionItem(page) %}
+        {% set nextLesson = collections.lesson | find("data.order", order + 1) %}
         {% if nextLesson %}
           <a href="{{ nextLesson.url }}" class="inline-flex items-center ml-auto">
             Next
