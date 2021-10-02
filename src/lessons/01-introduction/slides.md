@@ -8,9 +8,11 @@ title: Introduction
 
 <section>
 
-# Slide 2
+## Slide 2
 
-```js {data-line-numbers}
+Here's a code snippet that does something:
+
+```js {data-line-numbers=1|3|}
 const array = [1,2,3]
 function filterEven(array) {
   return array.filter((n) => n % 2 === 0)
@@ -21,7 +23,18 @@ function filterEven(array) {
 
 <section>
 
-## Still Slide 2
+### Still Slide 2
+
+* A list item
+* A second list item
+
+</section>
+
+<section>
+
+### Third one
+
+This is the last one actually
 
 </section>
 

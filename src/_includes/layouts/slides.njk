@@ -10,8 +10,8 @@ tags: slides
   <title>(Slides) {{ title }} | {{ site.title }}</title>
   {# It would be better to concat or inline these #}
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
-  <link rel="stylesheet" href="{{ '/reveal/dist/theme/white.css' | url }}">
-  <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/dist/theme/night.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
   {% set css %}{% include "css/slides.css" %}{% endset %}
   <style>{{ css | postcss | safe }}</style>
 </head>
@@ -19,7 +19,10 @@ tags: slides
   <div class="reveal">
     <div class="slides">
       <section>
-        <h1>Slide 01: {{ title }}</h1>
+        {# TODO: logo here #}
+        <p class="font-mono">&lt;thinkdev/&gt;</p>
+        <h1>{{ title }}</h1>
+        {# <p>Mubaraq Wahab</p> #}
       </section>
       {{ content | safe }}
     </div>
