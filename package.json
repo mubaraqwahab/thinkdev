@@ -28,6 +28,7 @@
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.3.6",
     "bootstrap-icons": "^1.5.0",
     "highlight.js": "^11.2.0",
     "html-minifier-terser": "^6.0.2",
