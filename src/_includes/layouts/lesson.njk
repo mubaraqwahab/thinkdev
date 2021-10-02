@@ -17,7 +17,7 @@ tags: lesson
       {{ icon("caret-right-fill", class="mr-2 motion-safe:transition-transform motion-safe:duration-300") }}
       Outline
     </button>
-    <nav class="hidden mt-3 lg:mt-0 lg:block lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
+    <nav class="hidden py-4 border-b lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
       <ol class="prose">
         {% for lesson in collections.lesson | arraysort("data.order") %}
           <li>
@@ -64,7 +64,7 @@ tags: lesson
   {% include "js/toggle-outline.js" %}
 {% endset %}
 {% if site.environment == "production" %}
-  <script>{{ js | transpilejs | minifyjs | safe }}</script>
+  <script>{{ js | babel | safe }}</script>
 {% else %}
   <script>{{ js | safe }}</script>
 {% endif %}

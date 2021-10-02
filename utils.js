@@ -2,7 +2,9 @@
 
 const htmlmin = require("html-minifier-terser")
 const babel = require("@babel/core")
-const terser = require("terser")
+const postcss = require("postcss").default
+const tailwindcss = require("tailwindcss")
+const autoprefixer = require("autoprefixer")
 
 module.exports = {
   transforms: {
@@ -13,29 +15,24 @@ module.exports = {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
+        minifyCSS: true,
         minifyJS: true,
       })
+
       return minified
     },
   },
 
   filters: {
-    transpileJS(code) {
-      const transpiled = babel.transform(code, {
+    babel(js) {
+      const transpiled = babel.transform(js, {
         presets: ["@babel/preset-env"],
       })
       return transpiled.code
     },
 
-    async minifyJS(code, callback) {
-      // try {
-      //   const minified = await terser.minify(code)
-      //   callback(null, minified.code)
-      // } catch (error) {
-      //   console.error("Terser error", error)
-      //   callback(null, code)
-      // }
-      callback(null, code)
+    postcss(css) {
+      return postcss([tailwindcss, autoprefixer]).process(css).css
     },
 
     shortDate(dateObj) {
@@ -78,6 +75,16 @@ module.exports = {
   },
 }
 
+/**
+ * Return a function that evaluates an object property path
+ * @param {string} path
+ *
+ * @example
+ * const key = pathkey("name.first")
+ * const person = { name: { first: "Mubaraq", ... }, ... }
+ * console.log(key(person))
+ * //=> "Mubaraq"
+ */
 function pathkey(path) {
   const props = path.split(".")
   const key = (val) => props.reduce((acc, prop) => acc[prop], val)

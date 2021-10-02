@@ -14,7 +14,7 @@ tags: slides
   {% set css %}
     {% include "css/slides.css" %}
   {% endset %}
-  <style>{{ css | safe }}</style>
+  <style>{{ css | postcss | safe }}</style>
 </head>
 <body>
   <div class="reveal">

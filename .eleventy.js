@@ -24,8 +24,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
-  eleventyConfig.addFilter("transpilejs", filters.transpileJS)
-  eleventyConfig.addNunjucksAsyncFilter("minifyjs", filters.minifyJS)
+  eleventyConfig.addFilter("babel", filters.babel)
+  eleventyConfig.addFilter("postcss", filters.postcss)
   eleventyConfig.addFilter("shortdate", filters.shortDate)
   eleventyConfig.addFilter("arraysort", filters.arraySort)
   eleventyConfig.addFilter("find", filters.find)
