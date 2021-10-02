@@ -1,120 +1,92 @@
 // @ts-check
 
-const htmlmin = require("html-minifier")
+const htmlmin = require("html-minifier-terser")
 const babel = require("@babel/core")
-const terser = require("terser")
-const slugify = require("@sindresorhus/slugify")
+const postcss = require("postcss").default
+const tailwindcss = require("tailwindcss")
+const autoprefixer = require("autoprefixer")
 
 module.exports = {
-  minifyHTMLTransform,
-  transpileJS,
-  minifyJS,
-  padStart,
-  lessonSlug,
-  strSlice,
+  transforms: {
+    minifyHTML(content, outputPath) {
+      if (!outputPath.endsWith(".html")) return content
+
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+      })
+
+      return minified
+    },
+  },
+
+  filters: {
+    babel(js) {
+      const transpiled = babel.transform(js, {
+        presets: ["@babel/preset-env"],
+      })
+      return transpiled.code
+    },
+
+    postcss(css) {
+      return postcss([tailwindcss, autoprefixer]).process(css).css
+    },
+
+    shortDate(dateObj) {
+      // TODO: locale?
+      return Intl.DateTimeFormat([], {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }).format(dateObj)
+    },
+
+    /**
+     * Sort an array in ascending order. Doesn't modify the array.
+     * To sort in descending order, reverse the return value
+     *
+     * @param {Array} array
+     * @param {string} path
+     * @return {Array} The sorted array
+     *
+     * @example
+     * const array = [
+     *   { name: { first: 'Wahab', ... }, ... },
+     *   { name: { first: 'Mubaraq', ... }, ... },
+     * ]
+     * const sorted = arraySort(array, "name.first")
+     */
+    arraySort(array, path) {
+      const key = pathkey(path)
+      return array.slice().sort((a, b) => key(a) - key(b))
+    },
+
+    /**
+     * @example
+     * const elem = find(array, "name.first", "Mubaraq")
+     */
+    find(array, path, value) {
+      const key = pathkey(path)
+      return array.find((elem) => key(elem) === value)
+    },
+  },
 }
 
 /**
- * @callback FilterCallback
- * @param {any} a
- * @param {any} b
- */
-
-/**
- * @typedef {object} Lesson
- * @property {string} title
- */
-
-/* TRANSFORMS */
-
-/**
- * Minify HTML
- * @param {string} content
- * @param {string} outputPath
- * @returns string
- */
-function minifyHTMLTransform(content, outputPath) {
-  const isProd = process.env.NODE_ENV === "production"
-  if (isProd && outputPath.endsWith(".html")) {
-    let minified = htmlmin.minify(content, {
-      useShortDoctype: true,
-      removeComments: true,
-      removeEmptyAttributes: true,
-      collapseWhitespace: true,
-    })
-    return minified
-  }
-  return content
-}
-
-/* FILTERS */
-
-/**
- * Transpile JavaScript
- * @param {string} code
- * @param {FilterCallback} callback
- */
-async function transpileJS(code, callback) {
-  try {
-    const transpiled = await babel.transformAsync(code, {
-      presets: ["@babel/preset-env"],
-    })
-    callback(null, transpiled.code)
-  } catch (error) {
-    console.error("Babel error:", error)
-    // Fail gracefully
-    callback(null, code)
-  }
-}
-
-/**
- * Minify JavaScript
- * @param {string} code
- * @param {FilterCallback} callback
- */
-async function minifyJS(code, callback) {
-  try {
-    const minified = await terser.minify(code)
-    callback(null, minified.code)
-  } catch (error) {
-    console.error("Terser error", error)
-    callback(null, code)
-  }
-}
-
-/**
- * Pad a string from its start
- * @param {string} str
- * @param {number} maxLength
- * @param {string} fillString
- * @returns {string}
- */
-function padStart(str, maxLength, fillString) {
-  return str.padStart(maxLength, fillString)
-}
-
-/**
- * Slugify a lesson object.
- * The returned slug is generated from the lesson number and title.
- * @param {Lesson} lesson
- * @param {Array<Lesson>} lessons
- * @return {string}
- */
-function lessonSlug(lesson, lessons) {
-  const lessonNo = lessons.findIndex((l) => l.title === lesson.title) + 1
-  return slugify(`${lessonNo.toString().padStart(2, "0")} ${lesson.title}`, {
-    // Eleventy's slugify decamelizes. See https://github.com/11ty/eleventy/blob/master/src/Filters/Slugify.js
-    decamelize: false,
-  })
-}
-
-/**
+ * Return a function that evaluates an object property path
+ * @param {string} path
  *
- * @param {string} str
- * @param {number} start
- * @param {number} end
- * @returns {string}
+ * @example
+ * const key = pathkey("name.first")
+ * const person = { name: { first: "Mubaraq", ... }, ... }
+ * console.log(key(person))
+ * //=> "Mubaraq"
  */
-function strSlice(str, start, end) {
-  return str.slice(start, end)
+function pathkey(path) {
+  const props = path.split(".")
+  const key = (val) => props.reduce((acc, prop) => acc[prop], val)
+  return key
 }

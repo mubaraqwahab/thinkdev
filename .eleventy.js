@@ -1,17 +1,9 @@
 // @ts-check
 
 const fs = require("fs")
-const yaml = require("js-yaml")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
-const {
-  minifyHTMLTransform,
-  transpileJS,
-  minifyJS,
-  padStart,
-  lessonSlug,
-  strSlice,
-} = require("./utils.js")
+const { filters, transforms } = require("./utils.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -25,22 +17,21 @@ module.exports = function (eleventyConfig) {
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
 
-  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents))
-
   if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", minifyHTMLTransform)
+    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
-  eleventyConfig.addNunjucksAsyncFilter("transpilejs", transpileJS)
-  eleventyConfig.addNunjucksAsyncFilter("minifyjs", minifyJS)
-  eleventyConfig.addNunjucksFilter("padstart", padStart)
-  eleventyConfig.addNunjucksFilter("lessonslug", lessonSlug)
-  eleventyConfig.addNunjucksFilter("strslice", strSlice)
+  eleventyConfig.addFilter("babel", filters.babel)
+  eleventyConfig.addFilter("postcss", filters.postcss)
+  eleventyConfig.addFilter("shortdate", filters.shortDate)
+  eleventyConfig.addFilter("arraysort", filters.arraySort)
+  eleventyConfig.addFilter("find", filters.find)
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "images/bootstrap-icons.svg",
-    "node_modules/reveal.js/dist/": "reveal/",
+    "node_modules/reveal.js/dist/": "reveal/dist/",
+    "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight",
     "node_modules/highlight.js/styles/": "reveal/plugin/highlight/",
   })
 

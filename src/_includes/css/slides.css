@@ -1,0 +1,33 @@
+:root {
+  --r-background-color: #0a0918;
+  /* --r-main-font: ; */
+  --r-main-font-size: theme("fontSize.3xl");
+  --r-main-color: theme("colors.gray.300");
+  /* --r-block-margin: ; */
+  /* --r-heading-margin: ; */
+  /* --r-heading-font: ; */
+  --r-heading-color: theme("colors.white");
+  /* --r-heading-line-height: ; */
+  /* --r-heading-letter-spacing: ; */
+  /* --r-heading-text-transform: ; */
+  /* --r-heading-text-shadow: ; */
+  /* --r-heading-font-weight: ; */
+  /* --r-heading1-text-shadow: ; */
+  --r-heading1-size: 86px;
+  /* --r-heading2-size: ; */
+  /* --r-heading3-size: ; */
+  /* --r-heading4-size: ; */
+  /* --r-code-font: ; */
+  --r-link-color: theme("colors.pink.600");
+  --r-link-color-dark: theme("colors.pink.800");
+  --r-link-color-hover: theme("colors.pink.400");
+  --r-selection-background-color: theme("colors.pink.600");
+  --r-selection-color: theme("colors.white");
+}
+
+.reveal pre {
+  font-size: 80%;
+  @apply rounded-lg overflow-hidden leading-normal;
+}
+
+@tailwind utilities;

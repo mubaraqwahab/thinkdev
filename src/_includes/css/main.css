@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus {
+    outline: 2px dashed;
+  }
+}
+
+@layer components {
+  .bi {
+    fill: currentColor;
+  }
+
+  button[aria-expanded="true"] > .bi-caret-right-fill {
+    @apply rotate-90;
+  }
+
+  .prose a[aria-current="page"] {
+    @apply text-indigo-600;
+  }
+}
+
+@layer utilities {
+}

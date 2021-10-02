@@ -14,7 +14,7 @@ module.exports = {
       padding: {
         DEFAULT: theme("spacing.4"),
         sm: theme("spacing.8"),
-        md: theme("spacing.16"),
+        lg: theme("spacing.16"),
       },
     }),
   },

@@ -1,47 +1,56 @@
 ---
 layout: layouts/base
+tags: lesson
 ---
 
-{% from "macros.njk" import icon %}
+{% from "macros.njk" import icon, emoji %}
 
-<div class="container pt-4 pb-8 mx-auto md:pt-8 md:grid md:grid-cols-5 md:gap-8">
-  <div class="mb-8 md:mb-0">
+<div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-[240px,1fr] lg:gap-10">
+  <div class="mb-8 lg:mb-0">
     <button
       id="outlineToggle"
       type="button"
       aria-expanded="false"
       aria-controls="outlineNav"
-      class="inline-flex font-bold items-center md:hidden text-gray-900"
+      class="inline-flex font-bold items-center text-gray-900 lg:hidden"
     >
-      {{ icon('caret-right-fill', class='mr-2 motion-safe:transition-transform') }}
+      {{ icon("caret-right-fill", class="mr-2 motion-safe:transition-transform motion-safe:duration-300") }}
       Outline
     </button>
-    <nav class="hidden mt-3 md:mt-0 md:block md:border-r md:h-[calc(100vh-118px)] md:sticky md:top-[72px] md:left-0" id="outlineNav" aria-label="Outline">
-      <ul class="prose">
-        {% for entry in pagination.pages %}
-          {% set entryUrl = pagination.hrefs[loop.index0] %}
-          {% set isActive = page.url === entryUrl %}
+    <nav class="hidden py-4 border-b lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:pr-8 lg:pl-1 lg:h-[calc(100vh-118px)] lg:sticky lg:top-[72px] lg:left-0 lg:overflow-y-auto" id="outlineNav" aria-label="Outline">
+      <ol class="prose">
+        {% for lesson in collections.lesson | arraysort("data.order") %}
           <li>
-            <a {% if isActive %} aria-current="page" {% endif %} href="{{ entryUrl }}">
-              {{ entry.title }}
+            <a href="{{ lesson.url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="inline-block leading-snug">
+              {{ lesson.data.title }}
             </a>
           </li>
         {% endfor %}
-      </ul>
+      </ol>
     </nav>
   </div>
-  <main id="main" class="md:col-span-4">
-    <div class="prose prose-indigo max-w-none mx-auto md:mx-0 relative">
+
+  <main id="main" class="">
+    <div class="prose prose-indigo max-w-none mx-auto relative lg:mx-0">
+      <h1>{{ title }}</h1>
+      <p class="text-gray-500 text-sm">Last updated {{ page.date | shortdate }}</p>
+      {% if collections.slides | find("data.order", order) %}
+        <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
+      {% endif %}
+
       {{ content | safe }}
+
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
-        {% if pagination.href.previous %}
-          <a href="{{ pagination.href.previous }}" class="inline-flex items-center mr-auto">
+        {% set prevLesson = collections.lesson | find("data.order", order - 1) %}
+        {% if prevLesson %}
+          <a href="{{ prevLesson.url }}" class="inline-flex items-center mr-auto">
             {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
-        {% if pagination.href.next %}
-          <a href="{{ pagination.href.next }}" class="inline-flex items-center ml-auto">
+        {% set nextLesson = collections.lesson | find("data.order", order + 1) %}
+        {% if nextLesson %}
+          <a href="{{ nextLesson.url }}" class="inline-flex items-center ml-auto">
             Next
             {{ icon('arrow-right', class='ml-2') }}
           </a>
@@ -55,7 +64,7 @@ layout: layouts/base
   {% include "js/toggle-outline.js" %}
 {% endset %}
 {% if site.environment == "production" %}
-  <script>{{ js | transpilejs | minifyjs | safe }}</script>
+  <script>{{ js | babel | safe }}</script>
 {% else %}
   <script>{{ js | safe }}</script>
 {% endif %}

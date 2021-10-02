@@ -1,0 +1,42 @@
+---
+tags: slides
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(Slides) {{ title }} | {{ site.title }}</title>
+  {# It would be better to concat or inline these #}
+  <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/dist/theme/night.css' | url }}">
+  <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
+  {% set css %}{% include "css/slides.css" %}{% endset %}
+  <style>{{ css | postcss | safe }}</style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        {# TODO: logo here #}
+        <p class="font-mono">&lt;thinkdev/&gt;</p>
+        <h1>{{ title }}</h1>
+        {# <p>Mubaraq Wahab</p> #}
+      </section>
+      {{ content | safe }}
+    </div>
+  </div>
+
+  <script src="{{ '/reveal/dist/reveal.js' | url }}"></script>
+  <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
+  <script>
+    // See https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      hashOneBasedIndex: true,
+      plugins: [RevealHighlight]
+    });
+  </script>
+</body>
+</html>
