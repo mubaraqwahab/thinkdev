@@ -21,7 +21,7 @@ tags: lesson
       <ol class="prose">
         {% for lesson in collections.lesson | arraysort("data.order") %}
           <li>
-            <a href="{{ lesson.url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="inline-block leading-snug">
+            <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="inline-block leading-snug">
               {{ lesson.data.title }}
             </a>
           </li>
@@ -43,14 +43,14 @@ tags: lesson
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-8">
         {% set prevLesson = collections.lesson | find("data.order", order - 1) %}
         {% if prevLesson %}
-          <a href="{{ prevLesson.url }}" class="inline-flex items-center mr-auto">
+          <a href="{{ prevLesson.url | url }}" class="inline-flex items-center mr-auto">
             {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
         {% set nextLesson = collections.lesson | find("data.order", order + 1) %}
         {% if nextLesson %}
-          <a href="{{ nextLesson.url }}" class="inline-flex items-center ml-auto">
+          <a href="{{ nextLesson.url | url }}" class="inline-flex items-center ml-auto">
             Next
             {{ icon('arrow-right', class='ml-2') }}
           </a>
