@@ -4,38 +4,81 @@ title: Introduction
 ---
 
 
-<section>
+<section> <!-- 1 -->
 
-<section>
+<section> <!-- 1.0 -->
 
-## Slide 2
+## What is this course?
 
-Here's a code snippet that does something:
+Consider it an introductory course to _programming concepts_. {.fragment .fade-up}
 
-```js {data-line-numbers=1|3|}
-const array = [1,2,3]
-function filterEven(array) {
-  return array.filter((n) => n % 2 === 0)
-}
-```
+</section> <!-- 1.0 -->
 
-</section>
+<section> <!-- 1.1 -->
 
-<section>
+### What to expect
 
-### Still Slide 2
+At the end of the course you should:
 
-* A list item
-* A second list item
+* be comfortable using a programming language {.fragment .fade-up}
+* be familiar with the command line {.fragment .fade-up}
+* know how to document, test, and debug simple programs {.fragment .fade-up}
+* know some basic data structures and algorithms {.fragment .fade-up}
+* and more! {.fragment .fade-up}
 
-</section>
+</section> <!-- 1.1 -->
 
-<section>
+<section> <!-- 1.2 -->
 
-### Third one
+### What not to expect
 
-This is the last one actually, so why not link back [home](/)
+* You won't be a "professional" programmer (I'm not myself!) {.fragment .fade-in}
+* You're not going to build an app or website {.fragment .fade-in}
 
-</section>
+</section> <!-- 1.2 -->
 
-</section>
+</section> <!-- 1 -->
+
+<section> <!-- 2 -->
+
+## Motivation
+
+<!--
+* I want you to be confident writing programs
+* breaking down complex concepts
+* improve dev skills
+ -->
+
+</section> <!-- 2 -->
+
+<section> <!-- 3 -->
+
+<!-- TODO: it might be best to have a local copy of the image -->
+<section data-background-image="https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png" data-background-size="200px" data-background-repeat="space" data-background-opacity="0.15"> <!-- 3.0 -->
+
+## We'll use JavaScript
+
+</section> <!-- 3.0 -->
+
+<section data-transition="zoom"> <!-- 3.1 -->
+
+### Why?
+
+* It's the language of web browsers  {.fragment .fade-up}
+* It's used for backends too, command line programs, and developer tools! {.fragment .fade-up}
+* It's among the most popular languages (Source?) {.fragment .fade-up}
+* It's the language I'm most accustomed to 🙃 {.fragment .fade-up}
+
+</section> <!-- 3.1 -->
+
+</section> <!-- 3 -->
+
+<section> <!-- 4 -->
+
+## Software we'll use
+
+* [Node.js v14+](https://nodejs.org/en/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* A terminal
+
+</section> <!-- 4 -->

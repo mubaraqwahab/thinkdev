@@ -3,6 +3,7 @@
 const fs = require("fs")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
+const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 const { filters, transforms } = require("./utils.js")
 
 /**
@@ -11,7 +12,9 @@ const { filters, transforms } = require("./utils.js")
  */
 module.exports = function (eleventyConfig) {
   // Allow markdown attributes (See https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins)
-  const markdownLib = markdownIt({ html: true }).use(markdownItAttrs)
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItBracketedSpans)
+    .use(markdownItAttrs)
   eleventyConfig.setLibrary("md", markdownLib)
 
   // See https://www.11ty.dev/docs/data-deep-merge/
@@ -32,7 +35,8 @@ module.exports = function (eleventyConfig) {
       "images/bootstrap-icons.svg",
     "node_modules/reveal.js/dist/": "reveal/dist/",
     "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight",
-    "node_modules/highlight.js/styles/": "reveal/plugin/highlight/",
+    "node_modules/highlight.js/styles/github-dark-dimmed.css":
+      "reveal/plugin/highlight/github-dark-dimmed.css",
   })
 
   eleventyConfig.addWatchTarget("src/css/")
