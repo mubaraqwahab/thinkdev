@@ -77,8 +77,8 @@ At the end of the course you should:
 
 ## Software we'll use
 
-* [Node.js v14+](https://nodejs.org/en/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Node.js v14+](https://nodejs.org/en/){rel="noopener"}
+* [Visual Studio Code](https://code.visualstudio.com/){rel="noopener"}
 * A terminal
 
 </section> <!-- 4 -->
