@@ -8,12 +8,11 @@ tags: slides
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>(Slides) {{ title }} | {{ site.title }}</title>
+  {# It would be better to concat or inline these #}
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
   <link rel="stylesheet" href="{{ '/reveal/dist/theme/white.css' | url }}">
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}">
-  {% set css %}
-    {% include "css/slides.css" %}
-  {% endset %}
+  {% set css %}{% include "css/slides.css" %}{% endset %}
   <style>{{ css | postcss | safe }}</style>
 </head>
 <body>

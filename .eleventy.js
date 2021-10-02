@@ -1,7 +1,6 @@
 // @ts-check
 
 const fs = require("fs")
-const yaml = require("js-yaml")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const { filters, transforms } = require("./utils.js")
@@ -17,8 +16,6 @@ module.exports = function (eleventyConfig) {
 
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
-
-  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents))
 
   if (process.env.NODE_ENV === "production") {
     eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
