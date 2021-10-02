@@ -34,7 +34,7 @@ function filterEven(array) {
 
 ### Third one
 
-This is the last one actually
+This is the last one actually, so why not link back [home](/)
 
 </section>
 
