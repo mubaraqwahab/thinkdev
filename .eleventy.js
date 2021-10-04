@@ -37,8 +37,14 @@ module.exports = function (eleventyConfig) {
   )
 
   eleventyConfig.addPassthroughCopy({
+    // Assets
+    // TODO: optimize images
+    "src/assets/images/": "assets/images/",
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
-      "images/bootstrap-icons.svg",
+      "assets/images/bootstrap-icons.svg",
+    // For fonts, you need Montserrat 700; Open Sans 400, 700 (and italic variants)
+    "src/assets/fonts/": "assets/fonts/",
+    // Stuff for Reveal.js
     "node_modules/reveal.js/dist/": "reveal/dist/",
     "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight",
     "node_modules/highlight.js/styles/github-dark-dimmed.css":

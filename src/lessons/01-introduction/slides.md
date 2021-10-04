@@ -3,7 +3,6 @@ layout: layouts/slides
 title: Introduction
 ---
 
-
 <section> <!-- 1 -->
 
 <section> <!-- 1.0 -->
@@ -33,7 +32,7 @@ At the end of the course you should:
 ### What not to expect
 
 * You won't be a "professional" programmer (I'm not myself!) {.fragment .fade-in}
-* You're not going to build an app or website {.fragment .fade-in}
+* You're not going to build an app or website, and you won't know enough to build one {.fragment .fade-in}
 
 </section> <!-- 1.2 -->
 
@@ -64,8 +63,7 @@ At the end of the course you should:
 
 ### Why?
 
-* It's the language of web browsers  {.fragment .fade-up}
-* It's used for backends too, command line programs, and developer tools! {.fragment .fade-up}
+* It's a ubiquitous language: it's the "language" used in browsers, it's also used to build desktop and mobile apps, backends, command line programs, and developer tools!  {.fragment .fade-up}
 * It's among the most popular languages (Source?) {.fragment .fade-up}
 * It's the language I'm most accustomed to 🙃 {.fragment .fade-up}
 
