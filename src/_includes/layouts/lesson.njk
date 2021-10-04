@@ -36,9 +36,11 @@ tags: lesson
       {# TODO: <time> here? #}
       <p class="text-gray-500 text-sm">Last updated {{ page.date | shortdate }}</p>
       {% if collections.slides | find("data.order", order) %}
-        <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
-        {# TODO: change PDF icon #}
-        (<a href="{{ '?TODO' | url }}" title="Download slides as PDF" aria-label="Download slides as PDF">PDF {{ emoji("📄") }}</a>)
+        <p>
+          <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
+          {# TODO: change PDF icon #}
+          (<a href="{{ '?TODO' | url }}" title="Download slides as PDF" aria-label="Download slides as PDF">PDF {{ emoji("📄") }}</a>)
+        </p>
       {% endif %}
 
       {{ content | safe }}
