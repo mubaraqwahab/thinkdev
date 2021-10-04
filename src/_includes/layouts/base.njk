@@ -14,6 +14,7 @@
     <header class="sticky top-0 left-0 z-20 py-2 bg-white border-b shadow-sm border-indigo-200">
       <div class="container flex items-center justify-between">
         <a class="sr-only focus:absolute focus:left-2 focus:bg-white focus:text-indigo-600 focus:font-medium focus:not-sr-only" href="#main">Skip to content</a>
+        {# Warn if content variable doesn't contain an element with id="main" (or id='main', or id=main) #}
         <a class="text-lg font-bold font-mono tracking-wide" href="{{ '/' | url }}">thinkdev</a>
         <a href="{{ site.repoUrl }}" title="View on GitHub" aria-label="View on GitHub" rel="noopener">
           {{ icon('github', width=24, height=24) }}
