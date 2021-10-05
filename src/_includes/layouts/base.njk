@@ -15,6 +15,9 @@
       <div class="container flex items-center justify-between">
         <a class="sr-only focus:absolute focus:left-2 focus:bg-white focus:text-indigo-600 focus:font-medium focus:not-sr-only" href="#main">Skip to content</a>
         {# Warn if content variable doesn't contain an element with id="main" (or id='main', or id=main) #}
+        {% if not r/id=(main|'main'|"main")/.test(content) %}
+          {{ ('❌ Skip link target is missing in page ' ~ page.url ~ '. Add an element with id="main".') | log }}
+        {% endif %}
         <a class="text-lg font-bold font-mono tracking-wide" href="{{ '/' | url }}">thinkdev</a>
 
         <div class="flex items-center">
