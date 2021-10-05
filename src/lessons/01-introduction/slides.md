@@ -47,6 +47,20 @@ At the end of the course you should:
 * breaking down complex concepts
 * improve dev skills
  -->
+<!-- TODO: Remove this; it's just to test -->
+```js {data-line-numbers}
+module.exports = function (eleventyConfig) {
+  // Allow markdown attributes
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItBracketedSpans)
+    .use(markdownItAttrs)
+  eleventyConfig.setLibrary("md", markdownLib)
+
+  eleventyConfig.addNunjucksFilter("inspect", (obj) =>
+    util.inspect(obj, { depth: 3 })
+  )
+}
+```
 
 </section> <!-- 2 -->
 
