@@ -52,8 +52,7 @@ At the end of the course you should:
 
 <section> <!-- 3 -->
 
-<!-- TODO: it might be best to have a local copy of the image -->
-<section data-background-image="https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png" data-background-size="200px" data-background-repeat="space" data-background-opacity="0.15"> <!-- 3.0 -->
+<section data-background-image="{{ '/assets/images/js.svg' | url }}" data-background-size="200px" data-background-repeat="space" data-background-opacity="0.15"> <!-- 3.0 -->
 
 ## We'll use JavaScript
 
