@@ -37,8 +37,7 @@ tags: lesson
       <p class="text-gray-500 text-sm">Last updated {{ page.date | shortdate }}</p>
       {% if collections.slides | find("data.order", order) %}
         <p>
-          <a href="{{ 'slides/' | url }}">Slides {{ emoji("▶") }}</a>
-          {# TODO: change PDF icon #}
+          <a href="{{ 'slides/' | url }}">Slides {{ icon('display') }}</a>&nbsp;
           (<a href="{{ '?TODO' | url }}" title="Download slides as PDF" aria-label="Download slides as PDF">PDF {{ icon("file-pdf-fill", class='text-red-600') }}</a>)
         </p>
       {% endif %}
