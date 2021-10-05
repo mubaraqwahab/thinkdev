@@ -7,7 +7,7 @@
     "watch": "eleventy --serve",
     "build": "npm-run-all clear build-html build-svg",
     "build-html": "eleventy",
-    "build-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/images/bootstrap-icons.svg -o _site/images/bootstrap-icons.svg",
+    "build-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
     "clear": "shx rm -rf _site/ src/dist/",
     "prepare": "husky install",
     "format": "prettier --write *.{js,html,css,scss,json}"

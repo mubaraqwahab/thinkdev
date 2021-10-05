@@ -1,0 +1,27 @@
+@tailwind base;
+
+/* For some reason, @layer is not working */
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+  outline: 2px dashed;
+}
+
+@tailwind components;
+
+.bi {
+  @apply inline-block fill-current;
+}
+
+button[aria-expanded="true"] > .bi-caret-right-fill {
+  @apply rotate-90;
+}
+
+.prose a[aria-current="page"] {
+  @apply text-indigo-600;
+}
+
+@tailwind utilities;
