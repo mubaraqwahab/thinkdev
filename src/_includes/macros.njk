@@ -1,4 +1,4 @@
-{% macro icon(id, class='', width=12, height=12) -%}
+{% macro icon(id, class='', width=16, height=16) -%}
 <svg aria-hidden="true" class="bi bi-{{ id }} {{ class }}" width="{{ width }}" height="{{ height }}">
   <use xlink:href="{{ ('/assets/images/bootstrap-icons.svg#' ~ id) | url }}"/>
 </svg>

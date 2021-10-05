@@ -13,7 +13,7 @@ body {
 @tailwind components;
 
 .bi {
-  fill: currentColor;
+  @apply inline-block fill-current;
 }
 
 button[aria-expanded="true"] > .bi-caret-right-fill {
