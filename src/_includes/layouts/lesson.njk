@@ -38,7 +38,12 @@ tags: lesson
       {% if collections.slides | find("data.order", order) %}
         <p>
           <a href="{{ 'slides/' | url }}">Slides {{ icon('display') }}</a>&nbsp;
-          (<a href="{{ '?TODO' | url }}" title="Download slides as PDF" aria-label="Download slides as PDF">PDF {{ icon("file-pdf-fill", class='text-red-600') }}</a>)
+          (<a
+            href="{{ 'slides.pdf' | url }}"
+            download="{{ page.fileSlug ~ '.pdf' }}"
+            title="Download slides as PDF"
+            aria-label="Download slides as PDF"
+          >PDF {{ icon("file-pdf-fill", class='text-red-600') }}</a>)
         </p>
       {% endif %}
 

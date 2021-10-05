@@ -30,6 +30,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.6",
     "bootstrap-icons": "^1.5.0",
+    "decktape": "^3.2.0",
     "highlight.js": "^11.2.0",
     "html-minifier-terser": "^6.0.2",
     "markdown-it": "^10.0.0",
