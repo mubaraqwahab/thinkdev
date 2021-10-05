@@ -28,6 +28,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("babel", filters.babel)
   eleventyConfig.addNunjucksFilter("postcss", filters.postcss)
   eleventyConfig.addNunjucksFilter("shortdate", filters.shortDate)
+  eleventyConfig.addNunjucksFilter("isostring", filters.isoString)
   eleventyConfig.addNunjucksFilter("arraysort", filters.arraySort)
   eleventyConfig.addNunjucksFilter("find", filters.find)
   // For debugging

@@ -35,6 +35,9 @@ module.exports = {
       return postcss([tailwindcss, autoprefixer]).process(css).css
     },
 
+    /**
+     * @param {Date} dateObj
+     */
     shortDate(dateObj) {
       // TODO: locale?
       return Intl.DateTimeFormat([], {
@@ -42,6 +45,13 @@ module.exports = {
         month: "short",
         year: "numeric",
       }).format(dateObj)
+    },
+
+    /**
+     * @param {Date} dateObj
+     */
+    isoString(dateObj) {
+      return dateObj.toISOString()
     },
 
     /**
