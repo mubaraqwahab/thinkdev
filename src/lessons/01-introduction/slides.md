@@ -88,8 +88,16 @@ module.exports = function (eleventyConfig) {
 
 ## Software we'll use
 
-* [Node.js v14+](https://nodejs.org/en/){rel="noopener"}
-* [Visual Studio Code](https://code.visualstudio.com/){rel="noopener"}
-* A terminal
+* [Node.js v14+](https://nodejs.org/en/){rel="noopener"} {.fragment .fade-up}
+* [Visual Studio Code](https://code.visualstudio.com/){rel="noopener"} {.fragment .fade-up}
+* A terminal {.fragment .fade-up}
 
 </section> <!-- 4 -->
+
+<section> <!-- 5 -->
+
+## Resources
+
+* The course website [thinkdev.netlify.app](https://thinkdev.netlify.app)
+
+</section> <!-- 5 -->

@@ -1,6 +1,6 @@
 @tailwind base;
 
-/* For some reason, @layer is not working */
+/* I'm not using `@layer`s because of Intellisense */
 
 body {
   -webkit-tap-highlight-color: transparent;
