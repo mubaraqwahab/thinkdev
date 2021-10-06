@@ -4,7 +4,13 @@
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
  */
 module.exports = {
-  purge: ["src/**/*.njk", "src/**/*.md", "src/**/*.js"],
+  purge: [
+    "src/**/*.njk",
+    "src/**/*.md",
+    "src/**/*.js",
+    "!src/_includes/layouts/slides.njk",
+    "!src/lessons/**/slides.md",
+  ],
   mode: "jit",
   darkMode: false, // or 'media' or 'class'
   theme: {
