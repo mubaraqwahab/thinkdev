@@ -6,8 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
-    {% set css %}{% include "css/main.css" %}{% endset %}
-    <style>{{ css | postcss | safe }}</style>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+    {# {% set css %}{% include "css/main.css" %}{% endset %}
+    <style>{{ css | postcss | safe }}</style> #}
   </head>
   <body class="text-gray-700">
     <div class="h-2 bg-indigo-400"></div>

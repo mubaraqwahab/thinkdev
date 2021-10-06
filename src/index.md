@@ -4,7 +4,7 @@ layout: layouts/home
 
 {% from "macros.njk" import icon, emoji %}
 
-# Think like a developer
+# {{ site.title }}
 
 Lorem ipsum... {.lead}
 
