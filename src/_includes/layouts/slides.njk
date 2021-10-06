@@ -13,7 +13,7 @@ tags: slides
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
   {% set css %}{% include "css/slides.css" %}{% endset %}
-  <style>{{ css | postcss | safe }}</style>
+  <style>{{ css | postcss('slides') | safe }}</style>
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
 </head>
 <body>

@@ -4,6 +4,7 @@ const htmlmin = require("html-minifier-terser")
 const babel = require("@babel/core")
 const postcss = require("postcss").default
 const tailwindcss = require("tailwindcss")
+const resolveTailwindConfig = require("tailwindcss/resolveConfig")
 const autoprefixer = require("autoprefixer")
 
 module.exports = {
@@ -31,8 +32,33 @@ module.exports = {
       return transpiled.code
     },
 
-    postcss(css) {
-      return postcss([tailwindcss, autoprefixer]).process(css).css
+    /**
+     * Process a CSS string with Post CSS
+     *
+     * @param {string} css
+     * @param {"default"|"slides"} preset
+     *  This option specifies whether to process `css` using the
+     *  (custom) default config for CSS, or using the config specific
+     *  to CSS for the slides. If this is omitted, the default config is used.
+     */
+    postcss(css, preset = "default") {
+      const slidesTailwindConfig = resolveTailwindConfig({
+        purge: ["src/_includes/layouts/slides.njk", "src/lessons/**/slides.md"],
+        mode: "jit",
+        darkMode: false,
+        theme: {
+          extend: {},
+        },
+        variants: {
+          extend: {},
+        },
+        plugins: [],
+      })
+
+      return postcss([
+        preset === "slides" ? tailwindcss(slidesTailwindConfig) : tailwindcss,
+        autoprefixer,
+      ]).process(css).css
     },
 
     /**
