@@ -17,6 +17,7 @@ tags: slides
   {% set css %}{% include "css/slides.css" %}{% endset %}
   <style>{{ css | postcss('slides') | safe }}</style>
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
+  {% include "meta.njk" %}
 </head>
 <body>
   <div class="reveal">
