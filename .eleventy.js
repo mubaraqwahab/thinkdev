@@ -50,6 +50,7 @@ module.exports = function (eleventyConfig) {
   // Keep directory structure for these
   eleventyConfig.addPassthroughCopy("src/assets/images/")
   eleventyConfig.addPassthroughCopy("src/lessons/**/slides.pdf")
+  eleventyConfig.addPassthroughCopy("src/favicon*")
 
   eleventyConfig.setBrowserSyncConfig({
     // Watch and serve even when offline

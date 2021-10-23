@@ -1,5 +1,10 @@
-{% macro icon(id, class='', width=16, height=16) -%}
-<svg aria-hidden="true" class="bi bi-{{ id }} {{ class }}" width="{{ width }}" height="{{ height }}">
+{% macro icon(id, class='', width=16, height=16, ariaHidden=true) -%}
+<svg
+  aria-hidden="{{ ariaHidden }}"
+  class="bi bi-{{ id }} {{ class }}"
+  width="{{ width }}"
+  height="{{ height }}"
+>
   <use xlink:href="{{ ('/assets/images/bootstrap-icons.svg#' ~ id) | url }}"/>
 </svg>
 {%- endmacro %}
@@ -8,13 +13,17 @@
 <span aria-hidden="true" class="emoji">{{ e }}</span>
 {%- endmacro %}
 
-{% macro logo() -%}
-<span
-  style="
-    display: inline-block;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    font-weight: 700;
-    letter-spacing: 0.025em;
-  "
->thinkdev</span>
+{% macro logo(class="text-blue-600", width=24, height=24, fill="none", ariaHidden=true) -%}
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="{{ class }}"
+  fill="{{ fill }}"
+  viewBox="0 0 24 24"
+  width="{{ width }}"
+  height="{{ height }}"
+  stroke="currentColor"
+  aria-hidden="{{ ariaHidden }}"
+>
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+</svg>
 {%- endmacro %}

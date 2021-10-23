@@ -31,8 +31,8 @@ At the end of the course you should:
 
 ### What not to expect
 
-* You won't be a "professional" programmer (I'm not myself!) {.fragment .fade-in}
-* You're not going to build an app or website, and you won't know enough to build one {.fragment .fade-in}
+* You won't be an "expert" programmer (I'm not myself!) {.fragment .fade-in}
+* We're not going to build an app or website {.fragment .fade-in}
 
 </section> <!-- 1.2 -->
 

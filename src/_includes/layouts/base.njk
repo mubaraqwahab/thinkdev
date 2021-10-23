@@ -16,7 +16,10 @@
         {% if not r/id=(main|'main'|"main")/.test(content) %}
           {{ ('❌ Skip link target is missing in page ' ~ page.url ~ '. Add an element with id="main".') | log }}
         {% endif %}
-        <a class="text-lg text-indigo-600" href="{{ '/' | url }}">{{ logo() }}</a>
+        <a class="flex items-center text-lg text-indigo-600 font-mono font-bold tracking-wide leading-none" href="{{ '/' | url }}">
+          {{ logo(class='mr-1') }}
+          thinkdev
+        </a>
 
         <div class="flex items-center">
           {# TODO: what's the best element for this? btn? checkbox? switch? radio? #}
