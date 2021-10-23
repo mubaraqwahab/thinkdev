@@ -1,27 +1,39 @@
 @tailwind base;
-
-/* I'm not using `@layer`s because of Intellisense */
-
-body {
-  -webkit-tap-highlight-color: transparent;
-}
-
-:focus {
-  outline: 2px dashed;
-}
-
 @tailwind components;
-
-.bi {
-  @apply inline-block fill-current;
-}
-
-button[aria-expanded="true"] > .bi-caret-right-fill {
-  @apply rotate-90;
-}
-
-.prose a[aria-current="page"] {
-  @apply text-indigo-600;
-}
-
 @tailwind utilities;
+
+@layer base {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus {
+    outline: 2px dashed;
+  }
+}
+
+@layer components {
+  .top-bar {
+    @apply h-2 bg-indigo-600;
+  }
+
+  /* See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode */
+  @media (display-mode: standalone) {
+    /* Hide the top-bar when the site is in PWA standalone mode */
+    .top-bar {
+      @apply hidden;
+    }
+  }
+
+  .bi {
+    @apply inline-block fill-current;
+  }
+
+  button[aria-expanded="true"] > .bi-caret-right-fill {
+    @apply rotate-90;
+  }
+
+  .prose a[aria-current="page"] {
+    @apply text-indigo-600;
+  }
+}
