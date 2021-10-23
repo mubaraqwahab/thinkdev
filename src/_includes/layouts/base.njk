@@ -1,4 +1,4 @@
-{% from "macros.njk" import icon %}
+{% from "macros.njk" import icon, logo %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
-    {# {% set css %}{% include "css/main.css" %}{% endset %}
-    <style>{{ css | postcss | safe }}</style> #}
   </head>
   <body class="text-gray-700">
     <div class="h-2 bg-indigo-400"></div>
@@ -18,7 +16,7 @@
         {% if not r/id=(main|'main'|"main")/.test(content) %}
           {{ ('❌ Skip link target is missing in page ' ~ page.url ~ '. Add an element with id="main".') | log }}
         {% endif %}
-        <a class="text-lg font-bold font-mono tracking-wide" href="{{ '/' | url }}">thinkdev</a>
+        <a class="text-lg text-indigo-600" href="{{ '/' | url }}">{{ logo() }}</a>
 
         <div class="flex items-center">
           {# TODO: what's the best element for this? btn? checkbox? switch? radio? #}

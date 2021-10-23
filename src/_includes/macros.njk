@@ -7,3 +7,14 @@
 {% macro emoji(e) -%}
 <span aria-hidden="true" class="emoji">{{ e }}</span>
 {%- endmacro %}
+
+{% macro logo() -%}
+<span
+  style="
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+  "
+>thinkdev</span>
+{%- endmacro %}

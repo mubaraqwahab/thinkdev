@@ -2,6 +2,8 @@
 tags: slides
 ---
 
+{% from "macros.njk" import icon, logo %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +22,8 @@ tags: slides
   <div class="reveal">
     <div class="slides">
       <section>
-        {# TODO: logo here #}
-        <p class="font-mono">thinkdev #{{ order + 1 }}</p>
+        <p class="font-mono">think like a developer #{{ order + 1 }}</p>
         <h1>{{ title }}</h1>
-        {# <p>Mubaraq Wahab</p> #}
       </section>
       {{ content | safe }}
     </div>
