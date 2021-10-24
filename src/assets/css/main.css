@@ -37,3 +37,9 @@
     @apply text-indigo-600;
   }
 }
+
+@layer utilities {
+  .small {
+    font-size: 80%;
+  }
+}

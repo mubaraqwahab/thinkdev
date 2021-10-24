@@ -46,6 +46,7 @@ At the end of the course you should:
 * I want you to be confident writing programs
 * breaking down complex concepts
 * improve dev skills
+* going back to the basics
  -->
 <!-- TODO: Remove this; it's just to test -->
 ```js {data-line-numbers}
@@ -76,13 +77,34 @@ module.exports = function (eleventyConfig) {
 
 ### Why?
 
-* It's a ubiquitous language: it's the "language" used in browsers, it's also used to build desktop and mobile apps, backends, command line programs, and developer tools!  {.fragment .fade-up}
+* It's a ubiquitous language; it's the "language" used in browsers, it's also used to build desktop and mobile apps, backends, command line programs, and developer tools!  {.fragment .fade-up}
 * It's among the most popular languages (Source?) {.fragment .fade-up}
 * It's the language I'm most accustomed to 🙃 {.fragment .fade-up}
 
 </section> <!-- 3.1 -->
 
 </section> <!-- 3 -->
+
+<section> <!-- 5 -->
+
+## What we'll cover
+
+* Values 🔢
+* Making decisions ❔
+* Using functions ➗
+* Testing 🧪
+* Developer tools and resources 🛠
+* Source control ⚙
+* Repetition 🔁
+* Modules 📦
+* Data structures 🏛
+* Exceptions ❌
+* JavaScript quirks 🤓
+{.fragment}
+
+(This may change) {.fragment .small}
+
+</section> <!-- 5 -->
 
 <section> <!-- 4 -->
 
@@ -94,10 +116,10 @@ module.exports = function (eleventyConfig) {
 
 </section> <!-- 4 -->
 
-<section> <!-- 5 -->
+<section> <!-- 6 -->
 
 ## Resources
 
 * The course website [thinkdev.netlify.app](https://thinkdev.netlify.app)
 
-</section> <!-- 5 -->
+</section> <!-- 6 -->
