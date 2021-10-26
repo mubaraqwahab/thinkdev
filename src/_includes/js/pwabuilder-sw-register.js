@@ -6,4 +6,5 @@
 import "https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"
 
 const el = document.createElement("pwa-update")
+el.swpath = window.location.origin + "/pwabuilder-sw.js"
 document.body.appendChild(el)
