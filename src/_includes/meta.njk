@@ -8,3 +8,11 @@
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
 <meta name="theme-color" content="#4f46e5" />
 <meta name="color-scheme" content="light" />
+{% set js %}
+  {% include "js/pwabuilder-sw-register.js" %}
+{% endset %}
+{% if site.environment == "production" %}
+  <script type="module">{{ js | babel | safe }}</script>
+{% else %}
+  <script type="module">{{ js | safe }}</script>
+{% endif %}

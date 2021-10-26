@@ -53,9 +53,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.*")
   eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
-  eleventyConfig.addPassthroughCopy("src/*.webmanifest")
+  eleventyConfig.addPassthroughCopy("src/pwabuilder-sw.js")
 
   eleventyConfig.setBrowserSyncConfig({
+    // See https://browsersync.io/docs/options#option-https
+    // I need HTTPS for PWA testing
+    https: true,
     // Watch and serve even when offline
     online: false,
     // 404 page routing (see https://www.11ty.dev/docs/quicktips/not-found/)
