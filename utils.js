@@ -112,6 +112,25 @@ module.exports = {
     prop(obj, path) {
       return pathkey(path)(obj)
     },
+
+    /**
+     * Convert a JS value into a JSON string.
+     * @param {any} value
+     * @param {number} [space]
+     * @return {string}
+     */
+    jsonStringify(value, space = 0) {
+      return JSON.stringify(value, undefined, space)
+    },
+
+    /**
+     * Convert a JSON string into an object.
+     * @param {string} text
+     * @return {any}
+     */
+    jsonParse(text) {
+      return JSON.parse(text)
+    },
   },
 }
 

@@ -31,6 +31,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("isostring", filters.isoString)
   eleventyConfig.addNunjucksFilter("arraysort", filters.arraySort)
   eleventyConfig.addNunjucksFilter("find", filters.find)
+  eleventyConfig.addNunjucksFilter("jsonstringify", filters.jsonStringify)
+  eleventyConfig.addNunjucksFilter("jsonparse", filters.jsonParse)
   // For debugging
   eleventyConfig.addNunjucksFilter("prop", filters.prop)
   eleventyConfig.addNunjucksFilter("inspect", (obj) =>

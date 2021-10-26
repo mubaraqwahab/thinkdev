@@ -2,6 +2,7 @@
 permalink: site.webmanifest
 ---
 
+{%- set manifest -%}
 {
   "name": "{{ site.title }}",
   "short_name": "{{ site.shortTitle }}",
@@ -26,3 +27,7 @@ permalink: site.webmanifest
     }
   ]
 }
+{%- endset -%}
+
+{# Minify the manifest #}
+{{- manifest | jsonparse | jsonstringify | safe -}}
