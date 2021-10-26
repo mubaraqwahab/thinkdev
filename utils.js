@@ -27,7 +27,13 @@ module.exports = {
   filters: {
     babel(js) {
       const transpiled = babel.transform(js, {
-        presets: ["@babel/preset-env"],
+        presets: [
+          [
+            "@babel/preset-env",
+            // Don't transform ES import/export
+            { modules: false },
+          ],
+        ],
       })
       return transpiled.code
     },
