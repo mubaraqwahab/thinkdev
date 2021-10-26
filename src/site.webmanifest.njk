@@ -29,5 +29,9 @@ permalink: site.webmanifest
 }
 {%- endset -%}
 
-{# Minify the manifest #}
-{{- manifest | jsonparse | jsonstringify | safe -}}
+{%- if site.environment === "production" -%}
+  {# Minify the manifest #}
+  {{- manifest | jsonparse | jsonstringify | safe -}}
+{%- else -%}
+  {{- manifest | safe -}}
+{%- endif -%}
