@@ -1,3 +1,5 @@
+{% from "macros.njk" import script %}
+
 {#
   Used https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
   and https://realfavicongenerator.net/ and https://www.pwabuilder.com/ to generate what's below.
@@ -8,11 +10,4 @@
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
 <meta name="theme-color" content="#4f46e5" />
 <meta name="color-scheme" content="light" />
-{% set js %}
-  {% include "js/pwabuilder-sw-register.js" %}
-{% endset %}
-{% if site.environment == "production" %}
-  <script type="module">{{ js | babel | safe }}</script>
-{% else %}
-  <script type="module">{{ js | safe }}</script>
-{% endif %}
+{{ script("register-sw.js") }}

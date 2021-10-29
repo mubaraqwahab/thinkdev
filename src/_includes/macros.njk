@@ -32,3 +32,14 @@
     />
   </svg>
 {%- endmacro %}
+
+{% macro script(path, attrs=None) -%}
+  {% set js %}
+    {% include "js/" ~ path %}
+  {% endset %}
+  {% if site.environment == "production" %}
+    <script>{{ js | babel | safe }}</script>
+  {% else %}
+    <script>{{ js | safe }}</script>
+  {% endif %}
+{%- endmacro %}

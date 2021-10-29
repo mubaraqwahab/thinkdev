@@ -3,7 +3,7 @@ layout: layouts/base
 tags: lesson
 ---
 
-{% from "macros.njk" import icon, emoji %}
+{% from "macros.njk" import icon, emoji, script %}
 
 <div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-[240px,1fr] lg:gap-10">
   <div class="mb-8 lg:mb-0">
@@ -70,11 +70,4 @@ tags: lesson
   </main>
 </div>
 
-{% set js %}
-  {% include "js/toggle-outline.js" %}
-{% endset %}
-{% if site.environment == "production" %}
-  <script>{{ js | babel | safe }}</script>
-{% else %}
-  <script>{{ js | safe }}</script>
-{% endif %}
+{{ script("toggle-outline.js") }}
