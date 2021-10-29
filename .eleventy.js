@@ -5,7 +5,8 @@ const util = require("util")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
-const { filters, transforms } = require("./utils.js")
+const htmlmin = require("html-minifier-terser")
+const filters = require("./filters.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -22,7 +23,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true)
 
   if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
+    eleventyConfig.addTransform("minifyhtml", function (content, outputPath) {
+      if (!outputPath.endsWith(".html")) return content
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+      })
+      return minified
+    })
   }
 
   for (const filter in filters) {
