@@ -1,5 +1,6 @@
 // @ts-check
 
+const util = require("util")
 const babel = require("@babel/core")
 const postcss = require("postcss").default
 const tailwindcss = require("tailwindcss")
@@ -98,11 +99,6 @@ module.exports = {
     return array.find((elem) => key(elem) === value)
   },
 
-  // This is for debugging
-  prop(obj, path) {
-    return pathkey(path)(obj)
-  },
-
   /**
    * Convert a JS value into a JSON string.
    * @param {any} value
@@ -142,6 +138,17 @@ module.exports = {
       result += `${result ? " " : ""}${attr}="${obj[prop]}"`
     }
     return result
+  },
+
+  // FOR DEBUGGING
+
+  /** Get a property value from an object given it's path. */
+  prop(obj, path) {
+    return pathkey(path)(obj)
+  },
+
+  inspect(obj, depth = 3) {
+    return util.inspect(obj, { depth })
   },
 }
 

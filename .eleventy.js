@@ -1,7 +1,6 @@
 // @ts-check
 
 const fs = require("fs")
-const util = require("util")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
@@ -39,10 +38,6 @@ module.exports = function (eleventyConfig) {
   for (const filter in filters) {
     eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
   }
-  // For debugging
-  eleventyConfig.addNunjucksFilter("inspect", (obj, depth = 3) =>
-    util.inspect(obj, { depth })
-  )
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
