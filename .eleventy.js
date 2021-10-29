@@ -25,18 +25,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
-  eleventyConfig.addNunjucksFilter("babel", filters.babel)
-  eleventyConfig.addNunjucksFilter("postcss", filters.postcss)
-  eleventyConfig.addNunjucksFilter("shortdate", filters.shortDate)
-  eleventyConfig.addNunjucksFilter("isostring", filters.isoString)
-  eleventyConfig.addNunjucksFilter("arraysort", filters.arraySort)
-  eleventyConfig.addNunjucksFilter("find", filters.find)
-  eleventyConfig.addNunjucksFilter("jsonstringify", filters.jsonStringify)
-  eleventyConfig.addNunjucksFilter("jsonparse", filters.jsonParse)
+  for (const filter in filters) {
+    eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
+  }
   // For debugging
-  eleventyConfig.addNunjucksFilter("prop", filters.prop)
-  eleventyConfig.addNunjucksFilter("inspect", (obj) =>
-    util.inspect(obj, { depth: 3 })
+  eleventyConfig.addNunjucksFilter("inspect", (obj, depth = 3) =>
+    util.inspect(obj, { depth })
   )
 
   eleventyConfig.addPassthroughCopy({

@@ -6,6 +6,7 @@ const postcss = require("postcss").default
 const tailwindcss = require("tailwindcss")
 const resolveTailwindConfig = require("tailwindcss/resolveConfig")
 const autoprefixer = require("autoprefixer")
+const kebabCase = require("kebab-case")
 
 module.exports = {
   transforms: {
@@ -115,6 +116,7 @@ module.exports = {
       return array.find((elem) => key(elem) === value)
     },
 
+    // This is for debugging
     prop(obj, path) {
       return pathkey(path)(obj)
     },
@@ -136,6 +138,28 @@ module.exports = {
      */
     jsonParse(text) {
       return JSON.parse(text)
+    },
+
+    /**
+     * Transform an object map into a space-delimited string
+     * of HTML attribute name-value pairs.
+     *
+     * This function will yield an invalid result if any of
+     * the attribute values contains a double quote (").
+     *
+     * @param {Record<string, string|number>} obj
+     *
+     * @example
+     * htmlAttrs({ module: "", href: "hey.html", ariaHidden: "true" })
+     * //=> module="" href="hey.html" aria-hidden="true"
+     */
+    htmlAttrs(obj) {
+      let result = ""
+      for (const prop in obj) {
+        const attr = kebabCase(prop)
+        result += `${result ? " " : ""}${attr}="${obj[prop]}"`
+      }
+      return result
     },
   },
 }
