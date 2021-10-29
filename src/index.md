@@ -2,13 +2,13 @@
 layout: layouts/home
 ---
 
-{% from "macros.njk" import icon, emoji %}
+{% from "macros.njk" import icon %}
 
 # {{ site.title }}
 
 Lorem ipsum... {.lead}
 
-## {{ emoji('📃') }} Outline
+## 📃 Outline
 
 {% for lesson in collections.lesson | arraysort("data.order") %}
   1. [{{ lesson.data.title }}]({{ lesson.url | url }}) 👋🏾
