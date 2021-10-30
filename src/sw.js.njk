@@ -1,10 +1,9 @@
 ---
 permalink: sw.js
-date: Last Modified
 ---
 
 {%- set js -%}
-  const CACHE_NAME = "{{ page.date | isostring }}";
+  const CACHE_NAME = "{% now %}";
   {% include "js/sw.js" %}
 {%- endset -%}
 

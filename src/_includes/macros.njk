@@ -1,15 +1,21 @@
-{% macro icon(id, class='', width=16, height=16, ariaHidden=true) -%}
+{#
+  You can pass html attrs (in camelCase) in the `attrs` object parameter
+  to the macros that support the parameter.
+#}
+
+{% macro icon(id, class='', width=16, height=16, ariaHidden=true, attrs={}) -%}
   <svg
     aria-hidden="{{ ariaHidden }}"
     class="bi bi-{{ id }} {{ class }}"
     width="{{ width }}"
     height="{{ height }}"
+    {{ attrs | htmlattrs | safe }}
   >
     <use xlink:href="{{ ('/assets/images/bootstrap-icons.svg#' ~ id) | url }}"/>
   </svg>
 {%- endmacro %}
 
-{% macro logo(class="", width=24, height=24, fill="none", ariaHidden=true) -%}
+{% macro logo(class="", width=24, height=24, fill="none", ariaHidden=true, attrs={}) -%}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="{{ class }}"
@@ -19,6 +25,7 @@
     height="{{ height }}"
     stroke="currentColor"
     aria-hidden="{{ ariaHidden }}"
+    {{ attrs | htmlattrs | safe }}
   >
     <path
       stroke-linecap="round"
@@ -29,13 +36,13 @@
   </svg>
 {%- endmacro %}
 
-{% macro script(path, attrs=None) -%}
+{% macro script(path, attrs={}) -%}
   {% set js %}
     {% include "js/" ~ path %}
   {% endset %}
   {% if site.environment == "production" %}
-    <script>{{ js | babel | safe }}</script>
+    <script {{ attrs | htmlattrs | safe }}>{{ js | babel | safe }}</script>
   {% else %}
-    <script>{{ js | safe }}</script>
+    <script {{ attrs | htmlattrs | safe }}>{{ js | safe }}</script>
   {% endif %}
 {%- endmacro %}

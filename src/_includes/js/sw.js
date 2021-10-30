@@ -1,3 +1,4 @@
+// CACHE_NAME will be automatically added to the top of this script
 const OFFLINE_PAGE = "/offline.html"
 
 self.addEventListener("install", (event) => {
