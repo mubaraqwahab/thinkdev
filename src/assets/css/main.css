@@ -14,11 +14,11 @@
 
 @layer components {
   .top-bar {
-    @apply h-2 bg-indigo-600;
+    @apply h-1 bg-indigo-600 sticky top-0;
   }
 
   /* See https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode */
-  @media (display-mode: standalone) {
+  @media (display-mode: minimal-ui), (display-mode: standalone) {
     /* Hide the top-bar when the site is in PWA standalone mode */
     .top-bar {
       @apply hidden;
