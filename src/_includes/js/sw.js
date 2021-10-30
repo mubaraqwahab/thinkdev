@@ -1,5 +1,3 @@
-// TODO: change cache name
-const CACHE_NAME = "v2"
 const OFFLINE_PAGE = "/offline.html"
 
 self.addEventListener("install", (event) => {

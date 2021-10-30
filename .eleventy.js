@@ -55,7 +55,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.*")
   eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
-  eleventyConfig.addPassthroughCopy("src/sw.js")
+  // eleventyConfig.addPassthroughCopy("src/sw.js")
 
   eleventyConfig.setBrowserSyncConfig({
     // See https://browsersync.io/docs/options#option-https

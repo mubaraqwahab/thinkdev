@@ -1,0 +1,15 @@
+---
+permalink: sw.js
+date: Last Modified
+---
+
+{%- set js -%}
+  const CACHE_NAME = "{{ page.date | isostring }}";
+  {% include "js/sw.js" %}
+{%- endset -%}
+
+{%- if site.environment == "production" -%}
+  {{- js | babel | safe -}}
+{%- else -%}
+  {{- js | safe -}}
+{%- endif -%}
