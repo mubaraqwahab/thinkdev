@@ -1,6 +1,7 @@
 // @ts-check
 
 const fs = require("fs")
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
@@ -12,6 +13,8 @@ const filters = require("./filters.js")
  * @returns {Partial<ReturnType<import('@11ty/eleventy/src/defaultConfig')>>}
  */
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyNavigationPlugin)
+
   // Allow markdown attributes (See https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins)
   const markdownLib = markdownIt({ html: true })
     .use(markdownItBracketedSpans)
@@ -61,7 +64,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     // See https://browsersync.io/docs/options#option-https
     // I need HTTPS for PWA testing
-    https: true,
+    // https: true,
     // Watch and serve even when offline
     online: false,
     // 404 page routing (see https://www.11ty.dev/docs/quicktips/not-found/)

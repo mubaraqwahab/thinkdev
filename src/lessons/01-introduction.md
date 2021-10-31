@@ -2,7 +2,9 @@
 title: Introduction
 ---
 
-Video (TODO)
+## Video
+
+TODO
 
 ## Software to install
 
@@ -10,6 +12,6 @@ Video (TODO)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * A terminal. You can use the default terminals on Mac and Linux; on Windows, use [Git Bash](https://git-scm.com/downloads)
 
-## Extras
+## Extras ✨
 
-### Why programming anyway?
+TODO

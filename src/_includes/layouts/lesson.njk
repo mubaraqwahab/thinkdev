@@ -27,6 +27,9 @@ tags: lesson
           </li>
         {% endfor %}
       </ol>
+      <div class="prose">
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+      </div>
     </nav>
   </div>
 

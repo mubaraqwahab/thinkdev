@@ -6,7 +6,7 @@ layout: layouts/home
 
 # {{ site.title }}
 
-Lorem ipsum... {.lead}
+<!-- Lorem ipsum... {.lead} -->
 
 ## 📃 Outline
 

@@ -1,5 +1,4 @@
 ---
-layout: layouts/slides
 title: Introduction
 ---
 
@@ -50,6 +49,17 @@ At the end of the course you should:
  -->
 <!-- TODO: Remove this; it's just to test -->
 ```js {data-line-numbers}
+module.exports = function (eleventyConfig) {
+  // Allow markdown attributes
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItBracketedSpans)
+    .use(markdownItAttrs)
+  eleventyConfig.setLibrary("md", markdownLib)
+
+  eleventyConfig.addNunjucksFilter("inspect", (obj) =>
+    util.inspect(obj, { depth: 3 })
+  )
+}
 module.exports = function (eleventyConfig) {
   // Allow markdown attributes
   const markdownLib = markdownIt({ html: true })

@@ -2,10 +2,13 @@ module.exports = {
   layout: "layouts/lesson",
   date: "Last Modified",
   eleventyComputed: {
-    order: (data) => {
+    eleventyNavigation: (data) => {
       const base = "/lessons/"
-      // Extract "01" from "/lessons/01-introduction/index" and zero-index it
-      return data.page.filePathStem.slice(base.length, base.length + 2) - 1
+      return {
+        key: data.title,
+        // Extract "01" from "/lessons/01-introduction/index" and zero-index it
+        order: data.page.filePathStem.slice(base.length, base.length + 2) - 1,
+      }
     },
   },
 }

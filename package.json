@@ -5,10 +5,10 @@
   "scripts": {
     "start": "npm-run-all clear --parallel watch-html watch-css",
     "watch-html": "eleventy --serve",
-    "watch-css": "tailwindcss -i src/assets/css/main.css -o _site/assets/css/main.css --watch",
+    "watch-css": "tailwindcss -i src/main.css -o _site/main.css --watch",
     "build": "npm-run-all clear build-html build-css build-svg",
     "build-html": "eleventy",
-    "build-css": "tailwindcss -i src/assets/css/main.css -o _site/assets/css/main.css --minify",
+    "build-css": "tailwindcss -i src/main.css -o _site/main.css --minify",
     "build-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
     "clear": "shx rm -rf _site/ src/dist/",
     "prepare": "husky install",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/mubaraqwahab/bootstrap-11ty-starter#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.3.2",
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@tailwindcss/typography": "^0.4.1",
