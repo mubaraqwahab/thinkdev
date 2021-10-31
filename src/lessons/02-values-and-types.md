@@ -1,6 +1,7 @@
 ---
 title: Values and types
 excerpt: ...
+emoji: 🔢
 ---
 
 {% from "macros.njk" import iconed %}

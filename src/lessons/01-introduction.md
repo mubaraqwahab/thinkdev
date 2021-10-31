@@ -1,6 +1,7 @@
 ---
 title: Introduction
 excerpt: Excerpt...
+emoji: 👋🏾
 ---
 
 {% from "macros.njk" import iconed %}

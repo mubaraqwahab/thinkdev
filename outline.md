@@ -25,3 +25,25 @@
   - set up environment and test js
 - extras
   - why a programming language?
+
+## Values and types 🔢
+
+## Making decisions ❔
+
+## Using functions ➗
+
+## Testing 🧪
+
+## Developer tools and resources 🛠
+
+## Source control ⚙
+
+## Repetition 🔁
+
+## Modules 📦
+
+## Data structures 🏛
+
+## Exceptions ❌
+
+## JavaScript quirks 🤓

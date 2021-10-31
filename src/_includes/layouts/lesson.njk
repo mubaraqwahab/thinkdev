@@ -62,14 +62,15 @@ tags: lesson
       </p>
 
       <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white border-t flex justify-between py-4 mt-12">
-        {% set prevLesson = collections.lesson | find("data.order", order - 1) %}
+        {% set lessons = collections.all | eleventyNavigation %}
+        {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
           <a href="{{ prevLesson.url | url }}" class="inline-flex items-center mr-auto">
             {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
-        {% set nextLesson = collections.lesson | find("data.order", order + 1) %}
+        {% set nextLesson = lessons | find("order", eleventyNavigation.order + 1) %}
         {% if nextLesson %}
           <a href="{{ nextLesson.url | url }}" class="inline-flex items-center ml-auto">
             Next
