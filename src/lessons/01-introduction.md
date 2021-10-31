@@ -3,11 +3,13 @@ title: Introduction
 excerpt: Excerpt...
 ---
 
-## Video ⏯
+{% from "macros.njk" import iconed %}
+
+## {{ iconed("Video") }}
 
 TODO
 
-## Exercise 💻
+## {{ iconed("Exercise") }}
 
 1. Install these software on your computer; they'll provide us the environment to write and run JavaScript programs.
     * [Node.js v14+](https://nodejs.org/en/)
@@ -16,7 +18,7 @@ TODO
 2. Create a new JavaScript file in VS Code, type code in it to display your name, and run the file.
 
 
-## Extras ✨
+## {{ iconed("Extras") }}
 
 ### Why programming anyway? 🤔
 
