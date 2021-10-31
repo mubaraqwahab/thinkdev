@@ -217,7 +217,7 @@ section.has-light-background h6 {
   font-family: var(--r-code-font);
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-  @apply rounded-lg  leading-normal;
+  @apply rounded-lg overflow-hidden leading-normal;
 }
 
 .reveal code {

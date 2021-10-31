@@ -33,7 +33,7 @@
     @apply rotate-90;
   }
 
-  .prose a[aria-current="page"] {
+  nav a[aria-current="page"] {
     @apply text-indigo-600;
   }
 }

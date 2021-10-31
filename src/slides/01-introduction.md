@@ -2,17 +2,17 @@
 title: Introduction
 ---
 
-<section> <!-- 1 -->
+<section>
 
-<section> <!-- 1.0 -->
+<section>
 
 ## What is this course?
 
 Consider it an introductory course to _programming concepts_. {.fragment .fade-up}
 
-</section> <!-- 1.0 -->
+</section>
 
-<section> <!-- 1.1 -->
+<section>
 
 ### What to expect
 
@@ -24,20 +24,21 @@ At the end of the course you should:
 * know some basic data structures and algorithms {.fragment .fade-up}
 * and more! {.fragment .fade-up}
 
-</section> <!-- 1.1 -->
+</section>
 
-<section> <!-- 1.2 -->
+<section>
 
 ### What not to expect
 
 * You won't be an "expert" programmer (I'm not myself!) {.fragment .fade-in}
 * We're not going to build an app or website {.fragment .fade-in}
 
-</section> <!-- 1.2 -->
+</section>
 
-</section> <!-- 1 -->
+</section>
 
-<section> <!-- 2 -->
+
+<section>
 
 ## Motivation
 
@@ -60,30 +61,20 @@ module.exports = function (eleventyConfig) {
     util.inspect(obj, { depth: 3 })
   )
 }
-module.exports = function (eleventyConfig) {
-  // Allow markdown attributes
-  const markdownLib = markdownIt({ html: true })
-    .use(markdownItBracketedSpans)
-    .use(markdownItAttrs)
-  eleventyConfig.setLibrary("md", markdownLib)
-
-  eleventyConfig.addNunjucksFilter("inspect", (obj) =>
-    util.inspect(obj, { depth: 3 })
-  )
-}
 ```
 
-</section> <!-- 2 -->
+</section>
 
-<section> <!-- 3 -->
 
-<section data-background-image="{{ '/assets/images/js.svg' | url }}" data-background-size="200px" data-background-repeat="space" data-background-opacity="0.15"> <!-- 3.0 -->
+<section>
+
+<section data-background-image="{{ '/assets/images/js.svg' | url }}" data-background-size="200px" data-background-repeat="space" data-background-opacity="0.15">
 
 ## We'll use JavaScript
 
-</section> <!-- 3.0 -->
+</section>
 
-<section data-transition="zoom"> <!-- 3.1 -->
+<section data-transition="zoom">
 
 ### Why?
 
@@ -91,11 +82,19 @@ module.exports = function (eleventyConfig) {
 * It's among the most popular languages (Source?) {.fragment .fade-up}
 * It's the language I'm most accustomed to 🙃 {.fragment .fade-up}
 
-</section> <!-- 3.1 -->
+</section>
 
-</section> <!-- 3 -->
+</section>
 
-<section> <!-- 5 -->
+
+<section data-auto-animate>
+
+## What we'll cover
+
+</section>
+
+
+<section data-auto-animate>
 
 ## What we'll cover
 
@@ -110,13 +109,13 @@ module.exports = function (eleventyConfig) {
 * Data structures 🏛
 * Exceptions ❌
 * JavaScript quirks 🤓
-{.fragment}
 
 (This may change) {.fragment .small}
 
-</section> <!-- 5 -->
+</section>
 
-<section> <!-- 4 -->
+
+<section>
 
 ## Software we'll use
 
@@ -124,12 +123,13 @@ module.exports = function (eleventyConfig) {
 * [Visual Studio Code](https://code.visualstudio.com/){rel="noopener"} {.fragment .fade-up}
 * A terminal {.fragment .fade-up}
 
-</section> <!-- 4 -->
+</section>
 
-<section> <!-- 6 -->
+
+<section>
 
 ## Resources
 
 * The course website [thinkdev.netlify.app](https://thinkdev.netlify.app)
 
-</section> <!-- 6 -->
+</section>
