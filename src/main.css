@@ -13,10 +13,6 @@
 }
 
 @layer components {
-  .top-bar {
-    @apply h-1 bg-indigo-600 sticky top-0 z-20;
-  }
-
   .bi {
     @apply inline-block fill-current;
   }
@@ -25,8 +21,18 @@
     @apply rotate-90;
   }
 
-  nav a[aria-current="page"] {
+  nav.prose a[aria-current="page"] {
     @apply text-indigo-600;
+  }
+
+  @variants dark {
+    nav.prose a {
+      @apply text-gray-400;
+    }
+
+    nav.prose a[aria-current="page"] {
+      @apply text-white;
+    }
   }
 }
 
