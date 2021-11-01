@@ -10,4 +10,4 @@
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
 <meta name="theme-color" content="#4f46e5" />
 <meta name="color-scheme" content="light" />
-{{ script("register-sw.js") }}
+{{ script("register-sw.js") if site.environment == "production" }}
