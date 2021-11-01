@@ -5,7 +5,7 @@ tags: lesson
 
 {% from "macros.njk" import icon, script %}
 
-<div class="container pt-4 pb-8 mx-auto lg:pt-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
+<div class="container pt-4 mx-auto lg:pt-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
   <div class="mb-8 lg:mb-0">
     <button
       id="outlineToggle"
@@ -19,17 +19,18 @@ tags: lesson
     </button>
     <nav
       class="
-        hidden prose max-w-none pt-4 pb-6 border-b lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:py-0 lg:pr-8 lg:pl-1
-        lg:h-[calc(100vh-118px)] lg:sticky lg:top-[80px] lg:left-0 lg:overflow-y-auto
-        dark:prose-light dark:border-gray-700
+        side-nav
+        hidden pt-4 pb-6 border-b lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:py-0 lg:pr-8 lg:pl-1
+        lg:h-[calc(100vh-118px)] lg:sticky lg:top-[86px] lg:left-0 lg:overflow-y-auto
+        dark:border-gray-700
       "
       id="outlineNav"
       aria-label="Outline"
     >
-      <ol>
+      <ol class="">
         {% for lesson in collections.all | eleventyNavigation %}
-          <li class="!pl-0 before:hidden">
-            <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="leading-snug">
+          <li class="before:hidden">
+            <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
               {{ lesson.title }}
             </a>
           </li>
@@ -38,8 +39,8 @@ tags: lesson
     </nav>
   </div>
 
-  <main id="main" class="prose prose-indigo max-w-none dark:prose-light">
-    <div class=" mx-auto relative lg:mx-0">
+  <main id="main" class="">
+    <div class="mx-auto relative lg:mx-0">
       <article class="mb-8">
         <h1>{{ title }}</h1>
         <p class="lead">{{ excerpt }}</p>
@@ -62,7 +63,7 @@ tags: lesson
         Last updated <time datetime="{{ page.date | isostring }}">{{ page.date | shortdate }}</time>
       </p>
 
-      <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white dark:bg-true-gray-900 dark:border-gray-700 border-t flex justify-between py-4 mt-12">
+      <nav aria-label="Previous/next lesson" class="sticky bottom-0 left-0 z-10 bg-white dark:bg-gray-900 dark:border-gray-700 border-t flex justify-between py-4 mt-12">
         {% set lessons = collections.all | eleventyNavigation %}
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}

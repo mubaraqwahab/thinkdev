@@ -21,18 +21,25 @@
     @apply rotate-90;
   }
 
-  nav.prose a[aria-current="page"] {
-    @apply text-indigo-600;
+  .prose .side-nav ol {
+    @apply my-0;
   }
 
-  @variants dark {
-    nav.prose a {
-      @apply text-gray-400;
-    }
+  .prose .side-nav li {
+    @apply pl-0;
+  }
 
-    nav.prose a[aria-current="page"] {
-      @apply text-white;
-    }
+  .prose .side-nav a {
+    @apply leading-snug inline-flex items-center;
+  }
+
+  .prose .side-nav a[aria-current="page"] {
+    @apply relative overflow-visible;
+  }
+
+  .prose .side-nav a[aria-current="page"]::after {
+    content: "";
+    @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
   }
 }
 
