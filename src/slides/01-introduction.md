@@ -42,12 +42,9 @@ At the end of the course you should:
 
 ## Motivation
 
-<!--
-* I want you to be confident writing programs
-* breaking down complex concepts
-* improve dev skills
-* going back to the basics
- -->
+* I want you to be confident writing programs and breaking down complex problems. {.fragment .fade-up}
+* It's an opportunity for me and you to relearn the basics together. {.fragment .fade-up}
+* I love to teach 😅. {.fragment .fade-up}
 
 </section>
 
@@ -65,7 +62,8 @@ At the end of the course you should:
 ### Why?
 
 * It's a ubiquitous language; it's the "language" used in browsers, it's also used to build desktop and mobile apps, backends, command line programs, and developer tools!  {.fragment .fade-up}
-* It's among the most popular languages (Source?) {.fragment .fade-up}
+* It is, for the 9th year, the most popular language ([Source](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages){rel=noopener}) {.fragment .fade-up}
+* It's an interpreted, dynamic language (for now, this means it's easy to get started with it) {.fragment .fade-up}
 * It's the language I'm most accustomed to 🙃 {.fragment .fade-up}
 
 </section>
@@ -82,21 +80,29 @@ At the end of the course you should:
 
 <section data-auto-animate>
 
+<section data-auto-animate>
+
 ## What we'll cover
 
 * Values 🔢
 * Making decisions ❔
 * Using functions ➗
 * Testing 🧪
-* Developer tools and resources 🛠
+* Developer tools 🛠
 * Source control ⚙
+
+<!--  -->
+
 * Repetition 🔁
+* Files and input/output
 * Modules 📦
 * Data structures 🏛
 * Exceptions ❌
 * JavaScript quirks 🤓
 
-(This may change) {.fragment .small}
+(This may change) {.small}
+
+</section>
 
 </section>
 
@@ -114,8 +120,28 @@ At the end of the course you should:
 
 <section>
 
-## Resources
+## Course format
 
-* The course website [thinkdev.netlify.app](https://thinkdev.netlify.app)
+* Zoom meetings on Saturdays and Sundays from 12 to 12:45pm {.fragment .fade-up}
+* First 30 minutes for teaching, remaining for questions {.fragment .fade-up}
+* Check course website [thinkdev.netlify.app](https://thinkdev.netlify.app) for slides, recordings, exercises, etc. {.fragment .fade-up}
+
+</section>
+
+
+<section>
+
+## Demo: editor tour
+
+</section>
+
+
+<section>
+
+## Exercise
+
+1. Install the necessary software.
+2. Write a JavaScript program to show your name.
+3. Make sure it works and all is clear 🙂.
 
 </section>
