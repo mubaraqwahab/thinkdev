@@ -1,6 +1,6 @@
 ---
 title: Values and types
-excerpt: ...
+excerpt: TODO
 emoji: 🔢
 ---
 
