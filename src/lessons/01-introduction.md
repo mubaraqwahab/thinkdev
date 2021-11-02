@@ -21,7 +21,7 @@ emoji: 👋🏾
 
 ## {{ iconed("Extras") }}
 
-You'll find an "extras" section in the lesson pages. This is where I'll put some additional material that I left out in the slides. I _strongly_ encourage you to read them.
+You'll find an "extras" section in the lesson pages. This is where I'll put some additional material that I left out of the slides. I _strongly_ encourage you to read them.
 
 ### Node.js
 

@@ -1,7 +1,5 @@
 // @ts-check
 
-const colors = require("tailwindcss/colors")
-
 /**
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
  */
@@ -17,9 +15,6 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        "true-gray": colors.trueGray,
-      },
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       typography: (theme) => ({
         light: {
