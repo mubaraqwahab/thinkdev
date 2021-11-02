@@ -9,10 +9,6 @@ emoji: 👋🏾
 
 {% from "macros.njk" import iconed %}
 
-## {{ iconed("Video") }}
-
-TODO
-
 ## {{ iconed("Exercise") }}
 
 1. Install these software on your computer; they'll provide us the environment to write and run JavaScript programs.
