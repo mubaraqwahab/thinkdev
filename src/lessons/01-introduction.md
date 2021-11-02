@@ -19,7 +19,8 @@ TODO
    * [Node.js v14+](https://nodejs.org/en/)
    * [Visual Studio Code (<abbr>VS Code</abbr>)](https://code.visualstudio.com/)
    * A terminal. You can use the default terminals on Mac and Linux; on Windows, use [Git Bash](https://git-scm.com/downloads)
-2. Create a new JavaScript file in VS Code, type code in it to display your name, and run the file.
+1. (Optional) Customise VS Code by choosing a theme, etc.
+1. Create a new JavaScript file, type code in it to display your name, and run the file.
 
 
 ## {{ iconed("Extras") }}

@@ -84,17 +84,17 @@ At the end of the course you should:
 
 ## What we'll cover
 
-* Values 🔢
+* Values and types 🔢
 * Making decisions ❔
 * Using functions ➗
 * Testing 🧪
 * Developer tools 🛠
-* Source control ⚙
+* Source control 💾
 
 <!--  -->
 
 * Repetition 🔁
-* Files and input/output
+* Files and input/output 📁
 * Modules 📦
 * Data structures 🏛
 * Exceptions ❌
@@ -141,7 +141,8 @@ At the end of the course you should:
 ## Exercise
 
 1. Install the necessary software.
-2. Write a JavaScript program to show your name.
-3. Make sure it works and all is clear 🙂.
+1. Customise VS Code (optional).
+1. Write a JavaScript program to show your name.
+1. Make sure it works and all is clear 🙂.
 
 </section>
