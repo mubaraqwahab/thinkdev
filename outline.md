@@ -20,6 +20,13 @@
 - course format (schedule, exercises, etc.)
 - resources (course website, think python)
 - editor tour (workspaces, terminal, settings, theme)
+  - opening a workspace
+  - theme and icon theme
+  - extensions
+  - terminal
+  - settings
+  - command palette
+  - my editor in later meetings
 - node quick test
 - exercise
   - set up environment and test js
