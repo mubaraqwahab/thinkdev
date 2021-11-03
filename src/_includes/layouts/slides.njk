@@ -42,9 +42,12 @@ tags: slides
       hashOneBasedIndex: false,
       plugins: [RevealHighlight],
       navigationMode: "linear",
-      slideNumber: "c/t",
-      showSlideNumber: "print",
     });
+
+    if (window.location.search.includes('print-pdf')) {
+      // Give some time for things to load
+      setTimeout(window.print, 1500)
+    }
   </script>
 </body>
 </html>
