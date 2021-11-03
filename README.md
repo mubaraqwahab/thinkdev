@@ -4,6 +4,12 @@
 
 _Think Like a Developer_ course website.
 
+## Built with
+
+- [Eleventy](https://www.11ty.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [reveal.js](https://revealjs.com/) for the slides
+
 ## npm scripts
 
 Run each script with `npm run script-name`.
