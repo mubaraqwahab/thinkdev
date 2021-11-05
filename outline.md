@@ -35,6 +35,8 @@
 
 ## Values and types 🔢
 
+Comments somewhere
+
 * Primitives
   * case study of an app/website
   * numbers, strings, and booleans
@@ -44,6 +46,7 @@
   * The problem
   * The solution: variables
   * How to name variables
+  * Statements
   * Varying variables
 * Empty values: undefined and null
 * Operations on strings:
