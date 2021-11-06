@@ -11,7 +11,7 @@ self.addEventListener("install", (event) => {
         "/reveal/plugin/highlight/github-dark-dimmed.css",
         "/reveal/dist/reveal.js",
         "/reveal/plugin/highlight/highlight.js",
-        // TODO: automate this!
+        // TODO: automate this! (or get rid of it)
         "/lessons/01-introduction/",
         "/slides/01-introduction/",
         "/lessons/02-values-and-types/",
