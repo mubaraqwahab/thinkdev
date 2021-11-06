@@ -12,10 +12,10 @@ self.addEventListener("install", (event) => {
         "/reveal/dist/reveal.js",
         "/reveal/plugin/highlight/highlight.js",
         // TODO: automate this! (or get rid of it)
-        "/lessons/01-introduction/",
-        "/slides/01-introduction/",
-        "/lessons/02-values-and-types/",
-        "/slides/02-values-and-types/",
+        // "/lessons/01-introduction/",
+        // "/slides/01-introduction/",
+        // "/lessons/02-values-and-types/",
+        // "/slides/02-values-and-types/",
       ])
     )
   )
