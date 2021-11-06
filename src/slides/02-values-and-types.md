@@ -625,4 +625,6 @@ const numAsString = "" + num
 
 ## Exercise
 
+Check the [website]({{ '/lessons/02-values-and-types' | url }})
+
 </section>
