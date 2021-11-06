@@ -35,6 +35,29 @@
 
 ## Values and types 🔢
 
+Comments somewhere
+
+* Primitives
+  * case study of an app/website
+  * numbers, strings, and booleans
+* Operations on numbers (add, sub, mul, div, mod)
+* Expressions: things that produce values
+* Repeated expressions
+  * The problem
+  * The solution: variables
+  * How to name variables
+  * Statements
+  * Varying variables
+* Empty values: undefined and null
+* Operations on strings:
+  * concat, index, slice, includes, length
+  * string to num, num to string
+  * typeof operator
+* Self-contained objects (work on the wording)
+* Arrays (collections)
+* Exercise??
+* Extras: typeof quirks, Symbol, BigInt, var?
+
 ## Making decisions ❔
 
 ## Using functions ➗
