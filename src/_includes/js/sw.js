@@ -3,18 +3,21 @@ const OFFLINE_PAGE = "/offline.html"
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then((cache) =>
-        cache.addAll([
-          OFFLINE_PAGE,
-          "/main.css",
-          "/reveal/dist/reveal.css",
-          "/reveal/plugin/highlight/github-dark-dimmed.css",
-          "/reveal/dist/reveal.js",
-          "/reveal/plugin/highlight/highlight.js",
-        ])
-      )
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll([
+        OFFLINE_PAGE,
+        "/main.css",
+        "/reveal/dist/reveal.css",
+        "/reveal/plugin/highlight/github-dark-dimmed.css",
+        "/reveal/dist/reveal.js",
+        "/reveal/plugin/highlight/highlight.js",
+        // TODO: automate this!
+        "/lessons/01-introduction/",
+        "/slides/01-introduction/",
+        "/lessons/02-values-and-types/",
+        "/slides/02-values-and-types/",
+      ])
+    )
   )
   self.skipWaiting()
 })

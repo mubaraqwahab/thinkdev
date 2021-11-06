@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9ddd2dd2-868a-4d60-bd4b-ea7bf90df7e8/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
 
-_Think Like a Developer_ course website.
+Source code for the [_Think Like a Developer_ course website](https://thinkdev.netlify.app/).
 
 ## Built with
 
