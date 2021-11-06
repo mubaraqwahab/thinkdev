@@ -6,7 +6,8 @@ title: Values and Types
 
 <section data-auto-animate>
 
-![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel"}
+<!-- ![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel" width="700"} -->
+![]({{ '/assets/images/Untitled.png' | url }}){aria-labelledby="msStoreScreenshotLabel" width="700"}
 
 Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
@@ -182,8 +183,6 @@ typeof typeof true
 <section>
 
 ## What if we wanted to store&nbsp;an&nbsp;expression?
-
-Solution: use a variable! {.fragment}
 
 </section>
 

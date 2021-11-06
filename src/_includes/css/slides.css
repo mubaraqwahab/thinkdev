@@ -234,6 +234,10 @@ section.has-light-background h6 {
   word-wrap: normal;
 }
 
+html.print-pdf .reveal pre code {
+  font-family: var(--r-code-font) !important;
+}
+
 .reveal .code-wrapper {
   white-space: normal;
 }
