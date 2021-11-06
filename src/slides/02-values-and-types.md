@@ -6,7 +6,9 @@ title: Values and Types
 
 <section data-auto-animate>
 
-![Microsoft Store screenshot]({{ '/assets/images/ms-store-screenshot.jpg' | url }})
+![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel"}
+
+Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 </section>
 
@@ -46,6 +48,7 @@ title: Values and Types
 * We represent text with _strings_ {.fragment .fade-up}
   * `"Most popular"`
   * `'Installed'`
+  * `'She\'s here'`
 * We use _booleans_ to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
@@ -57,7 +60,7 @@ title: Values and Types
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
 * _Integer_ types (or _int_) for 1, 20, -7, &hellip; {.fragment .fade-up}
-* _Floating point_ types (or _float_) for 3.2, -0.789, 1/9, &hellip; {.fragment .fade-up}
+* _Floating point_ types (or _float_) for 3.2, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
@@ -78,6 +81,7 @@ Use `typeof` keyword to get the type of a value:
 ```js
 typeof "Hi" // "string"
 typeof 12.34 // "number"
+typeof 3_000_000 // "number"
 typeof false // "boolean"
 ```
 
@@ -120,7 +124,7 @@ comment
 
 ## Operations on numbers
 
-* Values aren't so useful alone {.fragment .fade-up}
+* Values aren't so useful alone
 * We can do the usual arithmetics: (`+`, `-`, `/`, `*`) {.fragment .fade-up}
 * Modulus operator `%` (more on this later) {.fragment .fade-up}
 
@@ -238,6 +242,8 @@ const costPer10Items = costPerItem * 10
 * Following characters may include numbers {.fragment .fade-up}
   * Valid: `y2`, `first_name`, `_LAST_NAME_`, `$10`
   * Invalid: `2a`
+* Names are case-sensitive {.fragment .fade-up}
+  * `message`, `Message`, `MESSAGE` are different variables.
 
 </section>
 
@@ -253,7 +259,7 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 ### Variables that vary
 
-* `const` variables are _constant_; they always refer to the same value. {.fragment .fade-up}
+* `const` variables are _constant_; they always refer to the same value.
 * That's fine in many cases, but sometimes we need to change that reference. {.fragment .fade-up}
 
 </section>
@@ -264,7 +270,15 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 Consider an e-commerce app
 
-<!-- TODO: image -->
+![]({{ '/assets/images/cart-quantity.jpg' | url }}){aria-labelledby="tarbiyahCartScreenshot"}
+
+Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/) {class="text-[60%]" id="tarbiyahCartScreenshot"}
+
+</section>
+
+<section data-auto-animate>
+
+### Variables that vary
 
 <pre data-id="let"><code data-line-numbers data-trim class="language-js">
 const quantity = 0
@@ -292,5 +306,323 @@ console.log(quantity) // 1
 </code></pre>
 
 </section>
+
+<section data-auto-animate>
+
+### Variables that vary
+
+Addition assignment operator
+
+<pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
+let quantity = 0
+
+quantity += 1
+
+console.log(quantity) // 1
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Variables that vary
+
+Increment operator
+
+<pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
+let quantity = 0
+
+quantity++
+
+console.log(quantity) // 1
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Variables that vary
+
+You don't have to initialize a `let` variable with a value immediately.
+
+<pre data-id="let"><code data-line-numbers="1,3,4" data-trim class="language-js">
+let quantity; // value is undefined
+
+// initialize after declaring
+quantity = 0
+
+quantity++
+
+console.log(quantity) // 1
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+## Empty values
+
+* `undefined` and `null`.
+* No hard rules on when to use which.
+* Some use `null` for intentionally empty variables.
+
+</section>
+
+
+<section>
+
+## Statements
+
+Not everything is an expression; some things don't produce value. E.g., variable declaration
+
+```js {data-line-numbers="1,2|4-7"}
+// This is wrong! Declaration is not an expression
+let a = const b = 10
+
+// But this is valid; assignment is an expression
+let a = 10
+const b = a = 15
+// a and b are now 15
+```
+
+</section>
+
+
+<section>
+
+<section>
+
+## Operations on strings
+
+</section>
+
+<section data-auto-animate>
+
+### Joining strings {data-id="strOpHeading"}
+
+Also known as _concatenation_
+
+<pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+const fullName = firstName + lastName
+// "MubaraqWahab"
+</code></pre>
+
+</section>
+
+<section  data-auto-animate>
+
+### Joining strings {data-id="strOpHeading"}
+
+Also known as _concatenation_
+
+<pre data-id="concatstr"><code data-line-numbers="4-6" data-trim class="language-js">
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+// Better
+const fullName = firstName + " " + lastName
+// "Mubaraq Wahab"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Interpolation {data-id="strOpHeading"}
+
+You can use special strings called _template literals_ to interpolate.
+
+<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+const fullName = `${firstName} ${lastName}`
+// "Mubaraq Wahab"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Get a character from a string {data-id="strOpHeading"}
+
+Use square brackets to specify an _index_ (starts from zero)
+
+<pre data-id="concatstr"><code data-line-numbers="1,2,5-7" data-trim class="language-js">
+//                 0123456
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+const initial = firstName[0] // "M"
+const second = firstName[1] // "u"
+// and so on...
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Get part of a string {data-id="strOpHeading"}
+
+Use the `slice` method
+
+<pre data-id="concatstr"><code data-line-numbers="5-8" data-trim class="language-js">
+//                 0123456
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+const firstThreeLetters = firstName.slice(0, 3)
+// "Mub"
+const thirdToEnd = firstName.slice(2)
+// "baraq"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Is this part of a string? {data-id="strOpHeading"}
+
+Use the `includes` method to check if a string includes another.
+
+<pre data-id="concatstr"><code data-line-numbers="4-7" data-trim class="language-js">
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+firstName.includes('ba')
+// true
+firstName.includes('ab')
+// false
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### How long is a string? {data-id="strOpHeading"}
+
+Use the `length` property to get the length of a string.
+
+<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+const firstName = "Mubaraq"
+const lastName = "Wahab"
+
+firstName.length
+// 7
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### String to number {data-id="strOpHeading"}
+
+You need to convert a string to a number sometimes, such as when working with user input.
+
+<pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
+// Assume this is from user input
+const input = "20"
+
+// Careful here! Result is "203"
+input + 3
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### String to number {data-id="strOpHeading"}
+
+You need to convert a string to a number sometimes, such as when working with user input.
+
+<pre data-id="concatstr"><code data-line-numbers="4-8" data-trim class="language-js">
+// Assume this is from user input
+const input = "20"
+
+// Convert to number first!
+const inputAsNumber = Number(input)
+
+// Result is 23
+inputAsNumber + 3
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### String to number {data-id="strOpHeading"}
+
+You need to convert a string to a number sometimes, such as when working with user input.
+
+<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+// Assume this is from user input
+const input = "20"
+
+// An idiomatic way
+const inputAsNumber = +input
+
+// Result is 23
+inputAsNumber + 3
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Number to string {data-id="strOpHeading"}
+
+The other way round works too!
+
+<pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
+const num = 20
+
+// Result is "20"
+const numAsString = String(num)
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Number to string {data-id="strOpHeading"}
+
+The other way round works too!
+
+<pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
+const num = 20
+
+// Result is "20"
+const numAsString = num.toString()
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Number to string {data-id="strOpHeading"}
+
+The other way round works too!
+
+<pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
+const num = 20
+
+// Result is "20"
+const numAsString = "" + num
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+## Exercise
 
 </section>
