@@ -33,7 +33,7 @@ module.exports = {
    */
   postcss(css, preset = "default") {
     const slidesTailwindConfig = resolveTailwindConfig({
-      purge: ["src/_includes/layouts/slides.njk", "src/lessons/**/slides.md"],
+      purge: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
       mode: "jit",
       darkMode: false,
       theme: {

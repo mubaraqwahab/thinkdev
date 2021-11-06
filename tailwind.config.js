@@ -9,7 +9,7 @@ module.exports = {
     "src/**/*.md",
     "src/**/*.js",
     "!src/_includes/layouts/slides.njk",
-    "!src/lessons/**/slides.md",
+    "!src/slides/**/*.md",
   ],
   mode: "jit",
   darkMode: "media", // or 'media' or 'class'
