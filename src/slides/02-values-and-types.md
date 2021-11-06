@@ -181,7 +181,7 @@ typeof typeof true
 
 <section>
 
-## What if we wanted to store an expression?
+## What if we wanted to store&nbsp;an&nbsp;expression?
 
 Solution: use a variable! {.fragment}
 
