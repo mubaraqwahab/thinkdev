@@ -14,7 +14,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 <section data-auto-animate>
 
-## Text {data-id="storeLabelHeading"}
+Text {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg' | url }})
 
@@ -22,7 +22,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 <section data-auto-animate>
 
-## Numbers  {data-id="storeLabelHeading"}
+Numbers  {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg' | url }})
 
@@ -30,7 +30,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 <section data-auto-animate>
 
-## Alternatives  {data-id="storeLabelHeading"}
+Alternatives  {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg' | url }})
 
