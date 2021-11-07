@@ -2,8 +2,6 @@
 
 ## Heap
 
-- What makes a valid variable?
-- What's a comment?
 - A few words on remote source control, markdown, code quality, and CI/CD
 
 ## Introduction
@@ -53,10 +51,14 @@ Comments somewhere
   * concat, index, slice, includes, length
   * string to num, num to string
   * typeof operator
-* Self-contained objects (work on the wording)
-* Arrays (collections)
 * Exercise??
-* Extras: typeof quirks, Symbol, BigInt, var?
+* Extras: var?
+
+## Collections
+
+* Self-contained objects (work on the wording)
+* Arrays
+* Extras: typeof quirks, Symbol, BigInt 
 
 ## Making decisions ❔
 
