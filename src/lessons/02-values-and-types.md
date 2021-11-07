@@ -55,16 +55,14 @@ x = "Hello";
 
 We say that these languages are _statically typed_. On the other hand, languages like JavaScript that don't have these constraints are _dynamically typed_.
 
-The restrictions in statically typed languages may appear to be an inconvenience, yet they have certain benefits. Knowing that the types won't change allows a compiler to optimize the code it generates in ways that would otherwise be difficult. Statically typed languages also offer superior developer experiences: the compiler can assist you better in finding bugs more quickly, and your code editor can make more intelligent suggestions.
+The restrictions in statically typed languages may appear to be an inconvenience, yet they have certain benefits. Knowing that the types won't change allows a compiler to optimise the code it generates in ways that would otherwise be difficult. Statically typed languages also offer superior developer experiences: the compiler can assist you better in finding bugs more quickly, and your code editor can make more intelligent suggestions.
 
 Which brings me to a related point &hellip;
 
 ### JavaScript is an interpreted language
 
-TODO
+I've said this before. It's now time to explain.
 
-<!-- I mentioned this before but I didn't explain it. Now it's time to do so.
+Computers don't understand the programming languages we write code in, so we have to compile our code to machine language before running it. When we run Node, however, we see no compilation taking place; all we see is the output of our code. This is because Node compiles and executes JavaScript code in the same step, that is, it _interprets_ JavaScript. For some languages, such as C++, you must first run the compiler to generate an _executable_ (which is basically a file containing machine code) before running the executable.
 
-In the extras of lesson 1, I said that programming languages need to be compiled to machine code before they can be executed. However, we don't see any compilation happening when we run `node filename.js`; all we see is the output of our code. That's because Node compiles and executes your JavaScript code in the same step; we say that Node _interprets_ your code. For some other languages, like C++, you have to first run the compiler to generate something called an _executable_ (which is essentially machine code), and then you run the executable separately.
-
-Again, it may sound like a pain using a compiled language over an interpreted one, however, the former are amenable to optimizations and developer experiences that might be impractical for the latter. -->
+It may sound like an interpreted language is more convenient to use than a compiled language, however, a compiled language enables certain optimisations and developer experiences that an interpreted language does not.
