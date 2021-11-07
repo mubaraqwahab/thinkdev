@@ -6,8 +6,7 @@ title: Values and Types
 
 <section data-auto-animate>
 
-<!-- ![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel" width="700"} -->
-![]({{ '/assets/images/Untitled.png' | url }}){aria-labelledby="msStoreScreenshotLabel" width="700"}
+![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel"}
 
 Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
@@ -15,7 +14,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 <section data-auto-animate>
 
-Text {data-id="storeLabelHeading"}
+### Text {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg' | url }})
 
@@ -23,7 +22,7 @@ Text {data-id="storeLabelHeading"}
 
 <section data-auto-animate>
 
-Numbers  {data-id="storeLabelHeading"}
+### Numbers  {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg' | url }})
 
@@ -31,7 +30,7 @@ Numbers  {data-id="storeLabelHeading"}
 
 <section data-auto-animate>
 
-Alternatives  {data-id="storeLabelHeading"}
+### Alternatives  {data-id="storeLabelHeading"}
 
 ![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg' | url }})
 
@@ -616,6 +615,31 @@ const numAsString = "" + num
 </code></pre>
 
 </section>
+
+<section data-auto-animate>
+
+### UPPERCASE, lowercase {data-id="strOpHeading"}
+
+<pre data-id="concatstr"><code data-line-numbers="3-4|6-7" data-trim class="language-js">
+const firstName = "Mubaraq"
+
+firstName.toUpperCase()
+// "MUBARAQ"
+
+firstName.toLowerCase()
+// "mubaraq"
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+## See also
+
+* The [Mozilla Developer Network Web Documentation](https://developer.mozilla.org/){rel="noopener"} (MDN Web Docs)
 
 </section>
 
