@@ -29,9 +29,25 @@
           {{ logo(class='mr-1.5') }}
           thinkdev
         </a>
-        <a href="{{ site.repoUrl }}" title="View on GitHub" aria-label="View on GitHub" rel="noopener" class="inline-flex items-center">
-          {{ icon('github', class="text-[#24292e] dark:text-white", width=24, height=24, attrs={ hi: '', ariaChecked: false }) }}
-        </a>
+
+        <div class="flex items-center">
+          <a href="{{ site.repoUrl }}" title="View on GitHub" aria-label="View on GitHub" rel="noopener" class="inline-flex items-center">
+            {{ icon('github', class="text-[#24292e] dark:text-white", width=24, height=24) }}
+          </a>
+
+          {% if r/^\/lessons\//.test(page.url) %}
+            <button
+              type="button"
+              aria-label="Toggle outline"
+              id="outlineToggle"
+              aria-expanded="false"
+              aria-controls="outlineNav"
+              class="inline-flex items-center ml-3 lg:hidden"
+            >
+              {{ icon('list', class="text-[#24292e] dark:text-white", width=24, height=24) }}
+            </button>
+          {% endif %}
+        </div>
       </div>
     </header>
     {{ content | safe }}

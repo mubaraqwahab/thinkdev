@@ -5,45 +5,26 @@ tags: lesson
 
 {% from "macros.njk" import icon, script %}
 
-<div class="container py-4 mx-auto lg:py-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
-  <div
+<div class="container mx-auto py-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
+  <nav
     class="
-      -mt-4 py-2 mb-6
-      bg-white dark:bg-gray-900 dark:border-gray-700 border-b
-      lg:my-0 lg:py-0 lg:border-b-0
+      side-nav hidden pt-2 pb-6 -mt-6 mb-8 border-b dark:border-gray-700
+      lg:block lg:border-b-0 lg:border-r lg:my-0 lg:py-0 lg:pr-8 lg:pl-1
+      lg:h-[calc(100vh-118px)] lg:sticky lg:top-[86px] lg:left-0 lg:overflow-y-auto
     "
+    id="outlineNav"
+    aria-label="Outline"
   >
-    <button
-      id="outlineToggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="outlineNav"
-      class="inline-flex font-bold items-center text-gray-900 dark:text-white lg:hidden"
-    >
-      {{ icon("caret-right-fill", class="mr-2 motion-safe:transition-transform motion-safe:duration-300") }}
-      Outline
-    </button>
-    <nav
-      class="
-        side-nav
-        hidden py-2 lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:py-0 lg:pr-8 lg:pl-1
-        lg:h-[calc(100vh-118px)] lg:sticky lg:top-[86px] lg:left-0 lg:overflow-y-auto
-        dark:border-gray-700
-      "
-      id="outlineNav"
-      aria-label="Outline"
-    >
-      <ol class="">
-        {% for lesson in collections.all | eleventyNavigation %}
-          <li class="before:hidden">
-            <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
-              {{ lesson.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ol>
-    </nav>
-  </div>
+    <ol class="">
+      {% for lesson in collections.all | eleventyNavigation %}
+        <li class="before:hidden">
+          <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
+            {{ lesson.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
 
   <div>
     <main id="main" class="mx-auto relative lg:mx-0">
@@ -88,7 +69,7 @@ tags: lesson
       </nav>
     </main>
 
-    <footer class="mt-10 py-2 border-t text-gray-500 dark:border-gray-700 dark:text-gray-400">
+    <footer class="mt-10 pt-2 border-t text-gray-500 dark:border-gray-700 dark:text-gray-400">
       <p class="small !mb-0">Built with ❤ by Mubaraq Wahab</p>
     </footer>
   </div>
