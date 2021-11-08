@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
+    {% if syntaxHighlighting %}
+      <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
+      <style>pre code.hljs{padding:0}</style>
+    {% endif %}
     {% include "meta.njk" %}
   </head>
   <body class="text-gray-700 prose prose-indigo max-w-none bg-white dark:bg-gray-900 dark:prose-light">
@@ -32,5 +36,9 @@
       </div>
     </header>
     {{ content | safe }}
+    {% if syntaxHighlighting %}
+      <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
+      <script>RevealHighlight().hljs.highlightAll();</script>
+    {% endif %}
   </body>
 </html>
