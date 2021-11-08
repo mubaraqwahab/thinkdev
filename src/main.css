@@ -42,10 +42,28 @@
     @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
   }
 
-  /* TODO: may not work on some browsers you care about (see https://caniuse.com/?search=aspect-ratio) */
+  /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
+  .youtube-player-wrapper {
+    @apply relative h-0;
+    padding-bottom: 56.25%;
+  }
+
   .youtube-player {
-    @apply w-full h-auto;
-    aspect-ratio: 16 / 9;
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
+  @supports (aspect-ratio: 16 / 9) {
+    /* Undo wrapper styles */
+    .youtube-player-wrapper {
+      @apply static h-auto pb-0;
+    }
+
+    .youtube-player {
+      /* Undo absolute */
+      @apply static;
+      @apply w-full h-auto;
+      aspect-ratio: 16 / 9;
+    }
   }
 }
 

@@ -56,6 +56,7 @@ module.exports = {
    *  to CSS for the slides. If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
+    // @ts-ignore
     const slidesTailwindConfig = resolveTailwindConfig({
       purge: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
       mode: "jit",
