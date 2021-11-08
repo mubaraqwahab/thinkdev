@@ -49,7 +49,8 @@ You can't modify the type of a variable after declaring it in these languages:
 
 ```c++
 int x = 4;
-// Error. You can't change type after declaring variable
+// Error.
+// You can't change a variable's type after declaring it.
 x = "Hello";
 ```
 
