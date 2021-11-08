@@ -58,17 +58,13 @@ self.addEventListener("fetch", (event) => {
 
         // Cache the resource (a clone of the response)
         // only if it's a good one
-        if (response.ok /*&& response.type !== "opaque"*/) {
-          setTimeout(() => {
-            console.log({ url: response.url, ok: response.ok })
-          }, 5000)
+        if (response.ok) {
           await cache.put(event.request, response.clone())
         }
 
         // Return the original response to the browser
         return response
       } catch (e) {
-        console.error(e)
         // Show fallback page if the request was for a webpage
         // and it failed ("failed" as in a network failure)
         if (requestMode === "navigate") {
