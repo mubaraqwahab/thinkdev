@@ -31,7 +31,7 @@ permalink: site.webmanifest
 
 {%- if site.environment === "production" -%}
   {# Minify the manifest #}
-  {{- manifest | jsonparse | jsonstringify | safe -}}
+  {{- manifest | load | dump | safe -}}
 {%- else -%}
   {{- manifest | safe -}}
 {%- endif -%}
