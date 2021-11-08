@@ -30,6 +30,7 @@ self.addEventListener("activate", (event) => {
       })
     )
   )
+  // Idk what this does, lol, but I got it from https://web.dev/offline-fallback-page/#the-service-worker-code
   self.client.claim()
 })
 

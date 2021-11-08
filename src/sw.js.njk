@@ -9,7 +9,7 @@ permalink: sw.js
 {%- endset -%}
 
 {%- if site.environment == "production" -%}
-  {{- js | babel | safe -}}
+  {{- js | babel | terser | safe -}}
 {%- else -%}
   {{- js | safe -}}
 {%- endif -%}

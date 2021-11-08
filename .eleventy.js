@@ -39,7 +39,14 @@ module.exports = function (eleventyConfig) {
   }
 
   for (const filter in filters) {
-    eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
+    if (filter.endsWith("Async")) {
+      eleventyConfig.addNunjucksAsyncFilter(
+        filter.slice(0, -5).toLowerCase(),
+        filters[filter]
+      )
+    } else {
+      eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
+    }
   }
 
   eleventyConfig.addShortcode("now", () => new Date().toISOString())

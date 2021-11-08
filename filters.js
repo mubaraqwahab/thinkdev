@@ -7,6 +7,15 @@ const tailwindcss = require("tailwindcss")
 const resolveTailwindConfig = require("tailwindcss/resolveConfig")
 const autoprefixer = require("autoprefixer")
 const kebabCase = require("kebab-case")
+const terser = require("terser")
+
+/**
+ * @template T
+ * @callback AsyncFilterCallback<T>
+ * @param {any} error
+ * @param {T} result
+ * @returns {void}
+ */
 
 module.exports = {
   babel(js) {
@@ -20,6 +29,21 @@ module.exports = {
       ],
     })
     return transpiled.code
+  },
+
+  /**
+   * Minify a string of JavaScript code.
+   *
+   * NOTE: Only use this when the code won't be output to
+   * a `<script>`, because code in `<script>`s will already
+   * be minified during transformation
+   *
+   * @param {string} js
+   * @param {AsyncFilterCallback<string>} callback
+   */
+  async terserAsync(js, callback) {
+    const minified = await terser.minify(js)
+    return callback(null, minified.code)
   },
 
   /**
