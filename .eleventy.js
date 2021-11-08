@@ -69,6 +69,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
 
   eleventyConfig.addWatchTarget("src/main.css")
+  eleventyConfig.addWatchTarget("tailwind.config.js")
 
   eleventyConfig.setBrowserSyncConfig({
     // Watch and serve even when offline

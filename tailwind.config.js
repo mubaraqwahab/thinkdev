@@ -15,9 +15,6 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        inherit: "inherit",
-      },
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       typography: (theme) => ({
         light: {
@@ -89,6 +86,7 @@ module.exports = {
         DEFAULT: theme("spacing.4"),
         sm: theme("spacing.8"),
         lg: theme("spacing.16"),
+        xl: theme("spacing.24"),
       },
     }),
   },
