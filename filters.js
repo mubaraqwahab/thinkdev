@@ -55,8 +55,7 @@ module.exports = {
    * @param {Date} dateObj
    */
   shortDate(dateObj) {
-    // TODO: locale?
-    return Intl.DateTimeFormat([], {
+    return Intl.DateTimeFormat(["en-GB"], {
       day: "2-digit",
       month: "short",
       year: "numeric",

@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% if r/<pre><code /.test(content) %}
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
-      <style>pre code.hljs{padding:0}</style>
+      <style>
+        pre code.hljs {
+          padding: 0;
+        }
+      </style>
     {% endif %}
     {% include "meta.njk" %}
   </head>

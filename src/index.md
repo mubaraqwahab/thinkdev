@@ -13,7 +13,3 @@ layout: layouts/home
 {% for lesson in collections.all | eleventyNavigation %}
   1. [{{ lesson.title }}]({{ lesson.url | url }}) {{ lesson.emoji }}
 {%- endfor %}
-
-```js
-const testing = '123'
-```
