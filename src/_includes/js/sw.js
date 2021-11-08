@@ -24,7 +24,7 @@ self.addEventListener("activate", (event) => {
     // Delete all previous caches
     caches.keys().then((keys) =>
       keys.forEach((key) => {
-        if (key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME) {
+        if (/*key.startsWith(CACHE_PREFIX) && */ key !== CACHE_NAME) {
           caches.delete(key)
         }
       })
