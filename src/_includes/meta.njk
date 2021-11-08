@@ -9,5 +9,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}" />
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
 <meta name="theme-color" content="#4f46e5" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="{{ site.description }}" />
+<meta name="author" content="{{ site.author }}" />
 {{ script("register-sw.js") if site.environment == "production" }}
