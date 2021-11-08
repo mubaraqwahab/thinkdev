@@ -68,7 +68,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
 
-  // TODO: Consider doing that browsersync auto inject css stuff instead
   eleventyConfig.addWatchTarget("src/main.css")
 
   eleventyConfig.setBrowserSyncConfig({
