@@ -15,6 +15,9 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        inherit: "inherit",
+      },
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       typography: (theme) => ({
         light: {
