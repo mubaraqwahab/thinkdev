@@ -5,7 +5,6 @@ excerpt: >
   In this lesson, we'll look at some of JavaScript's primitive types of values and how to manipulate them.
   We'll also cover expressions, statements, and variables.
 emoji: 🔢
-syntaxHighlighting: true
 ---
 
 {% from "macros.njk" import iconed %}

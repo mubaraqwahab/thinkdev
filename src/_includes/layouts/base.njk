@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
-    {% if syntaxHighlighting %}
+    {% if r/<pre><code /.test(content) %}
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
       <style>pre code.hljs{padding:0}</style>
     {% endif %}
@@ -36,7 +36,7 @@
       </div>
     </header>
     {{ content | safe }}
-    {% if syntaxHighlighting %}
+    {% if r/<pre><code /.test(content) %}
       <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
       <script>RevealHighlight().hljs.highlightAll();</script>
     {% endif %}
