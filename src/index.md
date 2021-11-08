@@ -8,6 +8,11 @@ layout: layouts/home
 
 {{ site.description }} {.lead}
 
+<!-- We'll learn how to do this and do that, and even more stuff. By the end of the course, you should be:
+
+* able to do A
+* also able to do B and C -->
+
 ## 📃 Outline
 
 {% for lesson in collections.all | eleventyNavigation %}
@@ -17,4 +22,4 @@ layout: layouts/home
 ## Credits
 
 * This course is loosely based on the book ["Think Python" by Allen Downey](https://greenteapress.com/wp/think-python-2e/). The book is also known by the title _How to Think Like a Computer Scientist_. Yes, it inspired this course's title.
-* The slides were made with [reveal.js](https://revealjs.com/).
+* I made the slides with [reveal.js](https://revealjs.com/) and I'm very pleased with it 😊.
