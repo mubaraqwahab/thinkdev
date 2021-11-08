@@ -6,7 +6,7 @@ tags: lesson
 {% from "macros.njk" import icon, script %}
 
 <div class="container py-4 mx-auto lg:py-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
-  <div class="mb-8 lg:mb-0">
+  <div class="sticky top-[50px] left-0 z-20 bg-white dark:bg-gray-900 dark:border-gray-700 -mt-4 py-2 mb-6 border-b lg:static lg:mb-0 lg:border-b-0">
     <button
       id="outlineToggle"
       type="button"
@@ -20,7 +20,7 @@ tags: lesson
     <nav
       class="
         side-nav
-        hidden pt-4 pb-6 border-b lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:py-0 lg:pr-8 lg:pl-1
+        hidden py-2 lg:mt-0 lg:block lg:border-b-0 lg:border-r lg:py-0 lg:pr-8 lg:pl-1
         lg:h-[calc(100vh-118px)] lg:sticky lg:top-[86px] lg:left-0 lg:overflow-y-auto
         dark:border-gray-700
       "
@@ -39,9 +39,9 @@ tags: lesson
     </nav>
   </div>
 
-  <main id="main" class="">
-    <div class="mx-auto relative lg:mx-0">
-      <article class="mb-8">
+  <div>
+    <main id="main" class="mx-auto relative lg:mx-0">
+      <article>
         <h1>{{ title }}</h1>
         <p class="lead">{{ excerpt }}</p>
         {% if collections.slides | find("data.order", eleventyNavigation.order) %}
@@ -57,13 +57,13 @@ tags: lesson
         {% endif %}
 
         {{ content | safe }}
+
+        <p class="text-sm !mt-10 !mb-0">
+          Last updated <time datetime="{{ page.date | isostring }}">{{ page.date | shortdate }}</time>
+        </p>
       </article>
 
-      <p class="text-gray-500 text-sm">
-        Last updated <time datetime="{{ page.date | isostring }}">{{ page.date | shortdate }}</time>
-      </p>
-
-      <nav aria-label="Previous/next lesson" class="sticky lg:static bottom-0 left-0 z-10 bg-white dark:bg-gray-900 dark:border-gray-700 border-t lg:border-t-0 flex justify-between py-4 lg:py-0 mt-10">
+      <nav aria-label="Previous/next lesson" class="flex justify-between mt-10">
         {% set lessons = collections.all | eleventyNavigation %}
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
@@ -80,8 +80,12 @@ tags: lesson
           </a>
         {% endif %}
       </nav>
-    </div>
-  </main>
+    </main>
+
+    <footer class="mt-10 py-2 border-t text-gray-500 dark:border-gray-700 dark:text-gray-400">
+      <p class="small !mb-0">Built with ❤ by Mubaraq Wahab</p>
+    </footer>
+  </div>
 </div>
 
 {{ script("toggle-outline.js") }}
