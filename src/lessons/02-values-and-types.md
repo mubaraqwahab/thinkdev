@@ -7,11 +7,11 @@ excerpt: >
 emoji: 🔢
 ---
 
-{% from "macros.njk" import iconed %}
+{% from "macros.njk" import iconed, youtubePlayer %}
 
 ## {{ iconed("Video") }}
 
-TODO
+{{ youtubePlayer("xjaPC_B2okk") }}
 
 ## {{ iconed("Exercise") }}
 

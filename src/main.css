@@ -41,6 +41,12 @@
     content: "";
     @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
   }
+
+  /* TODO: may not work on some browsers you care about (see https://caniuse.com/?search=aspect-ratio) */
+  .youtube-player {
+    @apply w-full h-auto;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @layer utilities {
