@@ -13,7 +13,7 @@ emoji: 🔢
 
 {{ youtubePlayer("xjaPC_B2okk") }}
 
-## {{ iconed("Exercise") }}
+## {{ iconed("Exercises") }}
 
 TODO
 
@@ -60,10 +60,6 @@ The restrictions in statically typed languages may appear to be an inconvenience
 
 Which brings me to a related point &hellip;
 
-### JavaScript is an interpreted language
+### <q>JavaScript is an interpreted language</q>
 
-I've said this before. It's now time to explain.
-
-Computers don't understand the programming languages we write code in, so we have to compile our code to machine language before running it. When we run Node, however, we see no compilation taking place; all we see is the output of our code. This is because Node compiles and executes JavaScript code in the same step, that is, it _interprets_ JavaScript. For some languages, such as C++, you must first run the compiler to generate an _executable_ (which is basically a file containing machine code) before running the executable.
-
-It may sound like an interpreted language is more convenient to use than a compiled language, however, a compiled language enables certain optimisations and developer experiences that an interpreted language does not.
+I've said this before, but I didn't explain. I've also said that code in a programming language needs to be translated to machine language before it can be run. When we run Node, however, we see no translation taking place; all we see is the output of our code. That's because Node _interprets_ our code. For some languages, such as C++, we must first run a compiler to generate an _executable_ (which is basically a file containing machine code) before running the executable.
