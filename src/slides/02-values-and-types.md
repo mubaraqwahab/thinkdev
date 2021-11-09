@@ -6,7 +6,7 @@ title: Values and Types
 
 <section data-auto-animate>
 
-![]({{ '/assets/images/ms-store-screenshot.jpg' | url }}){aria-labelledby="msStoreScreenshotLabel"}
+![]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){aria-labelledby="msStoreScreenshotLabel" width=700}
 
 Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
@@ -16,7 +16,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ### Text {data-id="storeLabelHeading"}
 
-![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg' | url }})
+![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
 </section>
 
@@ -24,7 +24,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ### Numbers  {data-id="storeLabelHeading"}
 
-![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg' | url }})
+![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
 </section>
 
@@ -32,7 +32,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ### Alternatives  {data-id="storeLabelHeading"}
 
-![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg' | url }})
+![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
 </section>
 
@@ -268,7 +268,7 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 Consider an e-commerce app
 
-![]({{ '/assets/images/cart-quantity.jpg' | url }}){aria-labelledby="tarbiyahCartScreenshot"}
+![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=460' | url }}){aria-labelledby="tarbiyahCartScreenshot" width=460}
 
 Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/) {class="text-[60%]" id="tarbiyahCartScreenshot"}
 
