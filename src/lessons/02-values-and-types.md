@@ -15,7 +15,9 @@ emoji: 🔢
 
 ## {{ iconed("Exercises") }}
 
-TODO
+You can do these exercises in the Node REPL (read-eval-print loop); you can also do them in a file if you prefer. (**Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done.)
+
+1. Write and run the code samples in the slides to see how they work. You can work in the Node REPL, or  Test the invalid snippets as well, and try to understand the error messages. Then correct the errors. You may have some questions in your mind. What if you removed a semicolon? Or you rearranged some part of the code? Make sure you try these out, and any other questions you have in your mind! This will help you get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
 
 ## {{ iconed("Extras") }}
 
