@@ -51,7 +51,11 @@ Comments somewhere
   * concat, index, slice, includes, length
   * string to num, num to string
   * typeof operator
-* Exercise??
+* Exercises
+  * Test run the code samples in the slides, get yourself familiar with writing code and fixing errors
+  * Do something on exprs and stmts
+  * Do something on numbers
+  * Do something on string manip (tip scan through your existing codebases)
 * Extras: var?
 
 ## Collections
