@@ -56,6 +56,11 @@ Comments somewhere
   * Do something on exprs and stmts
   * Do something on numbers
   * Do something on string manip (tip scan through your existing codebases)
+    * trimming user input
+    * string replacement
+    * immutability
+    * sentence case?
+    * last char of string
 * Extras: var?
 
 ## Collections
