@@ -9,7 +9,27 @@
     {% if r/<pre><code /.test(content) %}
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}" media="(prefers-color-scheme: dark)" />
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}" media="(prefers-color-scheme: light)" />
-      <style>pre code.hljs { padding: 0; }</style>
+      <style>
+        pre code.hljs {
+          padding: 0;
+        }
+
+        @media (prefers-color-scheme: light) {
+          .hljs-doctag,
+          .hljs-keyword,
+          .hljs-meta .hljs-keyword,
+          .hljs-template-tag,
+          .hljs-template-variable,
+          .hljs-type,
+          .hljs-variable.language_ {
+            color: #cf222e;
+          }
+
+          .hljs-built_in, .hljs-symbol {
+            color: #b74f07;
+          }
+        }
+      </style>
     {% endif %}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% include "meta.njk" %}

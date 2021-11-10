@@ -22,7 +22,7 @@ module.exports = {
             pre: {
               // color from github.css higlight theme
               color: "#24292e",
-              backgroundColor: theme("colors.gray.50"),
+              backgroundColor: theme("colors.gray.100"),
             },
           },
         },
