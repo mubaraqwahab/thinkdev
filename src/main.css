@@ -7,6 +7,12 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* Inspired by GitHub's rendering */
+  kbd {
+    @apply inline-block px-1 py-0.5 small leading-snug border rounded;
+    @apply dark:border-gray-700;
+  }
+
   :focus {
     outline: 2px dashed;
   }
