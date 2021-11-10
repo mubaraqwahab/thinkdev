@@ -57,6 +57,8 @@ module.exports = function (eleventyConfig) {
     // Stuff for Reveal.js
     "node_modules/reveal.js/dist/": "reveal/dist/",
     "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight/",
+    "node_modules/highlight.js/styles/github.css":
+      "reveal/plugin/highlight/github.css",
     "node_modules/highlight.js/styles/github-dark-dimmed.css":
       "reveal/plugin/highlight/github-dark-dimmed.css",
   })

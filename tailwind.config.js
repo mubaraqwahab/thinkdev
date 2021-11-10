@@ -17,6 +17,15 @@ module.exports = {
     extend: {
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              // color from github.css higlight theme
+              color: "#24292e",
+              backgroundColor: theme("colors.gray.50"),
+            },
+          },
+        },
         light: {
           css: [
             {

@@ -19,11 +19,18 @@ You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaS
 
 <aside>
 
-**Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done.
+**Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done. And if you're using a file, don't forget to use `console.log()` to view your results.
 
 </aside>
 
-1. Write and run the code samples in the slides to see how they work. Test the invalid snippets as well, and try to understand the error messages. Then correct the errors. You may have some questions in your mind. What if you removed a semicolon? Or you rearranged some part of the code? Make sure you try these out, and any other questions you have in your mind! This will help you get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
+1. Write and run the code samples in the slides to see how they work. Test the invalid ondes too, and try to understand the error messages. Then correct the errors.
+
+   You may have some questions in your mind. _What if you removed a semicolon? Or you rearranged some part of the code? Why the space between a variable name and the `=`? Can you split things into multiple lines? How about converting a string like "abc" to a number?_ Make sure you try these out, and any other questions you have in your mind! You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
+1. Suppose we have the following string:
+   ```js
+   const str = "Some random string";
+   ```
+   We've seen that `str[0]` will give us the first character, `str[1]` will give the second, and so on. How do we get the _last_ character?
 
 ## {{ iconed("Extras") }}
 

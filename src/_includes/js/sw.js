@@ -10,6 +10,7 @@ self.addEventListener("install", (event) => {
           OFFLINE_PAGE,
           "/main.css",
           "/reveal/dist/reveal.css",
+          "/reveal/plugin/highlight/github.css",
           "/reveal/plugin/highlight/github-dark-dimmed.css",
           "/reveal/dist/reveal.js",
           "/reveal/plugin/highlight/highlight.js",
