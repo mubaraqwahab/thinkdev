@@ -81,7 +81,7 @@ x = "Hello";
 
 We say that these languages are _statically typed_. On the other hand, languages like JavaScript that don't have these constraints are _dynamically typed_.
 
-Which brings me to a related point &hellip;
+Which brings me to a final point &hellip;
 
 ### <q>JavaScript is an interpreted language</q>
 
