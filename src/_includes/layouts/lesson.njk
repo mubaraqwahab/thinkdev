@@ -55,14 +55,14 @@ tags: lesson
         {% set lessons = collections.all | eleventyNavigation %}
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
-          <a href="{{ prevLesson.url | url }}" class="inline-flex items-center mr-auto">
+          <a href="{{ prevLesson.url | url }}" rel="prev" class="inline-flex items-center mr-auto">
             {{ icon('arrow-left', class='mr-2') }}
             Previous
           </a>
         {% endif %}
         {% set nextLesson = lessons | find("order", eleventyNavigation.order + 1) %}
         {% if nextLesson %}
-          <a href="{{ nextLesson.url | url }}" class="inline-flex items-center ml-auto">
+          <a href="{{ nextLesson.url | url }}" rel="next" class="inline-flex items-center ml-auto">
             Next
             {{ icon('arrow-right', class='ml-2') }}
           </a>

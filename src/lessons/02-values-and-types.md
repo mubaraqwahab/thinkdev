@@ -16,11 +16,11 @@ excerpt: >
 
 You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaScript file.
 
-<aside>
+<div class="note">
 
 **Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done. And if you're using a file, don't forget to use `console.log()` to view your results.
 
-</aside>
+</div>
 
 1. Write and run the code samples in the slides to see how they work. Change things and even make intentional mistakes to see how the results change. You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
 
