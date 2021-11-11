@@ -37,9 +37,10 @@ module.exports = {
             kbd: {
               display: "inline-block",
               padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
-              fontSize: theme("fontSize.sm"),
               fontWeight: theme("fontWeight.semibold"),
-              lineHeight: theme("lineHeight.snug"),
+              // this returns a tuple [fontSize, {lineHeight}]
+              fontSize: theme("fontSize.sm")[0],
+              lineHeight: theme("lineHeight.tight"),
               borderWidth: theme("borderWidth.DEFAULT"),
               borderRadius: theme("borderRadius.DEFAULT"),
               color: theme("colors.gray.900"),
