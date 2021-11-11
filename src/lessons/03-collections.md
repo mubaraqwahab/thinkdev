@@ -1,7 +1,6 @@
 ---
 title: Collections (draft)
 excerpt:
-emoji: 👋🏾
 ---
 
 {% from "macros.njk" import iconed %}
