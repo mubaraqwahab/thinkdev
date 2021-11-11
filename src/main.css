@@ -66,9 +66,3 @@
     }
   }
 }
-
-@layer utilities {
-  .small {
-    font-size: 80%;
-  }
-}

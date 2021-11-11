@@ -16,10 +16,10 @@ layout: layouts/home
 ## 📃 Outline
 
 {% for lesson in collections.all | eleventyNavigation %}
-  1. [{{ lesson.title }}]({{ lesson.url | url }}) {{ lesson.emoji }}
+  1. [{{ lesson.title }}]({{ lesson.url | url }})
 {%- endfor %}
 
 ## Credits
 
-* This course is loosely based on the book ["Think Python" by Allen Downey](https://greenteapress.com/wp/think-python-2e/). The book is also known by the title _How to Think Like a Computer Scientist_. Yes, it inspired this course's title.
+* This course is loosely based on the book ["Think Python" by Allen Downey](https://greenteapress.com/wp/think-python-2e/). The book is also known by the title, _How to Think Like a Computer Scientist_. Yes, it inspired this course's title.
 * I made the slides with [reveal.js](https://revealjs.com/) and I'm very pleased with it 😊.

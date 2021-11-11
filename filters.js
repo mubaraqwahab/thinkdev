@@ -116,6 +116,10 @@ module.exports = {
 
   /**
    * @example
+   * const array = [
+   *   { name: { first: 'Wahab', ... }, ... },
+   *   { name: { first: 'Mubaraq', ... }, ... },
+   * ]
    * const elem = find(array, "name.first", "Mubaraq")
    */
   find(array, path, value) {

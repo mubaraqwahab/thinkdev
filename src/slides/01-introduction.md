@@ -100,7 +100,7 @@ At the end of the course you should:
 * Exceptions ❌
 * JavaScript quirks 🤓
 
-(This may change) {.small}
+<small>(This may change)</small>
 
 </section>
 

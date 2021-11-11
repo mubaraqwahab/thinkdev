@@ -33,7 +33,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.6",
     "bootstrap-icons": "^1.5.0",
-    "highlight.js": "^11.2.0",
+    "highlight.js": "^11.3.1",
     "html-minifier-terser": "^6.0.2",
     "kebab-case": "^1.0.1",
     "markdown-it": "^10.0.0",
@@ -49,10 +49,6 @@
   },
   "devDependencies": {
     "husky": "^7.0.0",
-    "lint-staged": "^11.0.1",
     "prettier": "2.3.2"
-  },
-  "lint-staged": {
-    "*.{js,html,css,scss,json,md}": "npx prettier --write"
   }
 }

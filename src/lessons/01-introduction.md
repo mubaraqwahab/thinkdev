@@ -4,7 +4,6 @@ excerpt: >
   This first episode will introduce you to the course,
   including what we'll cover, the format, and the software
   you'll need to get started.
-emoji: 👋🏾
 ---
 
 {% from "macros.njk" import iconed %}

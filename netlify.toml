@@ -4,3 +4,6 @@
 
 [context.production]
   environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }

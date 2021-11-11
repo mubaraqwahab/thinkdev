@@ -4,7 +4,6 @@ excerpt: >
   Values are at the heart of programming.
   In this lesson, we'll look at some of JavaScript's primitive types of values and how to manipulate them.
   We'll also cover expressions, statements, and variables.
-emoji: 🔢
 ---
 
 {% from "macros.njk" import iconed, youtubePlayer %}
@@ -15,7 +14,32 @@ emoji: 🔢
 
 ## {{ iconed("Exercises") }}
 
-TODO
+You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaScript file.
+
+<aside>
+
+**Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done. And if you're using a file, don't forget to use `console.log()` to view your results.
+
+</aside>
+
+1. Write and run the code samples in the slides to see how they work. Change things and even make intentional mistakes to see how the results change. You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
+
+1. Suppose we have the following string:
+   ```js
+   const str = "Some random string";
+   ```
+   We've seen that `str[0]` will give us the first character, `str[1]` will give the second, and so on. How do we get the _last_ character?
+   (**Hint:** use the string's length.)
+
+1. Given this string:
+    ```js
+    const message = 'His name is Isa'
+    ```
+    Declare a new variable with the same value, but with the word 'Isa' replaced with 'Amal', and 'His' with 'Her'. Of course, you could just do something like:
+    ```js
+    const message2 = 'Her name is Amal'
+    ```
+     But there's a string method to do this dynamically. Find it out and use it to replace the words.
 
 ## {{ iconed("Extras") }}
 
@@ -27,9 +51,9 @@ We learnt about the `const` and `let` keywords for declaring variables, but ther
 var x = 1;
 ```
 
-You can reassign the variable like you can with `let`. It does, however, behave differently (and rather strangely) than both `let` and `const` variables.
+You can reassign the variable like you can with `let`. However, the variable behaves differently (and rather strangely) than both `let` and `const` variables.
 
-We don't need it for our purposes, but we may discuss it later when we look at some of the finer details of JavaScript. I'm only mentioning it here so you know it's a thing 🙂.
+We don't need `var` for our purposes, but we may discuss it later when we look at some of the finer details of JavaScript. I'm only mentioning it here so you know it's a thing 🙂.
 
 ### Static typing, dynamic typing
 
@@ -41,24 +65,23 @@ float y = 2.3 * 5.9;
 string name = "Isa";
 bool done = true;
 
-// You can also use `auto` in C++ when the type can be deduced.
+// The right-hand side is clearly a string.
+// No need to specify it, you can use auto instead.
 auto surname = "Abba";
 ```
 
-You can't modify the type of a variable after declaring it in these languages:
+You can't change the type of a variable after declaring it in these languages:
 
 ```c++
 int x = 4;
 // Error.
-// You can't change a variable's type after declaring it.
+// x was declared as an int, you can't assign a string to it
 x = "Hello";
 ```
 
 We say that these languages are _statically typed_. On the other hand, languages like JavaScript that don't have these constraints are _dynamically typed_.
 
-The restrictions in statically typed languages may appear to be an inconvenience, yet they have certain benefits. Knowing that the types won't change allows a compiler to optimise the code it generates in ways that would otherwise be difficult. Statically typed languages also offer superior developer experiences: the compiler can assist you better in finding bugs more quickly, and your code editor can make more intelligent suggestions.
-
-Which brings me to a related point &hellip;
+Which brings me to a final point &hellip;
 
 ### <q>JavaScript is an interpreted language</q>
 
