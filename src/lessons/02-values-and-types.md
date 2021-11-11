@@ -23,11 +23,7 @@ You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaS
 
 </aside>
 
-1. Write and run the code samples in the slides to see how they work. Test the invalid ondes too, and try to understand the error messages. Then correct the errors.
-
-   You may have some questions in mind. _What if you removed a semicolon? Or you rearranged some part of the code? Why the space between a variable name and the `=`? Can you split things into multiple lines? How about converting a string like "abc" to a number?_ Make sure you try these out, and any other questions you may have! You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
-
-### Working with strings
+1. Write and run the code samples in the slides to see how they work. You may have some questions in mind. _What if you rearranged some part of the code? Why the space between a variable name and the equals sign (`=`)? Can you split things into multiple lines? How about converting a string like "abc" to a number?_ Make sure you try these out, and any other questions you may have! You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
 
 1. Suppose we have the following string:
    ```js
@@ -36,17 +32,15 @@ You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaS
    We've seen that `str[0]` will give us the first character, `str[1]` will give the second, and so on. How do we get the _last_ character?
    (**Hint:** use the string's length.)
 
-2. It's common practice to trim whitespace at the start and end of some user input.
-   You can imagine an unsuspecting user typing a space before
-   or after their email address when signing up for some service.
-   That is, instead of typing (without the quotes) <samp><kbd>"user@example.com"</kbd></samp>,
-   they type <samp><kbd>"&nbsp;user@example.com"</kbd></samp> or <samp><kbd>"user@example.com&nbsp;"</kbd></samp>, etc.
-   The spaces are unnecessary, and may cause a problem
-   when the user tries to log in later without adding them.
-
-   Find out how to remove the whitespace at the beginning and end of
-   a string. (FYI, the whitespace at the start is called _leading whitespace_
-   while the one at the end is called _trailing whitespace_.)
+1. Given this string:
+    ```js
+    const message = 'His name is Isa'
+    ```
+    Declare a new variable with the same value, but with the word 'Isa' replaced with 'Amal', and 'His' with 'Her'. Of course, you could just do something like:
+    ```js
+    const message2 = 'Her name is Amal'
+    ```
+     But there's a string method to do this dynamically. Find it out and use it to replace the words.
 
 ## {{ iconed("Extras") }}
 
