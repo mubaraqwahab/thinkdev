@@ -19,10 +19,30 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            // Disable backticks
+            code: {
+              "&::before": {
+                display: "none",
+              },
+              "&::after": {
+                display: "none",
+              },
+            },
             pre: {
               // color from github.css higlight theme
               color: "#24292e",
               backgroundColor: theme("colors.gray.100"),
+            },
+            // Inspired by GitHub's rendering
+            kbd: {
+              display: "inline-block",
+              padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
+              fontSize: theme("fontSize.sm"),
+              fontWeight: theme("fontWeight.semibold"),
+              lineHeight: theme("lineHeight.snug"),
+              borderWidth: theme("borderWidth.DEFAULT"),
+              borderRadius: theme("borderRadius.DEFAULT"),
+              color: theme("colors.gray.900"),
             },
           },
         },
@@ -76,6 +96,10 @@ module.exports = {
               pre: {
                 color: theme("colors.gray.200"),
                 backgroundColor: theme("colors.gray.800"),
+              },
+              kbd: {
+                color: theme("colors.white"),
+                borderColor: theme("colors.gray.700"),
               },
               thead: {
                 color: theme("colors.white"),

@@ -25,7 +25,7 @@ You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaS
 
 1. Write and run the code samples in the slides to see how they work. Test the invalid ondes too, and try to understand the error messages. Then correct the errors.
 
-   You may have some questions in your mind. _What if you removed a semicolon? Or you rearranged some part of the code? Why the space between a variable name and the `=`? Can you split things into multiple lines? How about converting a string like "abc" to a number?_ Make sure you try these out, and any other questions you have in your mind! You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
+   You may have some questions in mind. _What if you removed a semicolon? Or you rearranged some part of the code? Why the space between a variable name and the `=`? Can you split things into multiple lines? How about converting a string like "abc" to a number?_ Make sure you try these out, and any other questions you may have! You'll build a good mental model of JavaScript this way. You'll also get comfortable with writing JavaScript and recognising the errors you'll encounter later on.
 
 ### Working with strings
 
