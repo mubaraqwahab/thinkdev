@@ -51,9 +51,9 @@ We learnt about the `const` and `let` keywords for declaring variables, but ther
 var x = 1;
 ```
 
-You can reassign the variable like you can with `let`. It does, however, behave differently (and rather strangely) than both `let` and `const` variables.
+You can reassign the variable like you can with `let`. However, the variable behaves differently (and rather strangely) than both `let` and `const` variables.
 
-We don't need it for our purposes, but we may discuss it later when we look at some of the finer details of JavaScript. I'm only mentioning it here so you know it's a thing 🙂.
+We don't need `var` for our purposes, but we may discuss it later when we look at some of the finer details of JavaScript. I'm only mentioning it here so you know it's a thing 🙂.
 
 ### Static typing, dynamic typing
 
