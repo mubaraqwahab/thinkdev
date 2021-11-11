@@ -36,6 +36,22 @@ You can do these exercises in the Node REPL (read-eval-print loop) or in a JavaS
    We've seen that `str[0]` will give us the first character, `str[1]` will give the second, and so on. How do we get the _last_ character?
    (**Hint:** use the string's length.)
 
+2. It's common practice to trim whitespace at the start and end of user input.
+   You can imagine an unsuspecting user typing a space before
+   or after their email address when signing up for some service.
+   That is, instead of typing (without the quotes) "user@example.com",
+   they type " user@example.com" or "user@example.com ", etc.
+   The spaces are unnecessary, and may cause a problem
+   when the user tries to log in later without the spaces.
+
+   Find out how to remove the whitespace at the beginning and end of
+   a string. (FYI, the whitespace at the start is called _leading whitespace_
+   while the one at the end is called _trailing whitespace_.)
+
+   On a side note, not all user inputs are usually trimmed.
+   For example, if a user adds a space to their password,
+   we should assume it's intentional.
+
 ## {{ iconed("Extras") }}
 
 ### The `var` keyword
