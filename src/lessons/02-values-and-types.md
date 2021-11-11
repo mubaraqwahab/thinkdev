@@ -65,7 +65,8 @@ float y = 2.3 * 5.9;
 string name = "Isa";
 bool done = true;
 
-// You can also use `auto` in C++ when the type can be deduced.
+// The right-hand side is clearly a string.
+// No need to specify it, you can use auto instead.
 auto surname = "Abba";
 ```
 
