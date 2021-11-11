@@ -69,18 +69,16 @@ bool done = true;
 auto surname = "Abba";
 ```
 
-You can't modify the type of a variable after declaring it in these languages:
+You can't change the type of a variable after declaring it in these languages:
 
 ```c++
 int x = 4;
 // Error.
-// You can't change a variable's type after declaring it.
+// x was declared as an int, you can't assign a string to it
 x = "Hello";
 ```
 
 We say that these languages are _statically typed_. On the other hand, languages like JavaScript that don't have these constraints are _dynamically typed_.
-
-The restrictions in statically typed languages may appear to be an inconvenience, yet they have certain benefits. Knowing that the types won't change allows a compiler to optimise the code it generates in ways that would otherwise be difficult. Statically typed languages also offer superior developer experiences: the compiler can assist you better in finding bugs more quickly, and your code editor can make more intelligent suggestions.
 
 Which brings me to a related point &hellip;
 
