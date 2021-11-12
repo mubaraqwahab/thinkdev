@@ -85,9 +85,6 @@ Comments somewhere
   * shift, unshift
   * joining arrays
   * 
-
-Self-contained objects (work on the wording)
-* Arrays
 * Extras: typeof quirks, Symbol, BigInt 
 
 ## Making decisions ❔
