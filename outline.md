@@ -65,7 +65,28 @@ Comments somewhere
 
 ## Collections
 
-* Self-contained objects (work on the wording)
+* Case study
+* Entities and disjoint variables problem
+* Objects
+  * syntax, props, prop values
+  * accepted prop names
+  * dot notation (to access/set props)
+  * bracket notation
+  * mutable objects
+  * does obj have prop?
+  * pack vars into obj
+  * unpack object into variables
+  * what else??? 
+* Sequence from case study
+* Arrays
+  * syntax, what can it contain
+  * indexing and length
+  * push, pop
+  * shift, unshift
+  * joining arrays
+  * 
+
+Self-contained objects (work on the wording)
 * Arrays
 * Extras: typeof quirks, Symbol, BigInt 
 
