@@ -143,19 +143,15 @@ const app = {
 
 </section>
 
-</section>
-
-
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-## How to name a property?
+### How to name a property?
 
 </section>
 
-
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-## How to name a property?
+### How to name a property?
 
 Use a string
 
@@ -170,10 +166,9 @@ const obj = {
 
 </section>
 
-
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-## How to name a property?
+### How to name a property?
 
 Quotes are optional if the name is a valid variable name (i.e. an _identifier_) or a number.
 
@@ -188,12 +183,11 @@ const obj = {
 
 </section>
 
-
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-## How to name a property?
+### How to name a property?
 
-Again, the JavaScript way is `camelCase`
+The JavaScript way is also `camelCase`
 
 <pre data-id="objprop"><code data-line-numbers data-trim class="language-js">
 const obj = {
@@ -201,6 +195,8 @@ const obj = {
   anotherProp: "...",
 }
 </code></pre>
+
+</section>
 
 </section>
 
@@ -215,18 +211,21 @@ const obj = {
 
 <section data-auto-animate>
 
-### Get/set a property
+### Get/set a property {data-id="useobjHeading"}
 
 **Dot notation**
 
-<pre data-id="useobj"><code data-line-numbers="1-5|7|8|10" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="1-5|7-8|10-11|13" data-trim class="language-js">
 const app = {
   name: 'WhatsApp Desktop',
   status: 'Owned',
   123: null,
 }
 
+// Get a prop
 console.log(app.name) // 'WhatsApp Desktop'
+
+// Set (i.e. change) a prop
 app.status = 'Installed'
 
 app.123 // Error
@@ -236,22 +235,292 @@ app.123 // Error
 
 <section data-auto-animate>
 
-### Get/set a property
+### Get/set a property {data-id="useobjHeading"}
 
-**Bracket notation**. Use this for property names that aren't valid identifiers
+**Bracket notation**. For property names that aren't valid identifiers
 
-<pre data-id="useobj"><code data-line-numbers="10|7-8" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="13|7-11" data-trim class="language-js">
 const app = {
   name: 'WhatsApp Desktop',
   status: 'Owned',
   123: null,
 }
 
+// Get a prop
 console.log(app['name']) // 'WhatsApp Desktop'
+
+// Set (i.e. change) a prop
 app['status'] = 'Installed'
 
 app[123] // Works, result is null
 </code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Add/remove a property {data-id="useobjHeading"}
+
+<pre data-id="useobj"><code data-line-numbers="7-8|10-11" data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  status: 'Owned',
+  123: null,
+}
+
+// Add a prop
+app.rating = 4
+
+// Remove a prop
+delete app[123]
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="mutable">
+
+### Objects are _mutable_
+
+* You can't change a number, string, or boolean intrinsically, because they are _immutable_.
+* But you can change "parts" of an object!
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="mutable">
+
+### Objects are _mutable_
+
+```js
+const str = "Strings are immutable"
+
+// Try to change 'Strings' to 'Springs'
+str[1] = 'p' // No error, but it doesn't work
+
+// Still "Strings are immutable"
+console.log(str)
+```
+
+</section>
+
+<section data-auto-animate>
+
+### Does object have property? {data-id="useobjHeading"}
+
+Use the `in` operator to check if an object has a property
+
+<pre data-id="useobj"><code data-line-numbers data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: 0,
+  status: 'Owned',
+}
+
+console.log("rating" in app) //true
+console.log("downloadsCount" in app) // false
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Pack variables into an object {data-id="useobjHeading"}
+
+It's common to have variables that you want to pack into an object
+
+<pre data-id="useobj"><code data-line-numbers data-trim class="language-js">
+const name = 'WhatsApp Desktop'
+const rating = 4
+const reviewsCount = 70
+const price = 0
+const status = 'Owned'
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Pack variables into an object {data-id="useobjHeading"}
+
+It's common to have variables that you want to pack into an object
+
+<pre data-id="useobj"><code data-line-numbers="7-13" data-trim class="language-js">
+const name = 'WhatsApp Desktop'
+const rating = 4
+const reviewsCount = 70
+const price = 0
+const status = 'Owned'
+
+const app = {
+  name: name,
+  rating: rating,
+  reviewsCount: reviewsCount,
+  price: price,
+  status: status,
+}
+
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Pack variables into an object {data-id="useobjHeading"}
+
+So there's a shorter way
+
+<pre data-id="useobj"><code data-line-numbers="7-13" data-trim class="language-js">
+const name = 'WhatsApp Desktop'
+const rating = 4
+const reviewsCount = 70
+const price = 0
+const status = 'Owned'
+
+const app = {
+  name,
+  rating,
+  reviewsCount,
+  price,
+  status,
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### How about unpacking? {data-id="useobjHeading"}
+
+It may be tedious to type the `app.` prefix sometimes
+
+<pre data-id="useobj"><code data-line-numbers="1-7" data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: 0,
+  status: 'Owned',
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### How about unpacking? {data-id="useobjHeading"}
+
+So, we can unpack the properties we need into variables
+
+<pre data-id="useobj"><code data-line-numbers="9-11" data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: 0,
+  status: 'Owned',
+}
+
+const name = app.name
+const rating = app.rating
+// ...
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### How about unpacking? {data-id="useobjHeading"}
+
+But there's a shorter way! It's called _destructuring_.
+
+<pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: 0,
+  status: 'Owned',
+}
+
+const { name, rating } = app
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+## We've solved the issue of "tying" different parts to form entities &hellip;
+
+</section>
+
+
+<section>
+
+<section>
+
+## &hellip; but how do we deal with so many similar entities?
+
+</section>
+
+<section>
+
+<pre data-id="entvars"><code data-line-numbers="1-15|17-31" data-trim class="language-js">
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: 0,
+  status: 'Owned',
+}
+
+const app2 = {
+  name: 'World of Tank Blitz',
+  rating: 5,
+  reviewsCount: 2,
+  price: 0,
+  status: 'Not Owned',
+}
+
+const app3 = {
+  name: 'Films & TV',
+  rating: 4.8,
+  reviewsCount: 237,
+  price: 0,
+  status: 'Installed',
+}
+
+const app4 = {
+  name: 'Microsoft Flight Simulator',
+  rating: 5,
+  reviewsCount: 1,
+  price: 24999,
+  status: 'Not Owned',
+}
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+## We need a "list" of some sort &hellip;
+
+</section>
+
+
+<section>
+
+<section>
+
+## Arrays
+
+
 
 </section>
 
