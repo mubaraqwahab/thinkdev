@@ -45,10 +45,6 @@ tags: lesson
         {% endif %}
 
         {{ content | safe }}
-
-        <p class="text-sm !mt-10 !mb-0">
-          Last updated <time datetime="{{ page.date | isostring }}">{{ page.date | shortdate }}</time>
-        </p>
       </article>
 
       <nav aria-label="Previous/next lesson" class="flex justify-between mt-10">
