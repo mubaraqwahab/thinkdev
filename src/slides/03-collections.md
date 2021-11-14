@@ -198,6 +198,26 @@ const obj = {
 
 </section>
 
+<section data-auto-animate data-auto-animate-id='nameprops'>
+
+### How to name a property?
+
+Property names must be unique.
+
+<pre data-id="objprop"><code data-line-numbers="1-4|6-9" data-trim class="language-js">
+const obj = {
+  prop: 1,
+  prop: 2, // this overrides the previous one
+}
+
+// same as
+const obj = {
+  prop: 2
+}
+</code></pre>
+
+</section>
+
 </section>
 
 
@@ -671,6 +691,101 @@ console.log(people) // ["Isa", "Mubaraq"]
 
 people.unshift("Aisha")
 console.log(people) // ["Aisha", "Isa", "Mubaraq"]
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Does an array have an element? {data-id="usearrHeading"}
+
+Use the `includes` method to check if an array contains a certain element.
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+people.includes("Isa") // true
+people.includes("Ibrahim") // false
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Get a portion of an array {data-id="usearrHeading"}
+
+Use the `slice` method.
+
+<pre data-id="arrIntro"><code data-line-numbers="1-4|1-2,5|1-2,7-8" data-trim class="language-js">
+//              0       1      2
+const people = ["Amal", "Isa", "Mubaraq"]
+
+people.slice(0, 2) // ["Amal", "Isa"]
+people.slice(1) // ["Isa", "Mubaraq"]
+
+// Create a copy of the array
+people.slice() // ["Amal", "Isa", "Mubaraq"]
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Spread an array into another {data-id="usearrHeading"}
+
+<pre data-id="arrIntro"><code data-line-numbers="" data-trim class="language-js">
+const names = ["Aisha", "Ibrahim"]
+const people = ["Amal", "Isa", "Mubaraq", ...names]
+
+console.log(people)
+// ["Amal", "Isa", "Mubaraq", "Aisha", "Ibrahim"]
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Destructure an array {data-id="usearrHeading"}
+
+<pre data-id="arrIntro"><code data-line-numbers="1-4|6-8" data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+const [first, second] = people
+// first is "Amal", second is "Isa"
+
+// You can skip items too
+const [, , third] = people
+// third is "Mubaraq"
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+<section>
+
+## Arrays are also mutable &hellip;
+
+</section>
+
+<section data-auto-animate>
+
+### &hellip; because they are objects
+
+</section>
+
+<section data-auto-animate>
+
+### &hellip; because they are objects
+
+<pre data-id="arrAsObj"><code data-line-numbers="" data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+typeof people
+// "object" 😕
 </code></pre>
 
 </section>
