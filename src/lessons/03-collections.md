@@ -45,10 +45,10 @@ you know they exist.
 
 ### `typeof` quirks
 
-We've seen one presumably odd behaviour of `typeof`&mdash;it
+We've seen one supposedly odd behaviour of `typeof`&mdash;it
 tells us that an array is an object. There's yet a stranger behaviour.
 If you run `typeof null`, you'll get <samp>"object"</samp>.
 `null` is not an object, however. If you do [a quick search](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null), 
-you'll find that the reason is historical and we just have to live with it.
+you'll find that the reason for this is historical and we just have to live with it.
 
 TODO: mention type of undeclared variable
