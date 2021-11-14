@@ -621,12 +621,14 @@ const people = ["Amal", "Isa", "Mubaraq"]
 
 Arrays are ordered and can be indexed, like strings
 
-<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+<pre data-id="arrIntro"><code data-line-numbers="1-4|1,2,6,7" data-trim class="language-js">
 //              0       1      2
 const people = ["Amal", "Isa", "Mubaraq"]
 
 people[0] // "Amal"
-people[1] // "Isa"
+
+// Replace "Isa" with "Elleman"
+people[1] = "Elleman"
 </code></pre>
 
 </section>
