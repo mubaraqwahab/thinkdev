@@ -544,7 +544,7 @@ const app = {
 
 <section>
 
-## &hellip; but how do we deal with so many similar entities?
+### &hellip; but how do we deal with so many similar entities?
 
 </section>
 
@@ -588,7 +588,7 @@ const app4 = {
 
 <section>
 
-## We need a "list" of some sort &hellip;
+### We need a "list" of some sort &hellip;
 
 </section>
 
