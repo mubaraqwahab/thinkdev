@@ -635,7 +635,7 @@ people[1] // "Isa"
 
 ## Arrays
 
-The elements can be of different types. We call this a _tuple_.
+The elements can be of different types.
 
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
 const arr = ["string", 12.34, true]
