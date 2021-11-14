@@ -1,6 +1,5 @@
 module.exports = {
   layout: "layouts/lesson",
-  date: "Last Modified",
   tags: ["lessons"],
   eleventyComputed: {
     eleventyNavigation: (data) => {
