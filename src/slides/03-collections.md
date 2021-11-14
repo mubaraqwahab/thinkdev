@@ -625,7 +625,7 @@ const arr = ["string", 12.34, true]
 
 <section data-auto-animate>
 
-## How long is this array?
+### How long is this array? {data-id="usearrHeading"}
 
 Use the `length` property to get the length of an array.
 
@@ -639,33 +639,38 @@ people.length // 3
 
 <section data-auto-animate>
 
-## Push and pop
+### Pop and push {data-id="usearrHeading"}
 
-Use the `push` and `pop` methods to add and remove elements at the end of an array.
+Use the `pop` method to remove from the end, and&nbsp;`push`&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;end.
 
-<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+<pre data-id="arrIntro"><code data-line-numbers="3-5|7-8" data-trim class="language-js">
 const people = ["Amal", "Isa", "Mubaraq"]
 
-// Remove "Mubaraq"
-people.pop()
+const removed = people.pop()
+console.log(removed) // "Mubaraq"
+console.log(people) // ["Amal", "Isa"]
 
-// Add "Ibrahim"
 people.push("Ibrahim")
+console.log(people) // ["Amal", "Isa", "Ibrahim"]
 </code></pre>
 
 </section>
 
 <section data-auto-animate>
 
-## Shift, unshift
+### Shift, unshift {data-id="usearrHeading"}
 
-Like `push` and `pop`, but at the front of an array.
+Like `pop` and `push`, but at the front of an array.
 
-
-<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+<pre data-id="arrIntro"><code data-line-numbers="3-5|7-8" data-trim class="language-js">
 const people = ["Amal", "Isa", "Mubaraq"]
 
-people.length // 3
+const removed = people.shift()
+console.log(removed) // "Amal"
+console.log(people) // ["Isa", "Mubaraq"]
+
+people.unshift("Aisha")
+console.log(people) // ["Aisha", "Isa", "Mubaraq"]
 </code></pre>
 
 </section>
