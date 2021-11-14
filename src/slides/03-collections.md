@@ -304,7 +304,7 @@ console.log(str)
 
 <section data-auto-animate>
 
-### Does object have property? {data-id="useobjHeading"}
+### Does an object have a property? {data-id="useobjHeading"}
 
 Use the `in` operator to check if an object has a property
 
@@ -345,8 +345,7 @@ const status = 'Owned'
 
 It's common to have variables that you want to pack into an object
 
-<pre data-id="useobj"><code data-line-numbers="7-13" data-trim class="language-js">
-const name = 'WhatsApp Desktop'
+<pre data-id="useobj"><code data-line-numbers="7-13" class="language-js">const name = 'WhatsApp Desktop'
 const rating = 4
 const reviewsCount = 70
 const price = 0
@@ -368,7 +367,7 @@ const app = {
 
 ### Pack variables into an object {data-id="useobjHeading"}
 
-So there's a shorter way
+There's a shorter way
 
 <pre data-id="useobj"><code data-line-numbers="7-13" data-trim class="language-js">
 const name = 'WhatsApp Desktop'
@@ -410,7 +409,7 @@ const app = {
 
 ### How about unpacking? {data-id="useobjHeading"}
 
-So, we can unpack the properties we need into variables
+We can unpack the properties we need into variables
 
 <pre data-id="useobj"><code data-line-numbers="9-11" data-trim class="language-js">
 const app = {
@@ -432,7 +431,7 @@ const rating = app.rating
 
 ### How about unpacking? {data-id="useobjHeading"}
 
-But there's a shorter way! It's called _destructuring_.
+There's also a shorter way! It's called _destructuring_.
 
 <pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
 const app = {
@@ -448,17 +447,80 @@ const { name, rating } = app
 
 </section>
 
+<section data-auto-animate>
+
+### Reuse an object to create another {data-id="useobjHeading"}
+
+Sometimes you want to create a new object with the properties of an existing object.
+
+<pre data-id="useobj"><code data-line-numbers data-trim class="language-js">
+const purchaseInfo = {
+  price: 0,
+  status: 'Owned',
+}
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  // We want price and status here
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Reuse an object to create another {data-id="useobjHeading"}
+
+One way to do it:
+
+<pre data-id="useobj"><code data-line-numbers="9-10" data-trim class="language-js">
+const purchaseInfo = {
+  price: 0,
+  status: 'Owned',
+}
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  price: purchaseInfo.price,
+  status: purchaseInfo.status,
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Reuse an object to create another {data-id="useobjHeading"}
+
+Another way&mdash;_spread_ the object with `...`
+
+<pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
+const purchaseInfo = {
+  price: 0,
+  status: 'Owned',
+}
+const app = {
+  name: 'WhatsApp Desktop',
+  rating: 4,
+  reviewsCount: 70,
+  ...purchaseInfo,
+}
+</code></pre>
+
+</section>
+
 </section>
 
 
 <section>
 
-## We've solved the issue of "tying" different parts to form entities &hellip;
+<section>
+
+## We've solved the issue of tying different parts to form entities &hellip;
 
 </section>
-
-
-<section>
 
 <section>
 
@@ -504,23 +566,107 @@ const app4 = {
 
 </section>
 
-</section>
-
-
 <section>
 
 ## We need a "list" of some sort &hellip;
 
 </section>
 
+</section>
+
 
 <section>
 
-<section>
+<section data-auto-animate>
 
 ## Arrays
 
+</section>
 
+<section data-auto-animate>
+
+## Arrays
+
+An array is a sequence of elements.
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## Arrays
+
+Arrays are ordered and can be indexed, like strings
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+//              0       1      2
+const people = ["Amal", "Isa", "Mubaraq"]
+
+people[0] // "Amal"
+people[1] // "Isa"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## Arrays
+
+The elements can be of different types. We call this a _tuple_.
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const arr = ["string", 12.34, true]
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## How long is this array?
+
+Use the `length` property to get the length of an array.
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+people.length // 3
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## Push and pop
+
+Use the `push` and `pop` methods to add and remove elements at the end of an array.
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+// Remove "Mubaraq"
+people.pop()
+
+// Add "Ibrahim"
+people.push("Ibrahim")
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## Shift, unshift
+
+Like `push` and `pop`, but at the front of an array.
+
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+people.length // 3
+</code></pre>
 
 </section>
 
