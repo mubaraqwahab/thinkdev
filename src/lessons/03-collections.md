@@ -36,9 +36,19 @@ Bigints are written like regular integers, but must end with an "n",
 as in `123456789987654321n`.
 
 The symbol type is used to represent unique values.
-A symbol is created using the `Symbol` constructor,
+A symbol is created using the `Symbol` function,
 as in `Symbol()`.
 
 These two types aren't used so often, so we might not even
 discuss them during the meetings. Nonetheless, it's good that
 you know they exist.
+
+### `typeof` quirks
+
+We've seen one presumably odd behaviour of `typeof`&mdash;it
+tells us that an array is an object. There's yet a stranger behaviour.
+If you run `typeof null`, you'll get <samp>"object"</samp>.
+`null` is not an object, however. [A quick search](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null) shows the reason
+for this was historical and we just have to live with it.
+
+TODO: mention type of undeclared variable
