@@ -790,4 +790,25 @@ typeof people
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="isarr">
+
+### How do we check if something is an array?
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="isarr">
+
+### How do we check if something is an array?
+
+Use the `Array.isArray` method.
+
+<pre data-id="arrAsObj"><code data-line-numbers="" data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+Array.isArray(people)
+// true
+</code></pre>
+
+</section>
+
 </section>
