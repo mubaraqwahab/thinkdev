@@ -31,7 +31,7 @@ It turns out that there are, as of today, two more primitive
 types in JavaScript: bigint and symbol.
 
 The bigint type is used to represent very large integers
-that the number type cannot represent.
+that the number type cannot correctly represent.
 Bigints are written like regular integers, but must end with an "n",
 as in `123456789987654321n`.
 
