@@ -514,7 +514,7 @@ const app = {
 
 ### Reuse an object to create another {data-id="useobjHeading"}
 
-Another way&mdash;_spread_ the object with `...`
+Another way: _spread_ the object with `...`
 
 <pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
 const purchaseInfo = {
@@ -747,7 +747,24 @@ console.log(people)
 
 <section data-auto-animate>
 
-### Destructure an array {data-id="usearrHeading"}
+### Unpack an array {data-id="usearrHeading"}
+
+Unpack array elements into variables.
+
+<pre data-id="arrIntro"><code data-line-numbers="" data-trim class="language-js">
+const people = ["Amal", "Isa", "Mubaraq"]
+
+const first = people[0] // "Amal"
+const second = people[1] // "Isa"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### Unpack an array {data-id="usearrHeading"}
+
+Another way is to _destructure_
 
 <pre data-id="arrIntro"><code data-line-numbers="1-4|6-8" data-trim class="language-js">
 const people = ["Amal", "Isa", "Mubaraq"]
@@ -812,5 +829,54 @@ Array.isArray(people)
 </code></pre>
 
 </section>
+
+</section>
+
+
+<section>
+
+## Finally &hellip;
+
+```js {data-line-numbers="1-8|9-15|23-30"}
+const apps = [
+  {
+    name: 'WhatsApp Desktop',
+    rating: 4,
+    reviewsCount: 70,
+    price: 0,
+    status: 'Owned',
+  },
+  {
+    name: 'World of Tank Blitz',
+    rating: 5,
+    reviewsCount: 2,
+    price: 0,
+    status: 'Not Owned',
+  },
+  {
+    name: 'Films & TV',
+    rating: 4.8,
+    reviewsCount: 237,
+    price: 0,
+    status: 'Installed',
+  },
+  {
+    name: 'Microsoft Flight Simulator',
+    rating: 5,
+    reviewsCount: 1,
+    price: 24999,
+    status: 'Not Owned',
+  }
+]
+```
+
+</section>
+
+
+<section>
+
+## Exercises
+
+Check the [website]({{ '/lessons/03-collections/' | url }})
 
 </section>
