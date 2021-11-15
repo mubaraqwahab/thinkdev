@@ -28,6 +28,13 @@ module.exports = {
                 display: "none",
               },
             },
+            // Style like code
+            samp: {
+              color: theme("colors.gray.900"),
+              fontWeight: theme("fontWeight.semibold"),
+              // this returns a tuple [fontSize, {lineHeight}]
+              fontSize: theme("fontSize.sm")[0],
+            },
             pre: {
               // color from github.css higlight theme
               color: "#24292e",
@@ -38,7 +45,6 @@ module.exports = {
               display: "inline-block",
               padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
               fontWeight: theme("fontWeight.semibold"),
-              // this returns a tuple [fontSize, {lineHeight}]
               fontSize: theme("fontSize.sm")[0],
               lineHeight: theme("lineHeight.tight"),
               borderWidth: theme("borderWidth.DEFAULT"),
@@ -92,6 +98,10 @@ module.exports = {
                 color: theme("colors.white"),
               },
               "a code": {
+                color: theme("colors.white"),
+              },
+              // Style like <code>
+              samp: {
                 color: theme("colors.white"),
               },
               pre: {
