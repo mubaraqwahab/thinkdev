@@ -22,13 +22,30 @@ Consider object.keys() and object.values()
 
  -->
 
-## {{ iconed("Exercise") }}
+## {{ iconed("Exercises") }}
 
-TODO
+Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
+
+1. Pick any app or website (or some other software) of your choice and identify some entities and lists in it. Try representing those entities and lists using JavaScript objects and arrays.
+
+1. TODO: Export to CSV
+
+1. TODO: Import from CSV
+
+1. TODO: JSON
+
+<!-- TODO: P.S. Talk about why the "find out" exercises and talk about the importance of loops. Consider doing something that necessitates decision making -->
+
+<!-- 1. You may have heard of <abbr>CSV</abbr> before. It stands for _comma-separated values_ and it's a file format for storing data in rows and columns. A CSV file looks like this:
+    ```csv
+    Country,Capital,Continent,Estimated Population
+    Nigeria,Abuja,Africa,
+    Australia,Sydney,Australia,
+    ``` -->
 
 ## {{ iconed("Extras") }}
 
-### Other <abbr title="JavaScript">JS</abbr> types
+### Other JavaScript types
 
 We've discussed these types so far: number, boolean,
 string, undefined, null, and object (including arrays).
