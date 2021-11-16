@@ -1,8 +1,10 @@
-console.log(`
+// Use DEPLOY_PRIME_URL || URL
+// URL is always the URL of the site
+// but DEPLOY_PRIME_URL works for deploy previews too
 
-Netlify Env Vars
-* URL: ${process.env.URL}
-* DEPLOY_URL: ${process.env.DEPLOY_URL}
-* DEPLOY_PRIME_URL: ${process.env.DEPLOY_PRIME_URL}
+const puppeteer = require("puppeteer")
 
-`)
+;(async () => {
+  // This fails
+  const browser = await puppeteer.launch({ headless: true })
+})()
