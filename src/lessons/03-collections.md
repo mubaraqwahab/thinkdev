@@ -18,31 +18,37 @@ excerpt: >
 
 Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
 
+1. I left some things out of the meeting to avoid bloating the slides. What happens if you try to access a property that doesn't exist in an object? What about popping an empty array? Can you spread an object into an array or vice versa? You may have your questions too. Try to get answers by experimenting.
+
 1. Pick any app or website (or some other software) of your choice and identify some entities and lists in it. Try representing those entities and lists using JavaScript objects and arrays.
 
-1. TODO: Export to CSV
+1. An object can have a property whose value is also an object. In this case, we say that the inner object is a _nested_ object:
 
-1. TODO: Import from CSV
+    ```js
+    const user = {
+      name: 'Random User',
+      email: 'user123@example.com',
+      // The value of address is a nested object
+      address: {
+        city: 'Jabi',
+        state: 'Abuja'
+      }
+    }
+    ```
 
-1. TODO: JSON
+    How would you access the `state` property of the nested `address` object? Try changing the value of the `city` property to something else, like "Gwarinpa".
 
+1. An array can contain nested arrays too. When an array contains only array elements, as in the following example, we call it a _two-dimensional_ array or a _matrix_. (The regular array is a _one-dimensional_ array.)
 
-<!--
+    ```js
+    const arr = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ]
+    ```
 
-Consider string.split() and array.join()
-
-Nested objects/arrays
-
- -->
-
-<!-- TODO: P.S. Talk about why the "find out" exercises and talk about the importance of loops. Consider doing something that necessitates decision making -->
-
-<!-- 1. You may have heard of <abbr>CSV</abbr> before. It stands for _comma-separated values_ and it's a file format for storing data in rows and columns. A CSV file looks like this:
-    ```csv
-    Country,Capital,Continent,Estimated Population
-    Nigeria,Abuja,Africa,
-    Australia,Sydney,Australia,
-    ``` -->
+    How would you access and change the number `7` of the nested array?
 
 ## {{ iconed("Extras") }}
 
