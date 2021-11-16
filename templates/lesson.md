@@ -3,11 +3,11 @@ title: Collections
 excerpt: >
 ---
 
-{% from "macros.njk" import iconed %}
+{% from "macros.njk" import iconed, youtubePlayer %}
 
 ## {{ iconed("Video") }}
 
-TODO
+{{ youtubePlayer("")}}
 
 ## {{ iconed("Exercise") }}
 

@@ -8,19 +8,11 @@ excerpt: >
   used to represent these entities and lists.
 ---
 
-{% from "macros.njk" import iconed %}
+{% from "macros.njk" import iconed, youtubePlayer %}
 
 ## {{ iconed("Video") }}
 
-TODO
-
-<!--
-
-Consider string.split() and array.join()
-
-Consider object.keys() and object.values()
-
- -->
+{{ youtubePlayer("qQg4-Nx4ohk")}}
 
 ## {{ iconed("Exercises") }}
 
@@ -33,6 +25,15 @@ Do these exercises in a JavaScript file. (From now on, we won't be using the REP
 1. TODO: Import from CSV
 
 1. TODO: JSON
+
+
+<!--
+
+Consider string.split() and array.join()
+
+Nested objects/arrays
+
+ -->
 
 <!-- TODO: P.S. Talk about why the "find out" exercises and talk about the importance of loops. Consider doing something that necessitates decision making -->
 
