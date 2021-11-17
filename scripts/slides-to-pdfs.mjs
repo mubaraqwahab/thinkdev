@@ -46,7 +46,7 @@ function main() {
       fs.writeFileSync(tempOutFile, processed)
 
       // Print to `_site/slides/<XYZ>.pdf`
-      execSync(`npx decktape reveal ${tempOutFile}?print-pdf ${outFile}`)
+      execSync(`npx decktape --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`)
 
       fs.unlinkSync(tempOutFile)
 
