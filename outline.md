@@ -89,6 +89,21 @@ Comments somewhere
 
 ## Making decisions ❔
 
+* Comparison operators
+  * comparing numbers
+  * comparing strings
+* Truthy and falsy
+* Logical operators
+  * in maths
+  * in programming
+* if statement
+  * one-liner if
+  * on blocks and scope
+  * if...else if
+  * if...else
+* Switch statement??
+* Conditional expression
+
 ## Using functions ➗
 
 ## Testing 🧪
