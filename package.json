@@ -13,7 +13,7 @@
     "clear": "shx rm -rf _site/ src/dist/",
     "prepare": "husky install",
     "format": "prettier --write *.{js,html,css,scss,json}",
-    "slides-to-pdf": "desktape reveal _site/slides/03-collections/index.html _site/testslide.pdf"
+    "slides-to-pdf": "decktape reveal _site/slides/03-collections/index.html _site/testslide.pdf"
   },
   "keywords": [],
   "author": "",
