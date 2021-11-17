@@ -4,13 +4,13 @@ title: Making decisions
 
 <section>
 
-## TODO
+## TODO: slide 1
 
 </section>
 
 
 <section>
 
-## Exercises
+## TODO: slide 2
 
 </section>
