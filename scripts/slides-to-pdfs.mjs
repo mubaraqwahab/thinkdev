@@ -15,6 +15,7 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import { pathToFileURL } from "node:url"
+import { inspect } from "node:util"
 import { rehype } from "rehype"
 import { read, write } from "to-vfile"
 import { reporter } from "vfile-reporter"
@@ -48,8 +49,18 @@ async function main() {
       await write(tempVfile, "utf8")
 
       const page = await browser.newPage()
-      page.on("console", (msg) => {
-        console.log(`${msg.type()}: ${msg.text()}`)
+
+      // See https://github.com/puppeteer/puppeteer/issues/2083#issuecomment-380287424
+      function describe(jsHandle) {
+        return jsHandle.executionContext().evaluate((obj) => {
+          // serialize |obj| however you want
+          return inspect(obj)
+        }, jsHandle)
+      }
+
+      page.on("console", async (msg) => {
+        const args = await Promise.all(msg.args().map((arg) => describe(arg)))
+        console.log(msg.text(), ...args)
       })
 
       // file URI of temp file with reveal.js print-pdf query param
