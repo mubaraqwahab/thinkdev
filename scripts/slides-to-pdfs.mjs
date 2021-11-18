@@ -43,8 +43,10 @@ async function main() {
   //*
   const browser = await puppeteer.launch()
 
-  processedVfiles.forEach(async (vfile) => {
-    try {
+  // Don't use .forEach instead over Promise.all(.map)
+  // I want to wait for all slides to be printed before proceeding
+  await Promise.all(
+    processedVfiles.map(async (vfile) => {
       const page = await browser.newPage()
       console.log({ path: vfile.path })
 
@@ -65,10 +67,8 @@ async function main() {
         printBackground: true,
         preferCSSPageSize: true,
       })
-    } catch (e) {
-      console.error(e)
-    }
-  })
+    })
+  )
 
   await browser.close()
 
