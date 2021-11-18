@@ -48,6 +48,12 @@ async function main() {
       await write(tempVfile, "utf8")
 
       const page = await browser.newPage()
+      // See https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-event-console
+      page.on("console", (msg) => {
+        for (let i = 0; i < msg.args().length; ++i)
+          console.log(`${i}: ${msg.args()[i]}`)
+      })
+
       // file URI of temp file with reveal.js print-pdf query param
       const url = pathToFileURL(tempVfile.path).href + "?print-pdf"
       await page.goto(url)
@@ -59,7 +65,7 @@ async function main() {
         preferCSSPageSize: true,
       })
 
-      await fs.unlink(tempVfile.path)
+      // await fs.unlink(tempVfile.path)
     })
   )
 
