@@ -43,11 +43,11 @@ async function main() {
   //*
   const browser = await puppeteer.launch()
 
-  console.log({ browser })
-
   processedVfiles.forEach(async (vfile) => {
+    console.log({ path: vfile.path })
     const page = await browser.newPage()
 
+    console.log({ page })
     const stubURL = pathToFileURL(vfile.path)
     // Add reveal.js print-pdf query param
     stubURL.searchParams.set("print-pdf", "")
