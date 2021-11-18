@@ -4,16 +4,20 @@
 // Run this only after `_site/` has been created
 // and the templates have been rendered.
 
-import fs from "node:fs"
+import fs from "node:fs/promises"
 import path from "node:path"
-import { execSync, exec } from "node:child_process"
+import util from "node:util"
+import { exec as execCb } from "node:child_process"
 import { rehype } from "rehype"
+import { read, write } from "to-vfile"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
 
+const exec = util.promisify(execCb)
+
 main()
 
-function main() {
+async function main() {
   // A note on terminology:
   // I use "slides" to mean a presentation file
   // and "slides list" to mean a list of presentation files.
@@ -22,31 +26,37 @@ function main() {
   const slidesListDir = path.join(rootDir, "slides/")
   const tempFileName = "_pdf.html"
 
-  fs.readdirSync(slidesListDir, { withFileTypes: true })
+  const dirents = await fs.readdir(slidesListDir, { withFileTypes: true })
+  const slidesNames = dirents
     // Ignore existing pdfs
     .filter((dirent) => dirent.isDirectory())
     // Reduce to folder names
     .map((dirent) => dirent.name)
-    .forEach(async (slidesName) => {
-      const slidesPath = path.join(slidesListDir, slidesName)
-      const tempOutFile = path.join(slidesPath, tempFileName)
-      const outFile = path.join(slidesListDir, slidesName + ".pdf")
 
-      console.log(`Converting ${slidesName} to PDF...`)
+  slidesNames.forEach(async (slidesName) => {
+    const slidesPath = path.join(slidesListDir, slidesName)
+    const tempOutFile = path.join(slidesPath, tempFileName)
+    const outFile = path.join(slidesListDir, slidesName + ".pdf")
 
-      const doc = fs.readFileSync(path.join(slidesPath, "index.html"))
-      const processed = await preprocess(doc)
-      fs.writeFileSync(tempOutFile, processed)
+    const doc = await read(path.join(slidesPath, "index.html"))
+    const processed = await preprocess(doc)
+    await fs.writeFile(tempOutFile, processed)
 
-      // Print to `_site/slides/<XYZ>.pdf`
-      // This size "998x728" is from the size of one printed manually
-      // const stdout = execSync(
-      //   `npx decktape --size "998x728" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
-      // )
-      // console.log(stdout)
+    // Print to `_site/slides/<XYZ>.pdf`
+    // This size "998x728" is from the size of one printed manually
+    // const { stdout, stderr } = await exec(
+    //   `npx decktape` +
+    //     `--size "998x728"` +
+    //     `--load-pause 1500` +
+    //     `reveal` +
+    //     `${tempOutFile}?print-pdf` +
+    //     `${outFile}`
+    // )
+    // console.log(stdout)
+    // console.error(stderr)
 
-      // fs.unlinkSync(tempOutFile)
-    })
+    await fs.unlink(tempOutFile)
+  })
 }
 
 /**
@@ -58,7 +68,7 @@ function main() {
  * * Base relative anchor hrefs on the URL of the site to be deployed.
  *   This is necessary for links in the printed pdf to be valid.
  *
- * @param {string|Buffer} doc
+ * @param {import("to-vfile")} doc
  * @returns {Promise<string>}
  */
 async function preprocess(doc) {
