@@ -40,6 +40,8 @@ async function main() {
     })
   )
 
+  console.log({ processedVfiles })
+
   //*
   const browser = await puppeteer.launch()
 
