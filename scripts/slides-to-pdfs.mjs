@@ -51,12 +51,9 @@ async function main() {
       page.on("console", (msg) => {
         console.log(`${msg.type()}: ${msg.text()}`)
       })
-      page.on("pageerror", (err) => console.error(err))
-      page.on("error", (err) => console.error("...", err))
 
       // file URI of temp file with reveal.js print-pdf query param
       const url = pathToFileURL(tempVfile.path).href + "?print-pdf"
-      console.log({ url })
       await page.goto(url)
 
       // Print to `_site/slides/*.pdf`
