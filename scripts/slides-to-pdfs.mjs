@@ -1,7 +1,7 @@
 // @ts-check
 
 // TODO: jsdoc this script
-// Run this only after _site has been created
+// Run this only after `_site/` has been created
 // and the templates have been rendered.
 
 import fs from "node:fs"
@@ -46,17 +46,18 @@ function main() {
       fs.writeFileSync(tempOutFile, processed)
 
       // Print to `_site/slides/<XYZ>.pdf`
-      execSync(`npx decktape --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`)
+      const stdout = execSync(
+        `npx decktape --size "960x700" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
+      )
+      console.log(stdout)
 
       fs.unlinkSync(tempOutFile)
-
-      console.log(`Done converting ${slidesName}.\n`)
     })
 }
 
 function preprocess(doc) {
   const vfile = rehype().use(rewriteURLs).processSync(doc)
-  console.error(reporter(vfile))
+  console.error("Preprocessing...\n", reporter(vfile))
   return String(vfile)
 }
 
