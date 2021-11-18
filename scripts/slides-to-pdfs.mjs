@@ -54,7 +54,7 @@ async function main() {
       function describe(jsHandle) {
         return jsHandle.executionContext().evaluate((obj) => {
           // serialize |obj| however you want
-          return inspect(obj)
+          return obj.toString()
         }, jsHandle)
       }
 
