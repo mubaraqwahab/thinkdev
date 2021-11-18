@@ -40,26 +40,22 @@ async function main() {
     })
   )
 
-  //*
   const browser = await puppeteer.launch()
 
   // Don't use .forEach instead over Promise.all(.map)
   // I want to wait for all slides to be printed before proceeding
+  // See https://advancedweb.hu/how-to-use-async-functions-with-array-foreach-in-javascript/
   await Promise.all(
     processedVfiles.map(async (vfile) => {
       const page = await browser.newPage()
-      console.log({ path: vfile.path })
 
-      console.log({ page })
+      // Just a URL for the stub
       const stubURL = pathToFileURL(vfile.path)
       // Add reveal.js print-pdf query param
       stubURL.searchParams.set("print-pdf", "")
-      console.log({ stubURL: stubURL.href })
 
       await page.goto(stubURL.href)
       await page.setContent(vfile.toString("utf8"))
-
-      console.log({ outpath: vfile.dirname + ".pdf" })
 
       // Print to `_site/slides/*.pdf`
       await page.pdf({
@@ -71,8 +67,6 @@ async function main() {
   )
 
   await browser.close()
-
-  /**/
 }
 
 /**
