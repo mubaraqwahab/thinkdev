@@ -44,8 +44,8 @@ async function main() {
   const browser = await puppeteer.launch()
 
   processedVfiles.forEach(async (vfile) => {
-    console.log({ path: vfile.path })
     const page = await browser.newPage()
+    console.log({ path: vfile.path })
 
     console.log({ page })
     const stubURL = pathToFileURL(vfile.path)
