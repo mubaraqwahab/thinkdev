@@ -40,10 +40,10 @@ async function main() {
     })
   )
 
-  console.log({ processedVfiles })
-
   //*
   const browser = await puppeteer.launch()
+
+  console.log({ browser })
 
   processedVfiles.forEach(async (vfile) => {
     const page = await browser.newPage()
