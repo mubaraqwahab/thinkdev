@@ -11,33 +11,26 @@ import { rehype } from "rehype"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
 
-const ROOT_DIR = "_site/"
-const SLIDES_DIR = path.join(ROOT_DIR, "slides/")
-const TEMP_FILE_NAME = "_pdf.html"
-
-// URL is always the URL of the site
-// but DEPLOY_PRIME_URL works for deploy previews too
-const BASE_URL = process.env.DEPLOY_PRIME_URL || process.env.URL
-
-if (!BASE_URL) {
-  console.error(
-    "\nCan't convert slides to PDF when neither DEPLOY_PRIME_URL nor URL environment variable is set\n"
-  )
-  process.exit()
-}
-
 main()
 
 function main() {
-  fs.readdirSync(SLIDES_DIR, { withFileTypes: true })
+  // A note on terminology:
+  // I use "slides" to mean a presentation file
+  // and "slides list" to mean a list of presentation files.
+
+  const rootDir = "_site/"
+  const slidesListDir = path.join(rootDir, "slides/")
+  const tempFileName = "_pdf.html"
+
+  fs.readdirSync(slidesListDir, { withFileTypes: true })
     // Ignore existing pdfs
     .filter((dirent) => dirent.isDirectory())
     // Reduce to folder names
     .map((dirent) => dirent.name)
     .forEach((slidesName) => {
-      const slidesPath = path.join(SLIDES_DIR, slidesName)
-      const tempOutFile = path.join(slidesPath, TEMP_FILE_NAME)
-      const outFile = path.join(SLIDES_DIR, slidesName + ".pdf")
+      const slidesPath = path.join(slidesListDir, slidesName)
+      const tempOutFile = path.join(slidesPath, tempFileName)
+      const outFile = path.join(slidesListDir, slidesName + ".pdf")
 
       console.log(`Converting ${slidesName} to PDF...`)
 
@@ -46,8 +39,9 @@ function main() {
       fs.writeFileSync(tempOutFile, processed)
 
       // Print to `_site/slides/<XYZ>.pdf`
+      // This size "998x728" is from the size of one printed manually
       const stdout = execSync(
-        `npx decktape --size "960x700" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
+        `npx decktape --size "998x728" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
       )
       console.log(stdout)
 
@@ -57,7 +51,7 @@ function main() {
 
 function preprocess(doc) {
   const vfile = rehype().use(rewriteURLs).processSync(doc)
-  console.error("Preprocessing...\n", reporter(vfile))
+  console.error(reporter(vfile))
   return String(vfile)
 }
 
@@ -82,11 +76,22 @@ function rewriteURLs() {
       }
     )
 
-    // Base anchor hrefs on the Netlify env vars, DEPLOY_PRIME_URL or URL
+    // URL is always the URL of the site,
+    // but DEPLOY_PRIME_URL works for deploy previews too
+    // Both are Netlify env vars.
+    const baseURL = process.env.DEPLOY_PRIME_URL || process.env.URL
+
+    if (!baseURL) {
+      console.warn(
+        "\nNeither DEPLOY_PRIME_URL nor URL environment variable is set\n"
+      )
+    }
+
+    // Base anchor hrefs on the Netlify env vars
     // This is necessary for printed links to be valid
     visit(tree, { type: "element", tagName: "a" }, (node) => {
       // If .href is already an absolute URL, baseURL will be ignored
-      node.properties.href = new URL(node.properties.href, BASE_URL).href
+      node.properties.href = new URL(node.properties.href, baseURL).href
     })
   }
 }
