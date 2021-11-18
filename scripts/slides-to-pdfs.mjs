@@ -8,49 +8,67 @@
  *
  * It uses puppeteer under the hood, so it may be resource intensive
  * in a CI environment; be careful how you use it!
- * 
+ *
  * This file is an ES module (ESM; `.mjs`) because it has ESM dependencies.
  */
 
 import fs from "node:fs/promises"
 import path from "node:path"
+import { pathToFileURL } from "node:url"
 import { rehype } from "rehype"
 import { read } from "to-vfile"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
+import puppeteer from "puppeteer"
+
+/**
+ * @typedef {import("vfile").VFile} VFile
+ */
 
 main()
 
 async function main() {
+  const slidesListDir = "_site/slides"
   // Get names (i.e. slugs) of generated HTML slides
-  const dirents = await fs.readdir("_site/slides", { withFileTypes: true })
-  const slidesNames = dirents
-    // Get only dirents of slides dirs
-    // E.g. 01-introduction/ not 01-introduction.pdf
-    // I believe I only need this filter so that this script
-    // doesn't mess with PDFs that I printed manually earlier
-    .filter((dirent) => dirent.isDirectory())
-    // Reduce to dir names
-    .map((dirent) => dirent.name)
+  const slidesList = await fs.readdir(slidesListDir)
 
-  // Prepare the slides for printing
   const processedVfiles = await Promise.all(
-    slidesNames.map(async (slidesName) => {
-      const inVfile = await read(path.join(slidesListDir, slidesName, "index.html"))
+    slidesList.map(async (slidesName) => {
+      const slidesPath = path.join(slidesListDir, slidesName, "index.html")
+      const inVfile = await read(slidesPath)
       return preprocess(inVfile)
     })
   )
 
-  // TODO: start puppeteer
-  // You do not need a temp file with puppeteer
-  // See https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagesetcontenthtml-options
-  // Find out: how would this work with relative URLs??
-  
-  processedVfiles.forEach(async (vfile) => {
-    // TODO: Print to `_site/slides/<XYZ>.pdf`
+  // const vfile = processedVfiles[0]
+  // const __dirname = path.dirname(fileURLToPath(import.meta.url))
+  // const stubURL = pathToFileURL(vfile.path)
+  // console.log(stubURL.href)
 
-    const outPath = vfile.dirname + ".pdf"
+  //*
+  const browser = await puppeteer.launch()
+
+  processedVfiles.forEach(async (vfile) => {
+    const page = await browser.newPage()
+
+    const stubURL = pathToFileURL(vfile.path)
+    // Add reveal.js print-pdf query param
+    stubURL.searchParams.set("print-pdf", "")
+
+    await page.goto(stubURL.href)
+    await page.setContent(vfile.toString("utf8"))
+
+    // Print to `_site/slides/*.pdf`
+    await page.pdf({
+      path: vfile.dirname + ".pdf",
+      printBackground: true,
+      preferCSSPageSize: true,
+    })
   })
+
+  await browser.close()
+
+  /**/
 }
 
 /**
