@@ -1,75 +1,69 @@
 // @ts-check
 
-// TODO: jsdoc this script
-// Run this only after `_site/` has been created
-// and the templates have been rendered.
+/**
+ * @file
+ * This script generates PDF files for the HTML slides.
+ * Run it as part of the production build process,
+ * only after templates have been rendered to `_site/`.
+ *
+ * It uses puppeteer under the hood, so it may be resource intensive
+ * in a CI environment; be careful how you use it!
+ * 
+ * This file is an ES module (ESM; `.mjs`) because it has ESM dependencies.
+ */
 
 import fs from "node:fs/promises"
 import path from "node:path"
-import util from "node:util"
-import { exec as execCb } from "node:child_process"
 import { rehype } from "rehype"
-import { read, write } from "to-vfile"
+import { read } from "to-vfile"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
-
-const exec = util.promisify(execCb)
 
 main()
 
 async function main() {
-  // A note on terminology:
-  // I use "slides" to mean a presentation file
-  // and "slides list" to mean a list of presentation files.
-
-  const rootDir = "_site/"
-  const slidesListDir = path.join(rootDir, "slides/")
-  const tempFileName = "_pdf.html"
-
-  const dirents = await fs.readdir(slidesListDir, { withFileTypes: true })
+  // Get names (i.e. slugs) of generated HTML slides
+  const dirents = await fs.readdir("_site/slides", { withFileTypes: true })
   const slidesNames = dirents
-    // Ignore existing pdfs
+    // Get only dirents of slides dirs
+    // E.g. 01-introduction/ not 01-introduction.pdf
+    // I believe I only need this filter so that this script
+    // doesn't mess with PDFs that I printed manually earlier
     .filter((dirent) => dirent.isDirectory())
-    // Reduce to folder names
+    // Reduce to dir names
     .map((dirent) => dirent.name)
 
-  slidesNames.forEach(async (slidesName) => {
-    const slidesPath = path.join(slidesListDir, slidesName)
-    const tempOutFile = path.join(slidesPath, tempFileName)
-    const outFile = path.join(slidesListDir, slidesName + ".pdf")
+  // Prepare the slides for printing
+  const processedVfiles = await Promise.all(
+    slidesNames.map(async (slidesName) => {
+      const inVfile = await read(path.join(slidesListDir, slidesName, "index.html"))
+      return preprocess(inVfile)
+    })
+  )
 
-    const doc = await read(path.join(slidesPath, "index.html"))
-    const processed = await preprocess(doc)
-    await fs.writeFile(tempOutFile, processed)
+  // TODO: start puppeteer
+  // You do not need a temp file with puppeteer
+  // See https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagesetcontenthtml-options
+  // Find out: how would this work with relative URLs??
+  
+  processedVfiles.forEach(async (vfile) => {
+    // TODO: Print to `_site/slides/<XYZ>.pdf`
 
-    // Print to `_site/slides/<XYZ>.pdf`
-    // This size "998x728" is from the size of one printed manually
-    // const { stdout, stderr } = await exec(
-    //   `npx decktape` +
-    //     `--size "998x728"` +
-    //     `--load-pause 1500` +
-    //     `reveal` +
-    //     `${tempOutFile}?print-pdf` +
-    //     `${outFile}`
-    // )
-    // console.log(stdout)
-    // console.error(stderr)
-
-    await fs.unlink(tempOutFile)
+    const outPath = vfile.dirname + ".pdf"
   })
 }
 
 /**
- * Prepare a slides HTML document for printing
+ * Prepare an HTML document for printing.
  *
  * This function performs these transformations:
- * * Rewrite relative subresource URLs to point to the `_site` dir.
+ * - Rewrites relative subresource URLs to point to the `_site` dir.
  *   This is necessary to load styles, images, etc. for the printed pdf.
- * * Base relative anchor hrefs on the URL of the site to be deployed.
+ * - Bases relative anchor hrefs on the URL of the site to be deployed.
  *   This is necessary for links in the printed pdf to be valid.
  *
- * @param {import("to-vfile")} doc
- * @returns {Promise<string>}
+ * @param {VFile} doc
+ * @returns {Promise<VFile>}
  */
 async function preprocess(doc) {
   const vfile = await rehype()
@@ -77,7 +71,7 @@ async function preprocess(doc) {
     .use(rewriteAnchorURLs)
     .process(doc)
   console.error(reporter(vfile))
-  return String(vfile)
+  return vfile
 }
 
 /**
@@ -109,21 +103,27 @@ function rewriteSubresourceURLs() {
 }
 
 /**
- * Rewrite relative `<link>`, `<script>`, `<img>` URLs to point to the `_site` dir
+ * Rewrite relative anchor hrefs as absolute URLs (i.e. with origin).
+ * Requires one of `DEPLOY_PRIME_URL` and `URL` env vars to be set,
+ * as the value is used as the origin of URLs.
+ *
+ * The env vars are automatically set by Netlify.
+ * - `URL` is always the URL of the Netlify site
+ * - `DEPLOY_PRIME_URL` is the URL to which the site will be deployed.
+ *   For example, when building a deploy preview, the value of this
+ *   variable is the deploy preview URL.
+ * If both vars are set, then `DEPLOY_PRIME_URL` is preferred.
  *
  * This is a rehype plugin.
  * @see {@link https://unifiedjs.com/learn/guide/create-a-plugin}
  */
 function rewriteAnchorURLs() {
   return (tree) => {
-    // URL is always the URL of the site,
-    // but DEPLOY_PRIME_URL works for deploy previews too
-    // Both are Netlify env vars.
     const baseURL = process.env.DEPLOY_PRIME_URL || process.env.URL
 
     if (!baseURL) {
-      console.warn(
-        "\nNeither DEPLOY_PRIME_URL nor URL environment variable is set\n"
+      throw new Error(
+        "Neither DEPLOY_PRIME_URL nor URL environment variable is set."
       )
     }
 
