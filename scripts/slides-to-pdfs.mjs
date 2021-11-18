@@ -6,7 +6,7 @@
 
 import fs from "node:fs"
 import path from "node:path"
-import { execSync } from "node:child_process"
+import { execSync, exec } from "node:child_process"
 import { rehype } from "rehype"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
@@ -27,7 +27,7 @@ function main() {
     .filter((dirent) => dirent.isDirectory())
     // Reduce to folder names
     .map((dirent) => dirent.name)
-    .forEach((slidesName) => {
+    .forEach(async (slidesName) => {
       const slidesPath = path.join(slidesListDir, slidesName)
       const tempOutFile = path.join(slidesPath, tempFileName)
       const outFile = path.join(slidesListDir, slidesName + ".pdf")
@@ -35,30 +35,49 @@ function main() {
       console.log(`Converting ${slidesName} to PDF...`)
 
       const doc = fs.readFileSync(path.join(slidesPath, "index.html"))
-      const processed = preprocess(doc)
+      const processed = await preprocess(doc)
       fs.writeFileSync(tempOutFile, processed)
 
       // Print to `_site/slides/<XYZ>.pdf`
       // This size "998x728" is from the size of one printed manually
-      const stdout = execSync(
-        `npx decktape --size "998x728" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
-      )
-      console.log(stdout)
+      // const stdout = execSync(
+      //   `npx decktape --size "998x728" --load-pause 1500 reveal ${tempOutFile}?print-pdf ${outFile}`
+      // )
+      // console.log(stdout)
 
-      fs.unlinkSync(tempOutFile)
+      // fs.unlinkSync(tempOutFile)
     })
 }
 
-function preprocess(doc) {
-  const vfile = rehype().use(rewriteURLs).processSync(doc)
+/**
+ * Prepare a slides HTML document for printing
+ *
+ * This function performs these transformations:
+ * * Rewrite relative subresource URLs to point to the `_site` dir.
+ *   This is necessary to load styles, images, etc. for the printed pdf.
+ * * Base relative anchor hrefs on the URL of the site to be deployed.
+ *   This is necessary for links in the printed pdf to be valid.
+ *
+ * @param {string|Buffer} doc
+ * @returns {Promise<string>}
+ */
+async function preprocess(doc) {
+  const vfile = await rehype()
+    .use(rewriteSubresourceURLs)
+    .use(rewriteAnchorURLs)
+    .process(doc)
   console.error(reporter(vfile))
   return String(vfile)
 }
 
-// See https://unifiedjs.com/learn/guide/create-a-plugin/
-function rewriteURLs() {
+/**
+ * Rewrite relative `<link>`, `<script>`, `<img>` URLs to point to the `_site` dir
+ *
+ * This is a rehype plugin.
+ * @see https://unifiedjs.com/learn/guide/create-a-plugin
+ */
+function rewriteSubresourceURLs() {
   return (tree) => {
-    // Rewrite <link>, <script>, <img> URLs to point to `_site`
     visit(
       tree,
       [
@@ -75,7 +94,18 @@ function rewriteURLs() {
         }
       }
     )
+    return tree
+  }
+}
 
+/**
+ * Rewrite relative `<link>`, `<script>`, `<img>` URLs to point to the `_site` dir
+ *
+ * This is a rehype plugin.
+ * @see {@link https://unifiedjs.com/learn/guide/create-a-plugin}
+ */
+function rewriteAnchorURLs() {
+  return (tree) => {
     // URL is always the URL of the site,
     // but DEPLOY_PRIME_URL works for deploy previews too
     // Both are Netlify env vars.
@@ -87,11 +117,11 @@ function rewriteURLs() {
       )
     }
 
-    // Base anchor hrefs on the Netlify env vars
-    // This is necessary for printed links to be valid
     visit(tree, { type: "element", tagName: "a" }, (node) => {
       // If .href is already an absolute URL, baseURL will be ignored
       node.properties.href = new URL(node.properties.href, baseURL).href
     })
+
+    return tree
   }
 }
