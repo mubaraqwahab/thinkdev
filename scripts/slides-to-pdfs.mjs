@@ -44,26 +44,30 @@ async function main() {
   const browser = await puppeteer.launch()
 
   processedVfiles.forEach(async (vfile) => {
-    const page = await browser.newPage()
-    console.log({ path: vfile.path })
+    try {
+      const page = await browser.newPage()
+      console.log({ path: vfile.path })
 
-    console.log({ page })
-    const stubURL = pathToFileURL(vfile.path)
-    // Add reveal.js print-pdf query param
-    stubURL.searchParams.set("print-pdf", "")
-    console.log({ stubURL: stubURL.href })
+      console.log({ page })
+      const stubURL = pathToFileURL(vfile.path)
+      // Add reveal.js print-pdf query param
+      stubURL.searchParams.set("print-pdf", "")
+      console.log({ stubURL: stubURL.href })
 
-    await page.goto(stubURL.href)
-    await page.setContent(vfile.toString("utf8"))
+      await page.goto(stubURL.href)
+      await page.setContent(vfile.toString("utf8"))
 
-    console.log({ outpath: vfile.dirname + ".pdf" })
+      console.log({ outpath: vfile.dirname + ".pdf" })
 
-    // Print to `_site/slides/*.pdf`
-    await page.pdf({
-      path: vfile.dirname + ".pdf",
-      printBackground: true,
-      preferCSSPageSize: true,
-    })
+      // Print to `_site/slides/*.pdf`
+      await page.pdf({
+        path: vfile.dirname + ".pdf",
+        printBackground: true,
+        preferCSSPageSize: true,
+      })
+    } catch (e) {
+      console.error(e)
+    }
   })
 
   await browser.close()
