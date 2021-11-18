@@ -40,11 +40,6 @@ async function main() {
     })
   )
 
-  // const vfile = processedVfiles[0]
-  // const __dirname = path.dirname(fileURLToPath(import.meta.url))
-  // const stubURL = pathToFileURL(vfile.path)
-  // console.log(stubURL.href)
-
   //*
   const browser = await puppeteer.launch()
 
@@ -54,9 +49,12 @@ async function main() {
     const stubURL = pathToFileURL(vfile.path)
     // Add reveal.js print-pdf query param
     stubURL.searchParams.set("print-pdf", "")
+    console.log({ stubURL: stubURL.href })
 
     await page.goto(stubURL.href)
     await page.setContent(vfile.toString("utf8"))
+
+    console.log({ outpath: vfile.dirname + ".pdf" })
 
     // Print to `_site/slides/*.pdf`
     await page.pdf({
