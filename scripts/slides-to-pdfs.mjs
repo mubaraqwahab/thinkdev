@@ -16,7 +16,7 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import { pathToFileURL } from "node:url"
 import { rehype } from "rehype"
-import { read } from "to-vfile"
+import { read, write } from "to-vfile"
 import { reporter } from "vfile-reporter"
 import { visit } from "unist-util-visit"
 import puppeteer from "puppeteer"
@@ -32,37 +32,34 @@ async function main() {
   // Get names (i.e. slugs) of generated HTML slides
   const slidesList = await fs.readdir(slidesListDir)
 
-  const processedVfiles = await Promise.all(
-    slidesList.map(async (slidesName) => {
-      const slidesPath = path.join(slidesListDir, slidesName, "index.html")
-      const inVfile = await read(slidesPath)
-      return preprocess(inVfile)
-    })
-  )
-
   const browser = await puppeteer.launch()
 
-  // Don't use .forEach instead over Promise.all(.map)
+  // Don't use .forEach over Promise.all(.map)
   // I want to wait for all slides to be printed before proceeding
   // See https://advancedweb.hu/how-to-use-async-functions-with-array-foreach-in-javascript/
   await Promise.all(
-    processedVfiles.map(async (vfile) => {
+    slidesList.map(async (slidesName) => {
+      const slidesPath = path.join(slidesListDir, slidesName, "index.html")
+      const inVfile = await read(slidesPath)
+
+      const tempVfile = await preprocess(inVfile)
+      // Write to _site/slides/*/_temp.html
+      tempVfile.stem = "_temp"
+      await write(tempVfile, "utf8")
+
       const page = await browser.newPage()
-
-      // Just a URL for the stub
-      const stubURL = pathToFileURL(vfile.path)
-      // Add reveal.js print-pdf query param
-      stubURL.searchParams.set("print-pdf", "")
-
-      await page.goto(stubURL.href)
-      await page.setContent(vfile.toString("utf8"))
+      // file URI of temp file with reveal.js print-pdf query param
+      const url = pathToFileURL(tempVfile.path).href + "?print-pdf"
+      await page.goto(url)
 
       // Print to `_site/slides/*.pdf`
       await page.pdf({
-        path: vfile.dirname + ".pdf",
+        path: tempVfile.dirname + ".pdf",
         printBackground: true,
         preferCSSPageSize: true,
       })
+
+      await fs.unlink(tempVfile.path)
     })
   )
 
