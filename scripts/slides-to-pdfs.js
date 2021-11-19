@@ -10,6 +10,7 @@
  * and then runs puppeteer to print the HTML slides from the server
  */
 
+const fs = require("fs/promises")
 const http = require("http")
 const handler = require("serve-handler")
 const puppeteer = require("puppeteer")
@@ -25,21 +26,36 @@ const server = http.createServer((request, response) => {
 })
 
 server.listen(TEMP_PORT, async () => {
-  console.log(`Running temp server at ${TEMP_URL}`)
   try {
+    console.log(`Running temp server at ${TEMP_URL}`)
+
     const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-    await page.goto(TEMP_URL + "/slides/01-introduction/?print-pdf")
-    // await page.pdf({
-    //   path: "_site/slides/01-introduction.pdf",
-    //   printBackground: true,
-    //   preferCSSPageSize: true,
-    // })
-    // await browser.close()
+
+    const slidesDirContent = await fs.readdir("_site/slides")
+    const slidesList = slidesDirContent.filter((name) => !name.includes("."))
+
+    await Promise.all(
+      slidesList.map(async (slidesName) => {
+        const page = await browser.newPage()
+        await page.goto(`${TEMP_URL}/slides/${slidesName}/?print-pdf`)
+        await page.waitForNetworkIdle({ timeout: 1000 })
+
+        const pdfPath = `_site/slides/${slidesName}.pdf`
+        await page.pdf({
+          path: pdfPath,
+          printBackground: true,
+          preferCSSPageSize: true,
+          landscape: true,
+        })
+        console.log(`Generated PDF for ${slidesName} at ${pdfPath}`)
+      })
+    )
+
+    await browser.close()
   } catch (e) {
     console.error(e)
   } finally {
     // Destroy the server
-    // process.exit()
+    process.exit()
   }
 })
