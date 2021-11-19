@@ -76,8 +76,6 @@ server.listen(TEMP_PORT, async () => {
  * Prepare an HTML document for printing.
  *
  * This function performs these transformations:
- * - Rewrites relative subresource URLs to point to the `_site` dir.
- *   This is necessary to load styles, images, etc. for the printed pdf.
  * - Bases relative anchor hrefs on the URL of the site to be deployed.
  *   This is necessary for links in the printed pdf to be valid.
  *
@@ -122,27 +120,4 @@ function rewriteAnchorURLs() {
 
     return tree
   }
-}
-
-async function printSlides(slidesList) {
-  const browser = await puppeteer.launch()
-
-  await Promise.all(
-    slidesList.map(async (slidesName) => {
-      const page = await browser.newPage()
-      await page.goto(`${TEMP_URL}/slides/${slidesName}/?print-pdf`)
-      await page.waitForNetworkIdle({ timeout: 1500 })
-
-      const pdfPath = `_site/slides/${slidesName}.pdf`
-      await page.pdf({
-        path: pdfPath,
-        printBackground: true,
-        preferCSSPageSize: true,
-        landscape: true,
-      })
-      console.log(`Generated PDF for ${slidesName} at ${pdfPath}`)
-    })
-  )
-
-  await browser.close()
 }
