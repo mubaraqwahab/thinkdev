@@ -11,7 +11,11 @@ layout: layouts/home
 <!-- We'll learn how to do this and do that, and even more stuff. By the end of the course, you should be:
 
 * able to do A
-* also able to do B and C -->
+* also able to do B and C
+
+Course format, schedule.
+
+-->
 
 ## 📃 Outline
 
