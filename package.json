@@ -35,7 +35,6 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.6",
     "bootstrap-icons": "^1.5.0",
-    "decktape": "^3.3.0",
     "highlight.js": "^11.3.1",
     "html-minifier-terser": "^6.0.2",
     "kebab-case": "^1.0.1",
@@ -52,13 +51,11 @@
     "shx": "^0.3.3",
     "tailwindcss": "^2.2.15",
     "terser": "^5.9.0",
-    "to-vfile": "^7.2.2",
     "unist-util-visit": "^4.1.0",
     "vfile-reporter": "^7.0.2"
   },
   "devDependencies": {
     "husky": "^7.0.0",
-    "prettier": "2.3.2",
-    "vfile": "^5.2.0"
+    "prettier": "2.3.2"
   }
 }

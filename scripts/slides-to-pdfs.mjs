@@ -49,7 +49,7 @@ server.listen(TEMP_PORT, async () => {
 
         const page = await browser.newPage()
         await page.goto(`${TEMP_URL}/slides/${slidesName}/temp/?print-pdf`)
-        await page.waitForNetworkIdle({ timeout: 1500 })
+        await page.waitForNetworkIdle()
 
         const pdfPath = `_site/slides/${slidesName}.pdf`
         await page.pdf({
