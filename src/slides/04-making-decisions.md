@@ -129,11 +129,11 @@ Boolean("") // false
 
 All expressions are truthy except a few which are falsy:
 
-* `false`
-* `0`
-* `""` (empty string)
-* `null`
-* `undefined`
+* `false` {.fragment .fade-up}
+* `0` {.fragment .fade-up}
+* `""` (empty string) {.fragment .fade-up}
+* `null` {.fragment .fade-up}
+* `undefined` {.fragment .fade-up}
 
 </section>
 
@@ -152,11 +152,7 @@ All expressions are truthy except a few which are falsy:
 
 ## Logical operators
 
-There are three:
-
-* NOT
-* AND
-* OR
+There are three: NOT, AND, and OR.
 
 </section>
 
@@ -164,9 +160,10 @@ There are three:
 
 ### NOT: in maths
 
-* NOT&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+([T]{.italic} for true, [F]{.italic} for false)
 
-* NOT&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+* NOT [T]{.italic} yields [F]{.italic}
+* NOT [F]{.italic} yields [T]{.italic}
 
 </section>
 
@@ -174,9 +171,12 @@ There are three:
 
 ### NOT: in programming
 
-The NOT operator is `!` (exclamation mark).
+`!expr`
 
-`!expr` is `false` if `expr` is truthy, and `true` otherwise.
+* The result is `false` if `expr` is truthy.
+* The result is `true` if `expr` is falsy.
+
+<div class="fragment">
 
 ```js {data-line-numbers="1,2|4,5"}
 "NOT operator" // truthy expr
@@ -186,6 +186,8 @@ The NOT operator is `!` (exclamation mark).
 !([].length) // true
 ```
 
+</div>
+
 </section>
 
 <section>
@@ -194,7 +196,7 @@ The NOT operator is `!` (exclamation mark).
 
 You can use the NOT operator to convert a value to a boolean:
 
-```js {data-line-numbers="1|2|3|5-6"}
+```js {data-line-numbers="1,2|3|5-6"}
 0 // falsy value
 !0 // true
 !!0 // false
@@ -209,13 +211,10 @@ Boolean(0) // false
 
 ### AND: in maths
 
-* [T]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-
-* [T]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-
-* [F]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-
-* [F]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+* [T]{.italic} AND [T]{.italic} yields [T]{.italic}
+* [T]{.italic} AND [F]{.italic} yields [F]{.italic}
+* [F]{.italic} AND [T]{.italic} yields [F]{.italic}
+* [F]{.italic} AND [F]{.italic} yields [F]{.italic}
 
 </section>
 
@@ -228,5 +227,148 @@ Boolean(0) // false
 * result is `expr1` if `expr1` is falsy
 
 </section>
+
+<section>
+
+### AND: in programming
+
+TODO:
+
+* common use
+* shortcircuiting
+
+```js
+
+```
+
+</section>
+
+<section>
+
+### OR: in maths
+
+* [T]{.italic} OR [T]{.italic} yields [T]{.italic}
+* [T]{.italic} OR [F]{.italic} yields [T]{.italic}
+* [F]{.italic} OR [T]{.italic} yields [T]{.italic}
+* [F]{.italic} OR [F]{.italic} yields [F]{.italic}
+
+</section>
+
+<section>
+
+### OR: in programming
+
+`expr1 || expr2`
+* result is `expr1` if `expr1` is truthy
+* result is `expr2` if `expr1` is falsy
+
+</section>
+
+<section>
+
+### OR: in programming
+
+TODO:
+
+* common use
+* default values
+* shortcircuiting
+
+```js
+
+```
+
+</section>
+
+</section>
+
+
+<section>
+
+<section data-auto-animate>
+
+## The `if` statement
+
+</section>
+
+<section data-auto-animate>
+
+## The `if` statement
+
+```js
+if (expr) {
+  // code here
+}
+```
+
+</section>
+
+<section>
+
+TODO: code snippet on control flow
+
+</section>
+
+<section>
+
+### One-liner if
+
+```js
+
+```
+
+</section>
+
+<section>
+
+### On blocks and scope
+
+`let` and `const` variables are _block-scoped_.
+
+```js
+
+```
+
+</section>
+
+<section>
+
+### `if` &hellip; `else if`
+
+```js
+
+```
+
+</section>
+
+<section>
+
+### `if` &hellip; `else`
+
+```js
+
+```
+
+</section>
+
+</section>
+
+
+<section>
+
+<section>
+
+## The `switch` statement
+
+</section>
+
+</section>
+
+
+<section>
+
+## Conditional expression
+
+A _ternary__ operator
 
 </section>

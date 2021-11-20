@@ -152,7 +152,7 @@ section.has-light-background h6 {
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 0.3em;
 }
 
 .reveal ol {
