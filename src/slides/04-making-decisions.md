@@ -164,9 +164,9 @@ There are three:
 
 ### NOT: in maths
 
-NOT [T]{.italic} yields [F]{.italic}
+* NOT&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
 
-NOT [F]{.italic} yields [T]{.italic}
+* NOT&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
 
 </section>
 
@@ -202,6 +202,30 @@ You can use the NOT operator to convert a value to a boolean:
 // Same as:
 Boolean(0) // false
 ```
+
+</section>
+
+<section>
+
+### AND: in maths
+
+* [T]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+
+* [T]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+
+* [F]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+
+* [F]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+
+</section>
+
+<section>
+
+### AND: in programming
+
+`expr1 && expr2`
+* result is `expr2` if `expr1` is truthy
+* result is `expr1` if `expr1` is falsy
 
 </section>
 
