@@ -19,6 +19,9 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            '[class~="lead"]': {
+              fontWeight: "normal",
+            },
             cite: {
               fontStyle: "normal",
             },

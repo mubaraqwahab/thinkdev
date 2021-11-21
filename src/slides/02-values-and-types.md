@@ -45,11 +45,11 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ## These have "formal" names
 
-* We represent text with _strings_ {.fragment .fade-up}
+* We represent text with <i>strings</i> {.fragment .fade-up}
   * `"Most popular"`
   * `'Installed'`
   * `'She\'s here'`
-* We use _booleans_ to choose between alternatives {.fragment .fade-up}
+* We use <i>booleans</i> to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
 </section>
@@ -59,8 +59,8 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 ### What about numbers?
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
-* _Integer_ types (or _int_) for 1, 20, -7, &hellip; {.fragment .fade-up}
-* _Floating point_ types (or _float_) for 3.2, -0.789, &hellip; {.fragment .fade-up}
+* <i>Integer</i> types (or <i>int</i>) for 1, 20, -7, &hellip; {.fragment .fade-up}
+* <i>Floating point</i> types (or <i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
@@ -68,7 +68,7 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ### But in JavaScript ...
 
-... a number is just a _number_.
+... a number is just a <i>number</i>.
 
 </section>
 
@@ -257,7 +257,7 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 ### Variables that vary
 
-* `const` variables are _constant_; they always refer to the same value.
+* `const` variables are <i>constant</i>; they always refer to the same value.
 * That's fine in many cases, but sometimes we need to change that reference. {.fragment .fade-up}
 
 </section>
@@ -401,7 +401,7 @@ const b = a = 15
 
 ### Joining strings {data-id="strOpHeading"}
 
-Also known as _concatenation_
+Also known as <i>concatenation</i>
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -417,7 +417,7 @@ const fullName = firstName + lastName
 
 ### Joining strings {data-id="strOpHeading"}
 
-Also known as _concatenation_
+Also known as <i>concatenation</i>
 
 <pre data-id="concatstr"><code data-line-numbers="4-6" data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -434,7 +434,7 @@ const fullName = firstName + " " + lastName
 
 ### Interpolation {data-id="strOpHeading"}
 
-You can use special strings called _template literals_ to interpolate.
+You can use special strings called <i>template literals</i> to interpolate.
 
 <pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -450,7 +450,7 @@ const fullName = `${firstName} ${lastName}`
 
 ### Get a character from a string {data-id="strOpHeading"}
 
-Use square brackets to specify an _index_ (starts from zero)
+Use square brackets to specify an <i>index</i> (starts from zero)
 
 <pre data-id="concatstr"><code data-line-numbers="1,2,5-7" data-trim class="language-js">
 //                 0123456
