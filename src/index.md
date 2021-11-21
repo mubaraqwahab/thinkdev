@@ -18,7 +18,7 @@ We'll learn how to break down problems and express solutions in a programming la
 
 ## Format
 
-We'll meet on Saturdays for a discussion and review of the previous week's lesson. On Sundays, we'll meet for a new lesson. Meetings will hold on Zoom from 12:00 p.m. to 12:40 p.m.
+<!-- We'll meet on Saturdays for a discussion and review of the previous week's lesson. On Sundays, we'll meet for a new lesson. Meetings will hold on Zoom from 12:00 p.m. to 12:40 p.m. -->
 
 Each lesson page (see the [outline](#outline) above) contains the slides, recorded meetings, exercises, etc., for that lesson. The slides are in two formats: an interactive presentation that you can view on this site and a PDF version that you can download.
 
