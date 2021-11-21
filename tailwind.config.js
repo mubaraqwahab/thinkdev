@@ -19,6 +19,9 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            cite: {
+              fontStyle: "normal",
+            },
             // Disable backticks
             code: {
               "&::before": {
