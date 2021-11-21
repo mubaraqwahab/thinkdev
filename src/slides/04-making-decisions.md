@@ -4,9 +4,24 @@ title: Making decisions
 
 <section>
 
-## TODO: slide 1
+<section>
 
-![]({{ '/assets/images/decisions-youtube-like-btn-cropped.png?nf_resize=fit&w=' | url }})
+![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/decisions-youtube-like-btn.png?nf_resize=fit&w=660' | url }}){width=660}
+
+</section>
+
+<section>
+
+![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+
+</section>
+
+</section>
+
+
+<section>
+
+## First, let's learn how to do some basic comparison
 
 </section>
 
@@ -16,8 +31,6 @@ title: Making decisions
 <section>
 
 ## Relational operators
-
-Also known as _comparison operators_.
 
 ```js
 3 > 2 // true
@@ -162,8 +175,8 @@ There are three: NOT, AND, and OR.
 
 ([T]{.italic} for true, [F]{.italic} for false)
 
-* NOT [T]{.italic} yields [F]{.italic}
-* NOT [F]{.italic} yields [T]{.italic}
+* NOT&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+* NOT&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
 
 </section>
 
@@ -176,7 +189,7 @@ There are three: NOT, AND, and OR.
 * The result is `false` if `expr` is truthy.
 * The result is `true` if `expr` is falsy.
 
-<div class="fragment">
+<div class="fragment fade-up">
 
 ```js {data-line-numbers="1,2|4,5"}
 "NOT operator" // truthy expr
@@ -211,10 +224,10 @@ Boolean(0) // false
 
 ### AND: in maths
 
-* [T]{.italic} AND [T]{.italic} yields [T]{.italic}
-* [T]{.italic} AND [F]{.italic} yields [F]{.italic}
-* [F]{.italic} AND [T]{.italic} yields [F]{.italic}
-* [F]{.italic} AND [F]{.italic} yields [F]{.italic}
+* [T]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+* [T]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+* [F]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
+* [F]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
 
 </section>
 
@@ -228,17 +241,35 @@ Boolean(0) // false
 
 </section>
 
-<section>
+<section data-auto-animate>
 
-### AND: in programming
+### AND example
 
-TODO:
+![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
-* common use
-* shortcircuiting
+</section>
 
-```js
+<section data-auto-animate>
 
+### AND example
+
+<!-- TODO:
+* shortcircuiting -->
+
+```js {data-line-numbers=1-7|9-10|12-13}
+const app = {
+  name: 'World of Tank Blitz',
+  rating: 5,
+  reviewsCount: 2,
+  price: 0,
+  status: 'Not Owned', // or "Owned" or "Installed"
+}
+
+// If this is true, write "free"
+app.status === "Not Owned" && app.price === 0
+
+// Also:
+app.status === "Not Owned" && !app.price
 ```
 
 </section>
@@ -247,10 +278,10 @@ TODO:
 
 ### OR: in maths
 
-* [T]{.italic} OR [T]{.italic} yields [T]{.italic}
-* [T]{.italic} OR [F]{.italic} yields [T]{.italic}
-* [F]{.italic} OR [T]{.italic} yields [T]{.italic}
-* [F]{.italic} OR [F]{.italic} yields [F]{.italic}
+* [T]{.italic} &nbsp;OR&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+* [T]{.italic} &nbsp;OR&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+* [F]{.italic} &nbsp;OR&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
+* [F]{.italic} &nbsp;OR&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
 
 </section>
 
@@ -268,17 +299,21 @@ TODO:
 
 ### OR: in programming
 
-TODO:
-
-* common use
-* default values
-* shortcircuiting
-
 ```js
+const phoneInput = /* get phone num from user input */
 
+// For default values
+const phone = phoneInput || null
 ```
 
 </section>
+
+</section>
+
+
+<section>
+
+## Let's get to making decisions now
 
 </section>
 
@@ -297,7 +332,7 @@ TODO:
 
 ```js
 if (expr) {
-  // code here
+  // statements...
 }
 ```
 
@@ -305,29 +340,89 @@ if (expr) {
 
 <section>
 
-TODO: code snippet on control flow
+### Order of execution ("the control flow")
+
+<pre data-id="if"><code data-line-numbers="1|3-6|8" data-trim class="language-js">
+let quantity = 1
+
+// When user clicks the minus button
+if (quantity > 1) {
+  quantity--;
+}
+
+console.log(quantity)
+</code></pre>
 
 </section>
 
 <section>
 
-### One-liner if
+### Single statement
 
-```js
+The curly brackets are optional when there's only one statement.
 
-```
+<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
+if (quantity > 1)
+  quantity--;
+</code></pre>
 
 </section>
 
-<section>
+<section data-auto-animate>
 
 ### On blocks and scope
 
 `let` and `const` variables are _block-scoped_.
 
-```js
+<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
+const x = 5
 
-```
+if (x > 0) {
+  const y = 6
+  console.log(y)
+}
+
+// ReferenceError: y is not defined
+console.log(y)
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### On blocks and scope
+
+Variables are visible in their scope and in inner scopes. _Global variables_ are variables in the outermost scope (the _global scope_).
+
+<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
+// Global variable
+const x = 5
+
+if (x > 0) {
+  console.log(x)
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+### On blocks and scope
+
+Variables in different scopes can have the same names.
+
+<pre data-id="if"><code data-line-numbers="1,2,5-7,10" data-trim class="language-js">
+// Global variable
+const x = 5
+
+if (x > 0) {
+  // This is a different x
+  const x = 7
+  console.log(x) // 7
+}
+
+console.log(x) // 5
+</code></pre>
 
 </section>
 
@@ -367,8 +462,96 @@ TODO: code snippet on control flow
 
 <section>
 
-## Conditional expression
+## What about an expression?
 
-A _ternary__ operator
+</section>
+
+
+<section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+`expr1 ? expr2 : expr3`
+
+* result is `expr2` if `expr1` is truthy
+* result is `expr3` otherwise
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
+const n = 5;
+const remark = n > 0 ? "positive" : "not positive"
+console.log(remark) // "positive"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
+const n = -2;
+const remark = n > 0 ? "positive" : "not positive"
+console.log(remark) // "not positive"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+You can nest the operator
+
+<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
+const n = -2;
+const remark = n > 0
+  ? "positive"
+  : n < 0
+  ? "negative"
+  : "zero"
+console.log(remark) // "negative"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+You can nest the operator
+
+<pre data-id="ternary"><code data-line-numbers=1,7 data-trim class="language-js">
+const n = 0;
+const remark = n > 0
+  ? "positive"
+  : n < 0
+  ? "negative"
+  : "zero"
+console.log(remark) // "zero"
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+## The conditional operator
+
+It's called a _ternary_ operator, because it operates on three expressions.
+
+</section>
 
 </section>
