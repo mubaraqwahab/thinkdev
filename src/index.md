@@ -13,11 +13,27 @@ layout: layouts/home
 * able to do A
 * also able to do B and C -->
 
+We'll learn how to break up problems and express solutions in a programming language (JavaScript); use the command line; document, test, and debug simple programs; implement and use some well-known data structures and algorithms; and more.
+
 ## 📃 Outline
 
 {% for lesson in collections.all | eleventyNavigation %}
   1. [{{ lesson.title }}]({{ lesson.url | url }})
 {%- endfor %}
+
+## Format
+
+We'll meet on Saturdays for a discussion and review of the previous week's lesson. On Sundays, we'll meet for a new lesson. Meetings will hold on Zoom from 12:00 p.m. to 12:40 p.m.
+
+Each lesson page (see the [outline](#outline) above) contains the slides, recorded meetings, exercises, etc., for the lesson. The slides for each lesson are in two formats: an interactive presentation you can view on this site, and a PDF version you can download.
+
+<div class="note">
+
+**Tip:** Press the question mark key (<kbd>?</kbd>) when viewing the interactive slides to see a list of keyboard shortcuts.
+
+</div>
+
+---
 
 ## Credits
 
