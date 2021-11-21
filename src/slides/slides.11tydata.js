@@ -11,7 +11,3 @@ module.exports = {
     },
   },
 }
-
-const n = 5
-const remark = n > 0 ? "positive" : n < 0 ? "negative" : "zero"
-console.log(remark) // positive
