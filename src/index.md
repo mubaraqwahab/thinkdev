@@ -8,11 +8,6 @@ layout: layouts/home
 
 {{ site.description }} {.lead}
 
-<!-- We'll learn how to do this and do that, and even more stuff. By the end of the course, you should be:
-
-* able to do A
-* also able to do B and C -->
-
 We'll learn how to break down problems and express solutions in a programming language (JavaScript). Beyond that, we'll learn to use the command line, practice documenting, testing, and debugging simple programs, and we'll implement and use some common data structures and algorithms.
 
 ## 📃 Outline
