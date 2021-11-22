@@ -39,7 +39,7 @@ Run each script with `npm run script-name`.
 
   <section>
 
-  ## Slide 1.1
+  ### Slide 1.1
 
   </section>
 
