@@ -54,4 +54,4 @@ Run each script with `npm run script-name`.
    ```
    **Note:** this is just for aesthetics.
 
-* It's fine to use the less than (`<`) and greater than (`>`) signs in markdown code fences. However, when you're using them in a `<pre><code>`, you need to use the HTML entities, `&lt;` and `&gt;`.
+* It's fine to use the less than (`<`) and greater than (`>`) signs in markdown code fences. However, when you're using them in a `<pre><code>`, you need to use the HTML entities, `&lt;` and `&gt;`, instead.
