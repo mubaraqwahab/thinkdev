@@ -16,7 +16,7 @@ excerpt: >
 
 You can do these exercises in the Node <abbr>REPL</abbr> (read-eval-print loop) or in a JavaScript file.
 
-<div class="note">
+<div class="note note-info">
 
 **Tip:** If you're using the REPL, you can type <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit the REPL when you're done. And if you're using a file, don't forget to use `console.log()` to view your results.
 

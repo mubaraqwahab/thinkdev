@@ -22,7 +22,7 @@ In this course, we'll learn how to break down problems and express solutions in 
 
 Each lesson page (see the outline above) contains the slides, recorded meetings, exercises, etc., for that lesson. The slides are in two formats: an interactive presentation that you can view on this site and a PDF version that you can download.
 
-<div class="note">
+<div class="note note-info">
 
 **Tip:** Press the question mark key (<kbd>?</kbd>) when viewing the interactive slides to see a list of keyboard shortcuts.
 
