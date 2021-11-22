@@ -8,7 +8,7 @@ layout: layouts/home
 
 <b class="lead">{{ site.description }}</b>
 
-We'll learn how to break down problems and express solutions in a programming language (JavaScript). Beyond that, we'll learn to use the command line, practice documenting, testing, and debugging simple programs, and we'll implement and use some common data structures and algorithms.
+In this course, we'll learn how to break down problems and express solutions in a programming language (JavaScript). As well, we'll learn to use the command line, practise documenting, testing, and debugging simple programs, and we'll implement and use some common data structures and algorithms.
 
 ## 📃 Outline
 
