@@ -28,29 +28,30 @@ Run each script with `npm run script-name`.
 ## Random notes
 
 * Horizontal slide should be separated by two lines, but vertical slides by a single line. For example:
-  ```md
-  <section>
+   ```md
+   <section>
 
-  <section>
+   <section>
 
-  ## Slide 1
+   ## Slide 1
 
-  </section>
+   </section>
 
-  <section>
+   <section>
 
-  ### Slide 1.1
+   ### Slide 1.1
 
-  </section>
+   </section>
 
-  </section>
+   </section>
 
 
-  <section>
+   <section>
 
-  ## Slide 2
+   ## Slide 2
 
-  </section>
-  ```
-  **Note:** this is just for aesthetics.
+   </section>
+   ```
+   **Note:** this is just for aesthetics.
+
 * It's fine to use the less than (`<`) and greater than (`>`) signs in markdown code fences. However, when you're using them in a `<pre><code>`, you need to use the HTML entities, `&lt;` and `&gt;`.
