@@ -21,6 +21,14 @@
     @apply rotate-90;
   }
 
+  .quoted::before {
+    content: open-quote;
+  }
+
+  .quoted::after {
+    content: close-quote;
+  }
+
   .prose .side-nav ol {
     @apply my-0;
   }

@@ -170,7 +170,7 @@ const obj = {
 
 ### How to name a property?
 
-Quotes are optional if the name is a valid variable name (i.e. an _identifier_) or a number.
+Quotes are optional if the name is a valid variable name (i.e. an <i>identifier</i>) or a number.
 
 <pre data-id="objprop"><code data-line-numbers="2,5" data-trim class="language-js">
 const obj = {
@@ -233,7 +233,7 @@ const obj = {
 
 ### Get/set a property {data-id="useobjHeading"}
 
-**Dot notation**
+<b>Dot notation</b>
 
 <pre data-id="useobj"><code data-line-numbers="1-5|7-8|10-11|13" data-trim class="language-js">
 const app = {
@@ -257,7 +257,7 @@ app.123 // Error
 
 ### Get/set a property {data-id="useobjHeading"}
 
-**Bracket notation**. For property names that aren't valid identifiers
+<b>Bracket notation.</b> For property names that aren't valid identifiers
 
 <pre data-id="useobj"><code data-line-numbers="13|7-11" data-trim class="language-js">
 const app = {
@@ -299,16 +299,16 @@ delete app[123]
 
 <section data-auto-animate data-auto-animate-id="mutable">
 
-### Objects are _mutable_
+### Objects are <i>mutable</i>
 
-* You can't change a number, string, or boolean intrinsically, because they are _immutable_.
+* You can't change a number, string, or boolean intrinsically, because they are <i>immutable</i>.
 * But you can change "parts" of an object!
 
 </section>
 
 <section data-auto-animate data-auto-animate-id="mutable">
 
-### Objects are _mutable_
+### Objects are <i>mutable</i>
 
 ```js
 const str = "Strings are immutable"
@@ -451,7 +451,7 @@ const rating = app.rating
 
 ### How about unpacking? {data-id="useobjHeading"}
 
-There's also a shorter way! It's called _destructuring_.
+There's also a shorter way! It's called <i>destructuring</i>.
 
 <pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
 const app = {
@@ -514,7 +514,7 @@ const app = {
 
 ### Reuse an object to create another {data-id="useobjHeading"}
 
-Another way: _spread_ the object with `...`
+Another way: <i>spread</i> the object with `...`
 
 <pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
 const purchaseInfo = {
@@ -607,7 +607,7 @@ const app4 = {
 
 ## Arrays
 
-An array is a sequence of elements.
+An <dfn>array</dfn> is a sequence of elements.
 
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
 const people = ["Amal", "Isa", "Mubaraq"]
@@ -764,7 +764,7 @@ const second = people[1] // "Isa"
 
 ### Unpack an array {data-id="usearrHeading"}
 
-Another way is to _destructure_
+Another way is to <i>destructure</i>
 
 <pre data-id="arrIntro"><code data-line-numbers="1-4|6-8" data-trim class="language-js">
 const people = ["Amal", "Isa", "Mubaraq"]

@@ -19,6 +19,12 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            '[class~="lead"]': {
+              fontWeight: "normal",
+            },
+            cite: {
+              fontStyle: "normal",
+            },
             // Disable backticks
             code: {
               "&::before": {
@@ -73,7 +79,7 @@ module.exports = {
                 backgroundColor: theme("colors.gray.600"),
               },
               hr: {
-                borderColor: theme("colors.gray.200"),
+                borderColor: theme("colors.gray.600"),
               },
               blockquote: {
                 color: theme("colors.gray.200"),
