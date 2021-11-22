@@ -27,7 +27,7 @@ Run each script with `npm run script-name`.
 
 ## Random notes
 
-* Horizontal slides `<sections>` should be separated by two lines, but vertical slides by a single line. For example:
+* Horizontal slide should be separated by two lines, but vertical slides by a single line. For example:
   ```md
   <section>
 
