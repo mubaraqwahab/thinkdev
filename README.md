@@ -24,3 +24,33 @@ Run each script with `npm run script-name`.
 `format` | Formats files with [Prettier](https://prettier.io/).
 
 <!-- prettier-ignore-end -->
+
+## Random notes
+
+* Horizontal slides `<sections>` should be separated by two lines, but vertical slides by a single line. For example:
+  ```md
+  <section>
+
+  <section>
+
+  ## Slide 1
+
+  </section>
+
+  <section>
+
+  ## Slide 1.1
+
+  </section>
+
+  </section>
+
+
+  <section>
+
+  ## Slide 2
+
+  </section>
+  ```
+  **Note:** this is just for aesthetics.
+* It's fine to use the less than (`<`) and greater than (`>`) signs in markdown code fences. However, when you're using it in an "HTML code fence" (i.e. `<pre><code>`), you need to escape the signs (i.e., use `&lt;` and `&gt;`).

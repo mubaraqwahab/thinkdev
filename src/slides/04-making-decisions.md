@@ -346,7 +346,7 @@ if (expr) {
 let quantity = 1
 
 // When user clicks the minus button
-if (quantity > 1) {
+if (quantity &gt; 1) {
   quantity--;
 }
 
@@ -362,7 +362,7 @@ console.log(quantity)
 The curly brackets are optional when there's only one statement.
 
 <pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
-if (quantity > 1)
+if (quantity &gt; 1)
   quantity--;
 </code></pre>
 
@@ -377,7 +377,7 @@ if (quantity > 1)
 <pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
 const x = 5
 
-if (x > 0) {
+if (x &gt; 0) {
   const y = 6
   console.log(y)
 }
@@ -398,7 +398,7 @@ Variables are visible in their scope and in inner scopes. _Global variables_ are
 // Global variable
 const x = 5
 
-if (x > 0) {
+if (x &gt; 0) {
   console.log(x)
 }
 </code></pre>
@@ -415,7 +415,7 @@ Variables in different scopes can have the same names.
 // Global variable
 const x = 5
 
-if (x > 0) {
+if (x &gt; 0) {
   // This is a different x
   const x = 7
   console.log(x) // 7
@@ -492,7 +492,7 @@ console.log(x) // 5
 
 <pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
 const n = 5;
-const remark = n > 0 ? "positive" : "not positive"
+const remark = n &gt; 0 ? "positive" : "not positive"
 console.log(remark) // "positive"
 </code></pre>
 
@@ -504,7 +504,7 @@ console.log(remark) // "positive"
 
 <pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
 const n = -2;
-const remark = n > 0 ? "positive" : "not positive"
+const remark = n &gt; 0 ? "positive" : "not positive"
 console.log(remark) // "not positive"
 </code></pre>
 
@@ -518,9 +518,9 @@ You can nest the operator
 
 <pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
 const n = -2;
-const remark = n > 0
+const remark = n &gt; 0
   ? "positive"
-  : n < 0
+  : n &lt; 0
   ? "negative"
   : "zero"
 console.log(remark) // "negative"
@@ -536,9 +536,9 @@ You can nest the operator
 
 <pre data-id="ternary"><code data-line-numbers=1,7 data-trim class="language-js">
 const n = 0;
-const remark = n > 0
+const remark = n &gt; 0
   ? "positive"
-  : n < 0
+  : n &lt; 0
   ? "negative"
   : "zero"
 console.log(remark) // "zero"
