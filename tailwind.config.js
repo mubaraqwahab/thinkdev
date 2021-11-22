@@ -22,6 +22,22 @@ module.exports = {
             '[class~="lead"]': {
               fontWeight: "normal",
             },
+            '[class~="note"]': {
+              borderLeftWidth: "5px",
+              borderLeftStyle: "dashed",
+              padding: `${theme("spacing.1")} ${theme("spacing.5")}`,
+              margin: `${theme("spacing.5")} 0`,
+
+              "& :first-child": {
+                marginTop: 0,
+              },
+              "& :last-child": {
+                marginBottom: 0,
+              },
+            },
+            '[class~="note-info"]': {
+              borderLeftColor: theme("colors.blue.400"),
+            },
             cite: {
               fontStyle: "normal",
             },
@@ -65,6 +81,9 @@ module.exports = {
               color: theme("colors.gray.400"),
               '[class~="lead"]': {
                 color: theme("colors.gray.300"),
+              },
+              '[class~="note-info"]': {
+                borderLeftColor: theme("colors.blue.500"),
               },
               a: {
                 color: theme("colors.white"),
