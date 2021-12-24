@@ -167,6 +167,154 @@ All expressions are truthy except a few which are falsy:
 
 <section>
 
+## Let's get to making decisions now
+
+</section>
+
+
+<section>
+
+<section data-auto-animate>
+
+## The `if` statement
+
+</section>
+
+<section data-auto-animate>
+
+## The `if` statement
+
+```js
+if (expression) {
+  statement1
+  statement2
+  ...
+}
+```
+
+If `expression` is truthy, execute the statements in the curly brackets. {.fragment}
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="h">
+
+<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
+const user = {
+  name: "Mubaraq Wahab",
+  subscribers: [],
+  // ...
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="h">
+
+<pre data-id="if"><code data-line-numbers="7" data-trim class="language-js">
+const user = {
+  name: "Mubaraq Wahab",
+  subscribers: [],
+  // ...
+}
+
+user.subscribers.includes('')
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="h">
+
+<pre data-id="if"><code data-line-numbers="7-9" data-trim class="language-js">
+const user = {
+  name: "Mubaraq Wahab",
+  subscribers: [],
+  // ...
+}
+
+if (user.subscribers.includes('')) {
+  console.log('You are subscribed')
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="h">
+
+<pre data-id="if"><code data-line-numbers="7-13" class="language-js">const user = {
+  name: "Mubaraq Wahab",
+  subscribers: [],
+  // ...
+}
+
+console.log('Before decision')
+
+if (user.subscribers.includes('')) {
+  console.log('You are subscribed')
+}
+
+console.log('After decision')
+
+</code></pre>
+
+</section>
+
+
+
+
+<section>
+
+### Order of execution ("the control flow")
+
+<pre data-id="if"><code data-line-numbers="1|3-6|8" data-trim class="language-js">
+let quantity = 1
+
+// When user clicks the minus button
+if (quantity &gt; 1) {
+  quantity--;
+}
+
+console.log(quantity)
+</code></pre>
+
+</section>
+
+<section>
+
+### `if` &hellip; `else`
+
+```js
+
+```
+
+</section>
+
+<section>
+
+### `else if`
+
+```js
+
+```
+
+</section>
+
+</section>
+
+
+<section>
+
+<section>
+
+## The `switch` statement
+
+</section>
+
+</section>
+
+
+<!--
+<section>
+
 <section data-auto-animate>
 
 ## Logical operators
@@ -265,10 +413,8 @@ Boolean(0) // false
 
 ### AND example
 
-<!-- TODO:
-* shortcircuiting -->
-
 ```js {data-line-numbers=1-7|9-10|12-13}
+// TODO: shortcircuiting
 const app = {
   name: 'World of Tank Blitz',
   rating: 5,
@@ -322,154 +468,7 @@ const phone = phoneInput || null
 
 </section>
 
-
-<section>
-
-## Let's get to making decisions now
-
-</section>
-
-
-<section>
-
-<section data-auto-animate>
-
-## The `if` statement
-
-</section>
-
-<section data-auto-animate>
-
-## The `if` statement
-
-```js
-if (expr) {
-  // statements...
-}
-```
-
-</section>
-
-<section>
-
-### Order of execution ("the control flow")
-
-<pre data-id="if"><code data-line-numbers="1|3-6|8" data-trim class="language-js">
-let quantity = 1
-
-// When user clicks the minus button
-if (quantity &gt; 1) {
-  quantity--;
-}
-
-console.log(quantity)
-</code></pre>
-
-</section>
-
-<section>
-
-### Single statement
-
-The curly brackets are optional when there's only one statement.
-
-<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
-if (quantity &gt; 1)
-  quantity--;
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-### On blocks and scope
-
-`let` and `const` variables are _block-scoped_.
-
-<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
-const x = 5
-
-if (x &gt; 0) {
-  const y = 6
-  console.log(y)
-}
-
-// ReferenceError: y is not defined
-console.log(y)
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-### On blocks and scope
-
-Variables are visible in their scope and in inner scopes. _Global variables_ are variables in the outermost scope (the _global scope_).
-
-<pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
-// Global variable
-const x = 5
-
-if (x &gt; 0) {
-  console.log(x)
-}
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-### On blocks and scope
-
-Variables in different scopes can have the same names.
-
-<pre data-id="if"><code data-line-numbers="1,2,5-7,10" data-trim class="language-js">
-// Global variable
-const x = 5
-
-if (x &gt; 0) {
-  // This is a different x
-  const x = 7
-  console.log(x) // 7
-}
-
-console.log(x) // 5
-</code></pre>
-
-</section>
-
-<section>
-
-### `if` &hellip; `else if`
-
-```js
-
-```
-
-</section>
-
-<section>
-
-### `if` &hellip; `else`
-
-```js
-
-```
-
-</section>
-
-</section>
-
-
-<section>
-
-<section>
-
-## The `switch` statement
-
-</section>
-
-</section>
+-->
 
 
 <section>
@@ -567,3 +566,5 @@ It's called a _ternary_ operator, because it operates on three expressions.
 </section>
 
 </section>
+
+
