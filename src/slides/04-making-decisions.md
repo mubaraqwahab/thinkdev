@@ -4,15 +4,21 @@ title: Making decisions
 
 <section>
 
-<section>
+<section data-auto-animate>
 
-![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/decisions-youtube-like-btn.png?nf_resize=fit&w=660' | url }}){width=660}
+![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/yt-subscribe.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
+
+</section>
+
+<section data-auto-animate>
+
+![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/yt-subscribed.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
 
 </section>
 
 <section>
 
-![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=500' | url }}){width=500 data-id="yt-sub"}
 
 </section>
 
@@ -49,8 +55,10 @@ Check if two values are equal with the strict equality operator `===`
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 2 === 5 - 3 // true
-"hello" === "hi" // false
+'hello' === 'hi' // false
 true === false // false
+'10' === 10 // false
+89.0 === 89 // true
 </code></pre>
 
 </section>
@@ -65,6 +73,8 @@ Check if two values are _not_ equal with the strict inequality operator `!==`
 2 !== 5 - 3 // false
 "hello" !== "hi" // true
 true !== false // true
+'10' !== 10 // true
+89.0 !== 89 // false
 </code></pre>
 
 </section>
@@ -105,6 +115,8 @@ console.log(obj1 === obj2) // true
 <section data-auto-animate data-auto-animate-id=truthy>
 
 ## Truthy and falsy expressions
+
+We can classify expressions based on their truth value. {.fragment .fade-up}
 
 </section>
 
