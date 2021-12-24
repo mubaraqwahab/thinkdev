@@ -23,8 +23,10 @@ module.exports = {
               fontWeight: "normal",
             },
             '[class~="note"]': {
+              borderWidth: "1px",
               borderLeftWidth: "5px",
               borderLeftStyle: "dashed",
+              borderRadius: theme("borderRadius.DEFAULT"),
               padding: `${theme("spacing.1")} ${theme("spacing.5")}`,
               margin: `${theme("spacing.5")} 0`,
 
@@ -36,7 +38,7 @@ module.exports = {
               },
             },
             '[class~="note-info"]': {
-              borderLeftColor: theme("colors.blue.400"),
+              borderColor: theme("colors.blue.400"),
             },
             cite: {
               fontStyle: "normal",
@@ -83,7 +85,7 @@ module.exports = {
                 color: theme("colors.gray.300"),
               },
               '[class~="note-info"]': {
-                borderLeftColor: theme("colors.blue.500"),
+                borderColor: theme("colors.blue.500"),
               },
               a: {
                 color: theme("colors.white"),
