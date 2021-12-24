@@ -27,7 +27,7 @@ module.exports = {
               borderLeftWidth: "5px",
               borderLeftStyle: "dashed",
               borderRadius: theme("borderRadius.DEFAULT"),
-              padding: `${theme("spacing.1")} ${theme("spacing.5")}`,
+              padding: `${theme("spacing.2")} ${theme("spacing.5")}`,
               margin: `${theme("spacing.5")} 0`,
 
               "& :first-child": {
