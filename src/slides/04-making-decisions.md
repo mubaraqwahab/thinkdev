@@ -213,11 +213,12 @@ const user = {
 <pre data-id="if"><code data-line-numbers="7" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscribers: [],
+  // TODO: NOT subscribers
+  subscribers: ["Elleman Mai Gida",],
   // ...
 }
 
-user.subscribers.includes('')
+user.subscribers.includes('National Geographic')
 </code></pre>
 
 </section>
@@ -231,7 +232,7 @@ const user = {
   // ...
 }
 
-if (user.subscribers.includes('')) {
+if (user.subscribers.includes('National Geographic')) {
   console.log('You are subscribed')
 }
 </code></pre>
@@ -248,7 +249,7 @@ if (user.subscribers.includes('')) {
 
 console.log('Before decision')
 
-if (user.subscribers.includes('')) {
+if (user.subscribers.includes('National Geographic')) {
   console.log('You are subscribed')
 }
 
@@ -258,6 +259,51 @@ console.log('After decision')
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="h">
+
+Output if the user is subscribed to National Geographic:
+
+<pre ><samp data-line-numbers="7-13" class="language-js" data-trim>
+Before decision
+You are subscribed
+After decision
+</samp></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="h">
+
+Otherwise...
+
+<pre data-id="if"><code data-line-numbers="3,7-13" class="language-js">const user = {
+  name: "Mubaraq Wahab",
+  subscribers: [],
+  // ...
+}
+
+console.log('Before decision')
+
+if (user.subscribers.includes('National Geographic')) {
+  console.log('You are subscribed')
+}
+
+console.log('After decision')
+
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="h">
+
+...the output is just this
+
+<pre ><samp data-line-numbers="7-13" class="language-js" data-trim>
+Before decision
+After decision
+</samp></pre>
+
+</section>
 
 
 
