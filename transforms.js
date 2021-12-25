@@ -1,8 +1,6 @@
 const { JSDOM } = require("jsdom")
 const GithubSlugger = require("github-slugger")
 
-const slugger = new GithubSlugger()
-
 /**
  * @callback Transform
  * @param {string} content
@@ -30,15 +28,18 @@ module.exports = {
    * Auto-add permalinks to headings h2 and h3.
    * There's no need to add to h1's cos the page link already represents them.
    * As for levels h4 and h5, I'm not using them.
+   * The permalinks are also not applied to the slides.
    * @type {Transform}
    */
   autolinkHeadings(content, outputPath) {
-    // TODO: determine whether to do this in slides too (NO)
-    if (!outputPath.endsWith(".html")) return content
+    if (!outputPath.endsWith(".html") || outputPath.includes("/slides/")) {
+      return content
+    }
 
     const { document } = new JSDOM(content).window
     document.querySelectorAll("h2, h3").forEach((heading) => {
       // Slugify the heading text
+      const slugger = new GithubSlugger()
       heading.id = heading.id || slugger.slug(heading.textContent)
 
       // Link an anchor to the heading
