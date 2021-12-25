@@ -18,7 +18,7 @@ title: Making decisions
 
 <section>
 
-![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=500' | url }}){width=500 data-id="yt-sub"}
+![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=400' | url }}){width=400 data-id="yt-sub"}
 
 </section>
 
