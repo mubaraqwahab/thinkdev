@@ -26,19 +26,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true)
 
   eleventyConfig.addTransform("autolinkheadings", transforms.autolinkHeadings)
-
   if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", function (content, outputPath) {
-      if (!outputPath.endsWith(".html")) return content
-      const minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      })
-      return minified
-    })
+    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
   for (const filter in filters) {

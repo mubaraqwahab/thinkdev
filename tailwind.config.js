@@ -23,8 +23,13 @@ module.exports = {
               color: "inherit",
               fontWeight: "inherit",
               textDecoration: "none",
+
               "&:hover": {
                 textDecoration: "underline",
+              },
+
+              "& code": {
+                color: "inherit",
               },
             },
             '[class~="lead"]': {
