@@ -27,6 +27,8 @@ Run each script with `npm run script-name`.
 
 ## Random notes
 
+* Avoid heading levels `h4` and lower; stick to `h1`, `h2`, and `h3`.
+
 * Horizontal slide should be separated by two lines, but vertical slides by a single line. For example:
    ```md
    <section>
