@@ -19,6 +19,14 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            '[class~="permalink"]': {
+              color: "inherit",
+              fontWeight: "inherit",
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            },
             '[class~="lead"]': {
               fontWeight: "normal",
             },
@@ -40,6 +48,13 @@ module.exports = {
             '[class~="note-info"]': {
               borderColor: theme("colors.blue.400"),
             },
+            h2: {
+              scrollMarginTop: theme("spacing.20"),
+            },
+            h3: {
+              scrollMarginTop: theme("spacing.20"),
+            },
+            // Idc about h4's yet
             cite: {
               fontStyle: "normal",
             },

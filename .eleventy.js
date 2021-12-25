@@ -7,6 +7,7 @@ const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 const htmlmin = require("html-minifier-terser")
 const filters = require("./filters.js")
+const transforms = require("./transforms.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -23,6 +24,8 @@ module.exports = function (eleventyConfig) {
 
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
+
+  eleventyConfig.addTransform("autolinkheadings", transforms.autolinkHeadings)
 
   if (process.env.NODE_ENV === "production") {
     eleventyConfig.addTransform("minifyhtml", function (content, outputPath) {

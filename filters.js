@@ -8,6 +8,9 @@ const resolveTailwindConfig = require("tailwindcss/resolveConfig")
 const autoprefixer = require("autoprefixer")
 const kebabCase = require("kebab-case")
 const terser = require("terser")
+const GithubSlugger = require("github-slugger")
+
+const slugger = new GithubSlugger()
 
 /**
  * @template T
@@ -157,6 +160,10 @@ module.exports = {
       result += `${result ? " " : ""}${attr}="${obj[prop]}"`
     }
     return result
+  },
+
+  hashlink(text) {
+    return "#" + slugger.slug(text)
   },
 
   // FOR DEBUGGING
