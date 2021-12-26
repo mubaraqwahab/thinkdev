@@ -12,13 +12,13 @@ title: Making decisions
 
 <section data-auto-animate>
 
-![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/yt-subscribed.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
+![Screenshot of a YouTube video, showing the channel subscribed and notification buttons]({{ '/assets/images/yt-subscribed.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
 
 </section>
 
 <section>
 
-![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=400' | url }}){width=400 data-id="yt-sub"}
+![A USSD application menu showing the different options a user can choose from.]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=400' | url }}){width=400}
 
 </section>
 
@@ -40,7 +40,7 @@ title: Making decisions
 
 ```js
 3 > 2 // true
-5 < 8 // false
+8 < 5 // false
 9 >= 13 // false
 6 <= 6 // true
 ```
