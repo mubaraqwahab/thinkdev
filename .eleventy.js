@@ -5,7 +5,6 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
-const htmlmin = require("html-minifier-terser")
 const filters = require("./filters.js")
 const transforms = require("./transforms.js")
 

@@ -1,3 +1,6 @@
+// @ts-check
+
+const htmlmin = require("html-minifier-terser")
 const { JSDOM } = require("jsdom")
 const GithubSlugger = require("github-slugger")
 
@@ -5,7 +8,7 @@ const GithubSlugger = require("github-slugger")
  * @callback Transform
  * @param {string} content
  * @param {string} outputPath
- * @returns {string}
+ * @returns {string|Promise<string>}
  */
 
 module.exports = {
