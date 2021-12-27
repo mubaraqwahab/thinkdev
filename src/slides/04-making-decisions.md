@@ -196,12 +196,20 @@ If `expression` is truthy, execute the statements in the curly brackets. {.fragm
 
 </section>
 
+<section>
+
+### Let's consider the YouTube example
+
+</section>
+
 <section data-auto-animate data-auto-animate-id="h">
+
+We could represent a user like so:
 
 <pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscribers: [],
+  subscriptions: ["National Geographic"],
   // ...
 }
 </code></pre>
@@ -209,30 +217,33 @@ const user = {
 </section>
 
 <section data-auto-animate data-auto-animate-id="h">
+
+And determine if they're subscribed to a certain channel.
 
 <pre data-id="if"><code data-line-numbers="7" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  // TODO: NOT subscribers
-  subscribers: ["Elleman Mai Gida",],
+  subscriptions: ["National Geographic"],
   // ...
 }
 
-user.subscribers.includes('National Geographic')
+user.subscriptions.includes('National Geographic')
 </code></pre>
 
 </section>
 
 <section data-auto-animate data-auto-animate-id="h">
+
+Then we can act accordingly:
 
 <pre data-id="if"><code data-line-numbers="7-9" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscribers: [],
+  subscriptions: ["National Geographic"],
   // ...
 }
 
-if (user.subscribers.includes('National Geographic')) {
+if (user.subscriptions.includes('National Geographic')) {
   console.log('You are subscribed')
 }
 </code></pre>
@@ -241,20 +252,20 @@ if (user.subscribers.includes('National Geographic')) {
 
 <section data-auto-animate data-auto-animate-id="h">
 
-<pre data-id="if"><code data-line-numbers="7-13" class="language-js">const user = {
+Let's add some logs around the `if` statement for clarity.
+
+<pre data-id="if"><code data-line-numbers="7-11" class="language-js" data-trim>
+const user = {
   name: "Mubaraq Wahab",
-  subscribers: [],
+  subscriptions: ["National Geographic"],
   // ...
 }
 
 console.log('Before decision')
-
-if (user.subscribers.includes('National Geographic')) {
+if (user.subscriptions.includes('National Geographic')) {
   console.log('You are subscribed')
 }
-
 console.log('After decision')
-
 </code></pre>
 
 </section>
@@ -263,7 +274,7 @@ console.log('After decision')
 
 Output if the user is subscribed to National Geographic:
 
-<pre ><samp data-line-numbers="7-13" class="language-js" data-trim>
+<pre data-id="if"><samp data-trim>
 Before decision
 You are subscribed
 After decision
@@ -273,39 +284,72 @@ After decision
 
 <section data-auto-animate data-auto-animate-id="h">
 
-Otherwise...
+Otherwise, ...
 
-<pre data-id="if"><code data-line-numbers="3,7-13" class="language-js">const user = {
+<pre data-id="if"><code data-line-numbers="3,7-11" class="language-js" data-trim>
+const user = {
   name: "Mubaraq Wahab",
-  subscribers: [],
+  subscriptions: [],
   // ...
 }
 
 console.log('Before decision')
-
-if (user.subscribers.includes('National Geographic')) {
+if (user.subscriptions.includes('National Geographic')) {
   console.log('You are subscribed')
 }
-
 console.log('After decision')
-
 </code></pre>
 
 </section>
 
-
 <section data-auto-animate data-auto-animate-id="h">
 
-...the output is just this
+... the output is just this
 
-<pre ><samp data-line-numbers="7-13" class="language-js" data-trim>
+<pre data-id="if"><samp data-trim>
 Before decision
 After decision
 </samp></pre>
 
+How do we print a different message? {.fragment}
+
 </section>
 
+<section data-auto-animate data-auto-animate-id="else">
 
+### `else`
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="else">
+
+### `else`
+
+<pre data-id="if"><code data-line-numbers="4-6" class="language-js" data-trim>
+console.log('Before decision')
+if (user.subscriptions.includes('National Geographic')) {
+  console.log('You are subscribed')
+} else {
+  console.log('You are not subscribed')
+}
+console.log('After decision')
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="else">
+
+### `else`
+
+The result?
+
+<pre data-id="if"><samp data-trim>
+Before decision
+You are not subscribed
+After decision
+</samp></pre>
+
+</section>
 
 <section>
 
