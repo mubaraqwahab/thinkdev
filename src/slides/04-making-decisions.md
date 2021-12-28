@@ -415,12 +415,29 @@ if (n > 0) {
 
 </section>
 
-<section>
-
-<!-- TODO: ??? -->
+<!-- <section>
 
 ### Order of execution ("the control flow")
 
+</section> -->
+
+</section>
+
+
+<section>
+
+<section>
+
+## We can now make decisions based on simple conditions
+
+</section>
+
+<section>
+
+### But what of complex conditions?
+
+E.g., if the uploaded file is an image and is not larger than 2MB, accept it {.fragment .fade-up}
+
 </section>
 
 </section>
@@ -430,170 +447,118 @@ if (n > 0) {
 
 <section>
 
-## The `switch` statement
+## We'll use logical operators
+
+[NOT]{.inline-block .fragment .fade-down}[, AND]{.inline-block .fragment .fade-up}[, and OR.]{.inline-block .fragment .fade-right}
 
 </section>
 
-</section>
+<section data-auto-animate data-auto-animate-id="not">
 
-
-<!--
-<section>
-
-<section data-auto-animate>
-
-## Logical operators
-
-</section>
-
-<section data-auto-animate>
-
-## Logical operators
-
-There are three: NOT, AND, and OR.
-
-</section>
-
-<section>
-
-### NOT: in maths
-
-([T]{.italic} for true, [F]{.italic} for false)
-
-* NOT&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-* NOT&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-
-</section>
-
-<section>
-
-### NOT: in programming
+### NOT
 
 `!expr`
 
 * The result is `false` if `expr` is truthy.
 * The result is `true` if `expr` is falsy.
 
-<div class="fragment fade-up">
+</section>
 
-```js {data-line-numbers="1,2|4,5"}
-"NOT operator" // truthy expr
-!"NOT operator" // false
+<section data-auto-animate data-auto-animate-id="not">
 
-[].length // 0, which is falsy
-!([].length) // true
-```
+### NOT
 
-</div>
+<pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
+const arr = []
+
+console.log(arr.length) // 0, which is falsy
+
+if (!arr.length) {
+  console.log("The array is empty")
+}
+</code></pre>
 
 </section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="not">
 
-### NOT to convert to boolean
+### NOT
 
-You can use the NOT operator to convert a value to a boolean:
+You can use it to convert a value to a boolean:
 
-```js {data-line-numbers="1,2|3|5-6"}
-0 // falsy value
-!0 // true
-!!0 // false
+<pre data-id="not"><code data-line-numbers="1|2|3|5-6" class="language-js" data-trim>
+null          // falsy value
+!null         // true
+!!null        // false
 
 // Same as:
-Boolean(0) // false
-```
+Boolean(null) // false
+</code></pre>
 
 </section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="and">
 
-### AND: in maths
-
-* [T]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-* [T]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-* [F]{.italic} &nbsp;AND&nbsp; [T]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-* [F]{.italic} &nbsp;AND&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-
-</section>
-
-<section>
-
-### AND: in programming
+### AND
 
 `expr1 && expr2`
-* result is `expr2` if `expr1` is truthy
-* result is `expr1` if `expr1` is falsy
+
+Both expressions must be truthy for the result to be truthy.
 
 </section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="and">
 
-### AND example
+### AND
 
-![Screenshot of a YouTube video, showing the like button clicked]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
-
-</section>
-
-<section data-auto-animate>
-
-### AND example
-
-```js {data-line-numbers=1-7|9-10|12-13}
-// TODO: shortcircuiting
-const app = {
-  name: 'World of Tank Blitz',
-  rating: 5,
-  reviewsCount: 2,
-  price: 0,
-  status: 'Not Owned', // or "Owned" or "Installed"
+<pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
+if (user && user.role === "ADMIN") {
+  // Show something only admins should see
 }
-
-// If this is true, write "free"
-app.status === "Not Owned" && app.price === 0
-
-// Also:
-app.status === "Not Owned" && !app.price
-```
+</code></pre>
 
 </section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="or">
 
-### OR: in maths
-
-* [T]{.italic} &nbsp;OR&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-* [T]{.italic} &nbsp;OR&nbsp; [F]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-* [F]{.italic} &nbsp;OR&nbsp; [T]{.italic} &nbsp;yields&nbsp; [T]{.italic}
-* [F]{.italic} &nbsp;OR&nbsp; [F]{.italic} &nbsp;yields&nbsp; [F]{.italic}
-
-</section>
-
-<section>
-
-### OR: in programming
+### OR
 
 `expr1 || expr2`
-* result is `expr1` if `expr1` is truthy
-* result is `expr2` if `expr1` is falsy
+
+At least one of the expressions must be&nbsp;truthy for&nbsp;the&nbsp;result&nbsp;to&nbsp;be&nbsp;truthy.
 
 </section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="or">
 
-### OR: in programming
+### OR
 
-```js
-const phoneInput = /* get phone num from user input */
+<pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
+if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
+  console.log(filename, "is a Word document")
+}
+</code></pre>
 
-// For default values
-const phone = phoneInput || null
-```
+</section>
+
+<section data-auto-animate data-auto-animate-id="or">
+
+### OR
+
+It's fine to break long lines
+
+<pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
+if (
+  filename.endsWith(".docx") ||
+  filename.endsWith(".doc")
+) {
+  console.log(filename, "is a Word document")
+}
+</code></pre>
 
 </section>
 
 </section>
-
--->
 
 
 <section>
