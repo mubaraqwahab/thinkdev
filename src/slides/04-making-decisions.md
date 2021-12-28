@@ -582,8 +582,7 @@ if (
 
 `expr1 ? expr2 : expr3`
 
-* result is `expr2` if `expr1` is truthy
-* result is `expr3` otherwise
+If `expr1` is truthy, the result is `expr2`. Otherwise, the result is `expr3`.
 
 </section>
 
@@ -615,43 +614,9 @@ console.log(remark) // "not positive"
 
 ## The conditional operator
 
-You can nest the operator
+* It's called a <i>ternary</i> operator, because it operates on three expressions.
 
-<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
-const n = -2;
-const remark = n &gt; 0
-  ? "positive"
-  : n &lt; 0
-  ? "negative"
-  : "zero"
-console.log(remark) // "negative"
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-## The conditional operator
-
-You can nest the operator
-
-<pre data-id="ternary"><code data-line-numbers=1,7 data-trim class="language-js">
-const n = 0;
-const remark = n &gt; 0
-  ? "positive"
-  : n &lt; 0
-  ? "negative"
-  : "zero"
-console.log(remark) // "zero"
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-## The conditional operator
-
-It's called a _ternary_ operator, because it operates on three expressions.
+* Similarly, the NOT operator is a <i>unary</i> operator because it operates on a single expression, while the AND and OR operators are <i>binary</i> because they operate on two expressions. {.fragment .fade-up}
 
 </section>
 
