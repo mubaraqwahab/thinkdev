@@ -57,3 +57,5 @@ Run each script with `npm run script-name`.
    **Note:** this is just for aesthetics.
 
 * It's fine to use the less than (`<`) and greater than (`>`) signs in markdown code fences. However, when you're using them in a `<pre><code>`, you need to use the HTML entities, `&lt;` and `&gt;`, instead.
+
+* If you're using one of those fragment effects (e.g. `fade-up`) on a `<span>` or a similar element, add `.inline-block` to the element&mdash;the effect might not work without it.
