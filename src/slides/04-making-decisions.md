@@ -385,7 +385,23 @@ if (n > 0) {
 
 ### `else if`
 
-<pre data-id="if"><code data-line-numbers="5-9" class="language-js" data-trim>
+<pre data-id="if"><code data-line-numbers="5-7" class="language-js" data-trim>
+const n = 3;
+
+if (n > 0) {
+  console.log(n, 'is positive')
+} else if (n < 0) {
+  console.log(n, 'is negative')
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="else">
+
+### `else if`
+
+<pre data-id="if"><code data-line-numbers="7-9" class="language-js" data-trim>
 const n = 3;
 
 if (n > 0) {
