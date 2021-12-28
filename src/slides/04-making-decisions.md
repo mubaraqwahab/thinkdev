@@ -274,8 +274,7 @@ console.log('After decision')
 
 Output if the user is subscribed to National Geographic:
 
-<pre data-id="if"><samp data-trim>
-Before decision
+<pre data-id="if"><samp>Before decision
 You are subscribed
 After decision
 </samp></pre>
@@ -306,8 +305,7 @@ console.log('After decision')
 
 ... the output is just this
 
-<pre data-id="if"><samp data-trim>
-Before decision
+<pre data-id="if"><samp>Before decision
 After decision
 </samp></pre>
 
@@ -325,7 +323,7 @@ How do we print a different message? {.fragment}
 
 ### `else`
 
-<pre data-id="if"><code data-line-numbers="4-6" class="language-js" data-trim>
+<pre data-id="if"><code data-line-numbers="4-6|1-7" class="language-js" data-trim>
 console.log('Before decision')
 if (user.subscriptions.includes('National Geographic')) {
   console.log('You are subscribed')
@@ -343,48 +341,69 @@ console.log('After decision')
 
 The result?
 
-<pre data-id="if"><samp data-trim>
-Before decision
+<pre data-id="if"><samp>Before decision
 You are not subscribed
 After decision
 </samp></pre>
 
 </section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="else">
 
-### Order of execution ("the control flow")
+### Let's consider another example
 
-<pre data-id="if"><code data-line-numbers="1|3-6|8" data-trim class="language-js">
-let quantity = 1
+<pre data-id="if"><code data-line-numbers="1-7" class="language-js" data-trim>
+const n = 3;
 
-// When user clicks the minus button
-if (quantity &gt; 1) {
-  quantity--;
+if (n > 0) {
+  console.log(n, 'is positive')
+} else {
+  console.log(n, 'is negative')
 }
+</code></pre>
 
-console.log(quantity)
+</section>
+
+<section data-auto-animate data-auto-animate-id="else">
+
+### Let's consider another example
+
+<pre data-id="if"><code data-line-numbers="5-8" class="language-js" data-trim>
+const n = 3;
+
+if (n > 0) {
+  console.log(n, 'is positive')
+} else {
+  // Wrong: n could be zero.
+  console.log(n, 'is negative')
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="else">
+
+### `else if`
+
+<pre data-id="if"><code data-line-numbers="5-9" class="language-js" data-trim>
+const n = 3;
+
+if (n > 0) {
+  console.log(n, 'is positive')
+} else if (n < 0) {
+  console.log(n, 'is negative')
+} else {
+  console.log(n, 'is zero')
+}
 </code></pre>
 
 </section>
 
 <section>
 
-### `if` &hellip; `else`
+<!-- TODO: ??? -->
 
-```js
-
-```
-
-</section>
-
-<section>
-
-### `else if`
-
-```js
-
-```
+### Order of execution ("the control flow")
 
 </section>
 
