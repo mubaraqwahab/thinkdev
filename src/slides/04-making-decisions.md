@@ -114,17 +114,17 @@ console.log(obj1 === obj2) // true
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy expressions
+## Truthy and falsy values
 
-We can classify expressions based on their truth value. {.fragment .fade-up}
+We can classify values based on their "truth". {.fragment .fade-up}
 
 </section>
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy expressions
+## Truthy and falsy values
 
-An expression that converts to the boolean value `true` is _truthy_.
+A value that converts to the boolean `true` is <i>truthy</i>.
 
 <pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
 Boolean(10) // true
@@ -136,9 +136,9 @@ Boolean({ x: 5 }) // true
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy expressions
+## Truthy and falsy values
 
-An expression that converts to the boolean value `false` is _falsy_.
+A value that converts to the boolean `false` is <i>falsy</i>.
 
 <pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
 Boolean(0) // false
@@ -150,9 +150,9 @@ Boolean("") // false
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy expressions
+## Truthy and falsy values
 
-All expressions are truthy except a few which are falsy:
+All values are truthy except a few which are falsy:
 
 * `false` {.fragment .fade-up}
 * `0` {.fragment .fade-up}
@@ -285,7 +285,7 @@ After decision
 
 Otherwise, ...
 
-<pre data-id="if"><code data-line-numbers="3,7-11" class="language-js" data-trim>
+<pre data-id="if"><code data-line-numbers="3|7-11" class="language-js" data-trim>
 const user = {
   name: "Mubaraq Wahab",
   subscriptions: [],
@@ -436,7 +436,7 @@ if (n > 0) {
 
 ### But what of complex conditions?
 
-E.g., if the uploaded file is an image and is not larger than 2MB, accept it {.fragment .fade-up}
+E.g., accept an uploaded file if it's an image and&nbsp;it's&nbsp;not&nbsp;larger&nbsp;than&nbsp;2MB {.fragment .fade-up}
 
 </section>
 
