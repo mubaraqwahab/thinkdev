@@ -355,7 +355,7 @@ After decision
 <pre data-id="if"><code data-line-numbers="1-7" class="language-js" data-trim>
 const n = 3;
 
-if (n > 0) {
+if (n &gt; 0) {
   console.log(n, 'is positive')
 } else {
   console.log(n, 'is negative')
@@ -371,7 +371,7 @@ if (n > 0) {
 <pre data-id="if"><code data-line-numbers="5-8" class="language-js" data-trim>
 const n = 3;
 
-if (n > 0) {
+if (n &gt; 0) {
   console.log(n, 'is positive')
 } else {
   // Wrong: n could be zero.
@@ -388,9 +388,9 @@ if (n > 0) {
 <pre data-id="if"><code data-line-numbers="5-7" class="language-js" data-trim>
 const n = 3;
 
-if (n > 0) {
+if (n &gt; 0) {
   console.log(n, 'is positive')
-} else if (n < 0) {
+} else if (n &lt; 0) {
   console.log(n, 'is negative')
 }
 </code></pre>
@@ -404,9 +404,9 @@ if (n > 0) {
 <pre data-id="if"><code data-line-numbers="7-9" class="language-js" data-trim>
 const n = 3;
 
-if (n > 0) {
+if (n &gt; 0) {
   console.log(n, 'is positive')
-} else if (n < 0) {
+} else if (n &lt; 0) {
   console.log(n, 'is negative')
 } else {
   console.log(n, 'is zero')
