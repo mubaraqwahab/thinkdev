@@ -71,7 +71,7 @@ Check if two values are _not_ equal with the strict inequality operator `!==`
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 2 !== 5 - 3 // false
-"hello" !== "hi" // true
+'hello' !== 'hi' // true
 true !== false // true
 '10' !== 10 // true
 89.0 !== 89 // false
@@ -434,9 +434,9 @@ if (n &gt; 0) {
 
 <section>
 
-### But what of complex conditions?
+### But what if we have complex conditions?
 
-E.g., accept an uploaded file if it's an image and&nbsp;it's&nbsp;not&nbsp;larger&nbsp;than&nbsp;2MB {.fragment .fade-up}
+[E.g., accept an uploaded file if it's an image]{.block} [and it's not larger than 2MB]{.block} {.fragment .fade-up}
 
 </section>
 
@@ -525,7 +525,7 @@ if (user && user.role === "ADMIN") {
 
 `expr1 || expr2`
 
-At least one of the expressions must be&nbsp;truthy for&nbsp;the&nbsp;result&nbsp;to&nbsp;be&nbsp;truthy.
+[At least one of the expressions must be truthy]{.block} [for the result to be truthy.]{.block}
 
 </section>
 
@@ -563,7 +563,62 @@ if (
 
 <section>
 
-## What about an expression?
+<section>
+
+## One final thing &hellip;
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="ifIsStmt">
+
+### Remember that `if` is a _statement_
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="ifIsStmt">
+
+### Remember that `if` is a _statement_
+
+So the following is invalid
+
+<pre data-id="ifIsStmt"><code data-line-numbers="" class="language-js" data-trim>
+const n = 8
+
+// Error
+const remark = if (n % 2 === 0) {
+  "It is even"
+} else {
+  "It is odd"
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="ifIsStmt">
+
+### Remember that `if` is a _statement_
+
+And we would have to do this instead
+
+<pre data-id="ifIsStmt"><code data-line-numbers="3|5-9" class="language-js" data-trim>
+const n = 8
+
+let remark
+
+if (n % 2 === 0) {
+  remark = "It is even"
+} else {
+  remark = "It is odd"
+}
+</code></pre>
+
+</section>
+
+<section>
+
+### But JS has an "`if` expression" too &hellip;
+
+</section>
 
 </section>
 
@@ -582,7 +637,7 @@ if (
 
 `expr1 ? expr2 : expr3`
 
-If `expr1` is truthy, the result is `expr2`. Otherwise, the result is `expr3`.
+[If `expr1` is truthy, the result is `expr2`.]{.block} [Otherwise, the result is `expr3`.]{.block}
 
 </section>
 
@@ -591,21 +646,9 @@ If `expr1` is truthy, the result is `expr2`. Otherwise, the result is `expr3`.
 ## The conditional operator
 
 <pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
-const n = 5;
-const remark = n &gt; 0 ? "positive" : "not positive"
-console.log(remark) // "positive"
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-## The conditional operator
-
-<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
-const n = -2;
-const remark = n &gt; 0 ? "positive" : "not positive"
-console.log(remark) // "not positive"
+const n = 8;
+const remark = n % 2 === 0 ? "It is even" : "It is odd"
+console.log(remark) // "It is even"
 </code></pre>
 
 </section>
