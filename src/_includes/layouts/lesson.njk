@@ -31,7 +31,7 @@ tags: lesson
     <main id="main" class="mx-auto relative lg:mx-0">
       <article>
         <h1>{{ title }}</h1>
-        <p><b class="lead">{{ excerpt }}</b></p>
+        <p><b class="lead">{{ excerpt | safe }}</b></p>
         {% if collections.slides | find("data.order", eleventyNavigation.order) %}
           <p>
             <a href="{{ '/slides/' ~ page.fileSlug | url }}">Slides {{ icon('display', class='mb-0.5') }}</a>&nbsp;
