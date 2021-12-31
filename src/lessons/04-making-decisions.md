@@ -52,7 +52,7 @@ excerpt: >
 
 ## {{ iconed("Extras") }}
 
-### Shortcircuit evalutaion
+### Short-circuit evalutaion
 
 When you use the NOT operator, the result is always a boolean:
 
@@ -89,7 +89,7 @@ console.log("hi" && "hey" && "hello")
 // so the result is the last operand, "hello"
 ```
 
-The OR operation works in the opposite way. Its result is the value of it's first truthy operand, but when there's no truthy operand, its result is the last operand.
+The OR operation works in the opposite way. Its result is the value of its first truthy operand, but when there's no truthy operand, its result is the last operand.
 
 ```js
 console.log(0 || null)
@@ -103,4 +103,23 @@ console.log("hi" || "hey" || "hello")
 // The result is "hi" because it's the first truthy operand
 ```
 
-A virtue of this AND and OR behaviour is that once the result operand is found, the subsequent operands need not be evaluated. (TODO: paraphrase)
+TODO: complete this.
+
+<!--
+
+A virtue of this behaviour is that there is no need to evaluate subsequent operands once the result operand is found. We call this <i>short-circuit evaluation</i> and it is indeed how JavaScript works. You'll observe it when you have a reference to a non-existent name, as in:
+
+```js
+console.log(false && x)
+// The output is false
+// No error is raised though x has not been declared
+
+// But if you just do this
+console.log(x)
+// or even this
+console.log(x && false)
+// You'll get:
+// Uncaught ReferenceError: x is not defined
+```
+
+-->
