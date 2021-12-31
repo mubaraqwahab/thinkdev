@@ -52,4 +52,55 @@ excerpt: >
 
 ## {{ iconed("Extras") }}
 
-TODO
+### Shortcircuit evalutaion
+
+When you use the NOT operator, the result is always a boolean:
+
+```js
+console.log(!0) // true
+console.log(!"hi") // false
+```
+
+This is not always the case with the AND and OR operators:
+
+```js
+console.log(0 && null) // 0
+console.log([] && '') // ''
+console.log("hi" && "hey" && "hello") // "hello"
+
+console.log(0 || null) // null
+console.log([] || '') // []
+console.log("hi" || "hey" || "hello") // "hi"
+```
+
+How they work is fairly straightforward though.
+
+The result of an AND operation is the value of its first falsy operand. When there's no falsy operand, the result is the last operand.
+
+```js
+console.log(0 && null)
+// The result is 0 because it's the first falsy operand
+
+console.log([] && '')
+// The first falsy operand here is '', so it's the result
+
+console.log("hi" && "hey" && "hello")
+// There's no falsy operand here,
+// so the result is the last operand, "hello"
+```
+
+The OR operation works in the opposite way. Its result is the value of it's first truthy operand, but when there's no truthy operand, its result is the last operand.
+
+```js
+console.log(0 || null)
+// There's no truthy operand here,
+// so the result is the last operand, null
+
+console.log([] || '')
+// The first truthy operand here is [], so it's the result
+
+console.log("hi" || "hey" || "hello")
+// The result is "hi" because it's the first truthy operand
+```
+
+A virtue of this AND and OR behaviour is that once the result operand is found, the subsequent operands need not be evaluated. (TODO: paraphrase)

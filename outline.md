@@ -107,7 +107,7 @@ Comments somewhere
   * if...else
 * Switch statement??
 * Conditional expression
-* Extras: optional chaining; nullish coalesce?
+* Extras: ~optional chaining; nullish coalesce?~ shortcircuiting, null and undefined methods?
 
 ## Using functions ➗
 
