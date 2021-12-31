@@ -119,6 +119,10 @@ Comments somewhere
 
 ## Repetition 🔁
 
+Exercises:
+* pagination
+* filtering
+
 ## Modules 📦
 
 ## Data structures 🏛

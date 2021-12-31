@@ -12,7 +12,38 @@ excerpt: >
 
 ## {{ iconed("Exercise") }}
 
-TODO
+1. Find decisions in real life (?)
+
+1. Reading exercise
+    ```js
+    const newMessages = [
+      {
+        from: 'Amal',
+        body: 'How are you?',
+        time: '31 Dec 2021, 10:16 AM'
+      },
+      {
+        from: 'Isa',
+        body: "I'm just going there now",
+        time: '31 Dec 2021, 1:23 PM'
+      },
+    ]
+
+    const messageCount = newMessages.length
+    let notification;
+
+    if (!messageCount) {
+      notification = "You have no new messages."
+    } else if (messageCount === 1) {
+      notification = "You have a new message."
+    } else {
+      notification = `You have ${messageCount} new messages.`
+    }
+
+    console.log(notification)
+    ```
+
+1.
 
 ## {{ iconed("Extras") }}
 
