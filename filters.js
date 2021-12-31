@@ -10,8 +10,6 @@ const kebabCase = require("kebab-case")
 const terser = require("terser")
 const GithubSlugger = require("github-slugger")
 
-const slugger = new GithubSlugger()
-
 /**
  * @template T
  * @callback AsyncFilterCallback<T>
@@ -144,8 +142,11 @@ module.exports = {
    * Transform an object map into a space-delimited string
    * of HTML attribute name-value pairs.
    *
-   * This function will yield an invalid result if any of
+   * **NOTES:**
+   * * This function will yield an invalid result if any of
    * the attribute values contains a double quote (").
+   * * Always apply the `safe` filter after this filter,
+   *   as in `{{ attrsObj | htmlattrs | safe }}`
    *
    * @param {Record<string, string|number>} obj
    *
@@ -162,7 +163,12 @@ module.exports = {
     return result
   },
 
+  /**
+   * Know that this *will* fail if a page has multiple headings
+   * with the same text content.
+   */
   hashlink(text) {
+    const slugger = new GithubSlugger()
     return "#" + slugger.slug(text)
   },
 

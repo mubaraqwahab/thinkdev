@@ -22,7 +22,13 @@ tags: slides
 <body>
   <div class="reveal">
     <div class="slides">
-      <section>
+      {#
+        Use the titleSlideAttrs key in frontmatter to
+        specify attributes to put on the title slide.
+        If you're going to use Nunjucks within the key,
+        don't forget to put the key in eleventyComputed)
+      #}
+      <section {{ titleSlideAttrs | htmlattrs | safe }}>
         <p class="font-mono flex items-center justify-center tracking-wide lowercase">{{ logo(class='h-7 w-7 mr-2.5') }} {{ site.title }} #{{ order + 1 }}</p>
         <h1>{{ title }}</h1>
       </section>

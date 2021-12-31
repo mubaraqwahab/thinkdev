@@ -1,5 +1,11 @@
 ---
 title: Making decisions
+eleventyComputed:
+  titleSlideAttrs:
+    data-background-image: "{{ '/assets/images/questionmark.svg' | url }}"
+    data-background-size: "400px 300px"
+    data-background-repeat: "repeat"
+    data-background-opacity: "0.15"
 ---
 
 <section>
@@ -83,7 +89,7 @@ true !== false // true
 
 ### Equal objects?
 
-No two objects have the same value, even if they are identical.
+No two objects have the same value, even if they look alike.
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 const obj1 = { prop: "value" }
@@ -209,7 +215,7 @@ We could represent a user like so:
 <pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic"],
+  subscriptions: ["National Geographic", "Elleman10"],
   // ...
 }
 </code></pre>
@@ -223,7 +229,7 @@ And determine if they're subscribed to a certain channel.
 <pre data-id="if"><code data-line-numbers="7" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic"],
+  subscriptions: ["National Geographic", "Elleman10"],
   // ...
 }
 
@@ -239,7 +245,7 @@ Then we can act accordingly:
 <pre data-id="if"><code data-line-numbers="7-9" data-trim class="language-js">
 const user = {
   name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic"],
+  subscriptions: ["National Geographic", "Elleman10"],
   // ...
 }
 
@@ -257,7 +263,7 @@ Let's add some logs around the `if` statement for clarity.
 <pre data-id="if"><code data-line-numbers="7-11" class="language-js" data-trim>
 const user = {
   name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic"],
+  subscriptions: ["National Geographic", "Elleman10"],
   // ...
 }
 
@@ -288,7 +294,7 @@ Otherwise, ...
 <pre data-id="if"><code data-line-numbers="3|7-11" class="language-js" data-trim>
 const user = {
   name: "Mubaraq Wahab",
-  subscriptions: [],
+  subscriptions: ["Elleman10"],
   // ...
 }
 
