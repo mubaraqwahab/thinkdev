@@ -415,6 +415,28 @@ if (n &gt; 0) {
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="else">
+
+### `else if`
+
+We can have many `else if`s too.
+
+<pre data-id="if"><code data-line-numbers="5-8" class="language-js" data-trim>
+const n = 3;
+
+if (n &gt; 0) {
+  console.log(n, 'is positive')
+} else if (n &lt; 0) {
+  console.log(n, 'is negative')
+} else if (n === 0) {
+  console.log(n, 'is zero')
+} else {
+  // do something else
+}
+</code></pre>
+
+</section>
+
 <!-- <section>
 
 ### Order of execution ("the control flow")
