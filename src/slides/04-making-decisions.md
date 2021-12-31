@@ -1,11 +1,5 @@
 ---
 title: Making decisions
-eleventyComputed:
-  titleSlideAttrs:
-    data-background-image: "{{ '/assets/images/questionmark.svg' | url }}"
-    data-background-size: "400px 300px"
-    data-background-repeat: "repeat"
-    data-background-opacity: "0.15"
 ---
 
 <section>
