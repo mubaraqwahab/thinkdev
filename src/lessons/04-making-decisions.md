@@ -12,8 +12,6 @@ excerpt: >
 
 ## {{ iconed("Exercise") }}
 
-1. Find decisions in real life (?)
-
 1. This exercise is to help you get familiar with reading and understanding code.
 
     Read the code below carefully and try to make sense of it, but **don't run it**.
@@ -50,7 +48,7 @@ excerpt: >
 
     Now run the code to see if it works as you expect. If you're correct, then well done; you're starting to get a hold of the language. If you're not, don't worry; it's all part of the learning process; try to figure out where you went wrong.
 
-1. Writing
+1. Rewrite the if statement in the code above using the conditional operator. Be sure that your new code gives the same result as before. (**Hint:** You might need to use two conditional operators, one within the other.)
 
 ## {{ iconed("Extras") }}
 
