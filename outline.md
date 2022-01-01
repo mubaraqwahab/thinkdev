@@ -91,6 +91,16 @@ Comments somewhere
 
 ## Using functions ➗
 
+* motivation
+* abstracting into functions, params, return value
+* scope and lifetime
+* functions as values, function expression, arrow function
+* methods, notation, this
+* params, optional, default value, rest, destructuring
+
+Extras:
+* hoisting
+
 ## Testing 🧪
 
 ## Developer tools and resources 🛠
