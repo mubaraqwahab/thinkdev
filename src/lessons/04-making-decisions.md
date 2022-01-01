@@ -103,23 +103,37 @@ console.log("hi" || "hey" || "hello")
 // The result is "hi" because it's the first truthy operand
 ```
 
-TODO: complete this.
+[A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
 
-<!--
-
-A virtue of this behaviour is that there is no need to evaluate subsequent operands once the result operand is found. We call this <i>short-circuit evaluation</i> and it is indeed how JavaScript works. You'll observe it when you have a reference to a non-existent name, as in:
+Start the Node REPL, type a word there, then hit <kbd>Enter</kbd>:
 
 ```js
-console.log(false && x)
-// The output is false
-// No error is raised though x has not been declared
-
-// But if you just do this
-console.log(x)
-// or even this
-console.log(x && false)
-// You'll get:
-// Uncaught ReferenceError: x is not defined
+word
 ```
 
--->
+You'll get an <samp>Uncaught ReferenceError: word is not defined</samp>. That's because JavaScript tried to evaluate what you typed, but it couldn't find any <i>reference</i> (e.g., a variable) called "word".
+
+Now try this AND operation:
+
+```js
+false && word
+```
+
+There will be no error and the result will be `false`. That's because the first operand (i.e., `false`) is falsy; it is the result, and the other operand will not be evaluated.
+
+However, switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
+
+```js
+word && false
+// Uncaught ReferenceError: word is not defined
+```
+
+We can observe this with the OR operation too:
+
+```js
+true || word
+// true
+
+word || true
+// Uncaught ReferenceError: word is not defined
+```
