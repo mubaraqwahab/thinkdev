@@ -94,7 +94,7 @@ Comments somewhere
 * motivation
 * abstracting into functions, params, return value
 * scope and lifetime
-* functions as values, function expression, arrow function
+* functions as values, function expression, arrow function, HOF
 * methods, notation, this
 * params, optional, default value, rest, destructuring
 
