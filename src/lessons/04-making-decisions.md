@@ -8,7 +8,7 @@ excerpt: >
 
 ## {{ iconed("Video") }}
 
-{{ youtubePlayer("") }}
+{{ youtubePlayer("7ni9fGevUos") }}
 
 ## {{ iconed("Exercise") }}
 
