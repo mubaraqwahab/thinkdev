@@ -82,13 +82,32 @@ else
 
 The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
 
-### Equality
+### Loose equality
 
-Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, and we call it the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison (the formal term is <i>abstract equality comparison</i>).
+Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, which we call the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison (the formal term is <i>abstract equality comparison</i>).
 
-The double equals operator works like the triple equals; it's difference is that it may convert the types of it's operands before comparing them. Let's take an example:
+The double equals operator works like the triple equals; it's difference is that it converts the types of it's operands, if they're different, before comparing them. Let's take an example:
 
-TODO: complete this.
+```js
+// Strict equality
+// Different types, different values
+2 === '2'; // false
+
+// Loose equality
+// The string will be converted to a number before comparing
+2 == '2'; // true
+```
+
+It's discouraged to use this operator because of it's confusing behavior:
+
+```js
+false == null;  // false
+false == '';    // true
+[1] == '1';     // true
+[[]] == 0;      // true
+```
+
+There's a `!=` counterpart for loose inequality too.
 
 ### Short-circuit evalutaion
 
