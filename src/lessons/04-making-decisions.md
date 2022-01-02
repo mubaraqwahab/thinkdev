@@ -6,9 +6,15 @@ excerpt: >
 
 {% from "macros.njk" import iconed, youtubePlayer %}
 
-## {{ iconed("Video") }}
+## {{ iconed("Videos") }}
+
+### Lesson session
 
 {{ youtubePlayer("7ni9fGevUos") }}
+
+### Revision session
+
+{{ youtubePlayer("") }}
 
 ## {{ iconed("Exercise") }}
 

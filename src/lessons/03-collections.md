@@ -10,9 +10,15 @@ excerpt: >
 
 {% from "macros.njk" import iconed, youtubePlayer %}
 
-## {{ iconed("Video") }}
+## {{ iconed("Videos") }}
 
-{{ youtubePlayer("qQg4-Nx4ohk")}}
+### Lesson session
+
+{{ youtubePlayer("qQg4-Nx4ohk") }}
+
+### Revision session
+
+{{ youtubePlayer("NgxAcW7ppWo") }}
 
 ## {{ iconed("Exercises") }}
 
