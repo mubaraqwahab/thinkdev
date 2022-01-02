@@ -60,6 +60,28 @@ excerpt: >
 
 ## {{ iconed("Extras") }}
 
+### A shorter `if`
+
+You may omit the curly brackets in the `if` statement if there's only one statement with them. So, you can write:
+
+```js
+if (!messageCount)
+  notification = "You have no new messages."
+```
+
+Of course, you can do the same with the `else if` and `else` branches:
+
+```js
+if (!messageCount)
+  notification = "You have no new messages."
+else if (messageCount === 1)
+  notification = "You have a new message."
+else
+  notification = `You have ${messageCount} new messages.`
+```
+
+The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
+
 ### Equality
 
 Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, and we call it the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison (the formal term is <i>abstract equality comparison</i>).
