@@ -5,8 +5,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
-const htmlmin = require("html-minifier-terser")
 const filters = require("./filters.js")
+const transforms = require("./transforms.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -24,18 +24,9 @@ module.exports = function (eleventyConfig) {
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
 
+  eleventyConfig.addTransform("autolinkheadings", transforms.autolinkHeadings)
   if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", function (content, outputPath) {
-      if (!outputPath.endsWith(".html")) return content
-      const minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      })
-      return minified
-    })
+    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
   }
 
   for (const filter in filters) {

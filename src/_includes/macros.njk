@@ -48,14 +48,14 @@
 {%- endmacro %}
 
 {% macro iconed(text) -%}
-  {{ text ~ " " }}
-  {%- if text == "Video" -%}
+  {%- if text == "Video" or text == "Videos" -%}
     ▶
   {%- elif text == "Exercise" or text == "Exercises" -%}
     🖊
   {%- elif text == "Extras" -%}
     ✨
   {%- endif -%}
+  {{ " " ~ text }}
 {%- endmacro %}
 
 {% macro youtubePlayer(videoId) -%}
@@ -72,5 +72,7 @@
         class="youtube-player"
       ></iframe>
     </div>
+  {%- else -%}
+    TODO
   {%- endif %}
 {%- endmacro %}

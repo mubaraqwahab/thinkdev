@@ -3,6 +3,8 @@
 ## Heap
 
 - A few words on remote source control, markdown, code quality, and CI/CD
+- Closer look at strings (charsets, escape sequences, etc.)
+- Regular expressions
 
 ## Introduction
 
@@ -54,7 +56,7 @@ Comments somewhere
 * Exercises
   * Test run the code samples in the slides, get yourself familiar with writing code and fixing errors
   * Do something on exprs and stmts
-  * Do something on numbers (non numeric str to num) 
+  * Do something on numbers (non numeric str to num)
   * Do something on string manip (tip scan through your existing codebases)
     * trimming user input
     * string replacement
@@ -76,7 +78,7 @@ Comments somewhere
   * does obj have prop?
   * pack vars into obj
   * unpack object into variables
-  * what else??? 
+  * what else???
 * Sequence from case study
 * Arrays
   * syntax, what can it contain
@@ -84,10 +86,28 @@ Comments somewhere
   * push, pop
   * shift, unshift
   * joining arrays
-  * 
-* Extras: typeof quirks, Symbol, BigInt 
+  *
+* Extras: typeof quirks, Symbol, BigInt
 
 ## Making decisions ❔
+
+* Comparison operators
+  * comparing numbers
+  * comparing strings
+  * (strict) equality
+    * on objects
+* Truthy and falsy
+* Logical operators
+  * in maths
+  * in programming
+* if statement
+  * one-liner if
+  * on blocks and scope
+  * if...else if
+  * if...else
+* Switch statement??
+* Conditional expression
+* Extras: ~optional chaining; nullish coalesce?~ shortcircuiting, null and undefined methods?
 
 ## Using functions ➗
 
@@ -108,6 +128,10 @@ Extras:
 ## Source control ⚙
 
 ## Repetition 🔁
+
+Exercises:
+* pagination
+* filtering
 
 ## Modules 📦
 

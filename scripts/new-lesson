@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+
+// @ts-check
+
+/**
+ * @file
+ * Use this script to generate a new lesson page and it's slides page.
+ * Run with no args or with `--help` (or `-h`) flag to see usage message.
+ * You can also @see showHelpMessage below.
+ *
+ * This file needs execute permission (e.g. by doing `chmod u+x <this file>`)
+ * if you want to run it without the `node ` prefix.
+ */
+
+const fs = require("fs")
+const path = require("path")
+
+const title = process.argv[2]
+
+if (!title || title === "-h" || title === "--help") {
+  showHelpMessage()
+  process.exit()
+}
+
+console.log("Generating lesson files...")
+
+const LESSONS_DIR = "src/lessons/"
+const SLIDES_DIR = "src/slides/"
+
+const existingLessonFiles = fs
+  .readdirSync(LESSONS_DIR)
+  // The pattern is two digits, a hyphen, some chars, and a ".md"
+  .filter((filename) => /^\d{2}-.+\.md$/.test(filename))
+
+const lessonNum = existingLessonFiles.length + 1
+const slug =
+  lessonNum.toString().padStart(2, "0") +
+  "-" +
+  title.toLowerCase().replace(" ", "-") +
+  ".md"
+
+// Create a lesson file
+const lessonPath = path.join(LESSONS_DIR, slug)
+fs.writeFileSync(lessonPath, lessonBoilerplate(title))
+console.log(`Created '${lessonPath}'`)
+
+// Create a slides file
+const slidesPath = path.join(SLIDES_DIR, slug)
+fs.writeFileSync(slidesPath, slidesBoilerplate(title))
+console.log(`Created '${slidesPath}'`)
+
+console.log("Done!")
+
+function lessonBoilerplate(title) {
+  return `---
+title: ${title}
+excerpt: >
+---
+
+{% from "macros.njk" import iconed, youtubePlayer %}
+
+## {{ iconed("Video") }}
+
+{{ youtubePlayer("") }}
+
+## {{ iconed("Exercise") }}
+
+TODO
+
+## {{ iconed("Extras") }}
+
+TODO
+`
+}
+
+function slidesBoilerplate(title) {
+  return `---
+title: ${title}
+---
+
+<section>
+
+## TODO: slide 1
+
+</section>
+
+
+<section>
+
+## TODO: slide 2
+
+</section>
+`
+}
+
+function showHelpMessage() {
+  console.log(`Usage: new-lesson [-h|--help|title]
+
+Create a new lesson page and it's slides page.
+
+Example: new-lesson "Making decisions"
+`)
+}

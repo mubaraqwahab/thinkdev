@@ -152,7 +152,7 @@ section.has-light-background h6 {
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 0.3em;
 }
 
 .reveal ol {
@@ -220,13 +220,15 @@ section.has-light-background h6 {
   @apply rounded-lg overflow-hidden leading-normal;
 }
 
-.reveal code {
+.reveal code,
+.reveal samp {
   font-family: var(--r-code-font);
   text-transform: none;
   tab-size: 2;
 }
 
-.reveal pre code {
+.reveal pre code,
+.reveal pre samp {
   display: block;
   padding: 5px;
   overflow: auto;
