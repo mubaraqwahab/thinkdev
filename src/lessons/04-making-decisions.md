@@ -50,7 +50,17 @@ excerpt: >
 
 1. Rewrite the if statement in the code above using the conditional operator. Be sure that your new code gives the same result as before. (**Hint:** You might need to use two conditional operators, one within the other.)
 
+1. TODO
+
 ## {{ iconed("Extras") }}
+
+### Equality
+
+Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, and we call it the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison (the formal term is <i>abstract equality comparison</i>).
+
+The double equals operator works like the triple equals; it's difference is that it may convert the types of it's operands before comparing them. Let's take an example:
+
+TODO: complete this.
 
 ### Short-circuit evalutaion
 
