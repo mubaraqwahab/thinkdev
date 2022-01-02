@@ -6,19 +6,26 @@ title: Making decisions
 
 <section data-auto-animate>
 
-![Screenshot of a YouTube video, showing the channel subscribe button]({{ '/assets/images/yt-subscribe.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
+![]({{ '/assets/images/yt-subscribe.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub" aria-labelledby="ytSubLabel"}
+
+Screenshot of a YouTube video, showing the channel subscribe button {id="ytSubLabel" data-id=imglabel class="mt-0 text-[60%]"}
 
 </section>
 
 <section data-auto-animate>
 
-![Screenshot of a YouTube video, showing the channel subscribed and notification buttons]({{ '/assets/images/yt-subscribed.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub"}
+![]({{ '/assets/images/yt-subscribed.png?nf_resize=fit&w=660' | url }}){width=660 data-id="yt-sub" aria-labelledby="ytSubedLabel"}
+
+Screenshot of a YouTube video, showing the channel subscribed and notification buttons {id="ytSubedLabel" data-id=imglabel class="mt-0 text-[60%]"}
+
 
 </section>
 
 <section>
 
-![A USSD application menu showing the different options a user can choose from.]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=400' | url }}){width=400}
+![]({{ '/assets/images/ussd-screenshot.png?nf_resize=fit&w=400' | url }}){width=400 aria-labelledby="ussdLabel"}
+
+A USSD application menu showing the different options a user can choose from. {id="ussdLabel" class="mt-0 text-[60%]"}
 
 </section>
 
