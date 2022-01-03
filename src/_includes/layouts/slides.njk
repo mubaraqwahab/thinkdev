@@ -51,7 +51,8 @@ tags: slides
     });
 
     if (window.location.search.includes('print-pdf')) {
-
+      // Just so I don't have to manually rename the pdf
+      document.title = "{{ page.fileSlug }}"
     }
   </script>
 </body>
