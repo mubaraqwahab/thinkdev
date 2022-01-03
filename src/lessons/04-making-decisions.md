@@ -62,7 +62,7 @@ excerpt: >
 
 ### A shorter `if`
 
-You may omit the curly brackets in the `if` statement if there's only one statement with them. So, you can write:
+You may omit the curly brackets in the `if` statement if there's only one statement within them. So, you can write:
 
 ```js
 if (!messageCount)
