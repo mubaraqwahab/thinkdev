@@ -56,7 +56,24 @@ excerpt: >
 
 1. Rewrite the if statement in the code above using the conditional operator. Be sure that your new code gives the same result as before. (**Hint:** You might need to use two conditional operators, one within the other.)
 
-1. TODO
+1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you'll notice that the URL domain begins with a two-letter (or three-letter) code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
+
+    The following table lists some languages and their codes.
+
+    Language | Code
+    -- | --
+    Arabic | ar
+    English | en
+    French | fr
+    Hausa | ha
+    Igbo | ig
+    Turkish | tr
+    Yoruba | yo
+    {.!w-auto}
+
+    Use your knowledge on making decisions to write a program that tells us the name of a language given its code. The program should work correctly for the language codes given in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+
+1. Modify the program from the previous exercise to determine the language of a Wikipedia domain. That is, if the domain is `"en.wikipedia.org"`, the program should print <samp>English</samp>.
 
 ## {{ iconed("Extras") }}
 
