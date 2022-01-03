@@ -73,8 +73,8 @@ excerpt: >
 
     Use what we learnt to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
-1. Create a copy of the previous program and modify the previous program so that it tells us the language a Wikipedia domain corresponds to.
-    The program should, for instance, print <samp>Hausa</samp> if we give it the domain `"ha.wikipedia.org"`. 
+1. Create a copy of the previous program and modify it so that it, instead, tells us the language a Wikipedia domain corresponds to.
+    For instance, the program should print <samp>Hausa</samp> if we give it the domain `"ha.wikipedia.org"`. 
 
 ## {{ iconed("Extras") }}
 
