@@ -1,5 +1,7 @@
 // @ts-check
 
+const plugin = require("tailwindcss/plugin")
+
 /**
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
  */
@@ -186,5 +188,20 @@ module.exports = {
       typography: ["dark"],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    // Add print media variant plugin.
+    // Idk how this works, I just copied it (and edited it) from the docs
+    // https://v2.tailwindcss.com/docs/plugins#complex-variants
+    plugin(function ({ addVariant, e, postcss }) {
+      addVariant("print", ({ container, separator }) => {
+        const supportsRule = postcss.atRule({ name: "media", params: "print" })
+        supportsRule.append(container.nodes)
+        container.append(supportsRule)
+        supportsRule.walkRules((rule) => {
+          rule.selector = `.${e(`print${separator}`)}${rule.selector.slice(1)}`
+        })
+      })
+    }),
+  ],
 }
