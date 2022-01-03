@@ -10,6 +10,7 @@ module.exports = {
     "src/**/*.njk",
     "src/**/*.md",
     "src/**/*.js",
+    "utils/markdown-it.js",
     "!src/_includes/layouts/slides.njk",
     "!src/slides/**/*.md",
   ],
