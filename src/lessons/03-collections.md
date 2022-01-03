@@ -8,17 +8,17 @@ excerpt: >
   used to represent these entities and lists.
 ---
 
-{% from "macros.njk" import iconed, youtubePlayer %}
+{% from "macros.njk" import iconed %}
 
 ## {{ iconed("Videos") }}
 
 ### Lesson session
 
-{{ youtubePlayer("qQg4-Nx4ohk") }}
+https://youtu.be/qQg4-Nx4ohk
 
 ### Revision session
 
-{{ youtubePlayer("NgxAcW7ppWo") }}
+https://youtu.be/NgxAcW7ppWo
 
 ## {{ iconed("Exercises") }}
 

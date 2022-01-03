@@ -6,11 +6,11 @@ excerpt: >
   We'll also cover expressions, statements, and variables.
 ---
 
-{% from "macros.njk" import iconed, youtubePlayer %}
+{% from "macros.njk" import iconed %}
 
 ## {{ iconed("Video") }}
 
-{{ youtubePlayer("xjaPC_B2okk") }}
+https://youtu.be/xjaPC_B2okk
 
 ## {{ iconed("Exercises") }}
 
