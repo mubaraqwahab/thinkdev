@@ -51,6 +51,7 @@ self.addEventListener("fetch", (event) => {
         event.request.mode === "navigate" &&
         !event.request.url.includes("/slides/")
       ) {
+        console.log("network-first", event.request.url)
         try {
           return await fetchResource(event.request)
         } catch (e) {
