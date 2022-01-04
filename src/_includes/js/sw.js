@@ -62,6 +62,8 @@ self.addEventListener("fetch", (event) => {
 
       // Use the offline-first strategy for slides and other resources
       else {
+        console.log("offline-first", event.request.url)
+
         // Returned the cached resource, if any
         const cachedResource = await cache.match(event.request)
         if (cachedResource) return cachedResource
