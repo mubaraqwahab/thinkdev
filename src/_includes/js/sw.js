@@ -51,7 +51,6 @@ self.addEventListener("fetch", (event) => {
         event.request.mode === "navigate" &&
         !event.request.url.includes("/slides/")
       ) {
-        console.log("network-first", event.request.url)
         try {
           return await fetchResource(event.request)
         } catch (e) {
@@ -63,8 +62,6 @@ self.addEventListener("fetch", (event) => {
 
       // Use the offline-first strategy for slides and other resources
       else {
-        console.log("offline-first", event.request.url)
-
         // Returned the cached resource, if any
         const cachedResource = await cache.match(event.request)
         if (cachedResource) return cachedResource
