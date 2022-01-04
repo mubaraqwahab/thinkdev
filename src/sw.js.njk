@@ -2,14 +2,12 @@
 permalink: sw.js
 ---
 
-{%- set js -%}
-  const CACHE_PREFIX = "thinkdev-"
-  const CACHE_NAME = CACHE_PREFIX + "{% now %}";
-  {% include "js/sw.js" %}
-{%- endset -%}
-
 {%- if site.environment == "production" -%}
+  {%- set js -%}
+    const CACHE_PREFIX = "thinkdev-"
+    const CACHE_NAME = CACHE_PREFIX + "{% now %}";
+    {% include "js/sw.js" %}
+  {%- endset -%}
+
   {{- js | babel | terser | safe -}}
-{%- else -%}
-  {{- js | safe -}}
 {%- endif -%}
