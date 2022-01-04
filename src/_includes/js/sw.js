@@ -1,4 +1,5 @@
 // CACHE_NAME will be automatically added to the top of this script
+
 const OFFLINE_PAGE = "/offline.html"
 
 self.addEventListener("install", (event) => {
@@ -36,12 +37,7 @@ self.addEventListener("activate", (event) => {
 })
 
 self.addEventListener("fetch", (event) => {
-  if (
-    event.request.method !== "GET" ||
-    !event.request.url.startsWith("http") ||
-    // Don't cache browser-sync stuff during development
-    event.request.url.includes("/browser-sync/")
-  ) {
+  if (event.request.method !== "GET" || !event.request.url.startsWith("http")) {
     return
   }
 
@@ -49,8 +45,12 @@ self.addEventListener("fetch", (event) => {
     (async () => {
       const cache = await caches.open(CACHE_NAME)
 
-      // Use the network-first strategy for webpages
-      if (event.request.mode === "navigate") {
+      // Use the network-first strategy for webpages except slides
+      // The slides rarely change so they will be served offline-first instead.
+      if (
+        event.request.mode === "navigate" &&
+        !event.request.url.includes("/slides/")
+      ) {
         try {
           return await fetchResource(event.request)
         } catch (e) {
@@ -60,15 +60,19 @@ self.addEventListener("fetch", (event) => {
         }
       }
 
-      // Use the offline-first strategy for other resources
+      // Use the offline-first strategy for slides and other resources
       else {
         // Returned the cached resource, if any
         const cachedResource = await cache.match(event.request)
         if (cachedResource) return cachedResource
+
         try {
           return await fetchResource(event.request)
         } catch (e) {
-          // Do what?
+          // For slides only
+          if (event.request.mode === "navigate") {
+            return await cache.match(OFFLINE_PAGE)
+          }
         }
       }
     })()
