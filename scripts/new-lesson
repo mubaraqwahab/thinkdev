@@ -57,11 +57,11 @@ title: ${title}
 excerpt: >
 ---
 
-{% from "macros.njk" import iconed, youtubePlayer %}
+{% from "macros.njk" import iconed %}
 
 ## {{ iconed("Video") }}
 
-{{ youtubePlayer("") }}
+TODO
 
 ## {{ iconed("Exercise") }}
 
