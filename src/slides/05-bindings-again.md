@@ -14,7 +14,7 @@ title: Bindings again
 
 ## What are "bindings"?
 
-There are different forms of it, but the one we're interested in is the <b>bindings of names to values.</b>
+We're interested in the <b>bindings of names to values.</b>
 
 </section>
 
@@ -57,7 +57,7 @@ let x = "Hey there"
 
 ## Variables
 
-Think of it this way: we're binding the name <var>x</var> to the string value `"Hey there"`, so that we can refer it later as <var>x</var>.
+Think of it this way: we're binding the name <var>x</var> to the string value `"Hey there"`, so that we can refer to it later as <var>x</var>.
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -169,6 +169,52 @@ Some words have special meanings in JavaScript; we call them <i>keywords</i>. Th
 
 These are the keywords and reserved words in JavaScript today:
 
+* `break`
+* `case`
+* `catch`
+* `class`
+* `const`
+* `continue`
+* `debugger`
+* `default`
+* `delete`
+* `do`
+* `else`
+* `enum`
+* `export`
+* `extends`
+* `false`
+* `finally`
+* `for`
+* `function`
+* `if`
+* `implements`
+* `import`
+* `interface`
+* `in`
+* `instanceof`
+* `let`
+* `new`
+* `package`
+* `private`
+* `protected`
+* `public`
+* `return`
+* `static`
+* `super`
+* `switch`
+* `this`
+* `throw`
+* `true`
+* `try`
+* `typeof`
+* `var`
+* `void`
+* `while`
+* `with`
+* `yield`
+{.!list-none style="columns: 5;"}
+
 </section>
 
 <section data-auto-animate data-auto-animate-id="bindName">
@@ -183,7 +229,7 @@ In addition, you can't use the literal values `true`, `false`, and `null` to nam
 
 ### Naming the bindings
 
-You don't have to memorise these invalid names however. If try you use one of them to name a binding, JavaScript will complain.
+You don't have to memorise these invalid names however. If you try to you use one of them as a binding name, JavaScript will complain.
 
 ```js
 let if = 5 // SyntaxError: Unexpected token 'if'
@@ -195,6 +241,231 @@ let if = 5 // SyntaxError: Unexpected token 'if'
 
 
 <section>
+
+<section>
+
+## Now, let's try something different
+
+</section>
+
+<section data-auto-animate>
+
+<pre data-id="diff"><code data-line-numbers data-trim class="language-js">
+let x = 5
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+What does this do?
+
+<pre data-id="diff"><code data-line-numbers data-trim class="language-js">
+let x = 5
+let x = 6
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+You can't redeclare an existing variable _in the same scope_.
+
+<pre data-id="diff"><code data-line-numbers data-trim class="language-js">
+let x = 5
+let x = 6
+// SyntaxError: Identifier 'x' has already been declared
+</code></pre>
+
+</section>
+
+</section>
+
+
+<section>
+
+<section>
+
+## Scope
+
+</section>
+
+<section data-auto-animate>
+
+What does this do?
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+if (true) {
+  let x = 6
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+This is allowed because the curly brackets create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+if (true) {
+  let x = 6
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+In that scope, the new `x` <i>shadows</i> the old one
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+if (true) {
+  let x = 6
+  console.log(x) // 6
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+But only in that scope.
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+if (true) {
+  let x = 6
+  console.log(x) // 6
+}
+console.log(x) // 5
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+We call the outermost scope <i>the global scope</i> and variables declared there, <i>global variables</i>. Conversely, variables declared in a block are <i>local</i> to the block.
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5 // x is a global variable
+if (true) {
+  let x = 6 // x is local to the block
+  console.log(x)
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
+  <p id=glscope><i>Global scope</i></p>
+  <p data-id="glvars"><small><code>x = 5</code></small></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
+    <p data-id="ylvars"><small><code>x = 6</code></small></p>
+  </div>
+</div>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
+  <p><i>Global scope</i></p>
+  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
+    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
+  </div>
+</div>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
+  <p><i>Global scope</i></p>
+  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
+    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
+    <p><small><code>arr</code>? <code class="fragment">['a','b','c']</code></small></p>
+  </div>
+</div>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
+  <p><i>Global scope</i></p>
+  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
+  <p><small><code>firstName</code>? <code class="fragment">ReferenceError</code></small></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
+    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
+  </div>
+</div>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
+  <p><i>Global scope</i></p>
+  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
+    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
+    <div data-id="blscope" class="bg-blue-400 text-gray-1000 p-6 rounded-lg">
+      <p data-id="blvars"><small><code>done = true</code>, <code>firstName = 'Amal'</code></small></p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section data-auto-animate>
+
+Note that you can't use a variable before it's bound to a value, [even when it's declared in the same scope.]{.block}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+console.log(x) // ReferenceError: Cannot access 'x' before initialization
+let x = 5
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+You can also use a block on its own, though this is very rare.
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+{
+  let x = 6
+  console.log(x) // 6
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+One more thing&mdash;don't write an object where a statement is expected, or JavaScript will mistake it for a block
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+{
+
+}
+</code></pre>
+
+</section>
+
+</section>
+
+
+<!-- <section>
 
 <section data-auto-animate>
 
@@ -278,4 +549,4 @@ console.log(obj2.address.city)
 
 </section>
 
-</section>
+</section> -->
