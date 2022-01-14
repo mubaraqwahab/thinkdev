@@ -316,6 +316,19 @@ if (true) {
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="contexts">
+
+<div class="bg-white text-black p-5 rounded-lg w-5/6 mx-auto">
+  <!-- <p id=glscope><i>Global scope</i></p> -->
+  <p data-id="glvars"><code>x = 5</code></p>
+  <div data-id="ylscope" class="bg-yellow-400 p-5 rounded-lg w-5/6 mx-auto mb-5">
+    <!-- <p id=ylscopeLabel><i>Block scope</i></p> -->
+    <p data-id="ylvars"><code>x = 6</code></p>
+  </div>
+</div>
+
+</section>
+
 <section data-auto-animate>
 
 In that scope, the new `x` <i>shadows</i> the old one
