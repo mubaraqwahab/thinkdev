@@ -39,7 +39,7 @@ let x = "Hey there"
 
 <section data-auto-animate>
 
-What does this do again?
+What does this do again? {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -49,7 +49,7 @@ let x = "Hey there"
 
 <section data-auto-animate>
 
-Think of it this way: we're binding the name `x` to the string value `"Hey there"`, so that we can refer to it later as `x`.
+Think of it this way: we're binding the name `x` to the string value `"Hey there"`, so that we can refer to it later as `x`. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -59,7 +59,7 @@ let x = "Hey there"
 
 <section data-auto-animate>
 
-[Because we're using `let`, we can always]{.block} bind the name again to another value later.
+[Because we're using `let`, we can always]{.block} bind the name again to another value later. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -70,7 +70,7 @@ x = "Hi"
 
 <section data-auto-animate>
 
-[We can't do this with `const` because it creates]{.block} a _constant_ binding that cannot be changed.
+[We can't do this with `const` because it creates]{.block} a _constant_ binding that cannot be changed. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 const x = "Hey there"
@@ -81,7 +81,7 @@ x = "Hi" // TypeError!
 
 <section data-auto-animate>
 
-After declaring, we can use the name to refer to its bound value.
+After declaring, we can use the name to refer to its bound value. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -92,7 +92,7 @@ console.log(x)
 
 <section data-auto-animate>
 
-Since the name just refers to a value, we can operate on the name as we would on the value.
+Since the name just refers to a value, we can operate on the name as we would on the value. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -103,7 +103,7 @@ console.log(x.length)
 
 <section data-auto-animate>
 
-We can create a new variable to refer to the value of a previous one. Now we have two names bound to the same value. Note that we're **not** binding a variable to another.
+We can create a new variable to refer to the value of a previous one. Now we have two names bound to the same value. Note that we're **not** binding a variable to another. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -115,7 +115,7 @@ let y = x
 
 <section data-auto-animate>
 
-[What if we reassign one of them?]{.block} Well, then only that binding changes.
+[What if we reassign one of them?]{.block} Well, then only that binding changes. {data-id="varbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -226,7 +226,7 @@ let x = 5
 
 <section data-auto-animate>
 
-What does this do?
+What does this do? {data-id="diffDesc"}
 
 <pre data-id="diff"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -237,7 +237,7 @@ let x = 6
 
 <section data-auto-animate>
 
-You can't redeclare an existing variable _in the same scope_.
+You can't redeclare an existing variable _in the same scope_. {data-id="diffDesc"}
 
 <pre data-id="diff"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -260,7 +260,7 @@ let x = 6
 
 <section data-auto-animate>
 
-What does this do?
+What does this do? {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -273,7 +273,7 @@ if (true) {
 
 <section data-auto-animate>
 
-This is allowed because the curly brackets create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block}
+This is allowed because the curly brackets create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block} {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -284,22 +284,9 @@ if (true) {
 
 </section>
 
-<section data-auto-animate data-auto-animate-id="contexts">
-
-<div class="bg-white text-black p-5 rounded-lg w-5/6 mx-auto">
-  <!-- <p id=glscope><i>Global scope</i></p> -->
-  <p data-id="glvars"><code>x = 5</code></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-5 rounded-lg w-5/6 mx-auto mb-5">
-    <!-- <p id=ylscopeLabel><i>Block scope</i></p> -->
-    <p data-id="ylvars"><code>x = 6</code></p>
-  </div>
-</div>
-
-</section>
-
 <section data-auto-animate>
 
-In that scope, the new `x` <i>shadows</i> the old one
+In that scope, the new `x` <i>shadows</i> the old one {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -313,7 +300,7 @@ if (true) {
 
 <section data-auto-animate>
 
-But only in that scope.
+But only in that scope. {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -328,10 +315,24 @@ console.log(x) // 5
 
 <section data-auto-animate>
 
-We call the outermost scope <i>the global scope</i> and variables declared there, <i>global variables</i>. Conversely, variables declared in a block are <i>local</i> to the block.
+We call the outermost scope <i>the global scope</i> [and variables declared there, <i>global variables</i>.]{.block} {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5 // x is a global variable
+if (true) {
+  let x = 6
+  console.log(x)
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+Conversely, variables declared in a block are <i>local</i> to the block. {data-id="scopeDesc"}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
 if (true) {
   let x = 6 // x is local to the block
   console.log(x)
@@ -340,77 +341,65 @@ if (true) {
 
 </section>
 
-<section data-auto-animate data-auto-animate-id="contexts">
+<section data-auto-animate>
 
-<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
-  <p id=glscope><i>Global scope</i></p>
-  <p data-id="glvars"><small><code>x = 5</code></small></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
-    <p data-id="ylvars"><small><code>x = 6</code></small></p>
-  </div>
-</div>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="contexts">
-
-<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
-  <p><i>Global scope</i></p>
-  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
-    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
-  </div>
-</div>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="contexts">
-
-<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
-  <p><i>Global scope</i></p>
-  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
-    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
-    <p><small><code>arr</code>? <code class="fragment">['a','b','c']</code></small></p>
-  </div>
-</div>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="contexts">
-
-<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
-  <p><i>Global scope</i></p>
-  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
-  <p><small><code>firstName</code>? <code class="fragment">ReferenceError</code></small></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
-    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
-  </div>
-</div>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="contexts">
-
-<div class="bg-white text-black p-6 rounded-lg" aria-labelledby="glscope">
-  <p><i>Global scope</i></p>
-  <p data-id="glvars"><small><code>x = 5</code>, <code>arr = ['a','b','c']</code></small></p>
-  <div data-id="ylscope" class="bg-yellow-400 p-6 rounded-lg">
-    <p data-id="ylvars"><small><code>x = 6</code>, <code>firstName = 'Mubaraq'</code></small></p>
-    <div data-id="blscope" class="bg-blue-400 text-gray-1000 p-6 rounded-lg">
-      <p data-id="blvars"><small><code>done = true</code>, <code>firstName = 'Amal'</code></small></p>
-    </div>
-  </div>
-</div>
+We have some global bindings already available to us. For example, `Number`, `String`, `Boolean`, `Object`, `Array`, and `console`. {data-id="scopeDesc"}
 
 </section>
 
 <section data-auto-animate>
 
-Note that you can't use a variable before it's bound to a value, [even when it's declared in the same scope.]{.block}
+Variables are <i>visible</i> in their scope and in inner scopes. {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
-console.log(x) // ReferenceError: Cannot access 'x' before initialization
+let x = 5
+if (true) {
+  console.log(x) // 5
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+You can't access a variable where it's not visible. {data-id="scopeDesc"}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+if (true) {
+  let x = 6
+}
+console.log(x) // ReferenceError: x is not defined
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+The same rules apply to deeper blocks {data-id="scopeDesc"}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+let x = 5
+let y = 7
+if (true) {
+  let x = 6
+  if (true) {
+    console.log(x) // 6
+    console.log(y) // 7
+    let z = 8
+  }
+  console.log(z) // ReferenceError: z is not defined
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+Note that you can't use a variable before it's bound to a value, [even when it's declared in the same scope.]{.block} {data-id="scopeDesc"}
+
+<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+// ReferenceError: Cannot access 'x' before initialization
+console.log(x)
 let x = 5
 </code></pre>
 
@@ -418,7 +407,7 @@ let x = 5
 
 <section data-auto-animate>
 
-You can also use a block on its own, though this is very rare.
+You can also use a block on its own, though this is very rare. {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -432,12 +421,13 @@ let x = 5
 
 <section data-auto-animate>
 
-One more thing&mdash;don't write an object where a statement is expected, or JavaScript will mistake it for a block
+Be careful not to write an object where a statement is expected, [or JavaScript will mistake it for a block.]{.block} {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
 {
-
+  name: "JavaScript",
+  extension: "js",
 }
 </code></pre>
 
