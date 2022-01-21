@@ -13,6 +13,11 @@
 }
 
 @layer components {
+  #main {
+    /* For the skip-to-content link */
+    scroll-margin-top: theme("spacing.24");
+  }
+
   .bi {
     @apply inline-block fill-current;
   }
