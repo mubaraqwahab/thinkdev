@@ -419,7 +419,7 @@ let x = 5
 
 </section>
 
-<section data-auto-animate>
+<!-- <section data-auto-animate>
 
 Be careful not to write an object where a statement is expected, [or JavaScript will mistake it for a block.]{.block} {data-id="scopeDesc"}
 
@@ -431,26 +431,24 @@ let x = 5
 }
 </code></pre>
 
-</section>
+</section> -->
 
 </section>
 
 
-<!-- <section>
+<section>
+
+<section>
+
+## Another binding
+
+We've used another form of binding too: [the properties of an object.]{.block} {.fragment .fade-up}
+
+</section>
+
+</section>
 
 <section data-auto-animate>
-
-## Object bindings
-
-We've seen a second type of binding: the properties of an object {.fragment .fade-up}
-
-</section>
-
-<section data-auto-animate>
-
-## Object bindings
-
-What does this do?
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 const obj = {
@@ -462,9 +460,7 @@ const obj = {
 
 <section data-auto-animate>
 
-## Object bindings
-
-We're creating an object with a property called `size` bound to the number 5. The object doesn't "contain" 5, it merely has a named "rope" linked to the number 5.
+Once again, what does this do?
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 const obj = {
@@ -476,7 +472,17 @@ const obj = {
 
 <section data-auto-animate>
 
-## Object bindings
+We're creating an object with a property called `size` bound to the number 5. The object doesn't "contain" 5; it merely has something linking it to the number 5.
+
+<pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
+const obj = {
+  size: 5
+}
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
 
 Objects are mutable so we can change what the properties are bound to. We can even add and remove properties.
 
@@ -520,4 +526,4 @@ console.log(obj2.address.city)
 
 </section>
 
-</section> -->
+</section>
