@@ -6,21 +6,13 @@ title: Bindings again
 
 <section data-auto-animate data-auto-animate-id="bindings">
 
-## What are "bindings"?
+## "Bindings"?
 
 </section>
 
 <section data-auto-animate data-auto-animate-id="bindings">
 
-## What are "bindings"?
-
-We're interested in the <b>bindings of names to values.</b>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="bindings">
-
-## What are "bindings"?
+## "Bindings"?
 
 We've used them before&mdash;variables are bindings.
 
@@ -31,9 +23,13 @@ We've used them before&mdash;variables are bindings.
 
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## Variables
+
+</section>
+
+<section data-auto-animate>
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -42,8 +38,6 @@ let x = "Hey there"
 </section>
 
 <section data-auto-animate>
-
-## Variables
 
 What does this do again?
 
@@ -55,9 +49,7 @@ let x = "Hey there"
 
 <section data-auto-animate>
 
-## Variables
-
-Think of it this way: we're binding the name <var>x</var> to the string value `"Hey there"`, so that we can refer to it later as <var>x</var>.
+Think of it this way: we're binding the name `x` to the string value `"Hey there"`, so that we can refer to it later as `x`.
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = "Hey there"
@@ -66,8 +58,6 @@ let x = "Hey there"
 </section>
 
 <section data-auto-animate>
-
-## Variables
 
 [Because we're using `let`, we can always]{.block} bind the name again to another value later.
 
@@ -80,8 +70,6 @@ x = "Hi"
 
 <section data-auto-animate>
 
-## Variables
-
 [We can't do this with `const` because it creates]{.block} a _constant_ binding that cannot be changed.
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
@@ -92,8 +80,6 @@ x = "Hi" // TypeError!
 </section>
 
 <section data-auto-animate>
-
-## Variables
 
 After declaring, we can use the name to refer to its bound value.
 
@@ -106,8 +92,6 @@ console.log(x)
 
 <section data-auto-animate>
 
-## Variables
-
 Since the name just refers to a value, we can operate on the name as we would on the value.
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
@@ -118,8 +102,6 @@ console.log(x.length)
 </section>
 
 <section data-auto-animate>
-
-## Variables
 
 We can create a new variable to refer to the value of a previous one. Now we have two names bound to the same value. Note that we're **not** binding a variable to another.
 
@@ -132,8 +114,6 @@ let y = x
 </section>
 
 <section data-auto-animate>
-
-## Variables
 
 [What if we reassign one of them?]{.block} Well, then only that binding changes.
 
@@ -149,26 +129,23 @@ x = "Hi"
 
 <section data-auto-animate data-auto-animate-id="bindName">
 
-### Naming the bindings
+### Reserved names
 
-We've learnt some rules on naming variables before. There are some words however that appear to be valid names but are not.
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="bindName">
-
-### Naming the bindings
-
-Some words have special meanings in JavaScript; we call them <i>keywords</i>. There are also words reserved for future use by the language. We can't use keywords or reserved words as identifiers (i.e. binding names).
+We learnt some rules on naming variables before. [But there's more.]{.block .fragment .fade-up} {data-id=bindNameDesc}
 
 </section>
 
 <section data-auto-animate data-auto-animate-id="bindName">
 
-### Naming the bindings
+Some words are <i>reserved</i> in JavaScript, usually because they have special meanings. We can't use these words as identifiers (i.e. binding names). {data-id=bindNameDesc}
 
-These are the keywords and reserved words in JavaScript today:
+</section>
 
+<section data-auto-animate data-auto-animate-id="bindName">
+
+These are the reserved words in JavaScript today: {data-id=bindNameDesc}
+
+* `await`
 * `break`
 * `case`
 * `catch`
@@ -195,6 +172,7 @@ These are the keywords and reserved words in JavaScript today:
 * `instanceof`
 * `let`
 * `new`
+* `null`
 * `package`
 * `private`
 * `protected`
@@ -219,17 +197,7 @@ These are the keywords and reserved words in JavaScript today:
 
 <section data-auto-animate data-auto-animate-id="bindName">
 
-### Naming the bindings
-
-In addition, you can't use the literal values `true`, `false`, and `null` to name a binding.
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="bindName">
-
-### Naming the bindings
-
-You don't have to memorise these invalid names however. If you try to you use one of them as a binding name, JavaScript will complain.
+You don't have to memorise these invalid names however. If you try to you use one of them as a binding name, JavaScript will complain. {data-id=bindNameDesc}
 
 ```js
 let if = 5 // SyntaxError: Unexpected token 'if'
