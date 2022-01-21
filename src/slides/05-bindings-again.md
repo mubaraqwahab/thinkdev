@@ -375,7 +375,7 @@ console.log(x) // ReferenceError: x is not defined
 
 <section data-auto-animate>
 
-The same rules apply to deeper blocks {data-id="scopeDesc"}
+The same rules apply to deeper scopes {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -395,7 +395,7 @@ if (true) {
 
 <section data-auto-animate>
 
-Note that you can't use a variable before it's bound to a value, [even when it's declared in the same scope.]{.block} {data-id="scopeDesc"}
+Note that you can't use a variable before it is declared, [even in the same scope.]{.block} {data-id="scopeDesc"}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 // ReferenceError: Cannot access 'x' before initialization
