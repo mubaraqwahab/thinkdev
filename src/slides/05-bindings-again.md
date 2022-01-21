@@ -451,8 +451,8 @@ We've used another form of binding too: [the properties of an object.]{.block} {
 <section data-auto-animate>
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
-const obj = {
-  size: 5
+const user = {
+  name: 'Isa'
 }
 </code></pre>
 
@@ -460,11 +460,11 @@ const obj = {
 
 <section data-auto-animate>
 
-Once again, what does this do?
+Once again, what does this do? {data-id="objbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
-const obj = {
-  size: 5
+const user = {
+  name: 'Isa'
 }
 </code></pre>
 
@@ -472,11 +472,11 @@ const obj = {
 
 <section data-auto-animate>
 
-We're creating an object with a property called `size` bound to the number 5. The object doesn't "contain" 5; it merely has something linking it to the number 5.
+We're creating an object with a property called `name` that is bound to the string `'Isa'`. The object doesn't "contain" the string; it merely has something linking it to the string. {data-id="objbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
-const obj = {
-  size: 5
+const user = {
+  name: 'Isa'
 }
 </code></pre>
 
@@ -484,44 +484,74 @@ const obj = {
 
 <section data-auto-animate>
 
-Objects are mutable so we can change what the properties are bound to. We can even add and remove properties.
+Objects are mutable so we can change what the properties are bound to. We can even add and remove properties. {data-id="objbindDesc"}
 
 <pre data-id="varbind"><code data-line-numbers="5-7" data-trim class="language-js">
-const obj = {
-  size: 5
+const user = {
+  name: 'Isa'
 }
 
-obj.size = 7
-obj.speed = 10
-delete obj.size
+user.name = 'Amal'
+user.email = 'amal@example.com'
+delete user.email
 </code></pre>
 
 </section>
 
 <section data-auto-animate>
 
-## Object bindings
+You'll get `undefined` if you try to access a property that doesn't exist. {data-id="objbindDesc"}
 
-What's the output of this?
-
-<pre data-id="varbind"><code data-line-numbers="1-7|9-12|14|16-17" data-trim class="language-js">
-const obj = {
-  size: 5,
-  address: {
-    city: '',
-    state: '',
-  }
+<pre data-id="varbind"><code data-line-numbers="" data-trim class="language-js">
+const user = {
+  name: 'Isa'
 }
 
-const obj2 = {
-  size: 3,
-  address: obj.address
+console.log(user.phoneNumber) // undefined
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+Consider this example. What will be the output? {data-id="objbindDesc"}
+
+<pre data-id="varbind"><code data-line-numbers="1-11|13-14" data-trim class="language-js">
+const user = {
+  name: 'Isa',
+  address: { state: 'Abuja' },
 }
 
-obj2.address.city = ''
+const user2 = {
+  name: 'Amal',
+  address: user.address,
+}
 
-console.log(obj.address.city)
-console.log(obj2.address.city)
+user2.address.state = 'Kaduna'
+
+console.log(user.address.state)
+console.log(user2.address.state)
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+The state will change for both addresses, because the `address` properties refer to the same object. {data-id="objbindDesc"}
+
+<pre data-id="varbind"><code data-line-numbers="8-9" data-trim class="language-js">
+
+const user2 = {
+  name: 'Amal',
+  address: user.address,
+}
+
+user2.address.state = 'Kaduna'
+
+console.log(user.address.state) // Kaduna
+console.log(user2.address.state) // Kaduna
+
+
 </code></pre>
 
 </section>
