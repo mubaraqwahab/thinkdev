@@ -54,9 +54,12 @@ self.addEventListener("fetch", (event) => {
         try {
           return await fetchResource(event.request)
         } catch (e) {
-          // Show fallback page if the request failed
-          // ("failed" as in a network failure)
-          return await cache.match(OFFLINE_PAGE)
+          // If the request failed (as in a network failure)
+          // show cached page, if any, or offline fallback
+          return (
+            (await cache.match(event.request)) ||
+            (await cache.match(OFFLINE_PAGE))
+          )
         }
       }
 
