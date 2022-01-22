@@ -419,30 +419,28 @@ let x = 5
 
 </section>
 
-<!-- <section data-auto-animate>
+<section data-auto-animate>
 
-Be careful not to write an object where a statement is expected, [or JavaScript will mistake it for a block.]{.block} {data-id="scopeDesc"}
+A block is really just a statement [that's used to group other statements.]{.block} {data-id="scopeDesc"}
 
-<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
-let x = 5
-{
-  name: "JavaScript",
-  extension: "js",
-}
-</code></pre>
-
-</section> -->
+</section>
 
 </section>
 
 
 <section>
 
-<section>
+<section data-auto-animate data-auto-animate-id="otherbind">
 
-## Another binding
+## Any other binding?
 
-We've used another form of binding too: [the properties of an object.]{.block} {.fragment .fade-up}
+</section>
+
+<section data-auto-animate data-auto-animate-id="otherbind">
+
+## Any other binding?
+
+We've used another form of binding too: [the properties of an object.]{.block}
 
 </section>
 

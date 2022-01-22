@@ -16,3 +16,6 @@ TODO
 ## {{ iconed("Extras") }}
 
 TODO
+
+* `let` with comma
+* keyword and reserved word
