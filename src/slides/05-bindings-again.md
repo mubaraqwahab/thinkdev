@@ -514,44 +514,80 @@ console.log(user.phoneNumber) // undefined
 
 <section data-auto-animate>
 
-Consider this example. What will be the output? {data-id="objbindDesc"}
+Consider this example. What will be the values of `user.address.city` and `user2.address.city`? {data-id="objbindDesc"}
 
-<pre data-id="varbind"><code data-line-numbers="1-11|13-14" data-trim class="language-js">
+<pre data-id="varbind"><code data-line-numbers="1-4|5-8|10" data-trim class="language-js">
 const user = {
   name: 'Isa',
-  address: { state: 'Abuja' },
+  address: { city: 'Asokoro', state: 'Abuja' },
 }
-
 const user2 = {
   name: 'Amal',
   address: user.address,
 }
 
-user2.address.state = 'Kaduna'
-
-console.log(user.address.state)
-console.log(user2.address.state)
+user2.address.city = 'Gwarinpa'
 </code></pre>
 
 </section>
 
 <section data-auto-animate>
 
-The state will change for both addresses, because the `address` properties refer to the same object. {data-id="objbindDesc"}
+Both will change to `'Gwarinpa'` because the two [`address` properties refer to the same object.]{.block} {data-id="objbindDesc"}
 
-<pre data-id="varbind"><code data-line-numbers="8-9" data-trim class="language-js">
-
+<pre data-id="varbind"><code data-line-numbers="" data-trim class="language-js">
+const user = {
+  name: 'Isa',
+  address: { city: 'Asokoro', state: 'Abuja' },
+}
 const user2 = {
   name: 'Amal',
   address: user.address,
 }
 
-user2.address.state = 'Kaduna'
+user2.address.city = 'Gwarinpa'
+</code></pre>
 
-console.log(user.address.state) // Kaduna
-console.log(user2.address.state) // Kaduna
+</section>
 
+<section data-auto-animate>
 
+If you really want different address objects, [you can duplicate one with the spread operator.]{.block} {data-id="objbindDesc"}
+
+<pre data-id="varbind"><code data-line-numbers="7|10|12-13" data-trim class="language-js">
+const user = {
+  name: 'Isa',
+  address: { city: 'Asokoro', state: 'Abuja' },
+}
+const user2 = {
+  name: 'Amal',
+  address: { ...user.address },
+}
+
+user2.address.city = 'Gwarinpa'
+
+console.log(user.address.city) // still 'Asokoro'
+console.log(user2.address.city) // 'Gwarinpa'
+</code></pre>
+
+</section>
+
+<section data-auto-animate>
+
+Or, well, for this simple example 🙃: {data-id="objbindDesc"}
+
+<pre data-id="varbind"><code data-line-numbers="5-8|10-11" data-trim class="language-js">
+const user = {
+  name: 'Isa',
+  address: { city: 'Asokoro', state: 'Abuja' },
+}
+const user2 = {
+  name: 'Amal',
+  address: { city: 'Gwarinpa', state: 'Abuja' },
+}
+
+console.log(user.address.city) // 'Asokoro'
+console.log(user2.address.city) // 'Gwarinpa'
 </code></pre>
 
 </section>
