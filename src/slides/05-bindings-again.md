@@ -191,7 +191,7 @@ These are the reserved words in JavaScript today: {data-id=bindNameDesc}
 * `while`
 * `with`
 * `yield`
-{.!list-none style="columns: 5;"}
+{.!list-none style="columns: 4;"}
 
 </section>
 
