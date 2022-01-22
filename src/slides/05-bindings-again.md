@@ -440,7 +440,7 @@ A block is really just a statement [that's used to group other statements.]{.blo
 
 ## Any other binding?
 
-We've used another form of binding too: [the properties of an object.]{.block}
+Yes, the properties of an object.
 
 </section>
 

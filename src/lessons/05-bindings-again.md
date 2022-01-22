@@ -15,7 +15,8 @@ TODO
 
 ## {{ iconed("Extras") }}
 
-TODO
-
 * `let` with comma
-* keyword and reserved word
+
+### Keywords and reserved words
+
+Also mention here that `undefined` is neither a keyword nor a reserved word, but a global binding.
