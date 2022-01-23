@@ -1,11 +1,18 @@
 ---
 title: Bindings again
 excerpt: >
+  We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
 ---
 
 {% from "macros.njk" import iconed %}
 
 ## {{ iconed("Video") }}
+
+### Lesson session
+
+TODO
+
+### Revision session
 
 TODO
 
