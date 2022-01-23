@@ -38,5 +38,5 @@ Each lesson page (see [the outline above]({{ "📃 Outline" | hashlink | url }})
 1. The [<cite>MDN Web Docs</cite>](https://developer.mozilla.org/en-US/docs/Web/JavaScript). My primary reference for this course. It's a great place to learn JavaScript and other things web-related.
 1. [<cite class="quoted">Eloquent JavaScript</cite>](https://eloquentjavascript.net/), a thorough and modern introductory book to programming in JavaScript.
 1. [<cite>The ECMAScript Language Specification</cite>](https://tc39.es/ecma262/). The document that formally defines what JavaScript is.
-1. The prerelease draft of the [<cite>Just JavaScript</cite> course](). The focus of the course is building a good mental model of JavaScript. It inspired the fifth episode of this thinkdev course, [{{ bindingsLesson.title }}]({{ bindingsLesson.url | url }}).
+1. The prerelease draft of the [<cite>Just JavaScript</cite> course](https://justjavascript.com). The course focuses on rebuilding a mental model of JavaScript. It inspired the fifth episode of this thinkdev course, [{{ bindingsLesson.title }}]({{ bindingsLesson.url | url }}).
 1. I made the slides with [<cite>reveal.js</cite>](https://revealjs.com/) and I'm very pleased with it 😊.
