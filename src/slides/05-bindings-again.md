@@ -343,7 +343,7 @@ if (true) {
 
 <section data-auto-animate>
 
-We have some global bindings already available to us. For example, `Number`, `String`, `Boolean`, `Object`, `Array`, and `console`. {data-id="scopeDesc"}
+We have some global bindings already available to us. For example, `Number`, `String`, `Boolean`, `Object`, `Array`, `console`, and even `undefined`. {data-id="scopeDesc"}
 
 </section>
 

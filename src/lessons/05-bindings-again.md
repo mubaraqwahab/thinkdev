@@ -15,8 +15,29 @@ TODO
 
 ## {{ iconed("Extras") }}
 
-* `let` with comma
+### One declaration, many variables
+
+We know how to declare many variables:
+
+```js
+let a = 1;
+let b = 2;
+```
+
+We can also declare them in the same statement (note the use of the comma `,`):
+
+```js
+let a = 1, b = 2;
+```
+
+This works with `const` too:
+
+```js
+const a = 1, b = 2;
+```
 
 ### Keywords and reserved words
 
-Also mention here that `undefined` is neither a keyword nor a reserved word, but a global binding.
+A word with a special meaning in a programming language is called a <i>keyword</i>. Most keywords in JavaScript are also reserved words&mdash;that is, they're not valid identifiers. Examples are `if`, `else`, `typeof`, and `null`.
+
+However, some keywords are allowed as identifiers in certain contexts, and some reserved words have no special meanings.
