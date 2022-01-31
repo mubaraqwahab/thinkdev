@@ -39,7 +39,9 @@ module.exports = {
       return content
     }
 
-    const { document } = new JSDOM(content).window
+    const dom = new JSDOM(content)
+    const { document } = dom.window
+
     document.querySelectorAll("h2, h3").forEach((heading) => {
       // Slugify the heading text
       const slugger = new GithubSlugger()
@@ -55,6 +57,6 @@ module.exports = {
       heading.innerHTML = anchor.outerHTML
     })
 
-    return document.documentElement.outerHTML
+    return dom.serialize()
   },
 }
