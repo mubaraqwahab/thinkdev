@@ -41,6 +41,9 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
+            // from github.css higlight theme
+            "--tw-prose-pre-code": "#24292e",
+            "--tw-prose-pre-bg": theme("colors.gray.100"),
             "--tw-prose-invert-body": theme("colors.gray.400"),
             "--tw-prose-invert-lead": theme("colors.gray.300"),
 
@@ -79,11 +82,11 @@ module.exports = {
             cite: {
               fontStyle: "normal",
             },
-            pre: {
-              // color from github.css higlight theme
-              // color: "#24292e",
-              // backgroundColor: theme("colors.gray.100"),
-            },
+            // pre: {
+            // // color from github.css higlight theme
+            // color: "#24292e",
+            // backgroundColor: theme("colors.gray.100"),
+            // },
             // Inspired by GitHub's rendering
             kbd: {
               display: "inline-block",
@@ -116,6 +119,25 @@ module.exports = {
             },
           },
         },
+        indigo: {
+          css: {
+            "--tw-prose-invert-links": theme("colors.indigo.300"),
+          },
+        },
+        invert: {
+          css: {
+            '[class~="note-info"]': {
+              borderColor: theme("colors.blue.500"),
+            },
+            // pre: {
+            //   color: theme("colors.gray.200"),
+            //   backgroundColor: theme("colors.gray.800"),
+            // },
+            kbd: {
+              borderColor: theme("colors.gray.700"),
+            },
+          },
+        },
       }),
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       // typography: (theme) => ({
@@ -126,38 +148,7 @@ module.exports = {
       //           color: "inherit",
       //         },
       //       },
-
       //     },
-      //   },
-      //   light: {
-      //     css: [
-      //       {
-      //         '[class~="note-info"]': {
-      //           borderColor: theme("colors.blue.500"),
-      //         },
-      //         a: {
-      //           color: theme("colors.white"),
-      //         },
-      //         hr: {
-      //           borderColor: theme("colors.gray.600"),
-      //         },
-      //         "a code": {
-      //           color: theme("colors.white"),
-      //         },
-      //         // Style like <code>
-      //         samp: {
-      //           color: theme("colors.white"),
-      //         },
-      //         pre: {
-      //           color: theme("colors.gray.200"),
-      //           backgroundColor: theme("colors.gray.800"),
-      //         },
-      //         kbd: {
-      //           color: theme("colors.white"),
-      //           borderColor: theme("colors.gray.700"),
-      //         },
-      //       },
-      //     ],
       //   },
       // }),
     },
