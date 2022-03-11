@@ -7,7 +7,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
  */
 module.exports = {
-  purge: [
+  content: [
     "src/**/*.njk",
     "src/**/*.md",
     "src/**/*.js",
@@ -15,8 +15,6 @@ module.exports = {
     "!src/_includes/layouts/slides.njk",
     "!src/slides/**/*.md",
   ],
-  mode: "jit",
-  darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
@@ -193,11 +191,6 @@ module.exports = {
         xl: theme("spacing.24"),
       },
     }),
-  },
-  variants: {
-    extend: {
-      typography: ["dark"],
-    },
   },
   plugins: [
     require("@tailwindcss/typography"),

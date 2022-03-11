@@ -35,7 +35,7 @@
   }
 
   .prose .side-nav ol {
-    @apply my-0;
+    @apply my-0 list-none;
   }
 
   .prose .side-nav li {
