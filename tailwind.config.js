@@ -63,7 +63,7 @@ module.exports = {
               borderColor: theme("colors.blue.400"),
             },
             h1: {
-              fontFamily: "Red Hat Display",
+              fontFamily: theme("fontFamily.display").join(","),
               fontWeight: theme("fontWeight.black"),
             },
             h2: {
