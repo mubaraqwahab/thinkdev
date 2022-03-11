@@ -85,4 +85,4 @@ Which brings me to a final point &hellip;
 
 ### <q>JavaScript is an interpreted language</q>
 
-I've said this before, but I didn't explain. I've also said that code in a programming language needs to be translated to machine language before it can be run. When we run Node, however, we see no translation taking place; all we see is the output of our code. That's because Node _interprets_ our code. For some languages, such as C++, we must first run a compiler to generate an <i>executable</i> (which is basically a file containing machine code) before running the executable.
+I mentioned before that code in a programming language needs to be translated to machine language before it can be run. When we run Node, however, we see no translation taking place; all we see is the output of our code. That's because Node _interprets_ our code. For some languages, such as C++, we must first use a compiler to generate an <i>executable</i> (which is basically a file containing machine code) before running the executable.
