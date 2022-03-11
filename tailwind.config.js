@@ -1,6 +1,7 @@
 // @ts-check
 
 const plugin = require("tailwindcss/plugin")
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /**
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
@@ -18,6 +19,11 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Red Hat Text", ...fontFamily.sans],
+        mono: ["Red Hat Mono", ...fontFamily.mono],
+        display: ["Red Hat Display", "Red Hat Text", ...fontFamily.sans],
+      },
       // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
       typography: (theme) => ({
         DEFAULT: {
@@ -55,6 +61,10 @@ module.exports = {
             },
             '[class~="note-info"]': {
               borderColor: theme("colors.blue.400"),
+            },
+            h1: {
+              fontFamily: "Red Hat Display",
+              fontWeight: theme("fontWeight.black"),
             },
             h2: {
               scrollMarginTop: theme("spacing.20"),
