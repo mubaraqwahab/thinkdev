@@ -75,9 +75,5 @@
       </div>
     </header>
     {{ content | safe }}
-    {% if r/<pre><code /.test(content) %}
-      <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
-      <script>RevealHighlight().hljs.highlightAll();</script>
-    {% endif %}
   </body>
 </html>
