@@ -8,21 +8,20 @@ tags: lesson
 <div class="container mx-auto py-12 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
   <nav
     class="
-      hidden side-nav sticky print:static top-[calc(0.25rem+49px)] left-0 z-20 pt-4 pb-5 -mt-12 mb-12
-      border-b bg-white dark:border-gray-700 dark:bg-gray-900
-      lg:block lg:border-b-0 lg:my-0 lg:py-0 lg:static lg:z-auto
+      hidden side-nav border-b bg-white
+      sticky top-[calc(0.25rem+49px)] left-0 z-20 pt-4 pb-5 -mt-12 mb-12
+      dark:border-gray-700 dark:bg-gray-900
+      lg:block lg:border lg:rounded lg:z-auto
+      lg:my-0 lg:py-2 lg:pl-4 lg:pr-10
+      lg:w-fit lg:h-fit lg:overflow-y-auto
+      lg:max-h-[calc(100vh-0.25rem-49px-6rem)]
+      lg:top-[calc(0.25rem+49px+3rem)]
+      print:static
     "
     id="outlineNav"
     aria-label="Outline"
   >
-    <ol
-      class="
-        list-none my-0 pl-0 dark:border-gray-700
-        lg:w-fit lg:border lg:rounded lg:py-2 lg:pl-4 lg:pr-10
-        lg:max-h-[calc(100vh-0.25rem-49px-6rem)] lg:overflow-y-auto
-        lg:sticky lg:top-[calc(0.25rem+49px+3rem)]
-      "
-    >
+    <ol class="list-none my-0 pl-0 lg:w-fit">
       {% for lesson in collections.all | eleventyNavigation %}
         <li class="w-fit pl-0">
           <a
