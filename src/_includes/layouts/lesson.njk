@@ -23,8 +23,12 @@ tags: lesson
       "
     >
       {% for lesson in collections.all | eleventyNavigation %}
-        <li class="w-fit">
-          <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
+        <li class="w-fit pl-0">
+          <a
+            href="{{ lesson.url | url }}"
+            {% if page.url == lesson.url %} aria-current="page" {% endif %}
+            class="leading-snug inline-flex items-center"
+          >
             {{ lesson.title }}
           </a>
         </li>

@@ -15,15 +15,11 @@
 @layer components {
   #main {
     /* For the skip-to-content link */
-    scroll-margin-top: theme("spacing.24");
+    @apply scroll-mt-24;
   }
 
   .bi {
     @apply inline-block fill-current;
-  }
-
-  button[aria-expanded="true"] > .bi-caret-right-fill {
-    @apply rotate-90;
   }
 
   .quoted::before {
@@ -34,27 +30,18 @@
     content: close-quote;
   }
 
-  .prose .side-nav li {
-    @apply pl-0;
-  }
-
-  .prose .side-nav a {
-    @apply leading-snug inline-flex items-center;
-  }
-
-  .prose .side-nav a[aria-current="page"] {
+  .side-nav a[aria-current="page"] {
     @apply relative overflow-visible;
   }
 
-  .prose .side-nav a[aria-current="page"]::after {
+  .side-nav a[aria-current="page"]::after {
     content: "";
     @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
   }
 
   /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
   .youtube-player-wrapper {
-    @apply relative h-0;
-    padding-bottom: 56.25%;
+    @apply relative h-0 pb-[56.25%];
   }
 
   .youtube-player {
@@ -70,8 +57,7 @@
     .youtube-player {
       /* Undo absolute */
       @apply static;
-      @apply w-full lg:w-2/3 h-auto;
-      aspect-ratio: 16 / 9;
+      @apply w-full lg:w-2/3 h-auto aspect-video;
     }
   }
 }
