@@ -91,6 +91,11 @@ module.exports = {
               lineHeight: theme("lineHeight.tight"),
               ...codeLike(theme),
             },
+            // Style like strong
+            b: {
+              fontWeight: theme("fontWeight.semibold"),
+              color: "var(--tw-prose-bold)",
+            },
 
             '[class~="lead"]': {
               fontWeight: 'theme("fontWeight.normal")',
