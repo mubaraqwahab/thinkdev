@@ -45,7 +45,7 @@
   }
 
   .youtube-player {
-    @apply absolute top-0 left-0 w-full lg:w-2/3 h-full;
+    @apply absolute top-0 left-0 w-full lg:w-4/5 h-full;
   }
 
   @supports (aspect-ratio: 16 / 9) {
@@ -57,7 +57,7 @@
     .youtube-player {
       /* Undo absolute */
       @apply static;
-      @apply w-full lg:w-2/3 h-auto aspect-video;
+      @apply w-full lg:w-4/5 h-auto aspect-video;
     }
   }
 }
