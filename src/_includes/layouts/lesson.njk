@@ -5,20 +5,25 @@ tags: lesson
 
 {% from "macros.njk" import icon, script %}
 
-<div class="container mx-auto py-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
+<div class="container mx-auto py-8 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
   <nav
     class="
       hidden side-nav sticky print:static top-[53px] left-0 z-20 pt-4 pb-5 -mt-8 mb-8
       border-b bg-white dark:border-gray-700 dark:bg-gray-900
-      lg:block lg:border-b-0 lg:border-r lg:my-0 lg:py-0 lg:pr-8 lg:pl-1
-      lg:h-[calc(100vh-118px)] lg:top-[86px] lg:overflow-y-auto lg:z-auto
+      lg:block lg:border-b-0 lg:my-0 lg:py-0 lg:static lg:z-auto
     "
     id="outlineNav"
     aria-label="Outline"
   >
-    <ol class="">
+    <ol
+      class="
+        list-none my-0 dark:border-gray-700
+        lg:w-fit lg:border lg:rounded lg:py-2 lg:pl-4 lg:pr-10
+        lg:max-h-[calc(100vh-118px)] lg:overflow-y-auto lg:sticky lg:top-[86px]
+      "
+    >
       {% for lesson in collections.all | eleventyNavigation %}
-        <li class="before:hidden">
+        <li class="w-fit">
           <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
             {{ lesson.title }}
           </a>
@@ -28,7 +33,7 @@ tags: lesson
   </nav>
 
   <div>
-    <main id="main" class="mx-auto relative lg:mx-0">
+    <main id="main" class="mx-auto relative max-w-[640px] lg:max-w-none lg:mx-0">
       <article>
         <h1>{{ title }}</h1>
         <p><b class="lead">{{ excerpt | safe }}</b></p>

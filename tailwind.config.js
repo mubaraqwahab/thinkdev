@@ -28,9 +28,9 @@ module.exports = {
         center: true,
         padding: {
           DEFAULT: theme("spacing.4"),
-          sm: theme("spacing.8"),
-          lg: theme("spacing.16"),
-          xl: theme("spacing.24"),
+          // sm: theme("spacing.8"),
+          // lg: theme("spacing.16"),
+          // xl: theme("spacing.24"),
         },
       }),
       fontFamily: {
