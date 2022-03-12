@@ -82,11 +82,6 @@ module.exports = {
             cite: {
               fontStyle: "normal",
             },
-            // pre: {
-            // // color from github.css higlight theme
-            // color: "#24292e",
-            // backgroundColor: theme("colors.gray.100"),
-            // },
             // Inspired by GitHub's rendering
             kbd: {
               display: "inline-block",
@@ -129,28 +124,12 @@ module.exports = {
             '[class~="note-info"]': {
               borderColor: theme("colors.blue.500"),
             },
-            // pre: {
-            //   color: theme("colors.gray.200"),
-            //   backgroundColor: theme("colors.gray.800"),
-            // },
             kbd: {
               borderColor: theme("colors.gray.700"),
             },
           },
         },
       }),
-      // See https://github.com/tailwindlabs/tailwindcss-typography/issues/69#issuecomment-752946920
-      // typography: (theme) => ({
-      //   DEFAULT: {
-      //     css: {
-      //       '[class~="permalink"]': {
-      //         "& code": {
-      //           color: "inherit",
-      //         },
-      //       },
-      //     },
-      //   },
-      // }),
     },
   },
   plugins: [require("@tailwindcss/typography")],
