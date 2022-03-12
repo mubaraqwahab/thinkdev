@@ -41,6 +41,7 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
+            "--tw-prose-lead": theme("colors.gray.800"),
             // from github.css higlight theme
             "--tw-prose-pre-code": "#24292e",
             "--tw-prose-pre-bg": theme("colors.gray.100"),
