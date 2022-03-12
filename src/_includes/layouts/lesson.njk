@@ -36,25 +36,23 @@ tags: lesson
     </ol>
   </nav>
 
-  <div>
-    <main id="main" class="mx-auto relative max-w-[640px] lg:max-w-none lg:mx-0">
-      <article>
-        <h1>{{ title }}</h1>
-        <p><b class="lead">{{ excerpt | safe }}</b></p>
-        {% if collections.slides | find("data.order", eleventyNavigation.order) %}
-          <p>
-            <a href="{{ '/slides/' ~ page.fileSlug | url }}">Slides {{ icon('display', class='mb-0.5') }}</a>&nbsp;
-            (<a
-              href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
-              download="{{ page.fileSlug ~ '.pdf' }}"
-              title="Download slides as PDF"
-              aria-label="Download slides as PDF"
-            >PDF {{ icon("file-pdf-fill", class='text-red-600 mb-0.5') }}</a>)
-          </p>
-        {% endif %}
+  <main id="main">
+    <article class="prose prose-indigo max-w-[640px] mx-auto lg:max-w-none lg:mx-0 dark:prose-invert">
+      <h1>{{ title }}</h1>
+      <p><b class="lead">{{ excerpt | safe }}</b></p>
+      {% if collections.slides | find("data.order", eleventyNavigation.order) %}
+        <p>
+          <a href="{{ '/slides/' ~ page.fileSlug | url }}">Slides {{ icon('display', class='mb-0.5') }}</a>&nbsp;
+          (<a
+            href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
+            download="{{ page.fileSlug ~ '.pdf' }}"
+            title="Download slides as PDF"
+            aria-label="Download slides as PDF"
+          >PDF {{ icon("file-pdf-fill", class='text-red-600 mb-0.5') }}</a>)
+        </p>
+      {% endif %}
 
-        {{ content | safe }}
-      </article>
+      {{ content | safe }}
 
       <nav aria-label="Previous/next lesson" class="flex justify-between mt-10">
         {% set lessons = collections.all | eleventyNavigation %}
@@ -73,9 +71,8 @@ tags: lesson
           </a>
         {% endif %}
       </nav>
-    </main>
-
-  </div>
+    </article>
+  </main>
 </div>
 
 {{ script("toggle-outline.js") }}

@@ -22,6 +22,10 @@
     @apply inline-block fill-current;
   }
 
+  .footer-link {
+    @apply underline;
+  }
+
   .quoted::before {
     content: open-quote;
   }

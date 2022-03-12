@@ -41,7 +41,7 @@
     {% include "meta.njk" %}
   </head>
   {# The flex and flex col class allows the main body to stretch vertically #}
-  <body class="prose prose-indigo max-w-none bg-white flex flex-col min-h-screen dark:bg-gray-900 dark:prose-invert">
+  <body class="max-w-none bg-white flex flex-col min-h-screen dark:bg-gray-900">
     <div class="h-1 bg-indigo-600 dark:bg-indigo-400 sticky top-0 z-20"></div>
     <header class="sticky top-1 left-0 z-30 py-3 bg-white dark:bg-gray-900 border-b border-indigo-200 dark:border-gray-700 max-w-none">
       <div class="container flex items-center justify-between">
@@ -77,8 +77,10 @@
     {{ content | safe }}
     <footer class="text-sm text-gray-600 dark:text-gray-400">
       <div class="container">
-        <div class="border-t py-2 dark:border-gray-700">
-          <p>Built with ❤ by Mubaraq Wahab</p>
+        <div class="border-t py-7 dark:border-gray-700">
+          <span class="mr-2">Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a></span>
+          <span class="mr-2">&middot;</span>
+          <a class="mr-2 footer-link" href="{{ site.repoUrl }}">View on GitHub</a>
         </div>
       </div>
     </footer>
