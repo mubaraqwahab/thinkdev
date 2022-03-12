@@ -46,6 +46,7 @@ module.exports = {
             "--tw-prose-pre-bg": theme("colors.gray.100"),
             "--tw-prose-invert-body": theme("colors.gray.400"),
             "--tw-prose-invert-lead": theme("colors.gray.300"),
+            "--tw-prose-invert-pre-bg": theme("colors.gray.800"),
 
             h1: {
               fontFamily: theme("fontFamily.display").join(", "),
