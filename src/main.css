@@ -26,14 +26,6 @@
     @apply underline;
   }
 
-  .quoted::before {
-    content: open-quote;
-  }
-
-  .quoted::after {
-    content: close-quote;
-  }
-
   .side-nav a[aria-current="page"] {
     @apply relative overflow-visible;
   }
