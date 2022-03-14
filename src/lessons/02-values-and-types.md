@@ -6,13 +6,11 @@ excerpt: >
   We'll also cover expressions, statements, and variables.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Video") }}
+## Video
 
 https://youtu.be/xjaPC_B2okk
 
-## {{ iconed("Exercises") }}
+## Exercises
 
 You can do these exercises in the Node <abbr>REPL</abbr> (read-eval-print loop) or in a JavaScript file.
 
@@ -41,7 +39,7 @@ You can do these exercises in the Node <abbr>REPL</abbr> (read-eval-print loop) 
     ```
      But there's a string method to do this dynamically. Find it out and use it to replace the words.
 
-## {{ iconed("Extras") }}
+## Extras
 
 ### The `var` keyword
 
