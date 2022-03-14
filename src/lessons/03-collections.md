@@ -8,9 +8,7 @@ excerpt: >
   used to represent these entities and lists.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Videos") }}
+## Videos
 
 ### Lesson session
 
@@ -20,7 +18,7 @@ https://youtu.be/qQg4-Nx4ohk
 
 https://youtu.be/NgxAcW7ppWo
 
-## {{ iconed("Exercises") }}
+## Exercises
 
 Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
 
@@ -56,7 +54,7 @@ Do these exercises in a JavaScript file. (From now on, we won't be using the REP
 
     How would you access and change the number `7` of the nested array?
 
-## {{ iconed("Extras") }}
+## Extras
 
 ### Other JavaScript types
 
