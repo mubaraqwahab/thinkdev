@@ -6,13 +6,11 @@ excerpt: >
   you'll need to get started.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Video") }}
+## Video
 
 I forgot to record the meeting 🙈.
 
-## {{ iconed("Exercise") }}
+## "Exercise"
 
 1. Install these software on your computer; they'll provide us the environment to write and run JavaScript programs.
    * [Node.js v14+](https://nodejs.org/en/)
@@ -22,7 +20,7 @@ I forgot to record the meeting 🙈.
 1. Create a new JavaScript file, type code in it to display your name, and run the file.
 
 
-## {{ iconed("Extras") }}
+## "Extras"
 
 You'll find an "extras" section in the lesson pages. This is where I'll add some extra information that I left out of the slides. I _strongly_ recommend that you read them.
 
