@@ -46,14 +46,3 @@
     <script {{ attrs | htmlattrs | safe }}>{{ js | safe }}</script>
   {% endif %}
 {%- endmacro %}
-
-{% macro iconed(text) -%}
-  {%- if text == "Video" or text == "Videos" -%}
-    ▶
-  {%- elif text == "Exercise" or text == "Exercises" -%}
-    🖊
-  {%- elif text == "Extras" -%}
-    ✨
-  {%- endif -%}
-  {{ " " ~ text }}
-{%- endmacro %}
