@@ -42,14 +42,14 @@ tags: lesson
       <p><b class="lead">{{ excerpt | safe }}</b></p>
       {% if collections.slides | find("data.order", eleventyNavigation.order) %}
         <p>
-          <a class="mr-1" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides {{ icon('display', class='mb-0.5') }}</a>
+          <a class="mr-1" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides</a>
           <span class="mr-1">&middot;</span>
           <a
             href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
             download="{{ page.fileSlug ~ '.pdf' }}"
             title="Download slides as PDF"
             aria-label="Download slides as PDF"
-          >PDF {{ icon("download", class='mb-0.5') }}</a>
+          >PDF</a>
         </p>
       {% endif %}
 
