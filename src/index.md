@@ -8,9 +8,16 @@ layout: layouts/home
 
 <b class="lead">{{ site.description }}</b>
 
-In this course, we'll learn how to break down problems and express solutions in a programming language (JavaScript). As well, we'll learn to use the command line, practise documenting, testing, and debugging simple programs, and we'll use some common data structures and algorithms.
+## What we'll do
 
-## 📃 Outline
+* Learn how to break down problems
+* Express solutions in a programming language (JavaScript)
+* Get familiar with the command line
+* Practise documenting, testing, and debugging
+* Use some common data structures and algorithms
+{class="list-['✔']"}
+
+## Lessons
 
 {% for lesson in collections.all | eleventyNavigation %}
   1. [{{ lesson.title }}]({{ lesson.url | url }})
