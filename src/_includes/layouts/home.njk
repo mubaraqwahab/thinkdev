@@ -3,7 +3,9 @@ layout: layouts/base
 ---
 
 <main id="main" class="shrink-0 grow">
-  <article class="prose prose-indigo mx-auto px-4 pt-10 pb-12 sm:px-0 lg:pt-12 dark:prose-invert">
-    {{ content | safe }}
-  </article>
+  <div class="container pt-10 pb-12 lg:pt-12">
+    <article class="prose prose-indigo max-w-[640px] mx-auto dark:prose-invert">
+      {{ content | safe }}
+    </article>
+  </div>
 </main>
