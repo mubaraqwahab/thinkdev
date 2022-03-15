@@ -61,6 +61,13 @@
         </a>
 
         <div class="flex items-center">
+          {% if layout == 'layouts/home' %}
+            <a href="#lessons" aria-label="View on GitHub" class="inline-flex items-center">
+              {# {{ icon('github', class="text-[#24292e] dark:text-white", width=24, height=24) }} #}
+              Lessons
+            </a>
+          {% endif %}
+
           <a href="{{ site.repoUrl }}" title="View on GitHub" aria-label="View on GitHub" class="inline-flex items-center">
             {{ icon('github', class="text-[#24292e] dark:text-white", width=24, height=24) }}
           </a>
