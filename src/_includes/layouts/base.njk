@@ -55,12 +55,12 @@
         {% if not r/id=(main|'main'|"main")/.test(content) %}
           {{ ('❌ Skip link target is missing in page ' ~ page.url ~ '. Add an element with id="main".') | log }}
         {% endif %}
-        <a class="flex items-center no-underline text-lg font-mono font-semibold leading-none text-indigo-600 dark:text-indigo-300" href="{{ '/' | url }}">
+        <a class="flex items-center no-underline text-lg font-mono font-bold leading-none text-indigo-600 dark:text-indigo-300" href="{{ '/' | url }}">
           {{ logo(class='mr-1.5') }}
           thinkdev
         </a>
 
-        <div class="flex items-center">
+        <div class="flex items-center font-medium">
           {% if layout == 'layouts/home' %}
             <a href="#lessons" aria-label="View on GitHub" class="inline-flex items-center">
               Lessons
