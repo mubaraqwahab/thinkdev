@@ -1,7 +1,7 @@
 {% from "macros.njk" import icon, logo %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,10 +67,6 @@
               Lessons
             </a>
           {% endif %}
-
-          <a href="{{ site.repoUrl }}" title="View on GitHub" aria-label="View on GitHub" class="inline-flex items-center">
-            {{ icon('github', class="text-[#24292e] dark:text-white", width=24, height=24) }}
-          </a>
 
           {% if r/^\/lessons\//.test(page.url) %}
             <button
