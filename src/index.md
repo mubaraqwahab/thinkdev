@@ -47,4 +47,4 @@ Each lesson page (see [the outline above]({{ "📃 Outline" | hashlink | url }})
 
 And just for fun 😃 ...
 
-This site is built with [<cite>Eleventy</cite>](https://www.11ty.dev/), [<cite>TailwindCSS</cite>](https://tailwindcss.com/), and [<cite>reveal.js</cite>](https://revealjs.com/) (for the slides), and it's hosted on [<cite>Netlify</cite>](http://netlify.com/).
+I built this site with [<cite>Eleventy</cite>](https://www.11ty.dev/), [<cite>Tailwind CSS</cite>](https://tailwindcss.com/), and [<cite>reveal.js</cite>](https://revealjs.com/) (for the slides), and hosted it on [<cite>Netlify</cite>](http://netlify.com/).
