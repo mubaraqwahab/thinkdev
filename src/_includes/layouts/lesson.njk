@@ -38,20 +38,25 @@ tags: lesson
 
   <main id="main">
     <article class="prose prose-indigo max-w-[640px] mx-auto lg:max-w-none lg:mx-0 dark:prose-invert">
-      <h1>{{ title }}</h1>
-      <p><b class="lead">{{ excerpt | safe }}</b></p>
-      {% if collections.slides | find("data.order", eleventyNavigation.order) %}
-        <p>
-          <a class="mr-1" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides</a>
-          <span class="mr-1">&middot;</span>
-          <a
-            href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
-            download="{{ page.fileSlug ~ '.pdf' }}"
-            title="Download slides as PDF"
-            aria-label="Download slides as PDF"
-          >PDF</a>
-        </p>
-      {% endif %}
+      <header>
+        <h1>{{ title }}</h1>
+        <p><b class="lead">{{ excerpt | safe }}</b></p>
+        {% if collections.slides | find("data.order", eleventyNavigation.order) %}
+          <p>
+            <a class="mr-1.5 inline-flex items-center" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides
+              {{- icon('play-circle', class='ml-1.5') -}}
+            </a>
+            <span class="mr-1.5">&middot;</span>
+            <a
+              class="inline-flex items-center"
+              href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
+              download="{{ page.fileSlug ~ '.pdf' }}"
+              title="Download slides as PDF"
+              aria-label="Download slides as PDF"
+            >PDF {{- icon('download', class='ml-1.5') -}}</a>
+          </p>
+        {% endif %}
+      </header>
 
       {{ content | safe }}
 
@@ -60,7 +65,7 @@ tags: lesson
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
           <a href="{{ prevLesson.url | url }}" rel="prev" class="inline-flex items-center mr-auto">
-            {{ icon('arrow-left', class='mr-2') }}
+            {{ icon('arrow-left', class='mr-1.5') }}
             Previous
           </a>
         {% endif %}
@@ -68,7 +73,7 @@ tags: lesson
         {% if nextLesson %}
           <a href="{{ nextLesson.url | url }}" rel="next" class="inline-flex items-center ml-auto">
             Next
-            {{ icon('arrow-right', class='ml-2') }}
+            {{ icon('arrow-right', class='ml-1.5') }}
           </a>
         {% endif %}
       </nav>
