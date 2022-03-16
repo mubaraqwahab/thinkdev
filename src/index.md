@@ -35,15 +35,16 @@ Each lesson page (see [the outline above]({{ "📃 Outline" | hashlink | url }})
 
 </div>
 
----
-
 ## Credits
 
 {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
 
-* This course is loosely based on the book [<cite>Think Python</cite> by Allen Downey](https://greenteapress.com/wp/think-python-2e/). The book is also known by the title, <i>How to Think Like a Computer Scientist</i>. Yes, it inspired this course's title.
+* [<cite>Think Python</cite> by Allen Downey](https://greenteapress.com/wp/think-python-2e/). The book is also known by the title <i>How to Think Like a Computer Scientist</i>. Yes, it inspired this course's title 🙂.
 * The [<cite>MDN Web Docs</cite>](https://developer.mozilla.org/en-US/docs/Web/JavaScript). My primary reference for this course. It's a great place to learn JavaScript and other things web-related.
-* [<cite class="quoted">Eloquent JavaScript</cite>](https://eloquentjavascript.net/), a thorough and modern introductory book to programming in JavaScript.
-* [<cite>The ECMAScript Language Specification</cite>](https://tc39.es/ecma262/). The document that formally defines what JavaScript is.
-* The prerelease draft of the [<cite>Just JavaScript</cite> course](). The focus of the course is building a good mental model of JavaScript. It inspired the fifth episode of this thinkdev course, [{{ bindingsLesson.title }}]({{ bindingsLesson.url | url }}).
-* I made the slides with [<cite>reveal.js</cite>](https://revealjs.com/) and I'm very pleased with it 😊.
+* [<cite class="quoted">Eloquent JavaScript</cite>](https://eloquentjavascript.net/). An introductory yet thorough book on programming in modern JavaScript.
+* [<cite>The ECMAScript Language Specification</cite>](https://tc39.es/ecma262/) (ECMA 262). The document that formally defines what the JavaScript language is.
+* The prerelease draft of the [<cite>Just JavaScript</cite> course](). The course focuses on building a good mental model of JavaScript. It inspired the fifth episode of this thinkdev course, [{{ bindingsLesson.title or "Bindings again" }}]({{ bindingsLesson.url | url }}).
+
+And just for fun 😃 ...
+
+This site is built with [<cite>Eleventy</cite>](https://www.11ty.dev/), [<cite>TailwindCSS</cite>](https://tailwindcss.com/), and [<cite>reveal.js</cite>](https://revealjs.com/) (for the slides), and it's hosted on [<cite>Netlify</cite>](http://netlify.com/).
