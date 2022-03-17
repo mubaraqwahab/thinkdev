@@ -41,13 +41,30 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            "--tw-prose-lead": theme("colors.gray.800"),
-            // from github.css higlight theme
-            "--tw-prose-pre-code": "#24292e",
+            "--tw-prose-body": theme("colors.gray.700"),
+            "--tw-prose-lead": "var(--tw-prose-body)",
+            "--tw-prose-bold": theme("colors.gray.900"),
+            "--tw-prose-headings": "var(--tw-prose-bold)",
+            "--tw-prose-code": "var(--tw-prose-bold)",
+            "--tw-prose-pre-code": "#24292e", // from github.css higlight theme
             "--tw-prose-pre-bg": theme("colors.gray.100"),
+
             "--tw-prose-invert-body": theme("colors.gray.300"),
-            "--tw-prose-invert-lead": theme("colors.gray.200"),
+            "--tw-prose-invert-lead": "var(--tw-prose-invert-body)",
+            '--tw-prose-invert-bold': theme('colors.gray.100'),
+            "--tw-prose-invert-headings": "var(--tw-prose-bold)",
+            "--tw-prose-invert-code": "var(--tw-prose-bold)",
             "--tw-prose-invert-pre-bg": theme("colors.gray.800"),
+
+            // '--tw-prose-invert-links': '',
+            // '--tw-prose-invert-counters': '',
+            // '--tw-prose-invert-bullets': '',
+            // '--tw-prose-invert-hr': '',
+            // '--tw-prose-invert-quotes': '',
+            // '--tw-prose-invert-quote-borders': '',
+            // '--tw-prose-invert-captions': '',
+            // '--tw-prose-invert-th-borders': '',
+            // '--tw-prose-invert-td-borders': '',
 
             h1: {
               fontFamily: theme("fontFamily.display").join(", "),
