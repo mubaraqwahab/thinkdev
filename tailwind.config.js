@@ -94,11 +94,11 @@ module.exports = {
               ...codeLike(theme),
             },
             strong: {
-              fontWeight: theme("fontWeight.bold"),
+              fontWeight: theme("fontWeight.semibold"),
             },
             // Style like strong
             "b:not(.lead)": {
-              fontWeight: theme("fontWeight.bold"),
+              fontWeight: theme("fontWeight.semibold"),
               color: "var(--tw-prose-bold)",
             },
 
