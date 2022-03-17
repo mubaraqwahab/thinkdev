@@ -15,7 +15,7 @@
 @layer components {
   #main {
     /* For the skip-to-content link */
-    @apply scroll-mt-24;
+    @apply scroll-mt-[calc(theme("spacing.1")+49px+theme("spacing.12"))];
   }
 
   .bi {
