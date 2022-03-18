@@ -13,6 +13,11 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  a,
+  button {
+    @apply rounded-sm;
+  }
+
   :focus {
     outline: 2px dashed;
   }
@@ -32,16 +37,16 @@
     @apply underline;
   }
 
-  .side-nav a {
+  .lessons-nav a {
     @apply relative overflow-visible hover:before:inline-block;
   }
 
-  .side-nav a::before {
+  .lessons-nav a::before {
     content: "";
     @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
   }
 
-  .side-nav a[aria-current="page"] {
+  .lessons-nav a[aria-current="page"] {
     @apply font-semibold text-indigo-600 dark:text-indigo-300;
     @apply hover:text-indigo-600 hover:dark:text-indigo-300;
     @apply before:inline-block;
