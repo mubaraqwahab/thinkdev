@@ -4,9 +4,15 @@ layout: layouts/home
 
 {% from "macros.njk" import icon %}
 
+<header>
+
 # {{ site.title }}
 
 <b class="lead">{{ site.description }}</b>
+
+</header>
+
+<section>
 
 ## What we'll do
 
@@ -17,11 +23,19 @@ layout: layouts/home
 * Use some common data structures and algorithms
 {class="list-['✔']"}
 
+</section>
+
+<section>
+
 ## Lessons
 
 {% for lesson in collections.all | eleventyNavigation %}
   1. [{{ lesson.title }}]({{ lesson.url | url }})
 {%- endfor %}
+
+</section>
+
+<section>
 
 ## Format
 
@@ -34,6 +48,10 @@ Each lesson page (see [the outline above]({{ "📃 Outline" | hashlink | url }})
 **Tip:** Press the question mark key (<kbd>?</kbd>) when viewing the interactive slides to see a list of keyboard shortcuts.
 
 </div>
+
+</section>
+
+<section>
 
 ## Credits
 
@@ -48,3 +66,5 @@ Each lesson page (see [the outline above]({{ "📃 Outline" | hashlink | url }})
 And just for fun 😃 ...
 
 I built this site with [<cite>Eleventy</cite>](https://www.11ty.dev/), [<cite>Tailwind CSS</cite>](https://tailwindcss.com/), and [<cite>reveal.js</cite>](https://revealjs.com/) (for the slides), and hosted it on [<cite>Netlify</cite>](http://netlify.com/).
+
+</section>

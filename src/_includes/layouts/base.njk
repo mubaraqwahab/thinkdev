@@ -82,9 +82,15 @@
     <footer class="text-sm text-gray-600 dark:text-gray-400">
       <div class="container">
         <div class="border-t py-7">
-          <span class="mr-1">Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a></span>
-          <span class="mr-1">&middot;</span>
-          <a class="footer-link" href="{{ site.repoUrl }}">View on GitHub</a>
+          <p class="mb-2 sm:inline sm:pr-3 sm:border-r">
+            Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
+          </p>
+          <p class="mb-2 sm:inline sm:px-3 sm:border-r">
+            <a class="footer-link" href="{{ site.repoUrl }}/blob/main/{{ page.inputPath }}">Edit this page</a>
+          </p>
+          <p class="mb-2 sm:inline sm:pl-3">
+            <a class="footer-link" href="{{ site.repoUrl }}">View the source</a>
+          </p>
         </div>
       </div>
       <a
