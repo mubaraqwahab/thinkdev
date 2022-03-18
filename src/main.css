@@ -42,8 +42,9 @@
   }
 
   .side-nav a[aria-current="page"] {
-    @apply font-semibold dark:text-indigo-300;
-    @apply hover:before:inline-block hover:dark:text-indigo-300;
+    @apply font-semibold text-indigo-600 dark:text-indigo-300;
+    @apply hover:text-indigo-600 hover:dark:text-indigo-300;
+    @apply before:inline-block;
   }
 
   /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
