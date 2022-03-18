@@ -36,10 +36,7 @@ module.exports = {
   },
 
   /**
-   * Auto-add permalinks to headings h2 and h3.
-   * There's no need to add to h1's cos the page link already represents them.
-   * As for levels h4 and h5, I'm not using them.
-   * The permalinks are also not applied to the slides.
+   * Parent transform for other transforms that need to manipulate a DOM.
    * @type {Transform}
    */
   jsdom(content, outputPath) {
@@ -50,7 +47,7 @@ module.exports = {
     const dom = new JSDOM(content)
     const { window } = dom
 
-    autolinkHeadings(window, outputPath)
+    autolinkLessonHeadings(window, outputPath)
     syntaxHighlight(window)
 
     return dom.serialize()
@@ -58,15 +55,15 @@ module.exports = {
 }
 
 /**
- * Auto-add permalinks to headings h2 and h3.
+ * Auto-add permalinks to headings h2 and h3 in lesson pages.
  * There's no need to add to h1's cos the page link already represents them.
  * As for levels h4 and h5, I'm not using them.
  * The permalinks are also not applied to the slides.
  *
  * @type {JSDOMSubTransform}
  */
-function autolinkHeadings({ document }, outputPath) {
-  if (outputPath.includes("/slides/")) {
+function autolinkLessonHeadings({ document }, outputPath) {
+  if (!outputPath.includes("/lessons/")) {
     return
   }
 
