@@ -14,6 +14,7 @@ layout: layouts/base
   }
 </style>
 
+<div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
 <div class="home container shrink-0 grow">
   <header class="py-24 border-b">
     <a
@@ -38,11 +39,68 @@ layout: layouts/base
     </a>
   </header>
 
-  <main class="py-12">
-    <section>
-      <h2>Go beyond the "usuals"</h2>
-      <p>We'll learn the usual stuff in programming such as </p>
+  <main>
+    <section class="py-24 border-b">
+      <h2>Go beyond the usuals.</h2>
+      <p>
+        We'll learn the usual things in programming &mdash; variables, functions, loops,
+        and what have you &mdash; but we won't stop there.
+      </p>
+      <p>
+        As developers, we also have to test our code,
+        track down and fix errors, and write documentation to explain our code to others
+        (and ourselves).
+      </p>
+      <p>
+        We'll learn how to do these too, and we'll use some tools that make
+        the process fun 😃.
+      </p>
     </section>
+
+    <section class="py-24 border-b">
+      <h2>What to expect?</h2>
+      <p>At the end of the course, you should be able to</p>
+      <ul class="list-['✔']">
+        <li>analyze problems and come up with solutions</li>
+        <li>express solutions in JavaScript</li>
+        <li>document, test, and debug simple programs</li>
+        <li>use some common data structures and algorithms</li>
+        <li>use the command line</li>
+      </ul>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2 id="lessons">Lessons</h2>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>Format</h2>
+      <div class="note note-info">
+        <p>
+          <strong>Tip:</strong>
+          Press the question mark key (<kbd>?</kbd>) when viewing
+          the interactive slides to see a list of keyboard shortcuts.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>It's not just JavaScript</h2>
+    </section>
+
+    <div class="py-24 border-b">
+      <p
+        class="flex items-center -ml-1 text-xl font-mono tracking-tight"
+        href="{{ '/' | url }}"
+      >
+        {{ logo(class='mr-1.5', width=28, height=28) }}
+        thinkdev
+      </p>
+    </div>
+
+    <footer class="py-24">
+      <h2>References</h2>
+    </footer>
   </main>
 
   <main id="main" class="prose prose-indigo py-10 dark:prose-invert">
@@ -129,19 +187,7 @@ layout: layouts/base
       </p>
     </section>
 
-    <div>
-      <a
-        class="
-          inline-flex items-center mb-6 -ml-1
-          no-underline text-xl font-mono font-semibold tracking-tight
-          text-indigo-600 dark:text-indigo-300
-        "
-        href="{{ '/' | url }}"
-      >
-        {{ logo(class='mr-1.5', width=28, height=28) }}
-        thinkdev
-      </a>
-    </div>
+
   </main>
 
 </div>
