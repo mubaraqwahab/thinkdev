@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
   body {
     -webkit-tap-highlight-color: transparent;
   }
@@ -36,7 +42,7 @@
   }
 
   .side-nav a[aria-current="page"] {
-    @apply font-semibold dark:text-indigo-300
+    @apply font-semibold dark:text-indigo-300;
     @apply hover:before:inline-block hover:dark:text-indigo-300;
   }
 
