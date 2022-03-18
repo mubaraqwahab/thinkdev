@@ -26,13 +26,18 @@
     @apply underline;
   }
 
-  .side-nav a[aria-current="page"] {
-    @apply relative overflow-visible;
+  .side-nav a {
+    @apply relative overflow-visible hover:before:inline-block;
   }
 
-  .side-nav a[aria-current="page"]::after {
+  .side-nav a::before {
     content: "";
-    @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
+    @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
+  }
+
+  .side-nav a[aria-current="page"] {
+    @apply font-semibold dark:text-indigo-300
+    @apply hover:before:inline-block hover:dark:text-indigo-300;
   }
 
   /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */

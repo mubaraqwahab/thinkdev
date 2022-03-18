@@ -11,22 +11,23 @@ layout: layouts/base
       sticky top-[calc(0.25rem+49px)] left-0 z-20 pt-4 pb-5 -mt-12 mb-12
       max-h-[calc(100vh-0.25rem-49px)] overflow-y-auto
       dark:border-gray-700 dark:bg-gray-900
-      lg:block lg:border lg:rounded lg:z-auto
-      lg:my-0 lg:py-2 lg:pl-4 lg:pr-10 lg:w-fit lg:h-fit
+      lg:block lg:border-0 lg:rounded lg:z-auto
+      lg:my-0 lg:py-2 lg:pl-4 lg:pr-10 lg:h-fit
       lg:max-h-[calc(100vh-0.25rem-49px-6rem)]
       lg:top-[calc(0.25rem+49px+3rem)]
       print:static
     "
     id="outlineNav"
-    aria-label="Outline"
+    aria-labelledby="lessonsNavLabel"
   >
-    <ol class="list-none my-0 pl-0 lg:w-fit">
+    <strong id="lessonsNavLabel" class="block mb-3 font-semibold dark:text-gray-100">Lessons</strong>
+    <ol class="list-none my-0 pl-0">
       {% for lesson in collections.all | eleventyNavigation %}
-        <li class="w-fit pl-0">
+        <li class="py-1.5 border-l dark:border-gray-700">
           <a
             href="{{ lesson.url | url }}"
             {% if page.url == lesson.url %} aria-current="page" {% endif %}
-            class="leading-snug inline-flex items-center"
+            class="flex items-center pl-4"
           >
             {{ lesson.title }}
           </a>
