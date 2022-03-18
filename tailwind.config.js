@@ -62,7 +62,6 @@ module.exports = {
             // '--tw-prose-invert-quotes': '',
             // '--tw-prose-invert-quote-borders': '',
             // '--tw-prose-invert-captions': '',
-            // TODO: FIX THIS
             // '--tw-prose-invert-th-borders': '',
             // '--tw-prose-invert-td-borders': '',
 
