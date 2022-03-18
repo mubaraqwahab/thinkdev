@@ -17,12 +17,12 @@ section.has-light-background h6 {
   *********************************************/
 :root {
   --r-background-color: #0a0918;
-  --r-main-font: Open Sans, sans-serif;
+  --r-main-font: "Red Hat Text", sans-serif;
   --r-main-font-size: theme("fontSize.3xl");
   --r-main-color: theme("colors.gray.300");
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Montserrat, Impact, sans-serif;
+  --r-heading-font: "Red Hat Display", sans-serif;
   --r-heading-color: theme("colors.white");
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: -0.03em;
@@ -34,7 +34,7 @@ section.has-light-background h6 {
   --r-heading2-size: 1.85em;
   --r-heading3-size: 1.5em;
   --r-heading4-size: 1em;
-  --r-code-font: monospace;
+  --r-code-font: "Red Hat Mono", monospace;
   --r-link-color: theme("colors.pink.500");
   --r-link-color-dark: theme("colors.pink.600");
   --r-link-color-hover: theme("colors.pink.400");

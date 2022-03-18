@@ -90,7 +90,7 @@ function autolinkHeadings({ document }, outputPath) {
  * @type {JSDOMSubTransform}
  */
 function syntaxHighlight({ document }) {
-  document.querySelectorAll("pre code").forEach((el) => {
-    hljs.highlightElement(el)
+  document.querySelectorAll("pre code").forEach((code) => {
+    hljs.highlightElement(code)
   })
 }
