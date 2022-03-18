@@ -34,6 +34,6 @@ Outside the browser, Node isn't the only tool that can run JavaScript. There's a
 
 Think of programming as a way to tell a computer what you want it to do. This then means
 that you must "speak" the language of the computer, <i>machine language</i>. However, machine language is quite difficult to learn&mdash;it's "zeroes and ones", as they say. Over time, people have developed higher-level languages to make it easier to instruct the computer. JavaScript is one of these "high-level languages".
-We still have to translate these languages into machine language for the computer to understand. We use sophisticated programs called <i>compilers</i> to do this translation. (A little irony here, we don't "compile" JavaScript when we run Node. We'll discuss why in the next extras.)
+We still have to translate these languages into machine language for the computer to understand. We use sophisticated programs called <i>compilers</i> to do this translation. (A little irony here, we don't "compile" JavaScript when we run Node. I'll explain why in the next extras.)
 
 You might wonder, <i>why don't we just program in our human languages?</i> The problem is that our languages are very ambiguous. The same word/phrase/clause can mean very different things depending on the context. For example, the phrase "what's up?" can be used as a greeting, but it can also be a literal question, as in "what is above?". Programming languages avoid these types of ambiguity so that we get predictable results when we instruct a computer.
