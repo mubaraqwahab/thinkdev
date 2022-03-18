@@ -24,7 +24,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      container: (theme) => ({
+      container: ({ theme }) => ({
         center: true,
         padding: {
           DEFAULT: theme("spacing.4"),
