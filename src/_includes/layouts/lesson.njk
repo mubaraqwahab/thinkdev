@@ -2,15 +2,12 @@
 layout: layouts/base
 ---
 
-{% from "macros.njk" import icon, script %}
+{% from "macros.njk" import icon, logo, script %}
 
 <div class="h-1 bg-indigo-600 dark:bg-indigo-400 sticky top-0 z-50"></div>
 <header class="sticky top-1 left-0 z-50 py-3 font-semibold text-sm bg-white dark:bg-gray-900 border-b">
   <div class="container flex items-center justify-between">
     <a class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:bg-white dark:focus:bg-gray-900" href="#main">Skip to content</a>
-    {% if not r/id=(main|'main'|"main")/.test(content) %}
-      {{ ('❌ Skip link target is missing in page ' ~ page.url ~ '. Add an element with id="main".') | log }}
-    {% endif %}
     <a class="flex items-center no-underline text-lg font-mono leading-none tracking-tight text-indigo-600 dark:text-indigo-300" href="{{ '/' | url }}">
       {{ logo(class='mr-1.5') }}
       thinkdev

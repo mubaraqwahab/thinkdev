@@ -1,0 +1,125 @@
+---
+layout: layouts/base
+---
+
+{% from "macros.njk" import logo, icon %}
+
+<style>
+  /*
+    Resize all .containers, including the footer.container
+    which is in the inherited base layout.
+  */
+  .container {
+    max-width: calc(640px + 2rem);
+  }
+</style>
+
+<div class="container shrink-0 grow">
+  <header class="py-24 border-b">
+    <a
+      class="
+        inline-flex items-center mb-6 -ml-1
+        no-underline text-xl font-mono font-semibold tracking-tight
+        text-indigo-600 dark:text-indigo-300
+      "
+      href="{{ '/' | url }}"
+    >
+      {{ logo(class='mr-1.5', width=28, height=28) }}
+      thinkdev
+    </a>
+    <h1 class="font-black font-display text-5xl text-gray-900 mb-8 dark:text-gray-100">
+      {{ site.title }}
+    </h1>
+    <p class="font-normal text-2xl mb-12">
+      Let's relearn the basics of programming together,
+      in the world's most popular language &mdash; JavaScript<a
+        href="#0"
+        class="text-indigo-600 dark:text-indigo-300"
+      ><cite class="not-italic align-sup">*</cite></a>.
+    </p>
+    <a
+      href="#lessons"
+      class="inline-flex items-center font-semibold text-indigo-600 dark:text-indigo-300"
+    >
+      Skip to lessons
+      {{ icon('arrow-down', class='ml-1.5') }}
+    </a>
+  </header>
+
+  <main id="main" class="prose prose-indigo pt-10 pb-12 lg:pt-12 dark:prose-invert">
+    <section>
+      <h2>What we'll do</h2>
+      <ul class="list-['✔']">
+        <li>Learn how to break down problems</li>
+        <li>Express solutions in a programming language (JavaScript)</li>
+        <li>Get familiar with the command line</li>
+        <li>Practise documenting, testing, and debugging</li>
+        <li>Use some common data structures and algorithms</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lessons</h2>
+      <ol>
+        {% for lesson in collections.all | eleventyNavigation %}
+          <li><a href="{{ lesson.url | url }}">{{ lesson.title }}</a></li>
+        {%- endfor %}
+      </ol>
+    </section>
+
+    <section>
+      <h2>Format</h2>
+      <!--
+        We'll meet on Saturdays for a discussion and review of the previous week's lesson.
+        On Sundays, we'll meet for a new lesson.
+        Meetings will hold on Zoom from 12:00 p.m. to 12:40 p.m.
+      -->
+      <p>
+        Each lesson page contains the slides, recorded meetings,
+        exercises, etc., for that lesson. The slides are in two formats:
+        an interactive presentation that you can view on this site
+        and a PDF version that you can download.
+      </p>
+
+      <div class="note note-info">
+        <p>
+          <strong>Tip:</strong>
+          Press the question mark key (<kbd>?</kbd>) when viewing
+          the interactive slides to see a list of keyboard shortcuts.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Credits</h2>
+      {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
+      <ul>
+        <li><a href="https://greenteapress.com/wp/think-python-2e/"><cite>Think Python</cite> by Allen Downey</a>. The book is also known by the title <i>How to Think Like a Computer Scientist</i>. Yes, it inspired this course's title 🙂.</li>
+        <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><cite>MDN Web Docs</cite></a>. My primary reference for this course. It's a great place to learn JavaScript and other things web-related.</li>
+        <li><a href="https://eloquentjavascript.net/"><cite class="quoted">Eloquent JavaScript</cite></a>. An introductory yet thorough book on programming in modern JavaScript.</li>
+        <li><a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262). The document that formally defines what the JavaScript language is.</li>
+        <li>The prerelease draft of the <a href="{{ bindingsLesson.url | url }}"><cite>Just JavaScript</cite> course](). The course focuses on building a good mental model of JavaScript. It inspired the fifth episode of this thinkdev course, [{{ bindingsLesson.title or "Bindings again" }}</a>.</li>
+      </ul>
+
+      <p>And just for fun 😃 ...</p>
+      <p>I built this site with <a href="https://www.11ty.dev/">Eleventy</a>, <a href="https://tailwindcss.com/">Tailwind CSS</a>, and <a href="https://revealjs.com/">reveal.js</a> (for the slides), and hosted it on <a href="http://netlify.com/">Netlify</a>.</p>
+    </section>
+
+    <div>
+      <a
+        class="
+          inline-flex items-center mb-6 -ml-1
+          no-underline text-xl font-mono font-semibold tracking-tight
+          text-indigo-600 dark:text-indigo-300
+        "
+        href="{{ '/' | url }}"
+      >
+        {{ logo(class='mr-1.5', width=28, height=28) }}
+        thinkdev
+      </a>
+    </div>
+  </main>
+
+</div>
+
+
