@@ -18,6 +18,10 @@
     @apply rounded-sm;
   }
 
+  a {
+    @apply underline-offset-[0.1em];
+  }
+
   :focus {
     outline: 2px dashed;
   }
