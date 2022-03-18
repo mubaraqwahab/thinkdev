@@ -1,6 +1,5 @@
 // @ts-check
 
-const plugin = require("tailwindcss/plugin")
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 const codeLike = (theme) => ({
