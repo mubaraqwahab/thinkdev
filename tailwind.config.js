@@ -51,7 +51,7 @@ module.exports = {
 
             "--tw-prose-invert-body": theme("colors.gray.300"),
             "--tw-prose-invert-lead": "var(--tw-prose-invert-body)",
-            '--tw-prose-invert-bold': theme('colors.gray.100'),
+            "--tw-prose-invert-bold": theme("colors.gray.100"),
             "--tw-prose-invert-headings": "var(--tw-prose-bold)",
             "--tw-prose-invert-code": "var(--tw-prose-bold)",
             "--tw-prose-invert-pre-bg": theme("colors.gray.800"),
@@ -87,6 +87,9 @@ module.exports = {
                   textDecoration: "underline",
                 },
               },
+            },
+            pre: {
+              borderRadius: theme("borderRadius.md"),
             },
             // Disable backticks
             code: {
@@ -127,7 +130,7 @@ module.exports = {
               borderWidth: "1px",
               borderLeftWidth: "5px",
               borderLeftStyle: "dashed",
-              borderRadius: theme("borderRadius.DEFAULT"),
+              borderRadius: theme("borderRadius.md"),
               padding: `${theme("spacing.2")} ${theme("spacing.5")}`,
               margin: `${theme("spacing.5")} 0`,
               "& :first-child": {
