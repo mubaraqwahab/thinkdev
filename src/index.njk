@@ -2,7 +2,7 @@
 layout: layouts/base
 ---
 
-{% from "macros.njk" import logo, icon %}
+{% from "macros.njk" import logo, fulllogo, icon %}
 
 <style>
   /*
@@ -28,6 +28,7 @@ layout: layouts/base
       {{ logo(class='mr-1.5 w-5 h-5 md:w-6 md:h-6', width=24, height=24) }}
       thinkdev
     </a>
+    {{ fulllogo(height=28) }}
     <h1>{{ site.title }}</h1>
     <p class="mb-16">
       <b class="lead">Let's relearn the basics of programming,
