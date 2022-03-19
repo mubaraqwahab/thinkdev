@@ -93,7 +93,7 @@
   }
 
   :where(.home) h2 {
-    @apply text-3xl md:text-4xl mb-8;
+    @apply text-3xl md:text-4xl mb-8 scroll-mt-20;
   }
 
   :where(.home) p {
@@ -102,13 +102,23 @@
     @apply last:mb-0;
   }
 
-  :where(.home) ul {
-    @apply pl-8;
+  :where(.home) :is(ul, ol) {
+    @apply pl-8 mb-6;
+    @apply last:mb-0;
   }
 
-  :where(.home) li:not(.prose *) {
+  :where(.home) ul {
+    @apply list-disc;
+  }
+
+  :where(.home) ol {
+    @apply list-decimal;
+  }
+
+  :where(.home) li {
     @apply text-lg my-3 pl-2;
     @apply md:text-xl;
+    @apply marker:text-gray-600 marker:dark:text-gray-400;
   }
 
   :where(.home) a {
@@ -125,6 +135,10 @@
     @apply font-semibold leading-tight text-base text-gray-900;
     @apply md:text-lg;
     @apply dark:text-gray-100;
+  }
+
+  :where(.home) cite {
+    @apply not-italic;
   }
 
   :where(.home) .lead {
@@ -158,6 +172,18 @@
 
   :where(.home) .note > * {
     @apply first:mt-0 last:mb-0;
+  }
+
+  :where(.home) footer h2 {
+    @apply text-lg font-semibold mb-6;
+  }
+
+  :where(.home) footer p {
+    @apply text-base mb-4;
+  }
+
+  :where(.home) footer li {
+    @apply text-base my-3 pl-2;
   }
 
   /* This is intentionally beneath */

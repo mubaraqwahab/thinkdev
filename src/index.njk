@@ -19,17 +19,17 @@ layout: layouts/base
   <header class="pt-20 pb-28 border-b">
     {{
       logotype(
-        class="mb-2 -ml-1 h-5 w-auto md:h-7 md:mb-4 text-indigo-600 dark:text-indigo-300",
+        class="mb-3 -ml-1 h-6 w-auto md:h-7 md:mb-4 text-indigo-600 dark:text-indigo-300",
         attrs={ariaLabel: "thinkdev logo"}
       )
     }}
     <h1>{{ site.title }}</h1>
     <p class="mb-16">
       <b class="lead">Let's relearn the basics of programming,
-      in the world's most popular language &mdash; JavaScript<a href="#0" class="no-underline"
-      ><cite class="not-italic align-sup">*</cite></a>.</b>
+      in the world's most popular language &mdash; JavaScript.<a href="#0" class="no-underline"
+      ><cite class="not-italic align-sup">1</cite></a></b>
     </p>
-    <a href="#lessons" class="inline-flex items-center no-underline">
+    <a href="#lessons" class="inline-flex items-center no-underline text-lg">
       Skip to lessons
       {{ icon('arrow-down', class='ml-1.5') }}
     </a>
@@ -37,13 +37,13 @@ layout: layouts/base
 
   <main>
     <section class="py-24 border-b">
-      <h2>Go beyond the usuals.</h2>
+      <h2>Go beyond the language basics.</h2>
       <p>
-        We'll learn the usual things in programming &mdash; variables, functions, loops,
+        We'll learn the oft-taught things in programming &mdash; variables, functions, loops,
         and what have you &mdash; but we won't stop there.
       </p>
       <p>
-        As developers, we also have to read our code, test it,
+        As developers, we also have to test our code,
         catch bugs, write documentation, and do a bunch of
         other stuff to maintain our code.
       </p>
@@ -54,32 +54,33 @@ layout: layouts/base
     </section>
 
     <section class="py-24 border-b">
-      <h2>Here's what to expect</h2>
+      <h2>What to expect</h2>
       <p>At the end of the course, you should be able to</p>
       <ul class="list-check list-disc marker:text-green-500 marker:text-[1.2em]">
         <li>write and read JavaScript code confidently</li>
-        <li>solve programming problems</li>
+        <li>analyze and solve programming problems</li>
         <li>document, test, and debug simple programs</li>
-        <li>use some common data structures and algorithms</li>
         <li>work with the command line</li>
+        <li>use some common data structures and algorithms</li>
       </ul>
     </section>
 
     <section class="py-24 border-b">
-      <h2 id="lessons">Lessons</h2>
+      <h2>Don't worry, we won't go too deep; it's an introductory course.</h2>
+      <p>But you'll learn enough to dive further on your own.</p>
     </section>
 
     <section class="py-24 border-b">
-      <h2>Format</h2>
+      <h2>Our format and schedule</h2>
       <p>
         Each <a href="#lessons">lesson</a> includes a prerecorded lecture,
         slides, some practice exercises (that you should <em>really</em> attempt 👀),
         and a supplementary article.
-        The slides are in two forms: an interactive presentation that you can play
+        The slides come in two forms: an interactive presentation that you can play
         on this site and a PDF file that you can download.
       </p>
       <p>
-        Every Sunday, we'll meet on Zoom to review one lesson and do some Q&amp;A.
+        Every Sunday, we'll meet on Zoom to review a lesson and do some Q&amp;A.
         Make sure you study the material before the meeting so we can have a lively discussion 🙂.
       </p>
 
@@ -90,43 +91,25 @@ layout: layouts/base
           the interactive slides to see a list of keyboard shortcuts.
         </p>
       </div>
+    </section>
 
+    <section class="py-24 border-b">
+      <h2>This isn't a <q>JavaScript course</q>.</h2>
       <p>
-        Every Sunday, we'll meet on Zoom to review one lesson and do some Q&amp;A.
-        Make sure you study the material before the meeting so we can have a lively discussion 🙂.
+        We'll mostly avoid things peculiar to JavaScript and rather focus more on
+        the general programming topics that also apply to other languages.
       </p>
     </section>
 
     <section class="py-24 border-b">
-      <h2>It's not just JavaScript.</h2>
-      <p>
-        We'll avoid things peculiar to JavaScript for the most part and focus more on
-        the general programming topics that we can transfer to other languages.
-      </p>
-      <p>
-        Still, we'll learn some interesting JavaScript quirks 'cause &mdash; hey! &mdash;
-        we are learning JavaScript 🙃.
-      </p>
+      <h2>
+        But &mdash; <em>hey!</em> &mdash; we're using JavaScript,
+        so we'll still discuss its quirks 🙃.
+      </h2>
     </section>
 
-    {# Consider moving this into the footer #}
-    <div class="py-24 border-b">
-      {{
-        logotype(
-          class="h-auto w-full text-indigo-600 dark:text-indigo-300",
-          attrs={ariaLabel: "thinkdev logo"}
-        )
-      }}
-    </div>
-
-    <footer class="py-24">
-      <h2>References</h2>
-    </footer>
-  </main>
-
-  <main id="main" class="prose prose-indigo py-10 dark:prose-invert">
-    <section>
-      <h2>Lessons</h2>
+    <section class="py-24 border-b">
+      <h2 id="lessons">The lessons so far</h2>
       <ol>
         {% for lesson in collections.all | eleventyNavigation %}
           <li><a href="{{ lesson.url | url }}">{{ lesson.title }}</a></li>
@@ -134,8 +117,20 @@ layout: layouts/base
       </ol>
     </section>
 
-    <section>
-      <h2>Credits</h2>
+    {# Consider moving this into the footer #}
+    <div class="py-24 border-b">
+      {{
+        logotype(
+          class="h-auto w-full text-indigo-600 dark:text-indigo-400",
+          attrs={ariaLabel: "thinkdev logo"}
+        )
+      }}
+    </div>
+
+    <footer class="py-16">
+      <h2>Footnotes</h2>
+
+      <h2>References</h2>
       {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
       <ul>
         <li>
@@ -172,11 +167,9 @@ layout: layouts/base
         <a href="https://revealjs.com/">reveal.js</a> (for the slides),
         and hosted it on <a href="http://netlify.com/">Netlify</a>.
       </p>
-    </section>
 
-
+    </footer>
   </main>
-
 </div>
 
 
