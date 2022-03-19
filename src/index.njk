@@ -43,9 +43,9 @@ layout: layouts/base
         and what have you &mdash; but we won't stop there.
       </p>
       <p>
-        As developers, we also have to test our code,
-        catch bugs, write documentation,
-        and do a bunch of other stuff to maintain our code.
+        As developers, we also have to read our code, test it,
+        catch bugs, write documentation, and do a bunch of
+        other stuff to maintain our code.
       </p>
       <p>
         We'll learn how to do these too, and we'll use some tools that make
@@ -54,14 +54,14 @@ layout: layouts/base
     </section>
 
     <section class="py-24 border-b">
-      <h2>What to expect?</h2>
+      <h2>Here's what to expect</h2>
       <p>At the end of the course, you should be able to</p>
-      <ul class="list-['✔']">
-        <li>analyze problems and come up with solutions</li>
-        <li>express solutions in JavaScript</li>
+      <ul class="list-check list-disc marker:text-green-500 marker:text-[1.2em]">
+        <li>write and read JavaScript code confidently</li>
+        <li>solve programming problems</li>
         <li>document, test, and debug simple programs</li>
         <li>use some common data structures and algorithms</li>
-        <li>use the command line</li>
+        <li>work with the command line</li>
       </ul>
     </section>
 
@@ -71,6 +71,18 @@ layout: layouts/base
 
     <section class="py-24 border-b">
       <h2>Format</h2>
+      <p>
+        Each <a href="#lessons">lesson</a> includes a prerecorded lecture,
+        slides, some practice exercises (that you should <em>really</em> attempt 👀),
+        and a supplementary article.
+        The slides are in two forms: an interactive presentation that you can play
+        on this site and a PDF file that you can download.
+      </p>
+      <p>
+        Every Sunday, we'll meet on Zoom to review one lesson and do some Q&amp;A.
+        Make sure you study the material before the meeting so we can have a lively discussion 🙂.
+      </p>
+
       <div class="note note-info">
         <p>
           <strong>Tip:</strong>
@@ -78,10 +90,23 @@ layout: layouts/base
           the interactive slides to see a list of keyboard shortcuts.
         </p>
       </div>
+
+      <p>
+        Every Sunday, we'll meet on Zoom to review one lesson and do some Q&amp;A.
+        Make sure you study the material before the meeting so we can have a lively discussion 🙂.
+      </p>
     </section>
 
     <section class="py-24 border-b">
-      <h2>It's not just about JavaScript.</h2>
+      <h2>It's not just JavaScript.</h2>
+      <p>
+        We'll avoid things peculiar to JavaScript for the most part and focus more on
+        the general programming topics that we can transfer to other languages.
+      </p>
+      <p>
+        Still, we'll learn some interesting JavaScript quirks 'cause &mdash; hey! &mdash;
+        we are learning JavaScript 🙃.
+      </p>
     </section>
 
     {# Consider moving this into the footer #}
@@ -101,46 +126,12 @@ layout: layouts/base
 
   <main id="main" class="prose prose-indigo py-10 dark:prose-invert">
     <section>
-      <h2>What we'll do</h2>
-      <ul class="list-['✔']">
-        <li>Learn how to break down problems</li>
-        <li>Express solutions in a programming language (JavaScript)</li>
-        <li>Get familiar with the command line</li>
-        <li>Practise documenting, testing, and debugging</li>
-        <li>Use some common data structures and algorithms</li>
-      </ul>
-    </section>
-
-    <section>
       <h2>Lessons</h2>
       <ol>
         {% for lesson in collections.all | eleventyNavigation %}
           <li><a href="{{ lesson.url | url }}">{{ lesson.title }}</a></li>
         {%- endfor %}
       </ol>
-    </section>
-
-    <section>
-      <h2>Format</h2>
-      <!--
-        We'll meet on Saturdays for a discussion and review of the previous week's lesson.
-        On Sundays, we'll meet for a new lesson.
-        Meetings will hold on Zoom from 12:00 p.m. to 12:40 p.m.
-      -->
-      <p>
-        Each lesson page contains the slides, recorded meetings,
-        exercises, etc., for that lesson. The slides are in two formats:
-        an interactive presentation that you can view on this site
-        and a PDF version that you can download.
-      </p>
-
-      <div class="note note-info">
-        <p>
-          <strong>Tip:</strong>
-          Press the question mark key (<kbd>?</kbd>) when viewing
-          the interactive slides to see a list of keyboard shortcuts.
-        </p>
-      </div>
     </section>
 
     <section>
