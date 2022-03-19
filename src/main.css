@@ -94,7 +94,7 @@
   }
 
   :where(.home) p {
-    @apply text-xl mb-6;
+    @apply text-lg md:text-xl mb-6;
     @apply last:mb-0;
   }
 
@@ -103,7 +103,7 @@
   }
 
   :where(.home) li:not(.prose *) {
-    @apply text-xl my-3 pl-2;
+    @apply text-lg my-3 pl-2 md:text-xl;
   }
 
   :where(.home) a {
@@ -112,7 +112,7 @@
   }
 
   :where(.home) .lead {
-    @apply font-normal text-2xl;
+    @apply font-normal text-xl md:text-2xl;
   }
 
   :where(.home) .note {
