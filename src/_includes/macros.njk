@@ -15,20 +15,22 @@
   </svg>
 {%- endmacro %}
 
-{# TODO: clean up args #}
+{# TODO: remove this when you work on slides #}
 {% macro logo(class="", width=24, height=24, fill="none", ariaHidden=true, attrs={}) -%}
+  {% set mergedAttrs = {width: width, height: height, fill: fill, ariaHidden: ariaHidden} %}
+  {{ logomark(class=class, attrs=mergedAttrs) }}
+{%- endmacro %}
+
+{% macro logomark(class="", attrs={}) -%}
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="{{ class }}"
-    fill="{{ fill }}"
     viewBox="0 0 24 24"
-    width="{{ width }}"
-    height="{{ height }}"
-    stroke="currentColor"
-    aria-hidden="{{ ariaHidden }}"
+    class="{{ class }}"
+    fill="none"
     {{ attrs | htmlattrs | safe }}
   >
     <path
+      stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="2"
@@ -102,6 +104,7 @@
   </svg>
 {%- endmacro %}
 
+{# Inline a script from the _includes/js/ folder. #}
 {% macro script(path, attrs={}) -%}
   {% set js %}
     {% include "js/" ~ path %}
