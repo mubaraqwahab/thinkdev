@@ -42,7 +42,8 @@
   }
 
   .lessons-nav a {
-    @apply relative overflow-visible hover:before:inline-block;
+    @apply relative overflow-visible;
+    @apply hover:before:inline-block;
   }
 
   .lessons-nav a::before {
@@ -51,7 +52,8 @@
   }
 
   .lessons-nav a[aria-current="page"] {
-    @apply font-semibold text-indigo-600 dark:text-indigo-300;
+    @apply font-semibold text-indigo-600;
+    @apply dark:text-indigo-300;
     @apply hover:text-indigo-600 hover:dark:text-indigo-300;
     @apply before:inline-block;
   }
@@ -81,13 +83,13 @@
   /* Stuff for just the home page */
 
   :where(.home) :is(h1, h2, h3) {
-    @apply font-black font-display;
-    @apply text-gray-900 dark:text-gray-100;
+    @apply font-black font-display text-gray-900;
+    @apply dark:text-gray-100;
   }
 
   :where(.home) h1 {
-    @apply text-4xl md:text-5xl mb-8;
-    a: theme("colors.green.400");
+    @apply text-4xl  mb-8;
+    @apply md:text-5xl;
   }
 
   :where(.home) h2 {
@@ -95,7 +97,8 @@
   }
 
   :where(.home) p {
-    @apply text-lg md:text-xl mb-6;
+    @apply text-lg mb-6;
+    @apply md:text-xl;
     @apply last:mb-0;
   }
 
@@ -104,16 +107,24 @@
   }
 
   :where(.home) li:not(.prose *) {
-    @apply text-lg my-3 pl-2 md:text-xl;
+    @apply text-lg my-3 pl-2;
+    @apply md:text-xl;
   }
 
   :where(.home) a {
-    @apply underline font-semibold;
-    @apply text-indigo-600 dark:text-indigo-300;
+    @apply underline font-semibold text-indigo-600;
+    @apply dark:text-indigo-300;
   }
 
   :where(.home) :is(b, strong) {
     @apply font-bold;
+  }
+
+  :where(.home) kbd {
+    @apply inline-block border rounded py-px px-1;
+    @apply font-semibold leading-tight text-base text-gray-900;
+    @apply md:text-lg;
+    @apply dark:text-gray-100;
   }
 
   :where(.home) .lead {
@@ -132,20 +143,20 @@
 
   :where(.home) .note {
     border-left-style: dashed;
-    @apply border border-l-[6px] rounded-lg;
-    @apply py-4 px-5 mb-8 last:mb-0;
+    @apply border border-l-[6px] rounded-lg py-4 px-6 mb-10;
+    @apply last:mb-0;
   }
 
   :where(.home) p + .note {
-    @apply mt-8;
+    @apply mt-10;
   }
 
   :where(.home) .note-info {
-    @apply border-blue-400 dark:border-blue-500;
+    @apply border-blue-400;
+    @apply dark:border-blue-500;
   }
 
   :where(.home) .note > * {
-    @apply text-base md:text-lg;
     @apply first:mt-0 last:mb-0;
   }
 
