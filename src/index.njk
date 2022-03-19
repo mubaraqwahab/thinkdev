@@ -2,7 +2,7 @@
 layout: layouts/base
 ---
 
-{% from "macros.njk" import logo, fulllogo, icon %}
+{% from "macros.njk" import logotype, icon %}
 
 <style>
   /*
@@ -17,18 +17,12 @@ layout: layouts/base
 <div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
 <div class="home container shrink-0 grow">
   <header class="pt-20 pb-28 border-b">
-    <a
-      class="
-        inline-flex items-center mb-2 -ml-1
-        no-underline font-mono text-lg tracking-tighter
-        md:text-xl md:mb-4
-      "
-      href="{{ '/' | url }}"
-    >
-      {{ logo(class='mr-1.5 w-5 h-5 md:w-6 md:h-6', width=24, height=24) }}
-      thinkdev
-    </a>
-    {{ fulllogo(height=28) }}
+    {{
+      logotype(
+        class="mb-2 -ml-1 h-5 w-auto md:h-7 md:mb-4 text-indigo-600 dark:text-indigo-300",
+        attrs={ariaLabel: "thinkdev logo"}
+      )
+    }}
     <h1>{{ site.title }}</h1>
     <p class="mb-16">
       <b class="lead">Let's relearn the basics of programming,
@@ -90,14 +84,14 @@ layout: layouts/base
       <h2>It's not just about JavaScript.</h2>
     </section>
 
+    {# Consider moving this into the footer #}
     <div class="py-24 border-b">
-      <p
-        class="flex items-center -ml-1 text-xl font-mono tracking-tight"
-        href="{{ '/' | url }}"
-      >
-        {{ logo(class='mr-1.5', width=28, height=28) }}
-        thinkdev
-      </p>
+      {{
+        logotype(
+          class="h-auto w-full text-indigo-600 dark:text-indigo-300",
+          attrs={ariaLabel: "thinkdev logo"}
+        )
+      }}
     </div>
 
     <footer class="py-24">
