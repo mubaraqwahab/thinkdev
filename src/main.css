@@ -196,3 +196,9 @@
     @apply leading-relaxed;
   }
 }
+
+@layer utilities {
+  .focused {
+    outline: 2px dashed;
+  }
+}
