@@ -2,7 +2,7 @@
 tags: slides
 ---
 
-{% from "macros.njk" import icon, logo %}
+{% from "macros.njk" import icon, logo, logotype %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ tags: slides
         don't forget to put the key in eleventyComputed)
       #}
       <section {{ titleSlideAttrs | htmlattrs | safe }}>
-        <p class="font-mono flex items-center justify-center tracking-wide lowercase">{{ logo(class='h-7 w-7 mr-2.5') }} {{ site.title }} #{{ order + 1 }}</p>
+        {{ logotype(class="h-8 w-auto mx-auto mb-[var(--r-block-margin)]") }}
         <h1 class="!text-[1em]">{{ title }}</h1>
       </section>
       {{ content | safe }}
