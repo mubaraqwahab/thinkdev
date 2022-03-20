@@ -48,7 +48,8 @@
 
   .lessons-nav a::before {
     content: "";
-    @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
+    a: theme("colors.green.300") @apply hidden h-2 w-2 rounded-full bg-current
+      absolute -left-1;
   }
 
   .lessons-nav a[aria-current="page"] {
@@ -151,7 +152,7 @@
 
   @media (prefers-color-scheme: dark) {
     :where(.home) .list-check {
-      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234ade80' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2386efac' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
     }
   }
 
@@ -182,8 +183,12 @@
     @apply text-base mb-4;
   }
 
+  :where(.home) footer :is(ul, ol) {
+    @apply pl-7;
+  }
+
   :where(.home) footer li {
-    @apply text-base my-3 pl-2;
+    @apply text-base my-3 pl-1.5;
   }
 
   /* This is intentionally beneath */

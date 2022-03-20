@@ -56,18 +56,13 @@ layout: layouts/base
     <section class="py-24 border-b">
       <h2>What to expect</h2>
       <p>At the end of the course, you should be able to</p>
-      <ul class="list-check list-disc marker:text-green-500 marker:text-[1.2em]">
+      <ul class="list-check list-disc marker:text-green-500 marker:dark:text-green-300 marker:text-[1.2em]">
         <li>write and read JavaScript code confidently</li>
         <li>analyze and solve programming problems</li>
         <li>document, test, and debug simple programs</li>
         <li>work with the command line</li>
         <li>use some common data structures and algorithms</li>
       </ul>
-    </section>
-
-    <section class="py-24 border-b">
-      <h2>Don't worry, we won't go too deep; it's an introductory course.</h2>
-      <p>But you'll learn enough to dive further on your own.</p>
     </section>
 
     <section class="py-24 border-b">
@@ -93,6 +88,7 @@ layout: layouts/base
       </div>
     </section>
 
+    {# TODO THIS PART #}
     <section class="py-24 border-b">
       <h2>This isn't a <q>JavaScript course</q>.</h2>
       <p>
@@ -117,20 +113,17 @@ layout: layouts/base
       </ol>
     </section>
 
-    {# Consider moving this into the footer #}
-    <div class="py-24 border-b">
+    <footer class="py-20">
       {{
         logotype(
-          class="h-auto w-full text-indigo-600 dark:text-indigo-400",
+          class="h-auto w-full mb-20 text-indigo-600 dark:text-indigo-400",
           attrs={ariaLabel: "thinkdev logo"}
         )
       }}
-    </div>
 
-    <footer class="py-16">
       <h2>Footnotes</h2>
 
-      <h2>References</h2>
+      <h2>References for the course content</h2>
       {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
       <ul>
         <li>
