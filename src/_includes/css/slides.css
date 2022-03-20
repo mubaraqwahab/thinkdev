@@ -17,24 +17,24 @@ section.has-light-background h6 {
   *********************************************/
 :root {
   --r-background-color: #0a0918;
-  --r-main-font: Open Sans, sans-serif;
+  --r-main-font: theme("fontFamily.sans");
   --r-main-font-size: theme("fontSize.3xl");
   --r-main-color: theme("colors.gray.300");
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Montserrat, Impact, sans-serif;
+  --r-heading-font: theme("fontFamily.display");
   --r-heading-color: theme("colors.white");
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: -0.03em;
   --r-heading-text-transform: none;
   --r-heading-text-shadow: none;
-  --r-heading-font-weight: normal;
+  --r-heading-font-weight: 900;
   --r-heading1-text-shadow: none;
   --r-heading1-size: 2.3em;
   --r-heading2-size: 1.85em;
   --r-heading3-size: 1.5em;
   --r-heading4-size: 1em;
-  --r-code-font: monospace;
+  --r-code-font: theme("fontFamily.mono");
   --r-link-color: theme("colors.pink.500");
   --r-link-color-dark: theme("colors.pink.600");
   --r-link-color-hover: theme("colors.pink.400");

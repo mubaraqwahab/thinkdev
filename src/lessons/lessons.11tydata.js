@@ -1,6 +1,5 @@
 module.exports = {
   layout: "layouts/lesson",
-  tags: ["lessons"],
   eleventyComputed: {
     eleventyNavigation: (data) => {
       const base = "/lessons/"

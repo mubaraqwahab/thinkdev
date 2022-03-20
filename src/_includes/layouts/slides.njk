@@ -2,17 +2,14 @@
 tags: slides
 ---
 
-{% from "macros.njk" import icon, logo %}
+{% from "macros.njk" import logotype %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>(Slides) {{ title }} | {{ site.title }}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Slides: {{ title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
   {% set css %}{% include "css/slides.css" %}{% endset %}
   <style>{{ css | postcss('slides') | safe }}</style>
@@ -29,7 +26,17 @@ tags: slides
         don't forget to put the key in eleventyComputed)
       #}
       <section {{ titleSlideAttrs | htmlattrs | safe }}>
-        <p class="font-mono flex items-center justify-center tracking-wide lowercase">{{ logo(class='h-7 w-7 mr-2.5') }} {{ site.title }} #{{ order + 1 }}</p>
+        <a
+          class="
+            inline-flex items-center justify-center mb-2 mx-auto
+            font-semibold font-mono !text-[color:var(--r-main-color)]
+            hover:!text-[color:var(--r-link-color-hover)]
+          "
+          href="{{ '/' | url }}"
+        >
+          {{ logotype(class="h-10 w-auto mb-0.5 mr-3") }}
+          #{{ order + 1 }}
+        </a>
         <h1>{{ title }}</h1>
       </section>
       {{ content | safe }}
@@ -40,15 +47,18 @@ tags: slides
   </div>
 
   <script src="{{ '/reveal/dist/reveal.js' | url }}"></script>
-  <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
   <script>
     // See https://revealjs.com/config/
     Reveal.initialize({
       hash: true,
       hashOneBasedIndex: false,
-      plugins: [RevealHighlight],
       navigationMode: "linear",
     });
+
+    // For some reason, reveal isn't auto-trimming the pre > codes
+    document.querySelectorAll("pre > code[data-trim]").forEach(code => {
+      code.innerHTML = code.innerHTML.trim()
+    })
 
     if (window.location.search.includes('print-pdf')) {
       // Just so I don't have to manually rename the pdf

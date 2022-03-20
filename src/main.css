@@ -3,66 +3,68 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
   body {
     -webkit-tap-highlight-color: transparent;
   }
 
+  a,
+  button {
+    @apply rounded-sm;
+  }
+
+  a {
+    @apply underline-offset-[0.05em];
+  }
+
   :focus {
-    outline: 2px dashed;
+    @apply focused;
   }
 }
 
 @layer components {
   #main {
     /* For the skip-to-content link */
-    scroll-margin-top: theme("spacing.24");
+    @apply scroll-mt-[calc(theme("spacing.1")+49px+theme("spacing.12"))];
   }
 
   .bi {
     @apply inline-block fill-current;
   }
 
-  button[aria-expanded="true"] > .bi-caret-right-fill {
-    @apply rotate-90;
+  .footer-link {
+    @apply underline;
   }
 
-  .quoted::before {
-    content: open-quote;
-  }
-
-  .quoted::after {
-    content: close-quote;
-  }
-
-  .prose .side-nav ol {
-    @apply my-0;
-  }
-
-  .prose .side-nav li {
-    @apply pl-0;
-  }
-
-  .prose .side-nav a {
-    @apply leading-snug inline-flex items-center;
-  }
-
-  .prose .side-nav a[aria-current="page"] {
+  .lessons-nav a {
     @apply relative overflow-visible;
+    @apply hover:before:inline-block;
   }
 
-  .prose .side-nav a[aria-current="page"]::after {
+  .lessons-nav a::before {
     content: "";
-    @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
+    @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
+  }
+
+  .lessons-nav a[aria-current="page"] {
+    @apply font-semibold text-indigo-600;
+    @apply dark:text-indigo-300;
+    @apply hover:text-indigo-600 hover:dark:text-indigo-300;
+    @apply before:inline-block;
   }
 
   /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
   .youtube-player-wrapper {
-    @apply relative h-0;
-    padding-bottom: 56.25%;
+    @apply relative h-0 pb-[56.25%];
   }
 
   .youtube-player {
-    @apply absolute top-0 left-0 w-full lg:w-2/3 h-full;
+    @apply absolute top-0 left-0 w-full h-full;
   }
 
   @supports (aspect-ratio: 16 / 9) {
@@ -74,8 +76,128 @@
     .youtube-player {
       /* Undo absolute */
       @apply static;
-      @apply w-full lg:w-2/3 h-auto;
-      aspect-ratio: 16 / 9;
+      @apply w-full h-auto aspect-video;
     }
+  }
+
+  /* Stuff for just the home page */
+
+  :where(.home) :is(h1, h2, h3) {
+    @apply font-black font-display text-gray-900;
+    @apply dark:text-gray-100;
+  }
+
+  :where(.home) h1 {
+    @apply text-4xl  mb-8;
+    @apply md:text-5xl;
+  }
+
+  :where(.home) h2 {
+    @apply text-3xl md:text-4xl mb-8 scroll-mt-20;
+  }
+
+  :where(.home) p {
+    @apply text-lg mb-6;
+    @apply md:text-xl;
+    @apply last:mb-0;
+  }
+
+  :where(.home) :is(ul, ol) {
+    @apply pl-8 mb-6;
+    @apply last:mb-0;
+  }
+
+  :where(.home) ul {
+    @apply list-disc;
+  }
+
+  :where(.home) ol {
+    @apply list-decimal;
+  }
+
+  :where(.home) li {
+    @apply text-lg mb-3 pl-2;
+    @apply md:text-xl;
+    @apply marker:text-gray-600 marker:dark:text-gray-400;
+  }
+
+  :where(.home) a {
+    @apply underline font-semibold text-indigo-600;
+    @apply dark:text-indigo-300;
+  }
+
+  :where(.home) :is(b, strong) {
+    @apply font-bold;
+  }
+
+  :where(.home) kbd {
+    @apply inline-block border rounded py-px px-1;
+    @apply font-semibold leading-tight text-base text-gray-900;
+    @apply md:text-lg;
+    @apply dark:text-gray-100;
+  }
+
+  :where(.home) cite {
+    @apply not-italic;
+  }
+
+  :where(.home) footer h2 {
+    @apply text-lg font-sans font-semibold mb-6;
+  }
+
+  :where(.home) footer p {
+    @apply text-base mb-4;
+  }
+
+  :where(.home) footer :is(ul, ol) {
+    @apply pl-7;
+  }
+
+  :where(.home) footer li {
+    @apply text-base mb-3 pl-1.5;
+  }
+
+  :where(.home) .lead {
+    @apply font-normal text-xl md:text-2xl;
+  }
+
+  :where(.home) .list-check {
+    list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2322c55e' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :where(.home) .list-check {
+      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2386efac' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+    }
+  }
+
+  :where(.home) .note {
+    border-left-style: dashed;
+    @apply border border-l-[6px] rounded-lg py-4 px-6 mb-10;
+    @apply last:mb-0;
+  }
+
+  :where(.home) p + .note {
+    @apply mt-10;
+  }
+
+  :where(.home) .note-info {
+    @apply border-blue-400;
+    @apply dark:border-blue-500;
+  }
+
+  :where(.home) .note > * {
+    @apply first:mt-0 last:mb-0;
+  }
+
+  /* This is intentionally beneath */
+  :where(.home) :is(p, li, .lead) {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .focused {
+    outline: 2px dashed;
   }
 }

@@ -57,16 +57,23 @@ module.exports = {
    *  to CSS for the slides. If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
+    const { fontFamily } = require("tailwindcss/defaultTheme")
+
     // @ts-ignore
     const slidesTailwindConfig = resolveTailwindConfig({
-      purge: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
-      mode: "jit",
-      darkMode: false,
+      content: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
       theme: {
-        extend: {},
-      },
-      variants: {
-        extend: {},
+        extend: {
+          fontFamily: {
+            sans: ["'Red Hat Text'", ...fontFamily.sans],
+            mono: ["'Red Hat Mono'", ...fontFamily.mono],
+            display: [
+              "'Red Hat Display'",
+              "'Red Hat Text'",
+              ...fontFamily.sans,
+            ],
+          },
+        },
       },
       plugins: [],
     })

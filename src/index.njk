@@ -1,0 +1,188 @@
+---
+layout: layouts/base
+---
+
+{% from "macros.njk" import logotype, icon %}
+
+<style>
+  /*
+    Resize all .containers, including the footer.container
+    which is in the inherited base layout.
+  */
+  .container {
+    max-width: calc(640px + 2rem);
+  }
+</style>
+
+<div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
+<div class="home container shrink-0 grow">
+  <header class="pt-20 pb-32 border-b">
+    {{
+      logotype(
+        class="mb-3 -ml-1 h-6 w-auto md:h-7 md:mb-4 text-indigo-600 dark:text-indigo-300",
+        attrs={ariaLabel: "thinkdev logo"}
+      )
+    }}
+    <h1>{{ site.title }}</h1>
+    <p class="mb-16">
+      <b class="lead">Let's relearn the basics of programming,
+      in the world's most popular language &mdash; JavaScript.<sup><a
+        id="fn-jspop-ref"
+        href="#fn-jspop"
+        class="no-underline scroll-mt-2 px-0.5"
+      ><span class="sr-only">Footnote </span>1</a></sup></b>
+    </p>
+    <a href="#lessons" class="inline-flex items-center no-underline text-lg">
+      Skip to lessons
+      {{ icon('arrow-down', class='ml-1.5') }}
+    </a>
+  </header>
+
+  <main>
+    <section class="py-24 border-b">
+      <h2>Beyond the language basics</h2>
+      <p>
+        We'll learn the oft-taught things in programming &mdash; variables, functions, loops,
+        and what have you &mdash; but we won't stop there.
+      </p>
+      <p>
+        As developers, we also have to test our code,
+        catch bugs, write documentation, and do a bunch of
+        other stuff to maintain our code.
+      </p>
+      <p>
+        We'll learn how to do these too, and we'll use some tools that make
+        the process fun 😉.
+      </p>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>Here's what to expect</h2>
+      <p>At the end of the course, you should be able to</p>
+      <ul class="list-check list-disc marker:text-green-500 marker:dark:text-green-300 marker:text-[1.2em]">
+        <li>write and read JavaScript code confidently</li>
+        <li>analyze and solve programming problems</li>
+        <li>document, test, and debug simple programs</li>
+        <li>work with the command line</li>
+        <li>use some common data structures and algorithms</li>
+      </ul>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>Then there's what <em>not</em> to expect</h2>
+      <p>
+        We won't focus on features that are specific to JavaScript environments like the web.
+        Instead, we'll cover general topics that also apply to other programming languages.
+      </p>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>Our format and schedule</h2>
+      <p>
+        Each <a href="#lessons">lesson</a> includes a prerecorded lecture,
+        slides, some practice exercises (that you should <em>really</em> attempt 👀),
+        and a supplementary article.
+        The slides come in two forms: an interactive presentation that you can play
+        on this site and a PDF file that you can download.
+      </p>
+      <p>
+        Every Sunday, we'll meet on Zoom to review a lesson and do a Q&amp;A.
+        Make sure you study the material before the meeting so we can have a lively discussion 🙂.
+      </p>
+
+      <div class="note note-info">
+        <p>
+          <strong>Tip:</strong>
+          Press the question mark key (<kbd>?</kbd>) when viewing
+          the interactive slides to see a list of keyboard shortcuts.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2 id="lessons">The lessons</h2>
+      {#
+        Tangent! Read this on aligning columns:
+        https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
+      #}
+      <ol>
+        {% for lesson in collections.all | eleventyNavigation %}
+          <li>
+            <a href="{{ lesson.url | url }}">{{ lesson.title }}</a>
+          </li>
+        {%- endfor %}
+      </ol>
+      <p>I'll add a new lesson weekly.</p>
+    </section>
+
+    <footer class="pt-24 pb-16">
+      {{
+        logotype(
+          class="h-auto w-3/5 mb-24 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-300",
+          attrs={ariaLabel: "thinkdev logo"}
+        )
+      }}
+
+      <section class="mb-12">
+        <h2>Footnotes</h2>
+        <ol id="footnoteList">
+          <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
+            See the <a
+              href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
+            >2021 StackOverflow Developer Survey</a>.
+            <a
+              href="#fn-jspop-ref"
+              aria-label="Return up"
+              title="Return up"
+              class="no-underline inline-block"
+            >
+              {{- icon('arrow-up-short', width=20, height=20, class="mb-1") -}}
+            </a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="mb-12">
+        <h2>References for the course content</h2>
+        {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
+        <ul>
+          <li>
+            <a href="https://greenteapress.com/wp/think-python-2e/"><cite>Think Python</cite> by Allen Downey</a>.
+            The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
+            Yes, it inspired this course's title 🙂.
+          </li>
+          <li>
+            The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><cite>MDN Web Docs</cite></a>.
+            My primary reference for this course.
+            It's a great place to learn JavaScript and other things web-related.
+          </li>
+          <li>
+            <a href="https://eloquentjavascript.net/"><cite class="quoted">Eloquent JavaScript</cite></a>.
+            An introductory yet thorough book on programming in modern JavaScript.
+          </li>
+          <li>
+            <a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262).
+            The document that formally defines what the JavaScript language is.
+          </li>
+          {% if bindingsLesson %}
+          <li>
+            The prerelease draft of the
+            <a href="https://justjavascript.com/"><cite>Just JavaScript</cite> course</a>.
+            The course focuses on building a good mental model of JavaScript.
+            It inspired the fifth episode of this thinkdev course,
+            <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title }}</a>.
+          </li>
+          {% endif %}
+        </ul>
+      </section>
+
+      <p>And just for fun 😃 ...</p>
+      <p>
+        I built this site with <a href="https://www.11ty.dev/">Eleventy</a> and
+        <a href="https://tailwindcss.com/">Tailwind CSS</a>; used
+        <a href="https://revealjs.com/">reveal.js</a> for the slides;
+        and hosted everything on <a href="http://netlify.com/">Netlify</a>.
+      </p>
+    </footer>
+  </main>
+</div>

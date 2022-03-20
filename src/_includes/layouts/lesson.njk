@@ -5,21 +5,32 @@ tags: lesson
 
 {% from "macros.njk" import icon, script %}
 
-<div class="container mx-auto py-8 lg:grid lg:grid-cols-[220px,1fr] lg:gap-10">
+{% include "header.njk" %}
+
+<div class="container pt-10 pb-12 lg:pt-12 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
   <nav
     class="
-      hidden side-nav sticky print:static top-[53px] left-0 z-20 pt-4 pb-5 -mt-8 mb-8
-      border-b bg-white dark:border-gray-700 dark:bg-gray-900
-      lg:block lg:border-b-0 lg:border-r lg:my-0 lg:py-0 lg:pr-8 lg:pl-1
-      lg:h-[calc(100vh-118px)] lg:top-[86px] lg:overflow-y-auto lg:z-auto
+      hidden lessons-nav border-b bg-white dark:bg-gray-900
+      sticky top-[calc(0.25rem+49px)] left-0 z-50 pt-5 pb-6 px-2 -mt-12 mb-12
+      max-h-[calc(100vh-0.25rem-49px)] overflow-y-auto
+      lg:block lg:border-b-0 lg:z-auto
+      lg:my-0 lg:py-0 lg:px-4 lg:h-fit
+      lg:max-h-[calc(100vh-0.25rem-49px-6rem)]
+      lg:top-[calc(0.25rem+49px+3rem)]
+      print:static
     "
-    id="outlineNav"
-    aria-label="Outline"
+    id="lessonsNav"
+    aria-labelledby="lessonsNavLabel"
   >
-    <ol class="">
+    <strong id="lessonsNavLabel" class="block mb-3 font-semibold dark:text-gray-100">Lessons</strong>
+    <ol class="list-none my-0 pl-0">
       {% for lesson in collections.all | eleventyNavigation %}
-        <li class="before:hidden">
-          <a href="{{ lesson.url | url }}" {% if page.url == lesson.url %} aria-current="page" {% endif %} class="">
+        <li class="py-1.5 border-l">
+          <a
+            href="{{ lesson.url | url }}"
+            {% if page.url == lesson.url %} aria-current="page" {% endif %}
+            class="flex items-center px-4"
+          >
             {{ lesson.title }}
           </a>
         </li>
@@ -27,32 +38,36 @@ tags: lesson
     </ol>
   </nav>
 
-  <div>
-    <main id="main" class="mx-auto relative lg:mx-0">
-      <article>
+  <main id="main">
+    <article class="prose prose-indigo max-w-[640px] mx-auto lg:max-w-none lg:mx-0 dark:prose-invert">
+      <header>
         <h1>{{ title }}</h1>
         <p><b class="lead">{{ excerpt | safe }}</b></p>
         {% if collections.slides | find("data.order", eleventyNavigation.order) %}
           <p>
-            <a href="{{ '/slides/' ~ page.fileSlug | url }}">Slides {{ icon('display', class='mb-0.5') }}</a>&nbsp;
-            (<a
+            <a class="mr-1.5 inline-flex items-center" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides
+              {{- icon('play-circle', class='ml-1.5') -}}
+            </a>
+            <span class="mr-1.5">&middot;</span>
+            <a
+              class="inline-flex items-center"
               href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
               download="{{ page.fileSlug ~ '.pdf' }}"
               title="Download slides as PDF"
               aria-label="Download slides as PDF"
-            >PDF {{ icon("file-pdf-fill", class='text-red-600 mb-0.5') }}</a>)
+            >PDF {{- icon('download', class='ml-1.5') -}}</a>
           </p>
         {% endif %}
+      </header>
 
-        {{ content | safe }}
-      </article>
+      {{ content | safe }}
 
       <nav aria-label="Previous/next lesson" class="flex justify-between mt-10">
         {% set lessons = collections.all | eleventyNavigation %}
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
           <a href="{{ prevLesson.url | url }}" rel="prev" class="inline-flex items-center mr-auto">
-            {{ icon('arrow-left', class='mr-2') }}
+            {{ icon('arrow-left', class='mr-1.5') }}
             Previous
           </a>
         {% endif %}
@@ -60,17 +75,12 @@ tags: lesson
         {% if nextLesson %}
           <a href="{{ nextLesson.url | url }}" rel="next" class="inline-flex items-center ml-auto">
             Next
-            {{ icon('arrow-right', class='ml-2') }}
+            {{ icon('arrow-right', class='ml-1.5') }}
           </a>
         {% endif %}
       </nav>
-    </main>
-
-    {# Don't forget: home.njk has different footer markup #}
-    <footer class="text-sm mt-10 pt-2 border-t text-gray-700 dark:border-gray-700 dark:text-gray-400">
-      <p class="!mb-0">Built with ❤ by Mubaraq Wahab</p>
-    </footer>
-  </div>
+    </article>
+  </main>
 </div>
 
 {{ script("toggle-outline.js") }}

@@ -1,16 +1,13 @@
 ---
 title: Collections
 excerpt: >
-  In programming, we often have many
-  different values that describe an entity,
-  or values that suggest a list. We'll look at
-  two data structures in JavaScript that can be
-  used to represent these entities and lists.
+  It's common to have different values that describe
+  an entity or that suggest a list of items.
+  We'll look at two data structures in JavaScript that
+  we can use to conveniently represent entities and lists.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Videos") }}
+## Videos
 
 ### Lesson session
 
@@ -20,7 +17,7 @@ https://youtu.be/qQg4-Nx4ohk
 
 https://youtu.be/NgxAcW7ppWo
 
-## {{ iconed("Exercises") }}
+## Exercises
 
 Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
 
@@ -56,12 +53,12 @@ Do these exercises in a JavaScript file. (From now on, we won't be using the REP
 
     How would you access and change the number `7` of the nested array?
 
-## {{ iconed("Extras") }}
+## Extras
 
 ### Other JavaScript types
 
 We've discussed these types so far: number, boolean,
-string, undefined, null, and object (including arrays).
+string, undefined, null, and object (including array).
 All of them, except object, are <i>primitive</i> types,
 and one thing common to primitives is that they are immutable.
 
@@ -84,9 +81,10 @@ cover them during the meetings. Nonetheless, you should know that they exist.
 We've seen one supposedly odd behaviour of `typeof`&mdash;it
 tells us that an array is an object. There's yet another strange behaviour.
 If you run `typeof null`, you'll get <samp>"object"</samp>.
-However, `null` is not an object. A quick search reveals that [the reason for this is historical](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null) and we just have to live with it.
+However, `null` is not an object. [The reason for this is historical](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null)
+and we just have to live with it.
 
-A final thing to note is that when you run `typeof` on an undeclared variable, the result is <samp>"undefined"</samp>:
+A final thing to note is that when you use `typeof` on an undeclared variable, the result is <samp>"undefined"</samp>:
 
 ```js
 typeof x
