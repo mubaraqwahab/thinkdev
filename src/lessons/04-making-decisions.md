@@ -125,7 +125,7 @@ false == '';    // true
 
 There's a `!=` counterpart for loose inequality too.
 
-### Short-circuit evalutaion
+### Short-circuit evaluation
 
 When you use the NOT operator, the result is always a boolean:
 
