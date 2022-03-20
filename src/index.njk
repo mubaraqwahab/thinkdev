@@ -2,7 +2,7 @@
 layout: layouts/base
 ---
 
-{% from "macros.njk" import logotype, icon %}
+{% from "macros.njk" import logotype, icon, script %}
 
 <style>
   /*
@@ -26,11 +26,11 @@ layout: layouts/base
     <h1>{{ site.title }}</h1>
     <p class="mb-16">
       <b class="lead">Let's relearn the basics of programming,
-      in the world's most popular language &mdash; JavaScript.<a
-        id="footnote1-ref"
-        href="#footnote1"
-        class="no-underline target:focused"
-      ><cite><sup>1</sup></cite></a></b>
+      in the world's most popular language &mdash; JavaScript.<sup><a
+        id="fn-jspop-ref"
+        href="#fn-jspop"
+        class="no-underline scroll-mt-2 px-0.5"
+      >1</a></sup></b>
     </p>
     <a href="#lessons" class="inline-flex items-center no-underline text-lg">
       Skip to lessons
@@ -124,46 +124,56 @@ layout: layouts/base
         )
       }}
 
-      <h2>Footnotes</h2>
-      <ol>
-        {# TODO: ADD SCROLL MARGIN TOP #}
-        <li id="footnote1" class="target:focused">
-          <a
-            href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
-          >The 2021 StackOverflow survey</a> places JavaScript as the most popular language for the 9th year.
-          <a href="#footnote1-ref">Back</a>.
-        </li>
-      </ol>
+      <section class="mb-12">
+        <h2>Footnotes</h2>
+        <ol id="footnoteList">
+          <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
+            See the <a
+              href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
+            >2021 StackOverflow Developer Survey</a>.
+            <a
+              href="#fn-jspop-ref"
+              aria-label="Return up"
+              title="Return up"
+              class="no-underline inline-block"
+            >
+              {{- icon('arrow-up-short', width=20, height=20, class="mb-1") -}}
+            </a>
+          </li>
+        </ol>
+      </section>
 
-      <h2>References for the course content</h2>
-      {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
-      <ul>
-        <li>
-          <a href="https://greenteapress.com/wp/think-python-2e/"><cite>Think Python</cite> by Allen Downey</a>.
-          The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
-          Yes, it inspired this course's title 🙂.
-        </li>
-        <li>
-          The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><cite>MDN Web Docs</cite></a>.
-          My primary reference for this course.
-          It's a great place to learn JavaScript and other things web-related.
-        </li>
-        <li>
-          <a href="https://eloquentjavascript.net/"><cite class="quoted">Eloquent JavaScript</cite></a>.
-          An introductory yet thorough book on programming in modern JavaScript.
-        </li>
-        <li>
-          <a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262).
-          The document that formally defines what the JavaScript language is.
-        </li>
-        <li>
-          The prerelease draft of the
-          <a href="https://justjavascript.com/"><cite>Just JavaScript</cite> course</a>.
-          The course focuses on building a good mental model of JavaScript.
-          It inspired the fifth episode of this thinkdev course,
-          <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title or "Bindings again" }}</a>.
-        </li>
-      </ul>
+      <section class="mb-12">
+        <h2>References for the course content</h2>
+        {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
+        <ul>
+          <li>
+            <a href="https://greenteapress.com/wp/think-python-2e/"><cite>Think Python</cite> by Allen Downey</a>.
+            The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
+            Yes, it inspired this course's title 🙂.
+          </li>
+          <li>
+            The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><cite>MDN Web Docs</cite></a>.
+            My primary reference for this course.
+            It's a great place to learn JavaScript and other things web-related.
+          </li>
+          <li>
+            <a href="https://eloquentjavascript.net/"><cite class="quoted">Eloquent JavaScript</cite></a>.
+            An introductory yet thorough book on programming in modern JavaScript.
+          </li>
+          <li>
+            <a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262).
+            The document that formally defines what the JavaScript language is.
+          </li>
+          <li>
+            The prerelease draft of the
+            <a href="https://justjavascript.com/"><cite>Just JavaScript</cite> course</a>.
+            The course focuses on building a good mental model of JavaScript.
+            It inspired the fifth episode of this thinkdev course,
+            <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title or "Bindings again" }}</a>.
+          </li>
+        </ul>
+      </section>
 
       <p>And just for fun 😃 ...</p>
       <p>
@@ -172,9 +182,6 @@ layout: layouts/base
         <a href="https://revealjs.com/">reveal.js</a> (for the slides),
         and hosted it on <a href="http://netlify.com/">Netlify</a>.
       </p>
-
     </footer>
   </main>
 </div>
-
-

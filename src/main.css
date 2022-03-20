@@ -23,7 +23,7 @@
   }
 
   :focus {
-    outline: 2px dashed;
+    @apply focused;
   }
 }
 
@@ -48,8 +48,7 @@
 
   .lessons-nav a::before {
     content: "";
-    a: theme("colors.green.300") @apply hidden h-2 w-2 rounded-full bg-current
-      absolute -left-1;
+    @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
   }
 
   .lessons-nav a[aria-current="page"] {
@@ -142,6 +141,22 @@
     @apply not-italic;
   }
 
+  :where(.home) footer h2 {
+    @apply text-lg font-semibold mb-6;
+  }
+
+  :where(.home) footer p {
+    @apply text-base mb-4;
+  }
+
+  :where(.home) footer :is(ul, ol) {
+    @apply pl-7;
+  }
+
+  :where(.home) footer li {
+    @apply text-base my-3 pl-1.5;
+  }
+
   :where(.home) .lead {
     @apply font-normal text-xl md:text-2xl;
   }
@@ -173,22 +188,6 @@
 
   :where(.home) .note > * {
     @apply first:mt-0 last:mb-0;
-  }
-
-  :where(.home) footer h2 {
-    @apply text-lg font-semibold mb-6;
-  }
-
-  :where(.home) footer p {
-    @apply text-base mb-4;
-  }
-
-  :where(.home) footer :is(ul, ol) {
-    @apply pl-7;
-  }
-
-  :where(.home) footer li {
-    @apply text-base my-3 pl-1.5;
   }
 
   /* This is intentionally beneath */
