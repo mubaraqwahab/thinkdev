@@ -142,7 +142,7 @@
   }
 
   :where(.home) footer h2 {
-    @apply text-lg font-semibold mb-6;
+    @apply text-lg font-sans font-semibold mb-6;
   }
 
   :where(.home) footer p {

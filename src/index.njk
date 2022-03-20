@@ -16,7 +16,7 @@ layout: layouts/base
 
 <div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
 <div class="home container shrink-0 grow">
-  <header class="pt-20 pb-28 border-b">
+  <header class="pt-20 pb-32 border-b">
     {{
       logotype(
         class="mb-3 -ml-1 h-6 w-auto md:h-7 md:mb-4 text-indigo-600 dark:text-indigo-300",
@@ -30,7 +30,7 @@ layout: layouts/base
         id="fn-jspop-ref"
         href="#fn-jspop"
         class="no-underline scroll-mt-2 px-0.5"
-      >1</a></sup></b>
+      ><span class="sr-only">Footnote </span>1</a></sup></b>
     </p>
     <a href="#lessons" class="inline-flex items-center no-underline text-lg">
       Skip to lessons
@@ -40,7 +40,7 @@ layout: layouts/base
 
   <main>
     <section class="py-24 border-b">
-      <h2>Go beyond the language basics.</h2>
+      <h2>Beyond the language basics</h2>
       <p>
         We'll learn the oft-taught things in programming &mdash; variables, functions, loops,
         and what have you &mdash; but we won't stop there.
@@ -57,7 +57,7 @@ layout: layouts/base
     </section>
 
     <section class="py-24 border-b">
-      <h2>What to expect</h2>
+      <h2>Here's what to expect</h2>
       <p>At the end of the course, you should be able to</p>
       <ul class="list-check list-disc marker:text-green-500 marker:dark:text-green-300 marker:text-[1.2em]">
         <li>write and read JavaScript code confidently</li>
@@ -66,6 +66,14 @@ layout: layouts/base
         <li>work with the command line</li>
         <li>use some common data structures and algorithms</li>
       </ul>
+    </section>
+
+    <section class="py-24 border-b">
+      <h2>Then there's what <em>not</em> to expect</h2>
+      <p>
+        We won't focus on features that are specific to JavaScript environments like the web.
+        Instead, we'll cover general topics that also apply to other programming languages.
+      </p>
     </section>
 
     <section class="py-24 border-b">
@@ -78,7 +86,7 @@ layout: layouts/base
         on this site and a PDF file that you can download.
       </p>
       <p>
-        Every Sunday, we'll meet on Zoom to review a lesson and do some Q&amp;A.
+        Every Sunday, we'll meet on Zoom to review a lesson and do a Q&amp;A.
         Make sure you study the material before the meeting so we can have a lively discussion 🙂.
       </p>
 
@@ -91,24 +99,8 @@ layout: layouts/base
       </div>
     </section>
 
-    {# TODO THIS PART #}
     <section class="py-24 border-b">
-      <h2>This isn't a <q>JavaScript course</q>.</h2>
-      <p>
-        We'll mostly avoid things peculiar to JavaScript and rather focus more on
-        the general programming topics that also apply to other languages.
-      </p>
-    </section>
-
-    <section class="py-24 border-b">
-      <h2>
-        But &mdash; <em>hey!</em> &mdash; we're using JavaScript,
-        so we'll still discuss its quirks 🙃.
-      </h2>
-    </section>
-
-    <section class="py-24 border-b">
-      <h2 id="lessons">The lessons so far</h2>
+      <h2 id="lessons">The lessons</h2>
       {#
         Tangent! Read this on aligning columns:
         https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
@@ -120,12 +112,13 @@ layout: layouts/base
           </li>
         {%- endfor %}
       </ol>
+      <p>I'll add a new lesson weekly.</p>
     </section>
 
-    <footer class="pt-14 pb-16">
+    <footer class="pt-24 pb-16">
       {{
         logotype(
-          class="h-auto w-3/5 mb-12 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-400",
+          class="h-auto w-3/5 mb-24 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-300",
           attrs={ariaLabel: "thinkdev logo"}
         )
       }}
@@ -171,13 +164,15 @@ layout: layouts/base
             <a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262).
             The document that formally defines what the JavaScript language is.
           </li>
+          {% if bindingsLesson %}
           <li>
             The prerelease draft of the
             <a href="https://justjavascript.com/"><cite>Just JavaScript</cite> course</a>.
             The course focuses on building a good mental model of JavaScript.
             It inspired the fifth episode of this thinkdev course,
-            <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title or "Bindings again" }}</a>.
+            <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title }}</a>.
           </li>
+          {% endif %}
         </ul>
       </section>
 
