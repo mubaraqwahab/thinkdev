@@ -1,31 +1,11 @@
 ---
 layout: layouts/base
+tags: lesson
 ---
 
-{% from "macros.njk" import icon, logotype, script %}
+{% from "macros.njk" import icon, script %}
 
-<div class="h-1 bg-indigo-600 dark:bg-indigo-400 sticky top-0 z-50"></div>
-<header class="sticky top-1 left-0 z-50 py-3 font-semibold text-sm bg-white dark:bg-gray-900 border-b">
-  <div class="container flex items-center justify-between">
-    <a class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:bg-white dark:focus:bg-gray-900" href="#main">Skip to content</a>
-    <a class="text-indigo-600 dark:text-indigo-300" href="{{ '/' | url }}">
-      {{ logotype(class="h-6 w-auto", attrs={ariaLabel: "thinkdev"}) }}
-    </a>
-
-    <div class="flex items-center">
-      <button
-        type="button"
-        aria-label="Toggle lesson navigation"
-        id="lessonsNavToggle"
-        aria-expanded="false"
-        aria-controls="lessonsNav"
-        class="inline-flex items-center hover:text-gray-900 hover:dark:text-gray-100 lg:hidden"
-      >
-        {{ icon('list', width=24, height=24) }}
-      </button>
-    </div>
-  </div>
-</header>
+{% include "header.njk" %}
 
 <div class="container pt-10 pb-12 lg:pt-12 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
   <nav
