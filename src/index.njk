@@ -109,14 +109,20 @@ layout: layouts/base
 
     <section class="py-24 border-b">
       <h2 id="lessons">The lessons so far</h2>
+      {#
+        Tangent! Read this on aligning columns:
+        https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
+      #}
       <ol>
         {% for lesson in collections.all | eleventyNavigation %}
-          <li><a href="{{ lesson.url | url }}">{{ lesson.title }}</a></li>
+          <li>
+            <a href="{{ lesson.url | url }}">{{ lesson.title }}</a>
+          </li>
         {%- endfor %}
       </ol>
     </section>
 
-    <footer class="py-16">
+    <footer class="pt-14 pb-16">
       {{
         logotype(
           class="h-auto w-3/5 mb-12 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-400",
@@ -177,10 +183,10 @@ layout: layouts/base
 
       <p>And just for fun 😃 ...</p>
       <p>
-        I built this site with <a href="https://www.11ty.dev/">Eleventy</a>,
-        <a href="https://tailwindcss.com/">Tailwind CSS</a>, and
-        <a href="https://revealjs.com/">reveal.js</a> (for the slides),
-        and hosted it on <a href="http://netlify.com/">Netlify</a>.
+        I built this site with <a href="https://www.11ty.dev/">Eleventy</a> and
+        <a href="https://tailwindcss.com/">Tailwind CSS</a>; used
+        <a href="https://revealjs.com/">reveal.js</a> for the slides;
+        and hosted everything on <a href="http://netlify.com/">Netlify</a>.
       </p>
     </footer>
   </main>
