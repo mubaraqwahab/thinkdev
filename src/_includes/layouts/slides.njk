@@ -26,8 +26,11 @@ tags: slides
         don't forget to put the key in eleventyComputed)
       #}
       <section {{ titleSlideAttrs | htmlattrs | safe }}>
-        {{ logotype(class="h-8 w-auto mx-auto mb-[var(--r-block-margin)]") }}
-        <h1 class="!text-[1em]">{{ title }}</h1>
+        <a class="flex items-center justify-center font-semibold font-mono mb-2" href="{{ '/' | url }}">
+          {{ logotype(class="h-10 w-auto mb-0.5 mr-3") }}
+          #{{ order + 1 }}
+        </a>
+        <h1>{{ title }}</h1>
       </section>
       {{ content | safe }}
       <section>

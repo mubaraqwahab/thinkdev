@@ -22,7 +22,7 @@ section.has-light-background h6 {
   --r-main-color: theme("colors.gray.300");
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: theme("fontFamily.sans");
+  --r-heading-font: theme("fontFamily.display");
   --r-heading-color: theme("colors.white");
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: -0.03em;

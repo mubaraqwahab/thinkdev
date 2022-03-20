@@ -64,15 +64,19 @@ module.exports = {
       content: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
       theme: {
         extend: {
-          sans: ["'Red Hat Text'", ...fontFamily.sans],
-          mono: ["'Red Hat Mono'", ...fontFamily.mono],
-          display: ["'Red Hat Display'", "'Red Hat Text'", ...fontFamily.sans],
+          fontFamily: {
+            sans: ["'Red Hat Text'", ...fontFamily.sans],
+            mono: ["'Red Hat Mono'", ...fontFamily.mono],
+            display: [
+              "'Red Hat Display'",
+              "'Red Hat Text'",
+              ...fontFamily.sans,
+            ],
+          },
         },
       },
       plugins: [],
     })
-
-    console.log("TODO: THIS AIN'T WORKING")
 
     return postcss([
       preset === "slides" ? tailwindcss(slidesTailwindConfig) : tailwindcss,
