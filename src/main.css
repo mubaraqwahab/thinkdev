@@ -164,8 +164,8 @@
   }
 
   :where(.home) footer a {
-    @apply text-gray-700;
-    @apply dark:text-gray-300;
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
   }
 
   :where(.home) .lead {
