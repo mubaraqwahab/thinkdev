@@ -115,14 +115,16 @@ layout: layouts/base
       <p>I'll add a new lesson weekly.</p>
     </section>
 
-    <footer class="pt-24 pb-16">
+    <div class="py-24 border-b">
       {{
         logotype(
-          class="h-auto w-3/5 mb-24 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-300",
+          class="h-auto w-3/5 mb-2 -ml-1.5 md:-ml-2 text-indigo-600 dark:text-indigo-300",
           attrs={ariaLabel: "thinkdev logo"}
         )
       }}
+    </div>
 
+    <footer class="py-16">
       <section class="mb-12">
         <h2>Footnotes</h2>
         <ol id="footnoteList">
