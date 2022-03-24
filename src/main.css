@@ -164,7 +164,7 @@
   }
 
   :where(.home) footer a {
-    @apply text-gray-600;
+    @apply text-gray-600 font-normal;
     @apply dark:text-gray-400;
   }
 
