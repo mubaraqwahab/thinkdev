@@ -41,6 +41,31 @@
     @apply underline;
   }
 
+  .note {
+    border-left-style: dashed;
+    @apply border border-l-[5px] rounded-md py-2 px-5 my-5;
+    @apply last:mb-0;
+  }
+
+  .note > * {
+    @apply first:mt-0 last:mb-0;
+  }
+
+  .note-info {
+    @apply border-blue-500;
+    @apply dark:border-blue-400;
+  }
+
+  .note-success {
+    @apply border-green-500;
+    @apply dark:border-green-400;
+  }
+
+  .note-danger {
+    @apply border-red-500;
+    @apply dark:border-red-400;
+  }
+
   .lessons-nav a {
     @apply relative overflow-visible;
     @apply hover:before:inline-block;
@@ -183,22 +208,11 @@
   }
 
   :where(.home) .note {
-    border-left-style: dashed;
-    @apply border border-l-[6px] rounded-lg py-4 px-6 mb-10;
-    @apply last:mb-0;
+    @apply border-l-[6px] rounded-lg py-4 px-6 mt-0 mb-10;
   }
 
   :where(.home) p + .note {
     @apply mt-10;
-  }
-
-  :where(.home) .note-info {
-    @apply border-blue-500;
-    @apply dark:border-blue-400;
-  }
-
-  :where(.home) .note > * {
-    @apply first:mt-0 last:mb-0;
   }
 
   /* This is intentionally beneath */
