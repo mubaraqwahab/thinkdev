@@ -116,30 +116,12 @@ module.exports = {
               fontWeight: theme("fontWeight.semibold"),
             },
             // Style like strong
-            "b:not(.lead)": {
+            "b:not([class~='lead'])": {
               fontWeight: theme("fontWeight.semibold"),
               color: "var(--tw-prose-bold)",
             },
-
             '[class~="lead"]': {
               fontWeight: 'theme("fontWeight.normal")',
-            },
-            // '[class~="note"]': {
-            //   borderWidth: "1px",
-            //   borderLeftWidth: "5px",
-            //   borderLeftStyle: "dashed",
-            //   borderRadius: theme("borderRadius.md"),
-            //   padding: `${theme("spacing.2")} ${theme("spacing.5")}`,
-            //   margin: `${theme("spacing.5")} 0`,
-            //   "& :first-child": {
-            //     marginTop: 0,
-            //   },
-            //   "& :last-child": {
-            //     marginBottom: 0,
-            //   },
-            // },
-            '[class~="note-info"]': {
-              borderColor: theme("colors.blue.400"),
             },
           },
         },
@@ -150,9 +132,6 @@ module.exports = {
         },
         invert: {
           css: {
-            '[class~="note-info"]': {
-              borderColor: theme("colors.blue.500"),
-            },
             kbd: {
               borderColor: theme("colors.gray.700"),
             },
