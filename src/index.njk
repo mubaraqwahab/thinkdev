@@ -4,18 +4,8 @@ layout: layouts/base
 
 {% from "macros.njk" import logotype, icon %}
 
-<style>
-  /*
-    Resize all .containers, including the footer.container
-    which is in the inherited base layout.
-  */
-  .container {
-    max-width: calc(640px + 2rem);
-  }
-</style>
-
 <div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
-<div class="home container shrink-0 grow">
+<div class="home container max-w-[calc(640px+2rem)] shrink-0 grow">
   <header class="pt-20 pb-32 border-b">
     {{
       logotype(
