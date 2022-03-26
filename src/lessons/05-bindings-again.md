@@ -4,9 +4,7 @@ excerpt: >
   We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Video") }}
+## Video
 
 ### Lesson session
 
@@ -16,11 +14,11 @@ TODO
 
 TODO
 
-## {{ iconed("Exercise") }}
+## Exercise
 
 TODO
 
-## {{ iconed("Extras") }}
+## Extras
 
 ### One declaration, many variables
 
