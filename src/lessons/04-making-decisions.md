@@ -58,15 +58,16 @@ TODO
 
     The following table lists some languages and their codes.
 
-    Language | Code
-    -- | --
-    Arabic | ar
-    English | en
-    French | fr
-    Hausa | ha
-    Igbo | ig
-    Turkish | tr
-    Yoruba | yo
+    | Language | Code |
+    | --- | --- |
+    | Arabic | ar |
+    | English | en |
+    | French | fr |
+    | Hausa | ha |
+    | Igbo | ig |
+    | Turkish | tr |
+    | Yoruba | yo |
+    {.w-auto}
 
     Use what we learnt to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
