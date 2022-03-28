@@ -99,9 +99,7 @@
     }
 
     .youtube-player {
-      /* Undo absolute */
-      @apply static;
-      @apply w-full h-auto aspect-video;
+      @apply static h-auto aspect-video rounded-md;
     }
   }
 
