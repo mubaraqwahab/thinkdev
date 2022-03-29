@@ -26,23 +26,17 @@ tags: slides
         don't forget to put the key in eleventyComputed)
       #}
       <section {{ titleSlideAttrs | htmlattrs | safe }}>
-        <p
+        <a
           class="
             inline-flex items-center justify-center mb-2 mx-auto
-            font-semibold font-mono
+            font-semibold font-mono !text-[color:var(--r-main-color)]
+            hover:!text-[color:var(--r-link-color-hover)]
           "
+          href="{{ '/' | url }}"
         >
-          <a
-            class="
-              inline-flex items-center !text-[color:var(--r-main-color)]
-              hover:!text-[color:var(--r-link-color-hover)]
-            "
-            href="{{ '/' | url }}"
-          >
-            {{ logotype(class="h-10 w-auto mb-0.5 mr-3") }}
-          </a>
+          {{ logotype(class="h-10 w-auto mb-0.5 mr-3") }}
           #{{ order + 1 }}
-        </p>
+        </a>
         <h1>{{ title }}</h1>
       </section>
       {{ content | safe }}
@@ -71,25 +65,5 @@ tags: slides
       document.title = "{{ page.fileSlug }}"
     }
   </script>
-
-{# What I have below here is indeed a hack but I'll keep it until I find an elegant alternative. #}
-{% if site.environment != "production" %}
-  <script>
-    // Rewrite all local anchor URLs when printing from dev mode.
-    if (window.location.search.includes('print-pdf')) {
-      const localAnchors = document.querySelectorAll('a[href^="/"]')
-
-      localAnchors.forEach(anchor => {
-        const url = new URL(anchor.href)
-        // Point the href to the prod site
-        url.protocol = "https:"
-        url.hostname = "thinkdev.netlify.app"
-        url.port = ""
-        anchor.href = url.href
-      })
-    }
-  </script>
-{% endif %}
-
 </body>
 </html>

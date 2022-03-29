@@ -1,7 +1,7 @@
 ---
 title: Making decisions
 excerpt: >
-  Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn some JavaScript constructs that we can use to make such decisions.
+  You'll notice that software behaves differently depending on the situation. A premium user of an app, for example, may have access to features that a regular user does not. In this episode, we'll discover how to decide the behaviour of our code in specific conditions.
 ---
 
 ## Videos
@@ -58,17 +58,16 @@ TODO
 
     The following table lists some languages and their codes.
 
-    | Language | Code |
-    | --- | --- |
-    | Arabic | ar |
-    | English | en |
-    | French | fr |
-    | Hausa | ha |
-    | Igbo | ig |
-    | Turkish | tr |
-    | Yoruba | yo |
-
-    {.w-auto}
+    Language | Code
+    -- | --
+    Arabic | ar
+    English | en
+    French | fr
+    Hausa | ha
+    Igbo | ig
+    Turkish | tr
+    Yoruba | yo
+    {.!w-auto}
 
     Use what we learnt to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
