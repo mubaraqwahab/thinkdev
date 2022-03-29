@@ -1,7 +1,8 @@
 module.exports = {
   title: "Think Like a Developer",
   shortTitle: "thinkdev",
-  description: "An introductory course to programming concepts, in JavaScript.",
+  description:
+    "Let's relearn the basics of programming with the world's most popular language, JavaScript.",
   author: {
     name: "Mubaraq Wahab",
     url: "https://github.com/mubaraqwahab",

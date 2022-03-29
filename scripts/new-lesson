@@ -6,7 +6,7 @@
  * @file
  * Use this script to generate a new lesson page and it's slides page.
  * Run with no args or with `--help` (or `-h`) flag to see usage message.
- * You can also @see showHelpMessage below.
+ * You can also @see {showHelpMessage} below.
  *
  * This file needs execute permission (e.g. by doing `chmod u+x <this file>`)
  * if you want to run it without the `node ` prefix.

@@ -41,6 +41,31 @@
     @apply underline;
   }
 
+  .note {
+    border-left-style: dashed;
+    @apply border border-l-[5px] rounded-md py-2 px-5 my-5;
+    @apply last:mb-0;
+  }
+
+  .note > * {
+    @apply first:mt-0 last:mb-0;
+  }
+
+  .note-info {
+    @apply border-blue-500;
+    @apply dark:border-blue-400;
+  }
+
+  .note-success {
+    @apply border-green-500;
+    @apply dark:border-green-400;
+  }
+
+  .note-danger {
+    @apply border-red-500;
+    @apply dark:border-red-400;
+  }
+
   .lessons-nav a {
     @apply relative overflow-visible;
     @apply hover:before:inline-block;
@@ -74,125 +99,132 @@
     }
 
     .youtube-player {
-      /* Undo absolute */
-      @apply static;
-      @apply w-full h-auto aspect-video;
+      @apply static h-auto aspect-video rounded-md;
     }
   }
 
-  /* Stuff for just the home page */
+  /* STUFF FOR JUST THE HOME PAGE */
 
-  :where(.home) :is(h1, h2, h3) {
+  .home :where(h1, h2, h3) {
     @apply font-black font-display text-gray-900;
     @apply dark:text-gray-100;
   }
+  /*
+    This intentionally has higher specificity (that is, no :where) because
+    the .text-<size> classes used in other rules have their own leadings,
+    which I don't like except in the headings.
+  */
+  .home :not(h1, h2, h3) {
+    @apply leading-relaxed;
+  }
 
-  :where(.home) h1 {
-    @apply text-4xl  mb-8;
+  .home :where(h1) {
+    @apply text-4xl mb-8;
     @apply md:text-5xl;
   }
 
-  :where(.home) h2 {
+  .home :where(h2) {
     @apply text-3xl md:text-4xl mb-8 scroll-mt-20;
   }
 
-  :where(.home) p {
+  .home :where(p) {
     @apply text-lg mb-6;
     @apply md:text-xl;
-    @apply last:mb-0;
   }
 
-  :where(.home) :is(ul, ol) {
+  .home :where(ul, ol) {
     @apply pl-8 mb-6;
-    @apply last:mb-0;
   }
 
-  :where(.home) ul {
+  .home :where(p, ul, ol):where(:last-child) {
+    @apply mb-0;
+  }
+
+  .home :where(ul) {
     @apply list-disc;
   }
 
-  :where(.home) ol {
+  .home :where(ol) {
     @apply list-decimal;
   }
 
-  :where(.home) li {
+  .home :where(li) {
     @apply text-lg mb-3 pl-2;
     @apply md:text-xl;
+    /*
+      The pseudo-element is more specific (i.e. :where(li)::marker)
+      but that's how tailwind typography does it too :)
+    */
     @apply marker:text-gray-600 marker:dark:text-gray-400;
   }
 
-  :where(.home) a {
-    @apply underline font-semibold text-indigo-600;
+  .home :where(a) {
+    @apply underline font-medium text-indigo-600;
     @apply dark:text-indigo-300;
   }
 
-  :where(.home) :is(b, strong) {
+  .home :where(b, strong) {
     @apply font-bold;
   }
 
-  :where(.home) kbd {
+  .home :where(kbd) {
     @apply inline-block border rounded py-px px-1;
     @apply font-semibold leading-tight text-base text-gray-900;
     @apply md:text-lg;
     @apply dark:text-gray-100;
   }
 
-  :where(.home) cite {
+  .home :where(cite) {
     @apply not-italic;
   }
 
-  :where(.home) footer h2 {
-    @apply text-lg font-sans font-semibold mb-6;
+  .home :where(footer) {
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
   }
 
-  :where(.home) footer p {
+  .home :where(footer h2) {
+    @apply text-lg font-sans font-semibold mb-6 text-gray-600;
+    @apply dark:text-gray-400;
+  }
+
+  .home :where(footer p) {
     @apply text-base mb-4;
   }
 
-  :where(.home) footer :is(ul, ol) {
+  .home :where(footer ul, footer ol) {
     @apply pl-7;
   }
 
-  :where(.home) footer li {
+  .home :where(footer li) {
     @apply text-base mb-3 pl-1.5;
   }
 
-  :where(.home) .lead {
+  .home :where(footer a) {
+    @apply text-gray-600 font-normal;
+    @apply dark:text-gray-400;
+  }
+
+  .home :where(.lead) {
     @apply font-normal text-xl md:text-2xl;
   }
 
-  :where(.home) .list-check {
+  .home :where(.list-check) {
     list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2322c55e' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
   }
 
   @media (prefers-color-scheme: dark) {
-    :where(.home) .list-check {
-      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2386efac' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+    .home :where(.list-check) {
+      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234ade80' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
     }
   }
 
-  :where(.home) .note {
-    border-left-style: dashed;
-    @apply border border-l-[6px] rounded-lg py-4 px-6 mb-10;
-    @apply last:mb-0;
+  .home :where(.note) {
+    @apply border-l-[6px] rounded-lg py-4 px-6 mt-0 mb-10;
   }
 
-  :where(.home) p + .note {
+  .home :where(p + .note) {
     @apply mt-10;
-  }
-
-  :where(.home) .note-info {
-    @apply border-blue-400;
-    @apply dark:border-blue-500;
-  }
-
-  :where(.home) .note > * {
-    @apply first:mt-0 last:mb-0;
-  }
-
-  /* This is intentionally beneath */
-  :where(.home) :is(p, li, .lead) {
-    @apply leading-relaxed;
   }
 }
 

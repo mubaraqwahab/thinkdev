@@ -15,12 +15,6 @@
   </svg>
 {%- endmacro %}
 
-{# TODO: remove this when you work on slides #}
-{% macro logo(class="", width=24, height=24, fill="none", ariaHidden=true, attrs={}) -%}
-  {% set mergedAttrs = {width: width, height: height, fill: fill, ariaHidden: ariaHidden} %}
-  {{ logomark(class=class, attrs=mergedAttrs) }}
-{%- endmacro %}
-
 {% macro logomark(class="", attrs={}) -%}
   <svg
     xmlns="http://www.w3.org/2000/svg"
