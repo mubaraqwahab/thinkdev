@@ -61,3 +61,5 @@ Run each script with `npm run script-name`.
 * If you're using one of those fragment effects (e.g. `fade-up`) on a `<span>` or a similar element, add `.inline-block` to the element &mdash; the effect might not work without it.
 
 * Always space out em dashes. That is, write "Hey &mdash; there" not "Hey&mdash;there". Most style guides and literary works I've seen **don't** space them out, though some do. I'm choosing to go against this "norm" because the em dash in the Red Hat font (the website font) is short like an en dash and it's weird seeing an en dash not spaced out.
+
+* Don't commit frequently to the main branch. Use pull requests to apply commits in batches instead. You don't want the service worker cache to be invalidated so often.
