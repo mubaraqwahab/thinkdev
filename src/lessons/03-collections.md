@@ -78,7 +78,7 @@ cover them during the meetings. Nonetheless, you should know that they exist.
 
 ### `typeof` quirks
 
-We've seen one supposedly odd behaviour of `typeof` &mdash; it
+We've seen one supposedly odd behaviour of `typeof`&mdash;it
 tells us that an array is an object. There's yet another strange behaviour.
 If you run `typeof null`, you'll get <samp>"object"</samp>.
 However, `null` is not an object. [The reason for this is historical](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null)

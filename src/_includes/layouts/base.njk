@@ -35,5 +35,20 @@
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">
     {{ content | safe }}
+    <footer class="text-sm text-gray-600 dark:text-gray-400">
+      <div class="container">
+        <div class="border-t py-7">
+          <p class="mb-2 sm:inline sm:pr-3 sm:border-r">
+            Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
+          </p>
+          <p class="mb-2 sm:inline sm:px-3 sm:border-r">
+            <a class="footer-link" href="{{ site.repoUrl }}/edit/main/{{ page.inputPath }}">Edit this page</a>
+          </p>
+          <p class="mb-2 sm:inline sm:pl-3">
+            <a class="footer-link" href="{{ site.repoUrl }}">View the source</a>
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
