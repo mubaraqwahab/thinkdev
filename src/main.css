@@ -179,25 +179,29 @@
   }
 
   .home :where(footer) {
-    @apply text-gray-600;
+    @apply text-gray-600 leading-normal;
     @apply dark:text-gray-400;
   }
 
+  .home :not(footer h2) {
+    @apply leading-normal;
+  }
+
   .home :where(footer h2) {
-    @apply text-lg font-sans font-semibold mb-6 text-gray-600;
+    @apply text-base mb-3 font-sans font-semibold text-gray-600;
     @apply dark:text-gray-400;
   }
 
   .home :where(footer p) {
-    @apply text-base mb-4;
+    @apply text-base mb-3;
   }
 
   .home :where(footer ul, footer ol) {
-    @apply pl-7;
+    @apply pl-5;
   }
 
   .home :where(footer li) {
-    @apply text-base mb-3 pl-1.5;
+    @apply text-base mb-2 pl-0.5;
   }
 
   .home :where(footer a) {

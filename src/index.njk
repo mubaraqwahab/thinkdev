@@ -77,14 +77,6 @@ layout: layouts/base
         Every Sunday, we'll meet on Zoom to review a lesson and do a Q&amp;A.
         Make sure you study the material before the meeting so we can have a lively discussion 🙂.
       </p>
-
-      <div class="note note-info">
-        <p>
-          <strong>Tip:</strong>
-          Press the question mark key (<kbd>?</kbd>) when viewing
-          the interactive slides to see a list of keyboard shortcuts.
-        </p>
-      </div>
     </section>
 
     <section class="py-24 border-b">
@@ -104,15 +96,15 @@ layout: layouts/base
     </section>
   </main>
 
-  <footer class="pt-24 pb-16">
+  <footer class="pt-24 pb-8">
     {{
       logotype(
-        class="h-auto w-4/5 mb-16 -ml-1.5 md:w-3/5 md:-ml-2 text-gray-600 dark:text-gray-400",
+        class="h-auto w-4/5 mb-16 -ml-1.5 md:w-1/3 md:-ml-2 text-gray-600 dark:text-gray-400",
         attrs={ariaLabel: "thinkdev logo"}
       )
     }}
 
-    <section class="mb-16">
+    <section class="mb-8">
       <h2>Footnotes</h2>
       <ol id="footnoteList">
         <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
@@ -136,7 +128,7 @@ layout: layouts/base
       {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
       <ul>
         <li>
-          <a href="https://greenteapress.com/wp/think-python-2e/"><cite>Think Python</cite> by Allen Downey</a>.
+          <a href="https://greenteapress.com/wp/think-python-2e/"><cite><i>Think Python</i></cite> by Allen Downey</a>.
           The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
           Yes, it inspired this course's title 🙂.
         </li>
@@ -146,7 +138,7 @@ layout: layouts/base
           It's a great place to learn JavaScript and other things web-related.
         </li>
         <li>
-          <a href="https://eloquentjavascript.net/"><cite class="quoted">Eloquent JavaScript</cite></a>.
+          <a href="https://eloquentjavascript.net/"><cite><i>Eloquent JavaScript</i></cite></a>.
           An introductory yet thorough book on programming in modern JavaScript.
         </li>
         <li>
@@ -166,13 +158,13 @@ layout: layouts/base
     </section>
 
     <div>
-      <p class="mb-2 sm:inline sm:pr-3 sm:border-r">
+      <p class="sm:inline sm:pr-3 sm:border-r">
         Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
       </p>
-      <p class="mb-2 sm:inline sm:px-3 sm:border-r">
+      <p class="sm:inline sm:px-3 sm:border-r">
         <a class="footer-link" href="{{ site.repoUrl }}/edit/main/{{ page.inputPath }}">Edit this page</a>
       </p>
-      <p class="mb-2 sm:inline sm:pl-3">
+      <p class="sm:inline sm:pl-3">
         <a class="footer-link" href="{{ site.repoUrl }}">View the source</a>
       </p>
     </div>

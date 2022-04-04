@@ -6,6 +6,12 @@ excerpt: >
   and the software you'll need to get started.
 ---
 
+<div class="note note-info">
+
+**Tip:** Press the question mark key (<kbd>?</kbd>) when playing the slides to see a list of keyboard shortcuts.
+
+</div>
+
 ## Video
 
 <div class="note note-info">
@@ -15,7 +21,7 @@ For this first lesson, however, I forgot to record the meeting when it held, so 
 
 </div>
 
-TODO
+TODO. (Consider putting the video above the note.)
 
 ## Exercise
 
