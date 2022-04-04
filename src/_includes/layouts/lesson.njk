@@ -43,15 +43,15 @@ tags: lesson
       <header>
         <h1>{{ title }}</h1>
         <p><b class="lead">{{ excerpt | safe }}</b></p>
-        {% if collections.slides | find("data.order", eleventyNavigation.order) %}
+        {% if collections.deck | find("data.order", eleventyNavigation.order) %}
           <p>
-            <a class="mr-1.5 inline-flex items-center" href="{{ '/slides/' ~ page.fileSlug | url }}">Slides
+            <a class="mr-1.5 inline-flex items-center" href="{{ '/decks/' ~ page.fileSlug | url }}">Slides
               {{- icon('play-circle', class='ml-1.5') -}}
             </a>
             <span class="mr-1.5">&middot;</span>
             <a
               class="inline-flex items-center"
-              href="{{ '/slides/' ~ page.fileSlug ~ '.pdf' | url }}"
+              href="{{ '/decks/' ~ page.fileSlug ~ '.pdf' | url }}"
               download="{{ page.fileSlug ~ '.pdf' }}"
               title="Download slides as PDF"
               aria-label="Download slides as PDF"

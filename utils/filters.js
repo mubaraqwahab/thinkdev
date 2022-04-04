@@ -51,17 +51,17 @@ module.exports = {
    * Process a CSS string with Post CSS
    *
    * @param {string} css
-   * @param {"default"|"slides"} preset
-   *  This option specifies whether to process `css` using the
-   *  (custom) default config for CSS, or using the config specific
-   *  to CSS for the slides. If this is omitted, the default config is used.
+   * @param {"default"|"deck"} preset
+   *  This option specifies whether to process `css` using
+   *  the (custom) default config for CSS, or using the config
+   *  specific to CSS for the slide decks.
+   *  If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
     const { fontFamily } = require("tailwindcss/defaultTheme")
 
-    // @ts-ignore
-    const slidesTailwindConfig = resolveTailwindConfig({
-      content: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
+    const deckTailwindConfig = resolveTailwindConfig({
+      content: ["src/_includes/layouts/deck.njk", "src/decks/**/*.md"],
       theme: {
         extend: {
           fontFamily: {
@@ -79,7 +79,7 @@ module.exports = {
     })
 
     return postcss([
-      preset === "slides" ? tailwindcss(slidesTailwindConfig) : tailwindcss,
+      preset === "deck" ? tailwindcss(deckTailwindConfig) : tailwindcss,
       autoprefixer,
     ]).process(css).css
   },

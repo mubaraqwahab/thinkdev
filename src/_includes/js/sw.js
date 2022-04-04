@@ -45,11 +45,11 @@ self.addEventListener("fetch", (event) => {
     (async () => {
       const cache = await caches.open(CACHE_NAME)
 
-      // Use the network-first strategy for webpages except slides
-      // The slides rarely change so they will be served offline-first instead.
+      // Use the network-first strategy for webpages except decks
+      // The decks rarely change so they will be served offline-first instead.
       if (
         event.request.mode === "navigate" &&
-        !event.request.url.includes("/slides/")
+        !event.request.url.includes("/decks/")
       ) {
         try {
           return await fetchResource(event.request)
@@ -63,7 +63,7 @@ self.addEventListener("fetch", (event) => {
         }
       }
 
-      // Use the offline-first strategy for slides and other resources
+      // Use the offline-first strategy for decks and other resources
       else {
         // Returned the cached resource, if any
         const cachedResource = await cache.match(event.request)
@@ -72,7 +72,7 @@ self.addEventListener("fetch", (event) => {
         try {
           return await fetchResource(event.request)
         } catch (e) {
-          // For slides only
+          // For decks only
           if (event.request.mode === "navigate") {
             return await cache.match(OFFLINE_PAGE)
           }

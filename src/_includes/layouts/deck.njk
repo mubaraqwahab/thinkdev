@@ -1,5 +1,5 @@
 ---
-tags: slides
+tags: deck
 ---
 
 {% from "macros.njk" import logotype %}
@@ -11,8 +11,8 @@ tags: slides
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slides: {{ title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
-  {% set css %}{% include "css/slides.css" %}{% endset %}
-  <style>{{ css | postcss('slides') | safe }}</style>
+  {% set css %}{% include "css/deck.css" %}{% endset %}
+  <style>{{ css | postcss('deck') | safe }}</style>
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
   {% include "meta.njk" %}
 </head>

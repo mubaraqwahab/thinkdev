@@ -59,7 +59,7 @@ module.exports = function (eleventyConfig) {
 
   // Keep directory structure for these
   eleventyConfig.addPassthroughCopy("src/assets/images/")
-  eleventyConfig.addPassthroughCopy("src/slides/*.pdf")
+  eleventyConfig.addPassthroughCopy("src/decks/*.pdf")
   eleventyConfig.addPassthroughCopy("src/favicon.*")
   eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")

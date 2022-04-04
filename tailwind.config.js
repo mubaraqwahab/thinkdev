@@ -18,8 +18,8 @@ module.exports = {
     "src/**/*.md",
     "src/**/*.js",
     "utils/markdown-it.js",
-    "!src/_includes/layouts/slides.njk",
-    "!src/slides/**/*.md",
+    "!src/_includes/layouts/deck.njk",
+    "!src/decks/**/*.md",
   ],
   theme: {
     extend: {

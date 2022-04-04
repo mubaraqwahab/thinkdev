@@ -8,7 +8,7 @@ Source code for the [_Think Like a Developer_ course website](https://thinkdev.n
 
 - [Eleventy](https://www.11ty.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [reveal.js](https://revealjs.com/) for the slides
+- [reveal.js](https://revealjs.com/) for the slide decks
 
 ## npm scripts
 
