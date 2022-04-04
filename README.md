@@ -63,3 +63,5 @@ Run each script with `npm run script-name`.
 * Always space out em dashes. That is, write "Hey &mdash; there" not "Hey&mdash;there". Most style guides and literary works I've seen **don't** space them out, though some do. I'm choosing to go against this "norm" because the em dash in the Red Hat font (the website font) is short like an en dash and it's weird seeing an en dash not spaced out.
 
 * Don't commit frequently to the main branch. Use pull requests to apply commits in batches instead. You don't want the service worker cache to be invalidated so often.
+
+* Prefer the term "deck" or "slide deck" over "presentation" or "slides" when describing a unit (group, file) of slides.
