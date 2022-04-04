@@ -1,3 +1,5 @@
+{% from "macros.njk" import script %}
+
 <!DOCTYPE html>
 <html lang="en" class="motion-safe:scroll-smooth">
   <head>
@@ -35,5 +37,8 @@
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">
     {{ content | safe }}
+    {% if r/<pre><code /.test(content) %}
+      {{ script('copy-code.js') }}
+    {% endif %}
   </body>
 </html>

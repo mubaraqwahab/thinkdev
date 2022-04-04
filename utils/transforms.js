@@ -49,6 +49,7 @@ module.exports = {
 
     autolinkLessonHeadings(window, outputPath)
     syntaxHighlight(window)
+    insertCopyCodeButtons(window)
 
     return dom.serialize()
   },
@@ -89,5 +90,28 @@ function autolinkLessonHeadings({ document }, outputPath) {
 function syntaxHighlight({ document }) {
   document.querySelectorAll("pre code").forEach((code) => {
     hljs.highlightElement(code)
+  })
+}
+
+/**
+ * @type {JSDOMSubTransform}
+ */
+function insertCopyCodeButtons({ document }) {
+  // TODO: review!
+  document.querySelectorAll("pre code").forEach((code) => {
+    const wrapper = document.createElement("div")
+    wrapper.className = "code-wrapper"
+
+    const pre = code.parentElement
+
+    const copyButton = document.createElement("button")
+    copyButton.type = "button"
+    copyButton.classList.add("copy-code-button", "hidden")
+    copyButton.innerHTML = "Copy"
+
+    wrapper.appendChild(pre.cloneNode(true))
+    wrapper.appendChild(copyButton)
+
+    pre.parentElement.replaceChild(wrapper, pre)
   })
 }

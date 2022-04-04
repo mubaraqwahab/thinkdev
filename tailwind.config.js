@@ -17,7 +17,7 @@ module.exports = {
     "src/**/*.njk",
     "src/**/*.md",
     "src/**/*.js",
-    "utils/markdown-it.js",
+    "utils/**/*.js",
     "!src/_includes/layouts/deck.njk",
     "!src/decks/**/*.md",
   ],
