@@ -97,21 +97,25 @@ function syntaxHighlight({ document }) {
  * @type {JSDOMSubTransform}
  */
 function insertCopyCodeButtons({ document }) {
-  // TODO: review!
   document.querySelectorAll("pre code").forEach((code) => {
-    const wrapper = document.createElement("div")
-    wrapper.className = "code-wrapper"
-
     const pre = code.parentElement
+    // Make pre focusable (see #101)
+    pre.tabIndex = -1
 
     const copyButton = document.createElement("button")
     copyButton.type = "button"
+    // .hidden as a fallback if browser doesn't support Clipboard API.
+    // The class will be removed client-side if the browser supports the API.
     copyButton.classList.add("copy-code-button", "hidden")
-    copyButton.innerHTML = "Copy"
+    copyButton.textContent = "Copy"
+
+    const wrapper = document.createElement("div")
+    wrapper.className = "copy-code-wrapper"
 
     wrapper.appendChild(pre.cloneNode(true))
     wrapper.appendChild(copyButton)
 
+    // Replace the pre with the new wrapper
     pre.parentElement.replaceChild(wrapper, pre)
   })
 }

@@ -22,7 +22,7 @@
     @apply underline-offset-[0.05em];
   }
 
-  :focus {
+  :not(pre[tabindex="-1"]):focus {
     @apply focused;
   }
 }
@@ -103,15 +103,46 @@
     }
   }
 
-  .code-wrapper {
+  /* See #101 */
+  .copy-code-wrapper {
     @apply relative;
+    --copy-code-button-opacity: 0;
+    --copy-code-button-pointer-events: none;
+  }
+
+  /* Only on hover-capable devices (e.g. desktops) */
+  @media (hover: hover) {
+    .copy-code-wrapper:hover {
+      --copy-code-button-opacity: 1;
+      --copy-code-button-pointer-events: auto;
+    }
+  }
+
+  /* Only on hover-incapable devices (e.g. phones) */
+  @media not all and (hover: hover) {
+    .copy-code-wrapper:focus-within {
+      --copy-code-button-opacity: 1;
+      --copy-code-button-pointer-events: auto;
+    }
   }
 
   .copy-code-button {
-    @apply absolute top-2 right-2 border rounded text-xs px-2 py-1;
+    @apply absolute top-1.5 right-1.5 border rounded text-xs font-medium px-2 py-1;
     @apply text-gray-600 dark:text-gray-400;
-    @apply hover:text-gray-800 dark:hover:text-gray-300;
+    @apply border-gray-300 dark:border-gray-600;
+    @apply hover:text-gray-800 dark:hover:text-gray-200;
     @apply hover:border-gray-400 dark:hover:border-gray-500;
+    /* Undo the hover styles when disabled */
+    @apply disabled:hover:text-gray-600 disabled:dark:hover:text-gray-200;
+    @apply disabled:hover:border-gray-300 disabled:dark:hover:border-gray-600;
+    background-color: var(--tw-prose-pre-bg);
+    opacity: var(--copy-code-button-opacity);
+    pointer-events: var(--copy-code-button-pointer-events);
+  }
+
+  .copy-code-button:focus {
+    --copy-code-button-opacity: 1;
+    --copy-code-button-pointer-events: auto;
   }
 
   /* STUFF FOR JUST THE HOME PAGE */

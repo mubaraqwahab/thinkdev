@@ -1,9 +1,15 @@
 // @ts-check
-// TODO: review and complete (accessibility, styling, ux, ...)
-document.querySelectorAll(".copy-code-button").forEach((copyButton) => {
+
+const copyCodeButtons =
+  /** @type {NodeListOf<HTMLButtonElement>} */
+  (document.querySelectorAll(".copy-code-button"))
+
+copyCodeButtons.forEach((copyButton) => {
   if (!navigator?.clipboard?.writeText) return
 
+  // Browser supports Clipboard API; remove fallback .hidden class
   copyButton.classList.remove("hidden")
+
   copyButton.addEventListener("click", copyHandler)
 
   async function copyHandler() {
@@ -11,13 +17,15 @@ document.querySelectorAll(".copy-code-button").forEach((copyButton) => {
     const code = codeEl.textContent
 
     await navigator.clipboard.writeText(code)
-    copyButton.innerHTML = "Copied!"
-    console.log(`Copied code to clipboard: ${code}`)
-    copyButton.removeEventListener("click", copyHandler)
 
+    copyButton.textContent = "Copied!"
+    // Disable the copy button once copied
+    copyButton.disabled = true
+
+    // Reset the button state after a timeout
     setTimeout(() => {
-      copyButton.innerHTML = "Copy"
-      copyButton.addEventListener("click", copyHandler)
+      copyButton.textContent = "Copy"
+      copyButton.disabled = false
     }, 2000)
   }
 })
