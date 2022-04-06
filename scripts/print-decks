@@ -5,12 +5,10 @@
 /**
  * @file
  * Print all slide decks to PDF.
- *
- * This script should run in a CI environment,
- * so build the site before running it.
  */
 
 // TODO: Rewrite all local URLs to point to the actual site URL.
+// TODO: Print specific slides only.
 
 const http = require("http")
 const fs = require("fs/promises")
@@ -20,7 +18,7 @@ const puppeteer = require("puppeteer")
 const PORT = 8090
 const URL = `http://localhost:${PORT}`
 const PUBLIC_DIR = "_site"
-const DECKS_DIR = `${PUBLIC_DIR}/decks`
+const DECKS_DIR = `src/decks`
 
 const server = http.createServer((request, response) => {
   return handler(request, response, { public: PUBLIC_DIR })
@@ -32,39 +30,54 @@ server.listen(PORT, () => {
 
 //
 ;(async () => {
-  const dirents = await fs.readdir(DECKS_DIR, { withFileTypes: true })
+  // TODO: num should be a command line arg
+  const num = 3
+  const paddedNum = num.toString().padStart(2, "0")
+  const files = await fs.readdir(DECKS_DIR)
+  const deck = files
+    .find((file) => file.endsWith(".md") && file.startsWith(paddedNum))
+    // Remove extension
+    ?.slice(0, -3)
 
-  const decks = dirents
-    // Get the "01-introduction/"; ignore existing pdfs
-    .filter((dirent) => dirent.isDirectory())
-    // Reduce to dir names
-    .map((dirent) => dirent.name)
+  if (!deck) {
+    // TODO
+  }
 
   const browser = await puppeteer.launch()
 
-  for (const deck of decks) {
-    const page = await browser.newPage()
-
-    debugPageRequests(page)
-
-    await page.goto(`${URL}/decks/${deck}?print-pdf`, { waitUntil: "load" })
-    // Just in case
-    await page.waitForTimeout(2000)
-
-    await page.pdf({
-      path: `${DECKS_DIR}/${deck}.pdf`,
-      printBackground: true,
-      preferCSSPageSize: true,
-    })
-
-    console.log(`Printed ${DECKS_DIR}/${deck}.pdf.`)
-
-    await page.close()
-  }
+  const pdfPath = await printDeck(browser, deck)
+  console.log(`Printed ${pdfPath}.`)
 
   await browser.close()
   process.exit()
 })()
+
+/**
+ *
+ * @param {import("puppeteer").Browser} browser
+ * @param {string} deck
+ * @returns {Promise<string>}
+ */
+async function printDeck(browser, deck) {
+  const page = await browser.newPage()
+
+  debugPageRequests(page)
+
+  await page.goto(`${URL}/decks/${deck}?print-pdf`, { waitUntil: "load" })
+  // Just in case
+  await page.waitForTimeout(2000)
+
+  const path = `${DECKS_DIR}/${deck}.pdf`
+  await page.pdf({
+    path,
+    printBackground: true,
+    preferCSSPageSize: true,
+  })
+
+  await page.close()
+
+  return path
+}
 
 /**
  * @param {import("puppeteer").Page} page
