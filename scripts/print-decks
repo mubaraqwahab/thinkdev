@@ -10,6 +10,8 @@
  * so build the site before running it.
  */
 
+// TODO: Rewrite all local URLs to point to the actual site URL.
+
 const http = require("http")
 const fs = require("fs/promises")
 const handler = require("serve-handler")
