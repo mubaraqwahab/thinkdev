@@ -49,7 +49,7 @@ module.exports = {
 
     autolinkLessonHeadings(window, outputPath)
     syntaxHighlight(window)
-    insertCopyCodeButtons(window)
+    insertCopyCodeButtons(window, outputPath)
 
     return dom.serialize()
   },
@@ -95,8 +95,13 @@ function syntaxHighlight({ document }) {
 
 /**
  * @type {JSDOMSubTransform}
+ * Insert copy buttons next to all code samples in the lessons pages.
  */
-function insertCopyCodeButtons({ document }) {
+function insertCopyCodeButtons({ document }, outputPath) {
+  if (!outputPath.includes("/lessons/")) {
+    return
+  }
+
   document.querySelectorAll("pre code").forEach((code) => {
     const pre = code.parentElement
     // Make pre focusable (see #101)
