@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+
+// @ts-check
+
+/**
+ * @file
+ * Print all slide decks to PDF.
+ *
+ * This script should run in a CI environment,
+ * so build the site before running it.
+ */
+
+const http = require("http")
+const fs = require("fs/promises")
+const handler = require("serve-handler")
+const puppeteer = require("puppeteer")
+
+const PORT = 8090
+const URL = `http://localhost:${PORT}`
+const PUBLIC_DIR = "_site"
+const DECKS_DIR = `${PUBLIC_DIR}/decks`
+
+const server = http.createServer((request, response) => {
+  return handler(request, response, { public: PUBLIC_DIR })
+})
+
+server.listen(PORT, () => {
+  console.log(`print-decks server running at ${URL}.`)
+})
+
+//
+;(async () => {
+  const dirents = await fs.readdir(DECKS_DIR, { withFileTypes: true })
+
+  const decks = dirents
+    // Get the "01-introduction/"; ignore existing pdfs
+    .filter((dirent) => dirent.isDirectory())
+    // Reduce to dir names
+    .map((dirent) => dirent.name)
+
+  const browser = await puppeteer.launch()
+
+  for (const deck of decks) {
+    const page = await browser.newPage()
+
+    debugPageRequests(page)
+
+    await page.goto(`${URL}/decks/${deck}?print-pdf`, { waitUntil: "load" })
+    // Just in case
+    await page.waitForTimeout(1000)
+
+    await page.pdf({
+      path: `${DECKS_DIR}/${deck}.pdf`,
+      printBackground: true,
+      preferCSSPageSize: true,
+    })
+
+    console.log(`Printed ${DECKS_DIR}/${deck}.pdf.`)
+
+    await page.close()
+  }
+
+  await browser.close()
+  process.exit()
+})()
+
+/**
+ * @param {import("puppeteer").Page} page
+ */
+function debugPageRequests(page) {
+  const reqs = new Map()
+  page
+    .on("request", (e) => {
+      reqs.set(e.url(), null)
+    })
+    .on("requestfailed", (e) => {
+      reqs.set(e.url(), false)
+    })
+    .on("requestfinished", (e) => {
+      reqs.set(e.url(), true)
+    })
+    .on("requestservedfromcache", (e) => {
+      reqs.set(e.url(), true)
+    })
+    .on("load", () => {
+      const failedReqs = new Map()
+      for (const [key, value] of reqs) {
+        if (value === null || value === false) {
+          failedReqs.set(key, value)
+        }
+      }
+
+      if (failedReqs.size) {
+        console.log("Failed request from page", page.url())
+        console.log({ failedReqs })
+      }
+    })
+}
