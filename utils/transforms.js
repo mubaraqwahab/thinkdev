@@ -88,9 +88,10 @@ function autolinkLessonHeadings({ document }, outputPath) {
  * @type {JSDOMSubTransform}
  */
 function syntaxHighlight({ document }) {
-  document.querySelectorAll("pre code").forEach((code) => {
-    hljs.highlightElement(code)
-  })
+  const codes = /** @type {NodeListOf<HTMLElement>} */ (
+    document.querySelectorAll("pre code")
+  )
+  codes.forEach((code) => hljs.highlightElement(code))
 }
 
 /**
