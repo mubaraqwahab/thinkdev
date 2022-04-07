@@ -100,11 +100,11 @@ module.exports = {
             },
             // Style like code
             samp: codeLike(theme),
-            cite: {
-              fontStyle: "normal",
-            },
-            // Inspired by GitHub's rendering
-            kbd: {
+            kbd: codeLike(theme),
+            // For actual keys (and not text input) like Ctrl,
+            // use the markup <kbd class="key">Ctrl</kbd>
+            // (Inspired by GitHub's rendering)
+            "&[class~='key']": {
               display: "inline-block",
               padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
               borderWidth: theme("borderWidth.DEFAULT"),
@@ -122,6 +122,9 @@ module.exports = {
             },
             '[class~="lead"]': {
               fontWeight: 'theme("fontWeight.normal")',
+            },
+            cite: {
+              fontStyle: "normal",
             },
           },
         },

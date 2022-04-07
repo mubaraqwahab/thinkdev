@@ -179,7 +179,7 @@ console.log("hi" || "hey" || "hello")
 
 [A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
 
-Start the Node REPL, type a word there, then hit <kbd>Enter</kbd>:
+Start the Node REPL, type a word there, then hit <kbd class="key">Enter</kbd>:
 
 ```js
 word
@@ -202,7 +202,7 @@ word && false
 // Uncaught ReferenceError: word is not defined
 ```
 
-You'll observe this with the OR operation too:
+You'll observe this in the OR operation too:
 
 ```js
 true || word

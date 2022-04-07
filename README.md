@@ -65,3 +65,5 @@ Run each script with `npm run script-name`.
 * Don't commit frequently to the main branch. Use pull requests to apply commits in batches instead. You don't want the service worker cache to be invalidated so often.
 
 * Prefer the term "deck" or "slide deck" over "presentation" or "slides" when describing a unit (group, file) of slides.
+
+* Markup text input with the [`<kbd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd). For example, <i>Type \<kbd>Hello\</kbd></i>. However, for actual keys, add the `key` class to the `<kbd>` element, as in <i>Press \<kbd class="key">Enter\</kbd></i>.

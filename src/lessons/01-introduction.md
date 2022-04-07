@@ -8,7 +8,7 @@ excerpt: >
 
 <div class="note note-info">
 
-**Tip:** Press the question mark key (<kbd>?</kbd>) when playing the slides to see a list of keyboard shortcuts.
+**Tip:** Press the question mark key (<kbd class="key">?</kbd>) when playing the slides to see a list of keyboard shortcuts.
 
 </div>
 
