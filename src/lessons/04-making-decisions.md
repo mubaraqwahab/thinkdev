@@ -202,7 +202,7 @@ word && false
 // Uncaught ReferenceError: word is not defined
 ```
 
-We can observe this with the OR operation too:
+You'll observe this with the OR operation too:
 
 ```js
 true || word
