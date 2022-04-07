@@ -35,7 +35,7 @@ TODO
     ]
 
     const messageCount = newMessages.length
-    let notification;
+    let notification
 
     if (!messageCount) {
       notification = "You have no new messages."
@@ -108,20 +108,20 @@ The double equals operator works like the triple equals; it's difference is that
 ```js
 // Strict equality
 // Different types, different values
-2 === '2'; // false
+console.log(2 === '2') // false
 
 // Loose equality
 // The string will be converted to a number before comparing
-2 == '2'; // true
+console.log(2 == '2') // true
 ```
 
 It's discouraged to use this operator because of it's confusing behavior:
 
 ```js
-false == null;  // false
-false == '';    // true
-[1] == '1';     // true
-[[]] == 0;      // true
+console.log(false == null) // false
+console.log(false == '')   // true
+console.log([1] == '1')    // true
+console.log([[]] == 0)     // true
 ```
 
 There's a `!=` counterpart for loose inequality too.
@@ -131,7 +131,7 @@ There's a `!=` counterpart for loose inequality too.
 When you use the NOT operator, the result is always a boolean:
 
 ```js
-console.log(!0) // true
+console.log(!0)    // true
 console.log(!"hi") // false
 ```
 
@@ -139,11 +139,11 @@ This is not always the case with the AND and OR operators:
 
 ```js
 console.log(0 && null) // 0
-console.log([] && '') // ''
+console.log([] && '')  // ''
 console.log("hi" && "hey" && "hello") // "hello"
 
 console.log(0 || null) // null
-console.log([] || '') // []
+console.log([] || '')  // []
 console.log("hi" || "hey" || "hello") // "hi"
 ```
 

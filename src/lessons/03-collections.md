@@ -87,7 +87,7 @@ and we just have to live with it.
 A final thing to note is that when you use `typeof` on an undeclared variable, the result is <samp>"undefined"</samp>:
 
 ```js
-typeof x
+console.log(typeof x)
 // There's no variable x declared above,
 // so the result is "undefined".
 ```
