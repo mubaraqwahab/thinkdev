@@ -218,13 +218,13 @@
     @apply dark:text-gray-400;
   }
 
-  .home :not(footer h2) {
-    @apply leading-normal;
-  }
-
   .home :where(footer h2) {
     @apply text-base mb-3 font-sans font-semibold text-gray-600;
     @apply dark:text-gray-400;
+  }
+
+  .home :where(footer) :not(h2) {
+    @apply leading-normal;
   }
 
   .home :where(footer p) {
