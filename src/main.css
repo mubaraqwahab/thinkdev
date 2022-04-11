@@ -89,7 +89,7 @@
   }
 
   .youtube-player {
-    @apply absolute top-0 left-0 w-full h-full;
+    @apply absolute top-0 left-0 w-full h-full mb-[1.5em];
   }
 
   @supports (aspect-ratio: 16 / 9) {

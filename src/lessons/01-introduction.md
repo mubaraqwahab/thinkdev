@@ -14,16 +14,14 @@ excerpt: >
 
 ## Video
 
+https://youtu.be/B5mqMzbsG8A
+
 <div class="note note-info">
 
 We used to have recorded meetings for new lessons (and not just for revisions), so the videos for the next two lessons are not prerecorded.
-For this first lesson, however, I forgot to record the meeting when it held, so I later recorded a video explaining a section of what we discussed: a tour of Visual Studio Code. That video is what's below.
+For this first lesson, however, I forgot to record the meeting when it held, so I later recorded a video explaining a section of what we discussed: using Visual Studio Code. That video is what's above.
 
 </div>
-
-https://youtu.be/B5mqMzbsG8A
-
-(Consider putting the video above the note.)
 
 ## Exercise
 
