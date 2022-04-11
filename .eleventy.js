@@ -2,12 +2,10 @@
 
 const fs = require("fs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
-const markdownIt = require("markdown-it")
-const markdownItAttrs = require("markdown-it-attrs")
-const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
+
 const filters = require("./utils/filters.js")
 const transforms = require("./utils/transforms.js")
-const { markdownItYouTubeEmbed } = require("./utils/markdown-it.js")
+const markdownLib = require("./utils/markdown-it.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -16,20 +14,13 @@ const { markdownItYouTubeEmbed } = require("./utils/markdown-it.js")
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
-  // Allow markdown attributes (See https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins)
-  const markdownLib = markdownIt({ html: true })
-    .use(markdownItBracketedSpans)
-    .use(markdownItAttrs)
-    .use(markdownItYouTubeEmbed)
-
   eleventyConfig.setLibrary("md", markdownLib)
 
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
 
-  eleventyConfig.addTransform("autolinkheadings", transforms.autolinkHeadings)
-  if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
+  for (const transform in transforms) {
+    eleventyConfig.addTransform(transform.toLowerCase(), transforms[transform])
   }
 
   for (const filter in filters) {
@@ -59,12 +50,13 @@ module.exports = function (eleventyConfig) {
 
   // Keep directory structure for these
   eleventyConfig.addPassthroughCopy("src/assets/images/")
-  eleventyConfig.addPassthroughCopy("src/slides/*.pdf")
+  eleventyConfig.addPassthroughCopy("src/decks/*.pdf")
   eleventyConfig.addPassthroughCopy("src/favicon.*")
   eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
 
   eleventyConfig.addWatchTarget("src/main.css")
+  // This doesn't appear to work :(
   eleventyConfig.addWatchTarget("tailwind.config.js")
 
   eleventyConfig.setBrowserSyncConfig({

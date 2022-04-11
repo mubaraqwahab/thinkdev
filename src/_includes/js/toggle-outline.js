@@ -1,6 +1,6 @@
 // @ts-check
 
-const toggleBtn = document.getElementById("outlineToggle")
+const toggleBtn = document.getElementById("lessonsNavToggle")
 const toggleIcon = toggleBtn.querySelector(".bi")
 const outlineNav = document.getElementById(
   toggleBtn.getAttribute("aria-controls")

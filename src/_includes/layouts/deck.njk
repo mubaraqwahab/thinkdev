@@ -1,0 +1,94 @@
+---
+---
+
+{% from "macros.njk" import logotype %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slides: {{ title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
+  {% set css %}{% include "css/deck.css" %}{% endset %}
+  <style>{{ css | postcss('deck') | safe }}</style>
+  <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
+  {% include "meta.njk" %}
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      {#
+        Use the titleSlideAttrs key in frontmatter to
+        specify attributes to put on the title slide.
+        If you're going to use Nunjucks within the key,
+        don't forget to put the key in eleventyComputed)
+      #}
+      <section {{ titleSlideAttrs | htmlattrs | safe }}>
+        <p
+          class="
+            inline-flex items-center justify-center mb-2 mx-auto
+            font-semibold font-mono
+          "
+        >
+          <a
+            class="
+              inline-flex items-center !text-[color:var(--r-main-color)]
+              hover:!text-[color:var(--r-link-color-hover)]
+            "
+            href="{{ '/' | url }}"
+          >
+            {{ logotype(class="h-10 w-auto mb-0.5 mr-3") }}
+          </a>
+          #{{ order + 1 }}
+        </p>
+        <h1>{{ title }}</h1>
+      </section>
+      {{ content | safe }}
+      <section>
+        <h2>Questions?</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="{{ '/reveal/dist/reveal.js' | url }}"></script>
+  <script>
+    // See https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      hashOneBasedIndex: false,
+      navigationMode: "linear",
+    });
+
+    // For some reason, reveal isn't auto-trimming the pre > codes
+    document.querySelectorAll("pre > code[data-trim]").forEach(code => {
+      code.innerHTML = code.innerHTML.trim()
+    })
+
+    if (window.location.search.includes('print-pdf')) {
+      // Just so I don't have to manually rename the pdf
+      document.title = "{{ page.fileSlug }}"
+    }
+  </script>
+
+{# What I have below here is indeed a hack but I'll keep it until I find an elegant alternative. #}
+{% if site.environment != "production" %}
+  <script>
+    // Rewrite all local anchor URLs when printing from dev mode.
+    if (window.location.search.includes('print-pdf')) {
+      const localAnchors = document.querySelectorAll('a[href^="/"]')
+
+      localAnchors.forEach(anchor => {
+        const url = new URL(anchor.href)
+        // Point the href to the prod site
+        url.protocol = "https:"
+        url.hostname = "thinkdev.netlify.app"
+        url.port = ""
+        anchor.href = url.href
+      })
+    }
+  </script>
+{% endif %}
+
+</body>
+</html>

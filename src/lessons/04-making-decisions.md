@@ -1,12 +1,10 @@
 ---
 title: Making decisions
 excerpt: >
-  You'll notice that software behaves differently depending on the situation. A premium user of an app, for example, may have access to features that a regular user does not. In this episode, we'll discover how to decide the behaviour of our code in specific conditions.
+  Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn some JavaScript constructs that we can use to make such decisions.
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Videos") }}
+## Videos
 
 ### Lesson session
 
@@ -16,7 +14,7 @@ https://youtu.be/7ni9fGevUos
 
 TODO
 
-## {{ iconed("Exercise") }}
+## Exercise
 
 1. This exercise is to help you get familiar with reading and understanding code.
 
@@ -37,7 +35,7 @@ TODO
     ]
 
     const messageCount = newMessages.length
-    let notification;
+    let notification
 
     if (!messageCount) {
       notification = "You have no new messages."
@@ -60,23 +58,24 @@ TODO
 
     The following table lists some languages and their codes.
 
-    Language | Code
-    -- | --
-    Arabic | ar
-    English | en
-    French | fr
-    Hausa | ha
-    Igbo | ig
-    Turkish | tr
-    Yoruba | yo
-    {.!w-auto}
+    | Language | Code |
+    | --- | --- |
+    | Arabic | ar |
+    | English | en |
+    | French | fr |
+    | Hausa | ha |
+    | Igbo | ig |
+    | Turkish | tr |
+    | Yoruba | yo |
 
-    Use what we learnt to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+    {.w-auto}
+
+    Use what you learnt in this lesson to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
 1. Create a copy of the previous program and modify it so that it, instead, tells us the language a Wikipedia domain corresponds to.
     For instance, the program should print <samp>Hausa</samp> if we give it the domain `"ha.wikipedia.org"`.
 
-## {{ iconed("Extras") }}
+## Extras
 
 ### A shorter `if`
 
@@ -109,30 +108,30 @@ The double equals operator works like the triple equals; it's difference is that
 ```js
 // Strict equality
 // Different types, different values
-2 === '2'; // false
+console.log(2 === '2') // false
 
 // Loose equality
 // The string will be converted to a number before comparing
-2 == '2'; // true
+console.log(2 == '2') // true
 ```
 
 It's discouraged to use this operator because of it's confusing behavior:
 
 ```js
-false == null;  // false
-false == '';    // true
-[1] == '1';     // true
-[[]] == 0;      // true
+console.log(false == null) // false
+console.log(false == '')   // true
+console.log([1] == '1')    // true
+console.log([[]] == 0)     // true
 ```
 
 There's a `!=` counterpart for loose inequality too.
 
-### Short-circuit evalutaion
+### Short-circuit evaluation
 
 When you use the NOT operator, the result is always a boolean:
 
 ```js
-console.log(!0) // true
+console.log(!0)    // true
 console.log(!"hi") // false
 ```
 
@@ -140,11 +139,11 @@ This is not always the case with the AND and OR operators:
 
 ```js
 console.log(0 && null) // 0
-console.log([] && '') // ''
+console.log([] && '')  // ''
 console.log("hi" && "hey" && "hello") // "hello"
 
 console.log(0 || null) // null
-console.log([] || '') // []
+console.log([] || '')  // []
 console.log("hi" || "hey" || "hello") // "hi"
 ```
 
@@ -180,7 +179,7 @@ console.log("hi" || "hey" || "hello")
 
 [A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
 
-Start the Node REPL, type a word there, then hit <kbd>Enter</kbd>:
+Start the Node REPL, type a word there, then hit <kbd class="key">Enter</kbd>:
 
 ```js
 word
@@ -194,7 +193,7 @@ Now try this AND operation:
 false && word
 ```
 
-There will be no error and the result will be `false`. That's because the first operand (i.e., `false`) is falsy; it is the result, and the other operand will not be evaluated.
+There will be no error and the result will be `false`. That's because the first operand (i.e., `false`) is falsy; it is the result so JavaScript won't try to evaluate the other operand.
 
 However, switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
 
@@ -203,7 +202,7 @@ word && false
 // Uncaught ReferenceError: word is not defined
 ```
 
-We can observe this with the OR operation too:
+You'll observe this in the OR operation too:
 
 ```js
 true || word

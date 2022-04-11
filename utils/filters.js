@@ -51,28 +51,35 @@ module.exports = {
    * Process a CSS string with Post CSS
    *
    * @param {string} css
-   * @param {"default"|"slides"} preset
-   *  This option specifies whether to process `css` using the
-   *  (custom) default config for CSS, or using the config specific
-   *  to CSS for the slides. If this is omitted, the default config is used.
+   * @param {"default"|"deck"} preset
+   *  This option specifies whether to process `css` using
+   *  the (custom) default config for CSS, or using the config
+   *  specific to CSS for the slide decks.
+   *  If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
-    // @ts-ignore
-    const slidesTailwindConfig = resolveTailwindConfig({
-      purge: ["src/_includes/layouts/slides.njk", "src/slides/**/*.md"],
-      mode: "jit",
-      darkMode: false,
+    const { fontFamily } = require("tailwindcss/defaultTheme")
+
+    const deckTailwindConfig = resolveTailwindConfig({
+      content: ["src/_includes/layouts/deck.njk", "src/decks/**/*.md"],
       theme: {
-        extend: {},
-      },
-      variants: {
-        extend: {},
+        extend: {
+          fontFamily: {
+            sans: ["'Red Hat Text'", ...fontFamily.sans],
+            mono: ["'Red Hat Mono'", ...fontFamily.mono],
+            display: [
+              "'Red Hat Display'",
+              "'Red Hat Text'",
+              ...fontFamily.sans,
+            ],
+          },
+        },
       },
       plugins: [],
     })
 
     return postcss([
-      preset === "slides" ? tailwindcss(slidesTailwindConfig) : tailwindcss,
+      preset === "deck" ? tailwindcss(deckTailwindConfig) : tailwindcss,
       autoprefixer,
     ]).process(css).css
   },

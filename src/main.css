@@ -3,66 +3,98 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
   body {
     -webkit-tap-highlight-color: transparent;
   }
 
-  :focus {
-    outline: 2px dashed;
+  a,
+  button {
+    @apply rounded-sm;
+  }
+
+  a {
+    @apply underline-offset-[0.05em];
+  }
+
+  :not(pre[tabindex="-1"]):focus {
+    @apply focused;
   }
 }
 
 @layer components {
   #main {
     /* For the skip-to-content link */
-    scroll-margin-top: theme("spacing.24");
+    @apply scroll-mt-[calc(theme("spacing.1")+49px+theme("spacing.12"))];
   }
 
   .bi {
     @apply inline-block fill-current;
   }
 
-  button[aria-expanded="true"] > .bi-caret-right-fill {
-    @apply rotate-90;
+  .footer-link {
+    @apply underline;
   }
 
-  .quoted::before {
-    content: open-quote;
+  .callout {
+    border-left-style: dashed;
+    @apply border border-l-[5px] rounded-md py-2 px-5 my-5;
+    @apply last:mb-0;
   }
 
-  .quoted::after {
-    content: close-quote;
+  .callout > * {
+    @apply first:mt-0 last:mb-0;
   }
 
-  .prose .side-nav ol {
-    @apply my-0;
+  .callout-info {
+    @apply border-blue-500;
+    @apply dark:border-blue-400;
   }
 
-  .prose .side-nav li {
-    @apply pl-0;
+  .callout-success {
+    @apply border-green-500;
+    @apply dark:border-green-400;
   }
 
-  .prose .side-nav a {
-    @apply leading-snug inline-flex items-center;
+  .callout-warning {
+    @apply border-amber-500;
+    @apply dark:border-amber-400;
   }
 
-  .prose .side-nav a[aria-current="page"] {
+  .callout-danger {
+    @apply border-red-500;
+    @apply dark:border-red-400;
+  }
+
+  .lessons-nav a {
     @apply relative overflow-visible;
+    @apply hover:before:inline-block;
   }
 
-  .prose .side-nav a[aria-current="page"]::after {
+  .lessons-nav a::before {
     content: "";
-    @apply inline-block h-2 w-2 rounded-full bg-current absolute -right-4 mt-0.5;
+    @apply hidden h-2 w-2 rounded-full bg-current absolute -left-1;
+  }
+
+  .lessons-nav a[aria-current="page"] {
+    @apply font-semibold text-indigo-600;
+    @apply dark:text-indigo-300;
+    @apply hover:text-indigo-600 hover:dark:text-indigo-300;
+    @apply before:inline-block;
   }
 
   /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
   .youtube-player-wrapper {
-    @apply relative h-0;
-    padding-bottom: 56.25%;
+    @apply relative h-0 pb-[56.25%];
   }
 
   .youtube-player {
-    @apply absolute top-0 left-0 w-full lg:w-2/3 h-full;
+    @apply absolute top-0 left-0 w-full h-full mb-[1.5em];
   }
 
   @supports (aspect-ratio: 16 / 9) {
@@ -72,10 +104,175 @@
     }
 
     .youtube-player {
-      /* Undo absolute */
-      @apply static;
-      @apply w-full lg:w-2/3 h-auto;
-      aspect-ratio: 16 / 9;
+      @apply static h-auto aspect-video rounded-md;
     }
+  }
+
+  /* See #101 */
+  .copy-code-wrapper {
+    @apply relative;
+    --copy-code-button-opacity: 0;
+    --copy-code-button-pointer-events: none;
+  }
+
+  /* Only on hover-capable devices (e.g. desktops) */
+  @media (hover: hover) {
+    .copy-code-wrapper:hover {
+      --copy-code-button-opacity: 1;
+      --copy-code-button-pointer-events: auto;
+    }
+  }
+
+  /* Only on hover-incapable devices (e.g. phones) */
+  @media not all and (hover: hover) {
+    .copy-code-wrapper:focus-within {
+      --copy-code-button-opacity: 1;
+      --copy-code-button-pointer-events: auto;
+    }
+  }
+
+  .copy-code-button {
+    @apply absolute top-1.5 right-1.5 border rounded text-xs font-medium px-2 py-1;
+    @apply text-gray-600 dark:text-gray-400;
+    @apply border-gray-300 dark:border-gray-600;
+    @apply hover:text-gray-800 dark:hover:text-gray-200;
+    @apply hover:border-gray-400 dark:hover:border-gray-500;
+    /* Undo the hover styles when disabled */
+    @apply disabled:hover:text-gray-600 disabled:dark:hover:text-gray-200;
+    @apply disabled:hover:border-gray-300 disabled:dark:hover:border-gray-600;
+    background-color: var(--tw-prose-pre-bg);
+    opacity: var(--copy-code-button-opacity);
+    pointer-events: var(--copy-code-button-pointer-events);
+  }
+
+  .copy-code-button:focus {
+    --copy-code-button-opacity: 1;
+    --copy-code-button-pointer-events: auto;
+  }
+
+  /* STUFF FOR JUST THE HOME PAGE */
+
+  .home :where(h1, h2, h3) {
+    @apply font-black font-display text-gray-900;
+    @apply dark:text-gray-100;
+  }
+  /*
+    This intentionally has higher specificity (that is, no :where) because
+    the .text-<size> classes used in other rules have their own leadings,
+    which I don't like except in the headings.
+  */
+  .home :not(h1, h2, h3) {
+    @apply leading-relaxed;
+  }
+
+  .home :where(h1) {
+    @apply text-4xl mb-8;
+    @apply md:text-5xl;
+  }
+
+  .home :where(h2) {
+    @apply text-3xl md:text-4xl mb-8 scroll-mt-20;
+  }
+
+  .home :where(p) {
+    @apply text-lg mb-6;
+    @apply md:text-xl;
+  }
+
+  .home :where(ul, ol) {
+    @apply pl-8 mb-6;
+  }
+
+  .home :where(p, ul, ol):where(:last-child) {
+    @apply mb-0;
+  }
+
+  .home :where(ul) {
+    @apply list-disc;
+  }
+
+  .home :where(ol) {
+    @apply list-decimal;
+  }
+
+  .home :where(li) {
+    @apply text-lg mb-3 pl-2;
+    @apply md:text-xl;
+    /*
+      The pseudo-element is more specific (i.e. :where(li)::marker)
+      but that's how tailwind typography does it too :)
+    */
+    @apply marker:text-gray-600 marker:dark:text-gray-400;
+  }
+
+  .home :where(a) {
+    @apply underline font-medium text-indigo-600;
+    @apply dark:text-indigo-300;
+  }
+
+  .home :where(b, strong) {
+    @apply font-bold;
+  }
+
+  .home :where(cite) {
+    @apply not-italic;
+  }
+
+  .home :where(footer) {
+    @apply text-gray-600 leading-normal;
+    @apply dark:text-gray-400;
+  }
+
+  .home :where(footer h2) {
+    @apply text-base mb-3 font-sans font-semibold text-gray-600;
+    @apply dark:text-gray-400;
+  }
+
+  .home :where(footer) :not(h2) {
+    @apply leading-normal;
+  }
+
+  .home :where(footer p) {
+    @apply text-base mb-3;
+  }
+
+  .home :where(footer ul, footer ol) {
+    @apply pl-5;
+  }
+
+  .home :where(footer li) {
+    @apply text-base mb-2 pl-0.5;
+  }
+
+  .home :where(footer a) {
+    @apply text-gray-600 font-normal;
+    @apply dark:text-gray-400;
+  }
+
+  .home :where(.lead) {
+    @apply font-normal text-xl md:text-2xl;
+  }
+
+  .home :where(.list-check) {
+    list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2322c55e' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .home :where(.list-check) {
+      list-style-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234ade80' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+    }
+  }
+
+  .home :where(.key) {
+    @apply inline-block border rounded py-px px-1;
+    @apply font-semibold leading-tight text-base text-gray-900;
+    @apply md:text-lg;
+    @apply dark:text-gray-100;
+  }
+}
+
+@layer utilities {
+  .focused {
+    outline: 2px dashed;
   }
 }

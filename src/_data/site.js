@@ -1,8 +1,13 @@
 module.exports = {
   title: "Think Like a Developer",
   shortTitle: "thinkdev",
-  description: "An introductory course to programming concepts, in JavaScript.",
-  author: "Mubaraq Wahab",
-  environment: process.env.NODE_ENV,
+  description:
+    "Let's relearn the basics of programming with the world's most popular language, JavaScript.",
+  author: {
+    name: "Mubaraq Wahab",
+    url: "https://github.com/mubaraqwahab",
+  },
   repoUrl: "https://github.com/mubaraqwahab/thinkdev",
+  environment: process.env.NODE_ENV,
+  deployBranch: process.env.HEAD || "main",
 }

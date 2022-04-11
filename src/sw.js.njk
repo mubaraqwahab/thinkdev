@@ -4,7 +4,7 @@ permalink: sw.js
 
 {%- if site.environment == "production" -%}
   {%- set js -%}
-    const CACHE_PREFIX = "thinkdev-"
+    const CACHE_PREFIX = "{{ site.shortTitle }}-"
     const CACHE_NAME = CACHE_PREFIX + "{% now %}";
     {% include "js/sw.js" %}
   {%- endset -%}

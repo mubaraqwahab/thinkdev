@@ -639,7 +639,7 @@ firstName.toLowerCase()
 
 ## See also
 
-* The [Mozilla Developer Network Web Documentation](https://developer.mozilla.org/){rel="noopener"} (MDN Web Docs)
+* The [MDN Web Docs](https://developer.mozilla.org/){rel="noopener"}
 
 </section>
 

@@ -1,5 +1,5 @@
 ---
-layout: layouts/home
+layout: layouts/auxiliary
 title: You're offline
 permalink: offline.html
 ---
@@ -7,12 +7,6 @@ permalink: offline.html
 {% from "macros.njk" import script %}
 
 <h1>You're offline</h1>
-{# <p>
-  Don't worry, you can still return to the pages you visited before&mdash;we saved them locally for you 😉.
-  We'll also reload this page automatically once the network is back.
-</p> #}
-<p>
-  Don't worry, we'll reload this page automatically once the network is back.
-</p>
+<p>Don't worry, we'll reload this page for you once the network is back.</p>
 
 {{ script('offline.js') }}

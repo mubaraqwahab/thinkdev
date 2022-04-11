@@ -4,9 +4,9 @@
 
 /**
  * @file
- * Use this script to generate a new lesson page and it's slides page.
+ * Use this script to generate a new lesson page and its slide deck.
  * Run with no args or with `--help` (or `-h`) flag to see usage message.
- * You can also @see showHelpMessage below.
+ * You can also @see {showHelpMessage} below.
  *
  * This file needs execute permission (e.g. by doing `chmod u+x <this file>`)
  * if you want to run it without the `node ` prefix.
@@ -25,7 +25,7 @@ if (!title || title === "-h" || title === "--help") {
 console.log("Generating lesson files...")
 
 const LESSONS_DIR = "src/lessons/"
-const SLIDES_DIR = "src/slides/"
+const DECKS_DIR = "src/decks/"
 
 const existingLessonFiles = fs
   .readdirSync(LESSONS_DIR)
@@ -44,10 +44,10 @@ const lessonPath = path.join(LESSONS_DIR, slug)
 fs.writeFileSync(lessonPath, lessonBoilerplate(title))
 console.log(`Created '${lessonPath}'`)
 
-// Create a slides file
-const slidesPath = path.join(SLIDES_DIR, slug)
-fs.writeFileSync(slidesPath, slidesBoilerplate(title))
-console.log(`Created '${slidesPath}'`)
+// Create a deck file
+const deckPath = path.join(DECKS_DIR, slug)
+fs.writeFileSync(deckPath, deckBoilerplate(title))
+console.log(`Created '${deckPath}'`)
 
 console.log("Done!")
 
@@ -57,9 +57,7 @@ title: ${title}
 excerpt: >
 ---
 
-{% from "macros.njk" import iconed %}
-
-## {{ iconed("Video") }}
+## Video
 
 ### Lesson session
 
@@ -69,17 +67,17 @@ TODO
 
 TODO
 
-## {{ iconed("Exercise") }}
+## Exercise
 
 TODO
 
-## {{ iconed("Extras") }}
+## Extras
 
 TODO
 `
 }
 
-function slidesBoilerplate(title) {
+function deckBoilerplate(title) {
   return `---
 title: ${title}
 ---
@@ -102,7 +100,7 @@ title: ${title}
 function showHelpMessage() {
   console.log(`Usage: new-lesson [-h|--help|title]
 
-Create a new lesson page and it's slides page.
+Create a new lesson page and its slide deck.
 
 Example: new-lesson "Making decisions"
 `)
