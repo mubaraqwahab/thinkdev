@@ -96,10 +96,10 @@ layout: layouts/base
     </section>
   </main>
 
-  <footer class="pt-24 pb-8">
+  <footer class="pt-16 pb-9">
     {{
       logotype(
-        class="h-auto w-4/5 mb-16 -ml-1.5 md:w-1/3 md:-ml-2 text-gray-600 dark:text-gray-400",
+        class="h-auto w-2/5 mb-10 -ml-1 md:w-1/3 md:mb-12 md:-ml-2 text-gray-600 dark:text-gray-400",
         attrs={ariaLabel: "thinkdev logo"}
       )
     }}
@@ -110,20 +110,20 @@ layout: layouts/base
         <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
           See the <a
             href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
-          >2021 StackOverflow Developer Survey</a>.
+          >2021 StackOverflow Developer Survey</a>.&nbsp;
           <a
             href="#fn-jspop-ref"
             aria-label="Return up"
             title="Return up"
             class="no-underline inline-block"
           >
-            {{- icon('arrow-up-short', width=20, height=20, class="mb-1") -}}
+            {{- icon('arrow-up-short', width=20, height=20, class="mb-1 -ml-2") -}}
           </a>
         </li>
       </ol>
     </section>
 
-    <section class="mb-16">
+    <section class="mb-10 md:mb-12">
       <h2>References for the course content</h2>
       {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
       <ul>
