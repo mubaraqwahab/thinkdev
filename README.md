@@ -67,3 +67,5 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Prefer the term "deck" or "slide deck" over "presentation" or "slides" when describing a unit (group, file) of slides.
 
 * Mark up text input with the [`<kbd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd). For example, <i>Type \<kbd>Hello\</kbd></i>. However, for actual keys, add `.key` to the `<kbd>` element, as in <i>Press \<kbd class="key">Enter\</kbd></i>.
+
+* Use `console.log` in sample codes to indicate what to output. Also use an adjacent comment (on the same line or a different line) to indicate what the output should be. Doing these ensures that the code "makes sense" in a JavaScript file and in the Node REPL. You may omit the `console.log` if you specify that the code should be run in the REPL. However, never use the prompt symbol!
