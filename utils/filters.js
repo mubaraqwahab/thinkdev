@@ -179,6 +179,15 @@ module.exports = {
     return "#" + slugger.slug(text)
   },
 
+  /**
+   * Get the environment variable with the given name.
+   * @param {string} name
+   * @return {string|undefined}
+   */
+  getenv(name) {
+    return process.env[name]
+  },
+
   // FOR DEBUGGING
 
   /** Get a property value from an object given it's path. */
