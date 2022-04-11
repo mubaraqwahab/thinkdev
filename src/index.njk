@@ -162,7 +162,7 @@ layout: layouts/base
         Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
       </p>
       <p class="sm:inline sm:px-3 sm:border-r">
-        <a class="footer-link" href="{{ site.repoUrl }}/edit/main/{{ page.inputPath }}">Edit this page</a>
+        <a class="footer-link" href="{{ site.repoUrl }}/edit/{% gettenv 'BRANCH', 'main' %}/{{ page.inputPath }}">Edit this page</a>
       </p>
       <p class="sm:inline sm:pl-3">
         <a class="footer-link" href="{{ site.repoUrl }}">View the source</a>
