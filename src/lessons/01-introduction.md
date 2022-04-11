@@ -21,7 +21,9 @@ For this first lesson, however, I forgot to record the meeting when it held, so 
 
 </div>
 
-TODO. (Consider putting the video above the note.)
+https://youtu.be/B5mqMzbsG8A
+
+(Consider putting the video above the note.)
 
 ## Exercise
 
