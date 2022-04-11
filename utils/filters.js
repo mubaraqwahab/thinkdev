@@ -179,6 +179,10 @@ module.exports = {
     return "#" + slugger.slug(text)
   },
 
+  getenv(variable, fallback) {
+    return process.env[variable] || fallback
+  },
+
   // FOR DEBUGGING
 
   /** Get a property value from an object given it's path. */
