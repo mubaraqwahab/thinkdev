@@ -1,6 +1,6 @@
 /**
  * @file
- * Custom MarkdownIt plugins.
+ * Custom MarkdownIt library.
  */
 
 // @ts-check
@@ -10,7 +10,6 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 
-// Allow markdown attributes (See https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins)
 const markdownLib = markdownIt({ html: true })
   .use(markdownItBracketedSpans)
   .use(markdownItAttrs)
@@ -22,18 +21,27 @@ module.exports = markdownLib
  * Convert YouTube video URLs to embeds.
  * The URL must be the short version (e.g. https://youtu.be/...)
  * and it must be the only text in it's paragraph.
- * (Technically, the parent doesn't have to be a paragraph.)
  *
  * @param {import("markdown-it")} md
  */
 function markdownItYouTubeEmbed(md) {
-  const defaultRenderer = md.renderer.rules.text
-  md.renderer.rules.text = (tokens, idx, ...rest) => {
-    const token = tokens[idx]
-    const ytRegex = /^https:\/\/youtu.be\/([a-zA-Z0-9_-]+)$/
-    const ytVideoId = token.content.match(ytRegex)?.[1]
+  md.renderer.rules.paragraph_open = (tokens, idx, options, env, self) => {
+    const ytURLRegex = /^https:\/\/youtu.be\/([a-zA-Z0-9_-]+)$/
 
-    if (ytVideoId) {
+    const nextToken = tokens[idx + 1]
+    const nextNextToken = tokens[idx + 2]
+    let ytVideoId, textToken
+
+    if (
+      nextToken.type === "inline" &&
+      nextNextToken.type === "paragraph_close" &&
+      (textToken = nextToken.children[0]) &&
+      (ytVideoId = textToken.content.match(ytURLRegex)?.[1])
+    ) {
+      // Ignore the next text token and the </p>
+      textToken.content = ""
+      nextNextToken.attrSet("data-yt-ignore", "")
+
       return html`<div class="youtube-player-wrapper">
         <iframe
           width="560"
@@ -46,8 +54,17 @@ function markdownItYouTubeEmbed(md) {
           class="youtube-player"
         ></iframe>
       </div>`
+    } else {
+      return self.renderToken(tokens, idx, options)
     }
+  }
 
-    return defaultRenderer(tokens, idx, ...rest)
+  md.renderer.rules.paragraph_close = (tokens, idx, options, env, self) => {
+    const token = tokens[idx]
+    if (token.attrGet("data-yt-ignore") !== null) {
+      return ""
+    } else {
+      return self.renderToken(tokens, idx, options)
+    }
   }
 }
