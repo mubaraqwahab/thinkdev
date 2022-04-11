@@ -6,7 +6,7 @@ excerpt: >
   and the software you'll need to get started.
 ---
 
-<div class="note note-info">
+<div class="callout callout-info">
 
 **Tip:** Press the question mark key (<kbd class="key">?</kbd>) when playing the slides to see a list of keyboard shortcuts.
 
@@ -16,7 +16,7 @@ excerpt: >
 
 https://youtu.be/B5mqMzbsG8A
 
-<div class="note note-info">
+<div class="callout callout-info">
 
 We used to have recorded meetings for new lessons (and not just for revisions), so the videos for the next two lessons are not prerecorded.
 For this first lesson, however, I forgot to record the meeting when it held, so I later recorded a video explaining a section of what we discussed: using Visual Studio Code. That video is what's above.

@@ -14,7 +14,7 @@ https://youtu.be/xjaPC_B2okk
 
 You can do these exercises in the Node <abbr>REPL</abbr> (read-eval-print loop) or in a JavaScript file.
 
-<div class="note note-info">
+<div class="callout callout-info">
 
 **Tip:** If you're using the REPL, you can press <kbd class="key">Ctrl</kbd> + <kbd class="key">D</kbd> to exit the REPL when you're done. And if you're using a file, don't forget to use `console.log()` to view your results.
 

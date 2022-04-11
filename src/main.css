@@ -41,27 +41,32 @@
     @apply underline;
   }
 
-  .note {
+  .callout {
     border-left-style: dashed;
     @apply border border-l-[5px] rounded-md py-2 px-5 my-5;
     @apply last:mb-0;
   }
 
-  .note > * {
+  .callout > * {
     @apply first:mt-0 last:mb-0;
   }
 
-  .note-info {
+  .callout-info {
     @apply border-blue-500;
     @apply dark:border-blue-400;
   }
 
-  .note-success {
+  .callout-success {
     @apply border-green-500;
     @apply dark:border-green-400;
   }
 
-  .note-danger {
+  .callout-warning {
+    @apply border-amber-500;
+    @apply dark:border-amber-400;
+  }
+
+  .callout-danger {
     @apply border-red-500;
     @apply dark:border-red-400;
   }
