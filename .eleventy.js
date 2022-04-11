@@ -7,6 +7,7 @@ const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 const filters = require("./utils/filters.js")
 const transforms = require("./utils/transforms.js")
+const shortcodes = require("./utils/shortcodes.js")
 const { markdownItYouTubeEmbed } = require("./utils/markdown-it.js")
 
 /**
@@ -43,7 +44,9 @@ module.exports = function (eleventyConfig) {
     }
   }
 
-  eleventyConfig.addShortcode("now", () => new Date().toISOString())
+  for (const shortcode in shortcodes) {
+    eleventyConfig.addShortcode(shortcode, shortcodes[shortcode])
+  }
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
