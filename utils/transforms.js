@@ -5,54 +5,38 @@ const { JSDOM } = require("jsdom")
 const GithubSlugger = require("github-slugger")
 const hljs = require("highlight.js").default
 
-/**
- * @callback Transform
- * @param {string} content
- * @param {string} outputPath
- * @returns {string|Promise<string>}
- */
+module.exports = { transformHTML }
 
 /**
- * @callback JSDOMSubTransform
- * @param {import('jsdom').DOMWindow} window
- * @param {string} outputPath
- * @returns {void}
+ * Parent transform for manipulating HTML pages.
+ * @type {Transform}
  */
+function transformHTML(content, outputPath) {
+  if (!outputPath.endsWith(".html")) {
+    return content
+  }
 
-module.exports = {
-  /**
-   * @type {Transform}
-   */
-  minifyHTML(content, outputPath) {
-    if (!outputPath.endsWith(".html")) return content
-    const minified = htmlmin.minify(content, {
+  const dom = new JSDOM(content)
+  const { window } = dom
+
+  // Apply sub-transforms
+  autoLinkLessonHeadings(window, outputPath)
+  syntaxHighlight(window)
+  insertCopyCodeButtons(window, outputPath)
+
+  const html = dom.serialize()
+
+  if (process.env.NODE_ENV === "production") {
+    return htmlmin.minify(html, {
       useShortDoctype: true,
       removeComments: true,
       collapseWhitespace: true,
       minifyCSS: true,
       minifyJS: true,
     })
-    return minified
-  },
-
-  /**
-   * Parent transform for other transforms that need to manipulate a DOM.
-   * @type {Transform}
-   */
-  jsdom(content, outputPath) {
-    if (!outputPath.endsWith(".html")) {
-      return content
-    }
-
-    const dom = new JSDOM(content)
-    const { window } = dom
-
-    autolinkLessonHeadings(window, outputPath)
-    syntaxHighlight(window)
-    insertCopyCodeButtons(window, outputPath)
-
-    return dom.serialize()
-  },
+  } else {
+    return html
+  }
 }
 
 /**
@@ -61,9 +45,9 @@ module.exports = {
  * As for levels h4 and h5, I'm not using them.
  * The permalinks are also not applied to the slides.
  *
- * @type {JSDOMSubTransform}
+ * @type {HTMLSubTransform}
  */
-function autolinkLessonHeadings({ document }, outputPath) {
+function autoLinkLessonHeadings({ document }, outputPath) {
   if (!outputPath.includes("/lessons/")) {
     return
   }
@@ -85,7 +69,7 @@ function autolinkLessonHeadings({ document }, outputPath) {
 }
 
 /**
- * @type {JSDOMSubTransform}
+ * @type {HTMLSubTransform}
  */
 function syntaxHighlight({ document }) {
   const codes = /** @type {NodeListOf<HTMLElement>} */ (
@@ -95,7 +79,7 @@ function syntaxHighlight({ document }) {
 }
 
 /**
- * @type {JSDOMSubTransform}
+ * @type {HTMLSubTransform}
  * Insert copy buttons next to all code samples in the lessons pages.
  */
 function insertCopyCodeButtons({ document }, outputPath) {
@@ -105,7 +89,7 @@ function insertCopyCodeButtons({ document }, outputPath) {
 
   document.querySelectorAll("pre code").forEach((code) => {
     const pre = code.parentElement
-    // Make pre focusable (see #101)
+    // Make pre focusable (see issue #101)
     pre.tabIndex = -1
 
     const copyButton = document.createElement("button")
@@ -125,3 +109,17 @@ function insertCopyCodeButtons({ document }, outputPath) {
     pre.parentElement.replaceChild(wrapper, pre)
   })
 }
+
+/**
+ * @callback Transform
+ * @param {string} content
+ * @param {string} outputPath
+ * @returns {string|Promise<string>}
+ */
+
+/**
+ * @callback HTMLSubTransform
+ * @param {import('jsdom').DOMWindow} window
+ * @param {string} outputPath
+ * @returns {void}
+ */

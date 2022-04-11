@@ -19,9 +19,8 @@ module.exports = function (eleventyConfig) {
   // See https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
 
-  eleventyConfig.addTransform("jsdom", transforms.jsdom)
-  if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("minifyhtml", transforms.minifyHTML)
+  for (const transform in transforms) {
+    eleventyConfig.addTransform(transform.toLowerCase(), transforms[transform])
   }
 
   for (const filter in filters) {
