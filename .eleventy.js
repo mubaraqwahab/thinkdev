@@ -48,6 +48,11 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode(shortcode, shortcodes[shortcode])
   }
 
+console.log("\n\n\n")
+console.log("env vars")
+console.log(process.env)
+console.log("\n\n\n")
+
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "assets/images/bootstrap-icons.svg",
