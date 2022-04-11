@@ -7,6 +7,7 @@ module.exports = {
     name: "Mubaraq Wahab",
     url: "https://github.com/mubaraqwahab",
   },
-  environment: process.env.NODE_ENV,
   repoUrl: "https://github.com/mubaraqwahab/thinkdev",
+  environment: process.env.NODE_ENV,
+  deployBranch: process.env.HEAD || "main",
 }
