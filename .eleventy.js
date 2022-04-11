@@ -2,12 +2,10 @@
 
 const fs = require("fs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
-const markdownIt = require("markdown-it")
-const markdownItAttrs = require("markdown-it-attrs")
-const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
+
 const filters = require("./utils/filters.js")
 const transforms = require("./utils/transforms.js")
-const { markdownItYouTubeEmbed } = require("./utils/markdown-it.js")
+const markdownLib = require("./utils/markdown-it.js")
 
 /**
  * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
@@ -15,12 +13,6 @@ const { markdownItYouTubeEmbed } = require("./utils/markdown-it.js")
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
-
-  // Allow markdown attributes (See https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins)
-  const markdownLib = markdownIt({ html: true })
-    .use(markdownItBracketedSpans)
-    .use(markdownItAttrs)
-    .use(markdownItYouTubeEmbed)
 
   eleventyConfig.setLibrary("md", markdownLib)
 
@@ -65,6 +57,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
 
   eleventyConfig.addWatchTarget("src/main.css")
+  // This doesn't appear to work :(
   eleventyConfig.addWatchTarget("tailwind.config.js")
 
   eleventyConfig.setBrowserSyncConfig({
