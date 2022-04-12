@@ -1,5 +1,8 @@
 // @ts-check
 
+// Read from .env in development. (Netlify will provide env vars elsewhere)
+if (process.env.NODE_ENV !== "production") require("dotenv").config()
+
 const fs = require("fs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 
