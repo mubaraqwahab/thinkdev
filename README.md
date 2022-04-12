@@ -25,7 +25,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 
 <!-- prettier-ignore-end -->
 
-## Random notes
+## Random guidelines
 
 * Avoid heading levels `h4` and lower; stick to `h1`, `h2`, and `h3`.
 
