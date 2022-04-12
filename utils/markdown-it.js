@@ -49,9 +49,6 @@ function markdownItYouTubeEmbed(md) {
         modestbranding: "1",
         // Show related videos, if at all, from the same channel
         rel: "0",
-        // Allow controlling the player from JS
-        enablejsapi: "1",
-        origin: process.env.DEPLOY_PRIME_URL,
       })
 
       return html`<div class="youtube-player-wrapper">
