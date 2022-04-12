@@ -16,13 +16,6 @@ excerpt: >
 
 https://youtu.be/B5mqMzbsG8A
 
-<div class="callout callout-info">
-
-We used to have recorded meetings for new lessons (and not just for revisions), so the videos for the next two lessons are not prerecorded.
-For this first lesson, however, I forgot to record the meeting when it held, so I later recorded a video explaining a section of what we discussed: using Visual Studio Code. That video is what's above.
-
-</div>
-
 ## Exercise
 
 1. Install these software on your computer; they'll provide us the environment to write and run JavaScript programs.
