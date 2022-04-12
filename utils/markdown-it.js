@@ -22,6 +22,8 @@ module.exports = markdownLib
  * The URL must be the short version (e.g. https://youtu.be/...)
  * and it must be the only text in it's paragraph.
  *
+ * The embedded video will be sourced from the youtube-nocookie.com domain.
+ *
  * @param {import("markdown-it")} md
  */
 function markdownItYouTubeEmbed(md) {
@@ -42,11 +44,21 @@ function markdownItYouTubeEmbed(md) {
       textToken.content = ""
       nextNextToken.attrSet("data-yt-ignore", "")
 
+      const ytPlayerParams = new URLSearchParams({
+        // Hide YouTube logo when playing video (for cleaner UI)
+        modestbranding: "1",
+        // Show related videos, if at all, from the same channel
+        rel: "0",
+        // Allow controlling the player from JS
+        enablejsapi: "1",
+        origin: process.env.DEPLOY_PRIME_URL,
+      })
+
       return html`<div class="youtube-player-wrapper">
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/${ytVideoId}"
+          src="https://www.youtube-nocookie.com/embed/${ytVideoId}?${ytPlayerParams}"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
