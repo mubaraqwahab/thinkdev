@@ -5,7 +5,7 @@ layout: layouts/base
 {% from "macros.njk" import logotype, icon %}
 
 <div class="h-1 bg-indigo-600 dark:bg-indigo-400"></div>
-<div class="home container max-w-[calc(640px+2rem)] shrink-0 grow">
+<article class="home container max-w-[calc(640px+2rem)] shrink-0 grow">
   <header class="pt-20 pb-32 border-b">
     {{
       logotype(
@@ -27,112 +27,91 @@ layout: layouts/base
     </a>
   </header>
 
-  <main>
-    <section class="py-24 border-b">
-      <h2>Beyond the language basics</h2>
-      <p>
-        We'll learn the oft-taught things in programming &mdash; variables, functions, loops,
-        and what have you &mdash; but we won't stop there.
-      </p>
-      <p>
-        As developers, we also have to test our code,
-        catch bugs, write documentation, and do a bunch of
-        other stuff to maintain our code.
-      </p>
-      <p>
-        We'll learn how to do these too, and we'll use some tools that make
-        the process fun 😉.
-      </p>
-    </section>
+  <section class="py-24 border-b">
+    <h2>Beyond the language basics</h2>
+    <p>
+      We'll learn the oft-taught things in programming &mdash; variables, functions, loops,
+      and what have you &mdash; but we won't stop there.
+    </p>
+    <p>
+      As developers, we also have to test our code,
+      catch bugs, write documentation, and do a bunch of
+      other stuff to maintain our code.
+    </p>
+    <p>
+      We'll learn how to do these too, and we'll use some tools that make
+      the process fun 😉.
+    </p>
+  </section>
 
-    <section class="py-24 border-b">
-      <h2>Here's what to expect</h2>
-      <p>At the end of the course, you should be able to</p>
-      <ul class="list-check list-disc marker:text-green-500 marker:dark:text-green-400 marker:text-[1.2em]">
-        <li>write and read JavaScript code confidently</li>
-        <li>analyze and solve programming problems</li>
-        <li>document, test, and debug simple programs</li>
-        <li>work with the command line</li>
-        <li>use some common data structures and algorithms</li>
-      </ul>
-    </section>
+  <section class="py-24 border-b">
+    <h2>Here's what to expect</h2>
+    <p>At the end of the course, you should be able to</p>
+    <ul class="list-check list-disc marker:text-green-500 marker:dark:text-green-400 marker:text-[1.2em]">
+      <li>write and read JavaScript code confidently</li>
+      <li>analyze and solve programming problems</li>
+      <li>document, test, and debug simple programs</li>
+      <li>work with the command line</li>
+      <li>use some common data structures and algorithms</li>
+    </ul>
+  </section>
 
-    <section class="py-24 border-b">
-      <h2>Then there's what <em class="text-red-500 dark:text-red-400">not</em> to expect</h2>
-      <p>
-        We won't focus on features that are specific to JavaScript environments like the web.
-        Instead, we'll cover general topics that also apply to other programming languages.
-      </p>
-    </section>
+  <section class="py-24 border-b">
+    <h2>Then there's what <em class="text-red-500 dark:text-red-400">not</em> to expect</h2>
+    <p>
+      We won't focus on features that are specific to JavaScript environments like the web.
+      Instead, we'll cover general topics that also apply to other programming languages.
+    </p>
+  </section>
 
-    <section class="py-24 border-b">
-      <h2>Our format and schedule</h2>
-      <p>
-        Each <a href="#lessons">lesson</a> includes a prerecorded lecture,
-        a slide deck, some practice exercises (that you should <em>really</em> attempt 👀),
-        and a supplementary article.
-        You can play the slide decks interactively on this site or download them as PDF files.
-      </p>
-      <p>
-        Every Sunday, we'll meet on Zoom to review a lesson and do a Q&amp;A.
-        Make sure you study the material before the meeting so we can have a lively discussion 🙂.
-      </p>
-    </section>
+  <section class="py-24 border-b">
+    <h2>Our format and schedule</h2>
+    <p>
+      Each <a href="#lessons">lesson</a> includes a prerecorded lecture,
+      a slide deck, some practice exercises (that you should <em>really</em> attempt 👀),
+      and a supplementary article.
+      You can play the slide decks interactively on this site or download them as PDF files.
+    </p>
+    <p>
+      Every Sunday, we'll meet on Zoom to review a lesson and do a Q&amp;A.
+      Make sure you study the material before the meeting so we can have a lively discussion 🙂.
+    </p>
+  </section>
 
-    <section class="py-24 border-b">
-      <h2 id="lessons">The lessons</h2>
-      {#
-        Tangent! Read this on aligning columns:
-        https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
-      #}
-      <ol>
-        {% for lesson in collections.all | eleventyNavigation %}
-          <li>
-            <a href="{{ lesson.url | url }}">{{ lesson.title }}</a>
-          </li>
-        {%- endfor %}
-      </ol>
-      <p>I'll add a new lesson weekly.</p>
-    </section>
-  </main>
-
-  <footer class="pt-16 pb-9">
-    {{
-      logotype(
-        class="h-auto w-2/5 mb-10 -ml-1 md:w-1/3 md:mb-12 md:-ml-2 text-gray-600 dark:text-gray-400",
-        attrs={ariaLabel: "thinkdev logo"}
-      )
-    }}
-
-    <section class="mb-8">
-      <h2>Footnotes</h2>
-      <ol id="footnoteList">
-        <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
-          See the <a
-            href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
-          >2021 StackOverflow Developer Survey</a>.&nbsp;
-          <a
-            href="#fn-jspop-ref"
-            aria-label="Return up"
-            title="Return up"
-            class="no-underline inline-block"
-          >
-            {{- icon('arrow-up-short', width=20, height=20, class="mb-1 -ml-2") -}}
-          </a>
+  <section class="py-24 border-b">
+    <h2 id="lessons">The lessons</h2>
+    {#
+      Tangent! Read this on aligning columns:
+      https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
+    #}
+    <ol>
+      {% for lesson in collections.all | eleventyNavigation %}
+        <li>
+          <a href="{{ lesson.url | url }}">{{ lesson.title }}</a>
         </li>
-      </ol>
-    </section>
+      {%- endfor %}
+    </ol>
+    <p>I'll add a new lesson weekly.</p>
+  </section>
 
-    <div>
-      <p class="sm:inline sm:pr-3 sm:border-r">
-        Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
-      </p>
-      <p class="sm:inline sm:px-3 sm:border-r">
-        <a class="footer-link" href="{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}">Edit this page</a>
-      </p>
-      <p class="sm:inline sm:pl-3">
-        <a class="footer-link" href="{{ site.repoUrl }}/tree/{{ site.deployBranch }}">View the source</a>
-      </p>
-    </div>
+  <footer class="py-16">
+    <h2>Footnotes</h2>
+    <ol id="footnoteList">
+      <li id="fn-jspop" class="rounded scroll-mt-3 target:focused">
+        See the <a
+          href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
+        >2021 StackOverflow Developer Survey</a>.&nbsp;
+        <a
+          href="#fn-jspop-ref"
+          aria-label="Return up"
+          title="Return up"
+          class="no-underline inline-block"
+        >
+          {{- icon('arrow-up-short', width=20, height=20, class="mb-1 -ml-2") -}}
+        </a>
+      </li>
+    </ol>
   </footer>
-</div>
+</article>
+
+{% include "footer.njk" %}
