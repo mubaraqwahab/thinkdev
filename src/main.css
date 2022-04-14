@@ -38,8 +38,8 @@
   }
 
   .footer-nav-item {
-    @apply inline-block mb-0 mx-1 md:mx-2;
-    @apply first:ml-0 last:mr-0;
+    @apply inline-block mb-0 mr-4;
+    @apply last:mr-0;
   }
 
   .callout {
