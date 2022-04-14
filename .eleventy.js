@@ -40,8 +40,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("now", () => new Date().toISOString())
 
   eleventyConfig.addPassthroughCopy({
+    "public/*": "/",
+    // For some reason, the pattern above doesn't copy subfolders.
+    "public/assets/": "assets/",
+    "public/decks/": "decks/",
+
     "node_modules/bootstrap-icons/bootstrap-icons.svg":
       "assets/images/bootstrap-icons.svg",
+
     // Stuff for Reveal.js
     "node_modules/reveal.js/dist/": "reveal/dist/",
     "node_modules/reveal.js/plugin/highlight/": "reveal/plugin/highlight/",
@@ -50,13 +56,6 @@ module.exports = function (eleventyConfig) {
     "node_modules/highlight.js/styles/github-dark-dimmed.css":
       "reveal/plugin/highlight/github-dark-dimmed.css",
   })
-
-  // Keep directory structure for these
-  eleventyConfig.addPassthroughCopy("src/assets/images/")
-  eleventyConfig.addPassthroughCopy("src/decks/*.pdf")
-  eleventyConfig.addPassthroughCopy("src/favicon.*")
-  eleventyConfig.addPassthroughCopy("src/android-chrome-*.png")
-  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png")
 
   eleventyConfig.addWatchTarget("src/main.css")
   // This doesn't appear to work :(
