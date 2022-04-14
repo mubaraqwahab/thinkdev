@@ -21,6 +21,8 @@
           {{ icon('list', width=24, height=24) }}
         </button>
       </div>
+    {% else %}
+      <a href="{{ '/#lessons' | url }}">Lessons</a>
     {% endif %}
   </div>
 </header>

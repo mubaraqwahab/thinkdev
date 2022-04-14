@@ -6,7 +6,6 @@ permalink: offline.html
 
 {% from "macros.njk" import script %}
 
-<h1>You're offline</h1>
-<p>Don't worry, we'll reload this page for you once the network is back.</p>
+Don't worry, we'll reload this page for you once the network is back.
 
 {{ script('offline.js') }}

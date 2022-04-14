@@ -1,15 +1,18 @@
 <footer class="text-sm text-gray-600 dark:text-gray-400">
   <div class="container">
-    <div class="border-t py-7">
-      <p class="mb-2 sm:inline sm:pr-3 sm:border-r">
-        Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
+    <div class="border-t py-7 md:flex md:justify-between">
+      <p class="mb-3 md:mb-0">
+        Built with ❤ by <a href="{{ site.author.url }}" class="underline">Mubaraq Wahab</a>
       </p>
-      <p class="mb-2 sm:inline sm:px-3 sm:border-r">
-        <a class="footer-link" href="{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}">Edit this page</a>
-      </p>
-      <p class="mb-2 sm:inline sm:pl-3">
-        <a class="footer-link" href="{{ site.repoUrl }}/tree/{{ site.deployBranch }}">View the source</a>
-      </p>
+      <nav class="">
+        <a class="footer-nav-item underline" href="{{ '/credits/' | url }}">Credits</a>
+        <a class="footer-nav-item underline" href="{{ site.repoUrl }}/tree/{{ site.deployBranch }}">
+          Source
+        </a>
+        <a class="footer-nav-item underline" href="{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}">
+          Edit this page
+        </a>
+      </nav>
     </div>
   </div>
 </footer>
