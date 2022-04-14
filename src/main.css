@@ -37,6 +37,12 @@
     @apply inline-block fill-current;
   }
 
+  .footer-item {
+    @apply block mb-2;
+    @apply md:inline-block md:mb-0 md:px-3 md:border-r
+    @apply md:first:pl-0 md:last:pr-0 md:last:border-r-0;
+  }
+
   .footer-link {
     @apply underline;
   }
