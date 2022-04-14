@@ -42,10 +42,6 @@
     @apply first:ml-0 last:mr-0;
   }
 
-  .footer-link {
-    @apply underline;
-  }
-
   .callout {
     border-left-style: dashed;
     @apply border border-l-[5px] rounded-md py-2 px-5 my-5;
