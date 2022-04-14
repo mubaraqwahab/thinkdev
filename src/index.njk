@@ -123,40 +123,6 @@ layout: layouts/base
       </ol>
     </section>
 
-    <section class="mb-10 md:mb-12">
-      <h2>References for the course content</h2>
-      {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
-      <ul>
-        <li>
-          <a href="https://greenteapress.com/wp/think-python-2e/"><cite><i>Think Python</i></cite> by Allen Downey</a>.
-          The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
-          Yes, it inspired this course's title 🙂.
-        </li>
-        <li>
-          The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><cite>MDN Web Docs</cite></a>.
-          My primary reference for this course.
-          It's a great place to learn JavaScript and other things web-related.
-        </li>
-        <li>
-          <a href="https://eloquentjavascript.net/"><cite><i>Eloquent JavaScript</i></cite></a>.
-          An introductory yet thorough book on programming in modern JavaScript.
-        </li>
-        <li>
-          <a href="https://tc39.es/ecma262/"><cite>The ECMAScript Language Specification</cite></a> (ECMA 262).
-          The document that formally defines what the JavaScript language is.
-        </li>
-        {% if bindingsLesson %}
-        <li>
-          The prerelease draft of the
-          <a href="https://justjavascript.com/"><cite>Just JavaScript</cite> course</a>.
-          The course focuses on building a good mental model of JavaScript.
-          It inspired the fifth episode of this thinkdev course,
-          <a href="{{ bindingsLesson.url | url }}">{{ bindingsLesson.title }}</a>.
-        </li>
-        {% endif %}
-      </ul>
-    </section>
-
     <div>
       <p class="sm:inline sm:pr-3 sm:border-r">
         Built with ❤ by <a href="{{ site.author.url }}" class="footer-link">Mubaraq Wahab</a>
