@@ -100,17 +100,18 @@ module.exports = {
             },
             // Style like code
             samp: codeLike(theme),
-            kbd: codeLike(theme),
-            // For actual keys (and not text input) like Ctrl,
-            // use the markup <kbd class="key">Ctrl</kbd>
-            // (Inspired by GitHub's rendering)
-            "&[class~='key']": {
-              display: "inline-block",
-              padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
-              borderWidth: theme("borderWidth.DEFAULT"),
-              borderRadius: theme("borderRadius.DEFAULT"),
-              lineHeight: theme("lineHeight.tight"),
+            kbd: {
               ...codeLike(theme),
+              // For actual keys (and not text input) like Ctrl,
+              // use the markup <kbd class="key">Ctrl</kbd>
+              // (Inspired by GitHub's rendering)
+              "&[class~='key']": {
+                display: "inline-block",
+                padding: `${theme("spacing.px")} ${theme("spacing.1")}`,
+                borderWidth: theme("borderWidth.DEFAULT"),
+                borderRadius: theme("borderRadius.DEFAULT"),
+                lineHeight: theme("lineHeight.tight"),
+              },
             },
             strong: {
               fontWeight: theme("fontWeight.semibold"),
