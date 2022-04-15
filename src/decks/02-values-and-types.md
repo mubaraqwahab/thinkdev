@@ -148,8 +148,15 @@ multiple lines. */
 
 Things that have value. {data-id="exprDesc"}
 
-* Simplest expressions are literals {.fragment .fade-up}
-* But they're not so useful alone.]{.fragment .fade-up}
+</section>
+
+<section data-auto-animate>
+
+## Expressions
+
+* The simplest expressions are literals {.fragment .fade-up}
+  * `1`, `"Hi"`, `true`
+* But they're not so useful alone. {.fragment .fade-up}
 
 </section>
 
