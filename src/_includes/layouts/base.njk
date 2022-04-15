@@ -6,6 +6,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title ~ ' | ' ~ site.title if title else site.title }}</title>
+    <script>
+      if (new URL(window.location.href).searchParams.has('edit') {
+        // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
+        window.location.replace("{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}")
+      }
+    </script>
     {% if r/<pre><code /.test(content) %}
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}" media="(prefers-color-scheme: dark)" />
       <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github.css' | url }}" media="(prefers-color-scheme: light)" />
@@ -33,6 +39,11 @@
     {% endif %}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% include "meta.njk" %}
+    <script>
+      if (new URL(window.location.href).searchParams.has('edit') {
+        window.location.href = "{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}"
+      }
+    </script>
   </head>
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">
