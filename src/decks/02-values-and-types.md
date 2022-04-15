@@ -1,36 +1,36 @@
 ---
-title: Values and Types
+title: Values and types
 ---
 
 <section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="store">
 
 ![]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){aria-labelledby="msStoreScreenshotLabel" width=700}
 
-Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
+<small id="msStoreScreenshotLabel">Screenshot of Microsoft Store</small>
 
 </section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="store">
 
-### Text {data-id="storeLabelHeading"}
+Text
 
 ![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
 </section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="store">
 
-### Numbers  {data-id="storeLabelHeading"}
+Numbers
 
 ![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
 </section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="store">
 
-### Alternatives  {data-id="storeLabelHeading"}
+Alternatives
 
 ![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
 
@@ -41,14 +41,19 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 <section>
 
-<section>
+<section data-auto-animate>
 
-## These have "formal" names
+## How do we represent these values?
 
-* We represent text with <i>strings</i> {.fragment .fade-up}
+</section>
+
+<section data-auto-animate>
+
+## How do we represent these values?
+
+* We use <i>strings</i> for text:
   * `"Most popular"`
   * `'Installed'`
-  * `'She\'s here'`
 * We use <i>booleans</i> to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
@@ -59,8 +64,8 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 ### What about numbers?
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
-* <i>Integer</i> types (or <i>int</i>) for 1, 20, -7, &hellip; {.fragment .fade-up}
-* <i>Floating point</i> types (or <i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
+* <i>Integer</i> types (<i>int</i>) for 1, 20, -7, &hellip; {.fragment .fade-up}
+* <i>Floating point</i> types (<i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
@@ -68,15 +73,15 @@ Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
 
 ### But in JavaScript ...
 
-... a number is just a <i>number</i>.
+... a number is just a <i>number</i>. {.fragment .fade-up}
 
 </section>
 
 <section>
 
-### `typeof`
+### `typeof` a value
 
-Use `typeof` keyword to get the type of a value:
+Use the `typeof` keyword to get the type of a value:
 
 ```js
 typeof "Hi" // "string"
@@ -87,48 +92,45 @@ typeof false // "boolean"
 
 </section>
 
-</section>
+<section data-auto-animate data-auto-animate-id=comments>
 
+### Comments
 
-<section data-auto-animate>
-
-## Comments
-
-Messages ignored by the language, just for the developer
+* Use comments to explain pieces of your code.
+* The language ignores them.
 
 </section>
 
+<section data-auto-animate data-auto-animate-id=comments>
 
-<section data-auto-animate>
+### Comments
 
-## Comments
-
-Messages ignored by the language, just for the developer
+* Use comments to explain pieces of your code.
+* The language ignores them.
 
 ```js
 // Line comment
 
-/* Block comment */
-
-/*
-Multiline
-block
-comment
-*/
+/* Block comment
+can span
+multiple lines. */
 ```
 
 </section>
 
+</section>
 
-<section>
+<!-- <section>
 
 ## Operations on numbers
 
-* Values aren't so useful alone
-* We can do the usual arithmetics: (`+`, `-`, `/`, `*`) {.fragment .fade-up}
-* Modulus operator `%` (more on this later) {.fragment .fade-up}
+* Values aren't so useful alone.
+* Operations make them useful. {.fragment .fade-up}
+* We can do the usual arithmetics on numbers: {.fragment .fade-up}
+  * `+`, `-`, `/`, `*`
+* Precedence rules (BODMAS) applies.
 
-</section>
+</section> -->
 
 
 <section>
@@ -137,11 +139,28 @@ comment
 
 ## Expressions
 
+
+</section>
+
+<section data-auto-animate>
+
+## Expressions
+
 Things that have value. {data-id="exprDesc"}
 
+* Simplest expressions are literals {.fragment .fade-up}
+* But they're not so useful alone.]{.fragment .fade-up}
+
+</section>
+
+<section data-auto-animate>
+
+## Expressions
+
+You can use operators to build complex expressions. {data-id="exprDesc"}
+
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-"Hi 👋🏾";
-20.9;
+1 - 2
 50 * 70 / 67 + 9;
 typeof true;
 </code></pre>
