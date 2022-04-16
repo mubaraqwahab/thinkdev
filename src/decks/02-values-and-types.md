@@ -84,10 +84,15 @@ Alternatives
 
 </section>
 
+</section>
+
+
 
 <section>
 
-### `typeof` a value
+<section>
+
+## `typeof` a value
 
 Use the `typeof` keyword to get the type of a value:
 
