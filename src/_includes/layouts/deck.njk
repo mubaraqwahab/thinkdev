@@ -49,43 +49,41 @@
   </div>
 
   <script src="{{ '/reveal/dist/reveal.js' | url }}"></script>
+  <script src="{{ '/reveal/plugin/highlight/highlight.js' | url }}"></script>
   <script>
     // See https://revealjs.com/config/
     Reveal.initialize({
       hash: true,
       hashOneBasedIndex: false,
       navigationMode: "linear",
+      plugins: [RevealHighlight]
     });
 
     // For some reason, reveal isn't auto-trimming the pre > codes
-    document.querySelectorAll("pre > code[data-trim]").forEach(code => {
-      code.innerHTML = code.innerHTML.trim()
-    })
+    //document.querySelectorAll("pre > code[data-trim]").forEach(code => {
+    //  code.innerHTML = code.innerHTML.trim()
+    //})
 
-    if (window.location.search.includes('print-pdf')) {
+    if (new URL(window.location.href).searchParams.has('print-pdf')) {
       // Just so I don't have to manually rename the pdf
       document.title = "{{ page.fileSlug }}"
-    }
-  </script>
 
-{# What I have below here is indeed a hack but I'll keep it until I find an elegant alternative. #}
-{% if site.environment != "production" %}
-  <script>
-    // Rewrite all local anchor URLs when printing from dev mode.
-    if (window.location.search.includes('print-pdf')) {
+      // Rewrite all local anchor URLs to prod site URL when printing.
       const localAnchors = document.querySelectorAll('a[href^="/"]')
 
       localAnchors.forEach(anchor => {
-        const url = new URL(anchor.href)
-        // Point the href to the prod site
-        url.protocol = "https:"
-        url.hostname = "thinkdev.netlify.app"
-        url.port = ""
+        const anchorURL = new URL(anchor.href)
+        const url = new URL("{{ site.url }}")
+
+        // Set the url props, except the origin, to the anchor's.
+        url.pathname = anchorURL.pathname
+        url.hash = anchorURL.hash
+        url.search = anchorURL.search
+
+        // Point the href to the prod site.
         anchor.href = url.href
       })
     }
   </script>
-{% endif %}
-
 </body>
 </html>

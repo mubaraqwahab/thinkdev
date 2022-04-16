@@ -1,5 +1,12 @@
 {% from "macros.njk" import script %}
 
+<script>
+  if (new URL(window.location.href).searchParams.has('edit')) {
+    // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
+    window.location.replace("{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}")
+  }
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link

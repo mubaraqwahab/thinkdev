@@ -179,6 +179,20 @@ module.exports = {
     return "#" + slugger.slug(text)
   },
 
+  /**
+   * Serialize an object into a URL search (query) string.
+   * @param {Record<string, string>} obj
+   * @returns {string}
+   *
+   * @example
+   * queryString({ foo: "bar", baz: "qux" })
+   * //=> "?foo=bar&baz=qux"
+   */
+  querystr(obj) {
+    const searchParams = new URLSearchParams(obj)
+    return searchParams.toString()
+  },
+
   // FOR DEBUGGING
 
   /** Get a property value from an object given it's path. */
