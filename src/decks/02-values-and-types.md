@@ -92,10 +92,10 @@ Alternatives
 Use the `typeof` keyword to get the type of a value:
 
 ```js
-typeof "Hi" // "string"
-typeof 12.34 // "number"
-typeof 3_000_000 // "number"
-typeof false // "boolean"
+typeof "Hi"       // "string"
+typeof 12.34      // "number"
+typeof 3_000_000  // "number"
+typeof false      // "boolean"
 ```
 
 </section>
@@ -227,13 +227,20 @@ console.log(typeof true)
 
 <section>
 
-## What if we wanted to store&nbsp;an&nbsp;expression?
+## What if we wanted tostore the&nbsp;value&nbsp;of an expression?
 
 </section>
 
 
 
 <section>
+
+<section data-auto-animate>
+
+## Variables
+
+</section>
+
 
 <section data-auto-animate>
 
@@ -262,34 +269,15 @@ console.log(costPerItem * 10)
 </section>
 
 
-<section data-auto-animate>
-
-## Variables
-
-<pre data-id="vars"><code data-line-numbers="7,8" data-trim class="language-js">
-// Declare a variable
-const costPerItem = 3000
-
-// Use the variable
-console.log(costPerItem * 10)
-
-// The right-hand side is always an expression
-const costPer10Items = costPerItem * 10
-</code></pre>
-
-</section>
-
-
 <section>
 
 ### How to name variables
 
 * First character must be a letter, underscore `_`, or dollar sign `$`. {.fragment .fade-up}
-  * Valid: `x`, `$`, `_`
-  * Invalid: `0`, `1`
+  * E.g, `x`, `$`, `_`
 * Following characters may include numbers {.fragment .fade-up}
   * Valid: `y2`, `first_name`, `_LAST_NAME_`, `$10`
-  * Invalid: `2a`
+  * Invalid: `2a`, `middle name`
 * Names are case-sensitive {.fragment .fade-up}
   * `message`, `Message`, `MESSAGE` are different variables.
 
@@ -307,8 +295,8 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 ### Variables that vary
 
-* `const` variables are <i>constant</i>; they always refer to the same value.
-* That's fine in many cases, but sometimes we need to change that reference. {.fragment .fade-up}
+* A `const` variable is <i>constant</i>; it always refers to the same value.
+* That's usually fine, but sometimes we'd like to reassign a variable to a different value. {.fragment .fade-up}
 
 </section>
 
@@ -327,10 +315,23 @@ Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/) {c
 <section data-auto-animate>
 
 <pre data-id="let"><code data-line-numbers data-trim class="language-js">
-const quantity = 0
+const quantity = 1
 
 // When the user clicks the plus button,
-// we should increase the quantity
+// increase the quantity.
+quantity = quantity + 1
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="let"><code data-line-numbers="5,6" data-trim class="language-js">
+const quantity = 1
+
+// When the user clicks the plus button,
+// increase the quantity.
 quantity = quantity + 1
 // Error: Assignment to constant variable
 </code></pre>
@@ -340,14 +341,14 @@ quantity = quantity + 1
 
 <section data-auto-animate>
 
-Use the `let` keyword instead
+Use the `let` keyword instead:
 
 <pre data-id="let"><code data-line-numbers data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity = quantity + 1
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
@@ -358,7 +359,7 @@ console.log(quantity) // 1
 Addition assignment operator
 
 <pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity += 1
 
@@ -385,10 +386,10 @@ console.log(quantity) // 1
 
 <section data-auto-animate>
 
-You don't have to initialize a `let` variable with a value immediately.
+You can initialize a `let` variable with a value after declaring it:
 
 <pre data-id="let"><code data-line-numbers="1,3,4" data-trim class="language-js">
-let quantity; // value is undefined
+<mark>let quantity;</mark>
 
 // initialize after declaring
 quantity = 0
