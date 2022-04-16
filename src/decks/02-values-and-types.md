@@ -200,11 +200,12 @@ Wrapping an expression in brackets doesn't change it's value: {data-id="exprDesc
 
 <section data-auto-animate>
 
-Operator precedence rules apply though:
+Operator precedence rules apply, even to non-arithmetic operators: {data-id="exprDesc"}
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
 (50 * 70 / 67 + 9); // 61.2388&hellip;
 50 * 70 / (67 + 9); // 46.0526&hellip;
+typeof (2 - 1);     // "number"
 </code></pre>
 
 </section>
@@ -227,7 +228,7 @@ console.log(typeof true)
 
 <section>
 
-## What if we wanted tostore the&nbsp;value&nbsp;of an expression?
+## What if we wanted to store the&nbsp;value&nbsp;of an expression?
 
 </section>
 
@@ -363,7 +364,7 @@ let quantity = 1
 
 quantity += 1
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
@@ -374,11 +375,11 @@ console.log(quantity) // 1
 Increment operator
 
 <pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity++
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
@@ -389,14 +390,34 @@ console.log(quantity) // 1
 You can initialize a `let` variable with a value after declaring it:
 
 <pre data-id="let"><code data-line-numbers="1,3,4" data-trim class="language-js">
-<mark>let quantity;</mark>
+let quantity;
 
 // initialize after declaring
-quantity = 0
+quantity = 1
 
 quantity++
 
-console.log(quantity) // 1
+console.log(quantity) // 2
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Its value will be `undefined` until you initialize it:
+
+<pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
+let quantity;
+
+console.log(quantity) // undefined
+
+// initialize after declaring
+quantity = 1
+
+quantity++
+
+console.log(quantity) // 2
 </code></pre>
 
 </section>
@@ -407,11 +428,11 @@ console.log(quantity) // 1
 
 <section>
 
-## Absence of values
+## Absence of value
 
 * `undefined` and `null`.
 * No hard rules on when to use which.
-* Some use `null` for intentionally absent variables.
+* Use `null` for an intentionally absent value.
 
 </section>
 
@@ -430,7 +451,7 @@ console.log(quantity) // 1
 
 ### Joining strings {data-id="strOpHeading"}
 
-Also known as <i>concatenation</i>
+Also known as <i>concatenation</i>:
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -445,9 +466,9 @@ const fullName = firstName + lastName
 
 <section  data-auto-animate>
 
-### Joining strings {data-id="strOpHeading"}
+<!-- ### Joining strings {data-id="strOpHeading"} -->
 
-Also known as <i>concatenation</i>
+<!-- Also known as <i>concatenation</i>: -->
 
 <pre data-id="concatstr"><code data-line-numbers="4-6" data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -465,13 +486,13 @@ const fullName = firstName + " " + lastName
 
 ### Interpolation {data-id="strOpHeading"}
 
-You can use special strings called <i>template literals</i> to interpolate.
+You can use special strings called <i>template literals</i> to interpolate:
 
-<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 const lastName = "Wahab"
 
-const fullName = `${firstName} ${lastName}`
+const fullName = `TODO${firstName} ${lastName}`
 // "Mubaraq Wahab"
 </code></pre>
 
@@ -482,9 +503,9 @@ const fullName = `${firstName} ${lastName}`
 
 ### Get a character from a string {data-id="strOpHeading"}
 
-Use square brackets to specify an <i>index</i> (starts from zero)
+Use square brackets to specify an <i>index</i> (starting from zero):
 
-<pre data-id="concatstr"><code data-line-numbers="1,2,5-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 //                 0123456
 const firstName = "Mubaraq"
 
@@ -500,9 +521,9 @@ const second = firstName[1] // "u"
 
 ### Get part of a string {data-id="strOpHeading"}
 
-Use the `slice` method
+Use the `slice` method:
 
-<pre data-id="concatstr"><code data-line-numbers="5-8" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 //                 0123456
 const firstName = "Mubaraq"
 
@@ -519,9 +540,9 @@ const thirdToEnd = firstName.slice(2)
 
 ### Does a string include this? {data-id="strOpHeading"}
 
-Use the `includes` method to check if a string includes another.
+Use the `includes` method to check if a string includes another:
 
-<pre data-id="concatstr"><code data-line-numbers="4-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 
 firstName.includes('ba')
@@ -537,9 +558,9 @@ firstName.includes('ab')
 
 ### How long is a string? {data-id="strOpHeading"}
 
-Use the `length` property to get the length of a string.
+Use the `length` property to get the length of a string:
 
-<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 
 firstName.length
@@ -553,7 +574,7 @@ firstName.length
 
 ### String to number {data-id="strOpHeading"}
 
-You need to convert a string to a number sometimes, [such as when working with user input.]{.block} {data-id=strOpDesc}
+You need to convert a string to a number sometimes, [such as when working with user input:]{.block} {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 // Assume this is from user input
@@ -568,7 +589,7 @@ input + 3
 
 <section data-auto-animate>
 
-Use the `Number` function to convert a string to a number. {data-id=strOpDesc}
+Use the `Number` function to convert a string to a number: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="4-8" data-trim class="language-js">
 // Assume this is from user input
@@ -586,7 +607,7 @@ inputAsNumber + 3
 
 <section data-auto-animate>
 
-Or use the `+` operator. {data-id=strOpDesc}
+Or use the `+` operator: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
 // Assume this is from user input
@@ -606,7 +627,7 @@ inputAsNumber + 3
 
 ### Number to string {data-id="strOpHeading"}
 
-The opposite is possible too, using the `String` function. {data-id=strOpDesc}
+The opposite is possible too, using the `String` function: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 const num = 20
@@ -619,7 +640,7 @@ const numAsString = String(num)
 
 <section data-auto-animate>
 
-Or the `toString` method. {data-id=strOpDesc}
+Or the `toString` method: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
 const num = 20
@@ -632,7 +653,7 @@ const numAsString = num.toString()
 
 <section data-auto-animate>
 
-Or even concatenating with an empty string. {data-id=strOpDesc}
+Or even concatenating with an empty string:{data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
 const num = 20
@@ -647,7 +668,7 @@ const numAsString = "" + num
 
 ### UPPERCASE, lowercase {data-id="strOpHeading"}
 
-<pre data-id="concatstr"><code data-line-numbers="3-4|6-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 
 firstName.toUpperCase()
@@ -682,31 +703,64 @@ firstName.toLowerCase()
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-```js {data-line-numbers="1,2|4-7"}
-let a = const b = 10
-
-let a = 10
-const b = a = 15
-```
+<pre data-id="stmtcode"><code data-line-numbers="" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
 
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-Expressions can act as statements, but not vice versa.
-Not all statements produce values. E.g., variable declaration
+A variable declaration is a statement:
 
-```js {data-line-numbers="1,2|4-7" data-id="stmt2code"}
-// This is wrong! Declaration is not an expression
-let a = const b = 10
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
 
-// But this is valid; assignment is an expression
-let a = 10
-const b = a = 15
-// a and b are now 15
-```
+</section>
+
+
+<section data-auto-animate>
+
+An expression can act as a statement too:
+
+<pre data-id="stmtcode"><code data-line-numbers="3" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+You can't use a statement as an expression:
+
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+// Error!
+const message = 'Hello ' + (const name = 'Mubaraq')
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+An assignment is an expression:
+
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+let name
+const message = 'Hello ' + (name = 'Mubaraq')
+typeof message
+</code></pre>
 
 </section>

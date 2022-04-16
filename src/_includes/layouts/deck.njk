@@ -1,6 +1,3 @@
----
----
-
 {% from "macros.njk" import logotype %}
 
 <!DOCTYPE html>
@@ -58,11 +55,6 @@
       navigationMode: "linear",
       plugins: [RevealHighlight]
     });
-
-    // For some reason, reveal isn't auto-trimming the pre > codes
-    //document.querySelectorAll("pre > code[data-trim]").forEach(code => {
-    //  code.innerHTML = code.innerHTML.trim()
-    //})
 
     if (new URL(window.location.href).searchParams.has('print-pdf')) {
       // Just so I don't have to manually rename the pdf

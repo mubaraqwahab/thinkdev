@@ -73,8 +73,6 @@ function autoLinkLessonHeadings({ document }, outputPath) {
 function syntaxHighlightNonDecks({ document }, outputPath) {
   if (outputPath.includes("/decks/")) return
 
-  console.log({ outputPath })
-
   const codes = /** @type {NodeListOf<HTMLElement>} */ (
     document.querySelectorAll("pre code")
   )
