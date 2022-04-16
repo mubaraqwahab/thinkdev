@@ -8,7 +8,7 @@ title: Values and types
 
 ![]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){aria-labelledby="msStoreScreenshotLabel" width=700}
 
-<small id="msStoreScreenshotLabel">Screenshot of Microsoft Store</small>
+<small id="msStoreScreenshotLabel" class="italic">Screenshot of Microsoft Store</small>
 
 </section>
 
@@ -304,11 +304,11 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 <section>
 
-Consider an e-commerce app
+Consider an online shopping cart:
 
 ![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=460' | url }}){aria-labelledby="tarbiyahCartScreenshot" width=460}
 
-Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/) {class="text-[60%]" id="tarbiyahCartScreenshot"}
+<small id="tarbiyahCartScreenshot" class="italic">Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/)</small>
 
 </section>
 

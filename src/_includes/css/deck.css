@@ -21,6 +21,7 @@ section.has-light-background h6 {
   --r-main-font-size: theme("fontSize.3xl");
   --r-main-color: theme("colors.gray.300");
   --r-block-margin: 20px;
+  --r-block-border-radius: theme("borderRadius.xl");
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: theme("fontFamily.display");
   --r-heading-color: theme("colors.white");
@@ -136,6 +137,7 @@ section.has-light-background h6 {
 .reveal iframe {
   max-width: 95%;
   max-height: 95%;
+  border-radius: var(--r-block-border-radius);
 }
 
 .reveal strong,
@@ -217,7 +219,7 @@ section.has-light-background h6 {
   font-family: var(--r-code-font);
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-  border-radius: theme("borderRadius.lg");
+  border-radius: var(--r-block-border-radius);
   overflow: hidden;
   line-height: 1.5;
 }
@@ -305,7 +307,8 @@ html.print-pdf .reveal pre code {
 }
 
 .reveal img {
-  margin: var(--r-block-margin) 0;
+  /* margin: var(--r-block-margin) 0; */
+  margin: 0;
 }
 
 /*********************************************
