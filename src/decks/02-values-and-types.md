@@ -4,38 +4,38 @@ title: Values and types
 
 <section>
 
-<section data-auto-animate data-auto-animate-id="store">
+<section data-auto-animate data-auto-animate-id="fl">
 
-![]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){aria-labelledby="msStoreScreenshotLabel" width=700}
+![]({{ '/assets/images/futurelearn-featured.png?nf_resize=fit&w=912' | url }}){aria-labelledby="futureLearnFeaturedLabel" width=912}
 
-<small id="msStoreScreenshotLabel" class="italic">Screenshot of Microsoft Store</small>
+<small id="futureLearnFeaturedLabel" class="italic">A screenshot of the featured courses on [FutureLearn](https://www.futurelearn.com/).</small>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="store">
+<section data-auto-animate data-auto-animate-id="fl">
 
 Text
 
-![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+![A screenshot highlighting some pieces of text in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-text.png?nf_resize=fit&w=912' | url }}){width=912}
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="store">
+<section data-auto-animate data-auto-animate-id="fl">
 
 Numbers
 
-![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+![A screenshot highlighting some numbers in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-nums.png?nf_resize=fit&w=912' | url }}){width=912}
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="store">
+<section data-auto-animate data-auto-animate-id="fl">
 
 Alternatives
 
-![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.png?nf_resize=fit&w=912' | url }}){width=912}
 
 </section>
 
@@ -430,9 +430,8 @@ console.log(quantity) // 2
 
 ## Absence of value
 
-* `undefined` and `null`.
-* No hard rules on when to use which.
-* Use `null` for an intentionally absent value.
+* Special values: `undefined` and `null`.
+* `null` is often used for an intentionally absent value.
 
 </section>
 
