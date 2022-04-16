@@ -19,10 +19,10 @@ function transformHTML(content, outputPath) {
   const dom = new JSDOM(content)
   const { window } = dom
 
-  // Apply sub-transforms
+  // Apply sub-transforms to pages
   autoLinkLessonHeadings(window, outputPath)
-  syntaxHighlight(window)
-  insertCopyCodeButtons(window, outputPath)
+  syntaxHighlightNonDecks(window, outputPath)
+  insertCopyCodeButtonsInNonDecks(window, outputPath)
 
   const html = dom.serialize()
 
@@ -43,14 +43,11 @@ function transformHTML(content, outputPath) {
  * Auto-add permalinks to headings h2 and h3 in lesson pages.
  * There's no need to add to h1's cos the page link already represents them.
  * As for levels h4 and h5, I'm not using them.
- * The permalinks are also not applied to the slides.
  *
  * @type {HTMLSubTransform}
  */
 function autoLinkLessonHeadings({ document }, outputPath) {
-  if (!outputPath.includes("/lessons/")) {
-    return
-  }
+  if (!outputPath.includes("/lessons/")) return
 
   document.querySelectorAll("h2, h3").forEach((heading) => {
     // Slugify the heading text
@@ -69,9 +66,15 @@ function autoLinkLessonHeadings({ document }, outputPath) {
 }
 
 /**
+ * Highlight all code blocks in non-deck pages.
+ * (Reveal will handle syntax highlighting in decks at runtime.)
  * @type {HTMLSubTransform}
  */
-function syntaxHighlight({ document }) {
+function syntaxHighlightNonDecks({ document }, outputPath) {
+  if (outputPath.includes("/decks/")) return
+
+  console.log({ outputPath })
+
   const codes = /** @type {NodeListOf<HTMLElement>} */ (
     document.querySelectorAll("pre code")
   )
@@ -80,12 +83,11 @@ function syntaxHighlight({ document }) {
 
 /**
  * @type {HTMLSubTransform}
- * Insert copy buttons next to all code samples in the lessons pages.
+ * Insert copy buttons next to all code blocks in the non-deck pages.
+ * (I don't want copy buttons in decks because it's distracting while presenting.)
  */
-function insertCopyCodeButtons({ document }, outputPath) {
-  if (!outputPath.includes("/lessons/")) {
-    return
-  }
+function insertCopyCodeButtonsInNonDecks({ document }, outputPath) {
+  if (outputPath.includes("/decks/")) return
 
   document.querySelectorAll("pre code").forEach((code) => {
     const pre = code.parentElement
