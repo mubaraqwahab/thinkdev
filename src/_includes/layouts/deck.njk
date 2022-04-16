@@ -15,19 +15,8 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      {#
-        Use the titleSlideAttrs key in frontmatter to
-        specify attributes to put on the title slide.
-        If you're going to use Nunjucks within the key,
-        don't forget to put the key in eleventyComputed)
-      #}
-      <section {{ titleSlideAttrs | htmlattrs | safe }}>
-        <p
-          class="
-            inline-flex items-center justify-center mb-2 mx-auto
-            font-semibold font-mono
-          "
-        >
+      <section>
+        <p class="inline-flex items-center justify-center mb-2 mx-auto font-semibold font-mono">
           <a
             class="
               inline-flex items-center !text-[color:var(--r-main-color)]
