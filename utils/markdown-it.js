@@ -10,7 +10,7 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 
-const markdownLib = markdownIt({ html: true })
+const markdownLib = markdownIt({ html: true, typographer: true })
   .use(markdownItBracketedSpans)
   .use(markdownItAttrs)
   .use(markdownItYouTubeEmbed)
