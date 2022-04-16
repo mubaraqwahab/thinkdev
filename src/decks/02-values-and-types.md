@@ -165,8 +165,8 @@ Things that have value. {data-id="exprDesc"}
 
 <section>
 
-* The simplest expressions are literals {data-id=exprDesc}
-  * `1`, `"Hi"`, `true`
+* The simplest expressions are literals: {data-id=exprDesc}
+  * `1`, `"Hi"`, `true`.
 * But they're not so useful alone. {.fragment .fade-up}
 
 </section>
@@ -174,12 +174,12 @@ Things that have value. {data-id="exprDesc"}
 
 <section data-auto-animate>
 
-You can use operators to build complex expressions. {data-id="exprDesc"}
+You can use operators to build complex expressions: {data-id="exprDesc"}
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-1 - 2
-50 * 70 / 67 + 9;
-typeof true;
+1 - 2;            // -1
+50 * 70 / 67 + 9; // 61.2388&hellip;
+typeof true;      // "boolean"
 </code></pre>
 
 </section>
@@ -187,13 +187,24 @@ typeof true;
 
 <section data-auto-animate>
 
-You can wrap expressions in brackets. {data-id="exprDesc"}
+Wrapping an expression in brackets doesn't change it's value: {data-id="exprDesc"}
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-("Hi 👋🏾");
-(20.9);
-((50 * 70) / (67 + 9));
-(typeof true);
+(1 - 2);            // -1
+(50 * 70 / 67 + 9); // 61.2388&hellip;
+(typeof true);      // "boolean"
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Operator precedence rules apply though:
+
+<pre data-id="expr"><code data-line-numbers data-trim class="language-js">
+(50 * 70 / 67 + 9); // 61.2388&hellip;
+50 * 70 / (67 + 9); // 46.0526&hellip;
 </code></pre>
 
 </section>
@@ -201,11 +212,11 @@ You can wrap expressions in brackets. {data-id="exprDesc"}
 
 <section data-auto-animate data-auto-animate-duration="0.7">
 
-Values and expressions can usually replace each other. {data-id="exprDesc"}
+You can use an expression where a value is expected: {data-id="exprDesc"}
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-typeof ((50 * 70) / (67 + 9));
-typeof typeof true
+typeof (50 * 70 / 67 + 9)
+console.log(typeof true)
 </code></pre>
 
 </section>
