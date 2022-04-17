@@ -61,7 +61,11 @@ module.exports = {
     const { fontFamily } = require("tailwindcss/defaultTheme")
 
     const deckTailwindConfig = resolveTailwindConfig({
-      content: ["src/_includes/layouts/deck.njk", "src/decks/**/*.md"],
+      content: [
+        "src/_includes/layouts/deck.njk",
+        "src/decks/**/*.md",
+        "utils/**/*.js",
+      ],
       theme: {
         extend: {
           fontFamily: {

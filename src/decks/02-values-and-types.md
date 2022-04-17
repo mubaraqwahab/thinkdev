@@ -496,7 +496,7 @@ You can use special strings called <i>template literals</i> to interpolate:
 const firstName = "Mubaraq"
 const lastName = "Wahab"
 
-const fullName = `TODO${firstName} ${lastName}`
+const fullName = `${firstName} ${lastName}`
 // "Mubaraq Wahab"
 </code></pre>
 

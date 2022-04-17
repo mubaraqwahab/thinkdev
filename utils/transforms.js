@@ -23,6 +23,7 @@ function transformHTML(content, outputPath) {
   autoLinkLessonHeadings(window, outputPath)
   syntaxHighlightNonDecks(window, outputPath)
   insertCopyCodeButtonsInNonDecks(window, outputPath)
+  preventCharacterComposition(window, outputPath)
 
   const html = dom.serialize()
 
@@ -107,6 +108,41 @@ function insertCopyCodeButtonsInNonDecks({ document }, outputPath) {
 
     // Replace the pre with the new wrapper
     pre.parentElement.replaceChild(wrapper, pre)
+  })
+}
+
+/**
+ * The Red Hat fonts compose character sequences containing diacritics.
+ * For example, the fonts render the sequence "\`a" as "à" and "\` " as "`".
+ *
+ * This is a problem because I'll be using backticks in `<code>`s
+ * (inline or block) to delimit template literals.
+ *
+ * I've not found a way to disable this composition in CSS,
+ * except by doing the following:
+ * 1. Wrap the diacritic in an element (e.g. a `<span>`) to target it in CSS.
+ * 2. Specify a width on the wrapper (1ch). The wrapper must be *blockified*
+ *   for this to work.
+ *
+ * One issue with this is that a gap appears when the code is selected,
+ * as if the wrapper is not part of the selection, even though it is.
+ *
+ * It's worth mentioning that I'm only concerned about the backtick
+ * (the "grave accent" diacritic), because, so far, it's the only one
+ * I'm using in `<code>`s.
+ *
+ * @type {HTMLSubTransform}
+ */
+function preventCharacterComposition({ document }, outputPath) {
+  document.querySelectorAll("code").forEach((code) => {
+    code.innerHTML = code.innerHTML.replace(
+      /`/g,
+      '<span class="inline-block w-[1ch]">`</span>'
+    )
+    if (outputPath.includes("/decks/")) {
+      // Prevent Reveal from escaping the HTML <span>
+      code.setAttribute("data-noescape", "")
+    }
   })
 }
 
