@@ -69,3 +69,5 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Mark up text input with the [`<kbd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd). For example, <i>Type \<kbd>Hello\</kbd></i>. However, for actual keys, add `.key` to the `<kbd>` element, as in <i>Press \<kbd class="key">Enter\</kbd></i>.
 
 * Use `console.log` in sample codes to indicate what to output. Also use an adjacent comment (on the same line or a different line) to indicate what the output should be. Doing these ensures that the code "makes sense" in a JavaScript file and in the Node REPL. You may omit the `console.log` if you specify that the code should be run in the REPL. However, never use the prompt symbol!
+
+* Prefer PNG images to JPEGs for their quality. Also, use SVGs where possible for their high quality and small file size.
