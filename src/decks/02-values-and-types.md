@@ -6,7 +6,7 @@ title: Values and types
 
 <section data-auto-animate data-auto-animate-id="fl">
 
-![]({{ '/assets/images/futurelearn-featured.png?nf_resize=fit&w=912' | url }}){aria-labelledby="futureLearnFeaturedLabel" width=912}
+![]({{ '/assets/images/futurelearn-featured.png?nf_resize=fit&w=761' | url }}){aria-labelledby="futureLearnFeaturedLabel" width=912}
 
 <small id="futureLearnFeaturedLabel" class="italic">A screenshot of the featured courses on [FutureLearn](https://www.futurelearn.com/).</small>
 
@@ -311,9 +311,9 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 Consider an online shopping cart:
 
-![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=460' | url }}){aria-labelledby="tarbiyahCartScreenshot" width=460}
+![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=527' | url }}){aria-labelledby="tarbiyahCartLabel" width=527}
 
-<small id="tarbiyahCartScreenshot" class="italic">Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/)</small>
+<small id="tarbiyahCartLabel" class="italic">Screenshot of a cart item on [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/).</small>
 
 </section>
 
