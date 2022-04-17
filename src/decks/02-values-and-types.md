@@ -311,7 +311,7 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 Consider an online shopping cart:
 
-![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=527' | url }}){aria-labelledby="tarbiyahCartLabel" width=527}
+![]({{ '/assets/images/tarbiyah-cart.png?nf_resize=fit&w=709' | url }}){aria-labelledby="tarbiyahCartLabel" width=787}
 
 <small id="tarbiyahCartLabel" class="italic">Screenshot of a cart item on [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/).</small>
 

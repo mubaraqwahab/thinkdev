@@ -19,6 +19,8 @@ function transformHTML(content, outputPath) {
   const dom = new JSDOM(content)
   const { window } = dom
 
+  console.log({outputPath})
+
   // Apply sub-transforms to pages
   autoLinkLessonHeadings(window, outputPath)
   syntaxHighlightNonDecks(window, outputPath)
