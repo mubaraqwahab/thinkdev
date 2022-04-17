@@ -31,13 +31,12 @@
         }
       </style>
     {% endif %}
+    {% if r/youtube\-player/.test(content) %}
+      <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
+      <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" defer></script>
+    {% endif %}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% include "meta.njk" %}
-    <script>
-      if (new URL(window.location.href).searchParams.has('edit') {
-        window.location.href = "{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}"
-      }
-    </script>
   </head>
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">
