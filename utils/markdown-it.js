@@ -10,6 +10,8 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 
+const { requiredEnv } = require("./shared")
+
 const markdownLib = markdownIt({ html: true, typographer: true })
   .use(markdownItBracketedSpans)
   .use(markdownItAttrs)
@@ -49,6 +51,7 @@ function markdownItYouTubeEmbed(md) {
         modestbranding: "1",
         // Show related videos, if at all, from the same channel
         rel: "0",
+        origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
       })
 
       return html`
