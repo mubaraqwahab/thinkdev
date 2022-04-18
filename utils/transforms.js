@@ -4,6 +4,7 @@ const htmlmin = require("html-minifier-terser")
 const { JSDOM } = require("jsdom")
 const GithubSlugger = require("github-slugger")
 const hljs = require("highlight.js").default
+const terser = require("terser")
 
 module.exports = { transformHTML }
 
@@ -24,6 +25,7 @@ function transformHTML(content, outputPath) {
   syntaxHighlightNonDecks(window, outputPath)
   insertCopyCodeButtonsInNonDecks(window, outputPath)
   preventCharacterComposition(window, outputPath)
+  wrapScriptsInIIFE(window)
 
   const html = dom.serialize()
 
@@ -151,6 +153,23 @@ function preventCharacterComposition({ document }, outputPath) {
       // Prevent Reveal from escaping the HTML <span>
       code.setAttribute("data-noescape", "")
     }
+  })
+}
+
+/**
+ * Wrap the contents of all scripts in an IIFE, except scripts with
+ * an src or a type attribute. This ensures that the scripts are treated
+ * as self-contained programs, and by extension, prevents issues like
+ * name collisions.
+ *
+ * P.S.: I could do this manually with little effort,
+ * but why not leave it to the build system 😉?
+ *
+ * @type {HTMLSubTransform}
+ */
+function wrapScriptsInIIFE({ document }) {
+  document.querySelectorAll("script:not([src], [type])").forEach((script) => {
+    script.innerHTML = `(function() {${script.innerHTML}})();`
   })
 }
 
