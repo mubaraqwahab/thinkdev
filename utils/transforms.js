@@ -33,7 +33,15 @@ function transformHTML(content, outputPath) {
       removeComments: true,
       collapseWhitespace: true,
       minifyCSS: true,
-      minifyJS: true,
+      // See https://github.com/terser/html-minifier-terser/blob/0eb78e56b07d4a8656c4b6fddbd3ab67adeaee2b/src/htmlminifier.js#L697-L722
+      minifyJS: async (text, inline) => {
+        const minified = await terser.minify(text, {
+          parse: {
+            bare_returns: inline,
+          },
+        })
+        return minified.code
+      },
     })
   } else {
     return html
