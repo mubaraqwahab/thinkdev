@@ -51,18 +51,13 @@ function markdownItYouTubeEmbed(md) {
         rel: "0",
       })
 
-      return html`<div class="youtube-player-wrapper">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube-nocookie.com/embed/${ytVideoId}?${ytPlayerParams}"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          class="youtube-player"
-        ></iframe>
-      </div>`
+      return html`
+        <lite-youtube
+          videoid="${ytVideoId}"
+          params="${ytPlayerParams}"
+          style="background-image: url('https://i.ytimg.com/vi/${ytVideoId}/sddefault.jpg');"
+        ></lite-youtube>
+      `
     } else {
       return self.renderToken(tokens, idx, options)
     }

@@ -31,10 +31,7 @@
         }
       </style>
     {% endif %}
-    {% if r/youtube\-player/.test(content) %}
-      <link rel="stylesheet" href="/vendor/lite-youtube-embed/lite-yt-embed.css" />
-      <script src="/vendor/lite-youtube-embed/lite-yt-embed.js" defer></script>
-    {% endif %}
+    {# Place after all 3rd-party stylesheets #}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% include "meta.njk" %}
   </head>

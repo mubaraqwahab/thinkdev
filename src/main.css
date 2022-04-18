@@ -22,6 +22,10 @@
     @apply underline-offset-[0.05em];
   }
 
+  lite-youtube {
+    @apply rounded-md;
+  }
+
   :not(pre[tabindex="-1"]):focus {
     @apply focused;
   }
@@ -87,26 +91,6 @@
     @apply dark:text-indigo-300;
     @apply hover:text-indigo-600 hover:dark:text-indigo-300;
     @apply before:inline-block;
-  }
-
-  /* aspect-ratio fallback. See https://css-tricks.com/fluid-width-video/ */
-  .youtube-player-wrapper {
-    @apply relative h-0 pb-[56.25%];
-  }
-
-  .youtube-player {
-    @apply absolute top-0 left-0 w-full h-full mb-[1.5em];
-  }
-
-  @supports (aspect-ratio: 16 / 9) {
-    /* Undo wrapper styles */
-    .youtube-player-wrapper {
-      @apply static h-auto pb-0;
-    }
-
-    .youtube-player {
-      @apply static h-auto aspect-video rounded-md;
-    }
   }
 
   /* See #101 */

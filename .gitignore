@@ -5,3 +5,7 @@ _site/
 .netlify
 
 .env
+
+# Files copied from node_modules in the prebuild step
+src/_includes/css/lite-yt-embed.css
+src/_includes/js/lite-yt-embed.js

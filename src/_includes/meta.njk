@@ -1,5 +1,6 @@
 {% from "macros.njk" import script %}
 
+{# Load this early to avoid downloading all the meta resources below #}
 <script>
   if (new URL(window.location.href).searchParams.has('edit')) {
     // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
