@@ -45,7 +45,8 @@
       plugins: [RevealHighlight]
     });
 
-    if (new URL(window.location.href).searchParams.has('print-pdf')) {
+    const windowURL = new URL(window.location.href)
+    if (windowURL.searchParams.has('print-pdf')) {
       // Just so I don't have to manually rename the pdf
       document.title = "{{ page.fileSlug }}"
 
