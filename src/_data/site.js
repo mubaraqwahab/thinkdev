@@ -1,5 +1,7 @@
 // @ts-check
 
+const { requiredEnv } = require("../../utils/shared")
+
 module.exports = {
   title: "Think Like a Developer",
   shortTitle: "thinkdev",
@@ -13,17 +15,4 @@ module.exports = {
   repoUrl: requiredEnv("REPOSITORY_URL"),
   deployBranch: requiredEnv("HEAD"),
   environment: process.env.NODE_ENV,
-}
-
-/**
- * Use this for required environment variables.
- * If the variable is not set, it will log a warning.
- * @param {string} name
- * @returns {string|void}
- */
-function requiredEnv(name) {
-  return (
-    process.env[name] ??
-    console.warn(`Warning: Environment variable '${name}' not set.`)
-  )
 }
