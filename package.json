@@ -26,9 +26,8 @@
   },
   "homepage": "https://github.com/mubaraqwahab/bootstrap-11ty-starter#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.3.2",
-    "@11ty/eleventy-upgrade-help": "^1.0.1",
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@tailwindcss/typography": "^0.5.2",

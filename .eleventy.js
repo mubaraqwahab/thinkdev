@@ -5,18 +5,16 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config()
 
 const fs = require("fs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
-const UpgradeHelper = require("@11ty/eleventy-upgrade-help")
 
 const filters = require("./utils/filters.js")
 const transforms = require("./utils/transforms.js")
 const markdownLib = require("./utils/markdown-it.js")
 
 /**
- * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
+ * @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig
  * @returns {Partial<ReturnType<import('@11ty/eleventy/src/defaultConfig')>>}
  */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(UpgradeHelper)
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
   eleventyConfig.setLibrary("md", markdownLib)
