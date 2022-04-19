@@ -11,7 +11,7 @@
     height="{{ height }}"
     {{ attrs | htmlattrs | safe }}
   >
-    <use xlink:href="{{ ('/assets/images/bootstrap-icons.svg#' ~ id) | url }}"/>
+    <use href="{{ ('/assets/images/bootstrap-icons.svg#' ~ id) | url }}" />
   </svg>
 {%- endmacro %}
 
@@ -34,12 +34,13 @@
 {%- endmacro %}
 
 {% macro logotype(class="", attrs={}) -%}
-  <object
-    data="{{ ('/assets/images/logotype.svg') | url }}"
-    type="image/svg+xml"
+  <svg
+    viewBox="0 0 2853 601"
     class="{{ class }}"
     {{ attrs | htmlattrs | safe }}
-  ></object>
+  >
+    <use href="{{ ('/assets/images/thinkdev.svg#logotype') | url }}" />
+  </svg>
 {%- endmacro %}
 
 {# Inline a script from the _includes/js/ folder. #}
