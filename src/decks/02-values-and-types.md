@@ -6,7 +6,7 @@ title: Values and types
 
 <section data-auto-animate data-auto-animate-id="fl">
 
-![]({{ '/assets/images/futurelearn-featured.png?nf_resize=fit&w=761' | url }}){aria-labelledby="futureLearnFeaturedLabel" width=912}
+![]({{ '/assets/images/futurelearn-featured.webp' | url }}){aria-labelledby="futureLearnFeaturedLabel"}
 
 <small id="futureLearnFeaturedLabel" class="italic">A screenshot of the featured courses on [FutureLearn](https://www.futurelearn.com/).</small>
 
@@ -17,7 +17,7 @@ title: Values and types
 
 Text
 
-![A screenshot highlighting some pieces of text in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-text.png?nf_resize=fit&w=912' | url }}){width=912}
+![A screenshot highlighting some pieces of text in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-text.webp' | url }})
 
 </section>
 
@@ -26,7 +26,7 @@ Text
 
 Numbers
 
-![A screenshot highlighting some numbers in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-nums.png?nf_resize=fit&w=912' | url }}){width=912}
+![A screenshot highlighting some numbers in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-nums.webp' | url }})
 
 </section>
 
@@ -35,7 +35,7 @@ Numbers
 
 Alternatives
 
-![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.png?nf_resize=fit&w=912' | url }}){width=912}
+![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
 
 </section>
 
@@ -311,7 +311,7 @@ The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal
 
 Consider an online shopping cart:
 
-![]({{ '/assets/images/tarbiyah-cart.png?nf_resize=fit&w=709' | url }}){aria-labelledby="tarbiyahCartLabel" width=787}
+![]({{ '/assets/images/tarbiyah-cart.webp' | url }}){aria-labelledby="tarbiyahCartLabel"}
 
 <small id="tarbiyahCartLabel" class="italic">Screenshot of a cart item on [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/).</small>
 
