@@ -7,3 +7,13 @@
 
 [context.deploy-preview]
   environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }
+
+[[redirects]]
+  from = "/decks/:slug.pdf"
+  to = "/lessons/:slug/deck.pdf"
+  force = true
+
+[[redirects]]
+  from = "/decks/:slug"
+  to = "/lessons/:slug/deck"
+  force = true
