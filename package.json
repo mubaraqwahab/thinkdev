@@ -6,10 +6,10 @@
     "start": "npm-run-all clear --parallel watch-html watch-css",
     "watch-html": "eleventy --serve",
     "watch-css": "tailwindcss -i src/main.css -o _site/main.css --watch",
-    "build": "npm-run-all clear build-html build-css build-svg",
+    "build": "npm-run-all clear build-html build-css purge-svg",
     "build-html": "eleventy",
     "build-css": "tailwindcss -i src/main.css -o _site/main.css --minify",
-    "build-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
+    "purge-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
     "clear": "shx rm -rf _site/ src/dist/",
     "prepare": "husky install",
     "format": "prettier --write *.{js,html,css,scss,json}"
