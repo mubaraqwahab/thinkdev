@@ -91,7 +91,7 @@ function ytPlayerMarkup(ytVideoId) {
   } else {
     // Return a placeholder in dev to minimize data usage
     return html`<div class="youtube-player bg-[#0a0918] py-3 px-8">
-      <p class="text-xl mb-3 text-gray-300"><b>Video placeholder</b></p>
+      <p class="text-xl mb-3 text-gray-300">Video placeholder</p>
       <p class="text-gray-300">
         You're seeing this because you're in development mode.
       </p>
