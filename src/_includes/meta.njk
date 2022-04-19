@@ -1,11 +1,23 @@
 {% from "macros.njk" import script %}
 
 {# Load this early to avoid downloading all the meta resources below #}
+{% set contextSource = site.repoUrl ~ '/blob/' ~ site.deployBranch ~ '/' ~ page.inputPath %}
+{% set issueParams = {
+  'body': (
+    '<!-- Ignore the next line -->'
+    ~ '\n'
+    ~ '**Context:** [' ~ page.inputPath ~ '](' ~ contextSource ~ ')'
+    ~ '\n\n'
+    ~ '**Please describe the issue:**'
+  )
+} %}
 <script>
-  const windowURL = new URL(window.location.href)
-  if (windowURL.searchParams.has('edit')) {
+  const searchParams = new URL(window.location.href).searchParams;
+  if (searchParams.has('edit')) {
     // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
     window.location.replace("{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}")
+  } else if (searchParams.has('issue')) {
+    window.location.replace("{{ site.repoUrl }}/issues/new?{{ issueParams | querystr }}")
   }
 </script>
 
