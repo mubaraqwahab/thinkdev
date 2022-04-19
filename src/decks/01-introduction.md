@@ -126,6 +126,8 @@ At the end of the course you should:
 * First 30 minutes for teaching, remaining for questions {.fragment .fade-up}
 * Check course website [thinkdev.netlify.app](https://thinkdev.netlify.app) for slides, recordings, exercises, etc. {.fragment .fade-up}
 
+<small>(Check the website for the up-to-date schedule.)</small>
+
 </section>
 
 
