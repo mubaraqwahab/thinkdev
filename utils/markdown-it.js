@@ -46,9 +46,7 @@ function markdownItYouTubeEmbed(md) {
       textToken.content = ""
       nextNextToken.attrSet("data-yt-ignore", "")
 
-      return html`<div class="youtube-player-wrapper">
-        ${ytPlayerMarkup(ytVideoId)}
-      </div>`
+      return ytPlayerMarkup(ytVideoId)
     } else {
       return self.renderToken(tokens, idx, options)
     }
@@ -69,37 +67,51 @@ function markdownItYouTubeEmbed(md) {
  * @returns {string}
  */
 function ytPlayerMarkup(ytVideoId) {
-  if (process.env.NODE_ENV === "production") {
-    const ytPlayerParams = new URLSearchParams({
-      // Hide YouTube logo when playing video (for cleaner UI)
-      modestbranding: "1",
-      // Show related videos, if at all, from the same channel
-      rel: "0",
-      origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
-    })
+  const ytPlayerParams = new URLSearchParams({
+    // Hide YouTube logo when playing video (for cleaner UI)
+    modestbranding: "1",
+    // Show related videos, if at all, from the same channel
+    rel: "0",
+    origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
+  })
 
-    return html`<iframe
-      width="560"
-      height="315"
-      src="https://www.youtube-nocookie.com/embed/${ytVideoId}?${ytPlayerParams}"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      class="youtube-player"
-    ></iframe>`
+  const ytPlayer = html`<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/${ytVideoId}?${ytPlayerParams}"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    class="youtube-player"
+  ></iframe>`
+
+  if (process.env.NODE_ENV === "production") {
+    return html`<div class="youtube-player-wrapper">${ytPlayer}</div>`
   } else {
     // Return a placeholder in dev to minimize data usage
-    return html`<div class="youtube-player bg-[#0a0918] py-3 px-8">
-      <p class="text-xl mb-3 text-gray-300">Video placeholder</p>
-      <p class="text-gray-300">
-        You're seeing this because you're in development mode.
-      </p>
-      <p>
-        <a class="text-gray-300" href="https://youtu.be/${ytVideoId}">
-          Watch on YouTube</a
-        >
-      </p>
+    return html`<div class="youtube-player-wrapper">
+      <div class="youtube-player bg-[#0a0918] p-8 not-prose">
+        <h3 class="text-xl font-semibold mb-3 text-gray-200">
+          Video placeholder
+        </h3>
+        <p class="text-gray-300 mb-4">
+          You're seeing this because you're in development mode.
+        </p>
+        <p class="mb-4">
+          <button
+            class="px-3 py-1 rounded border font-medium text-gray-300 border-gray-300"
+            onclick="ytDevPlacholderLoadPlayer(this);"
+          >
+            Load player
+          </button>
+        </p>
+      </div>
+      <script>
+        window.ytDevPlacholderLoadPlayer = function (button) {
+          button.closest(".youtube-player-wrapper").innerHTML = \`${ytPlayer}\`
+        }
+      </script>
     </div>`
   }
 }
