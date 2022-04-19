@@ -1,12 +1,12 @@
 // @ts-check
 
 const htmlmin = require("html-minifier-terser")
-const { JSDOM } = require("jsdom")
+const {JSDOM} = require("jsdom")
 const GithubSlugger = require("github-slugger")
 const hljs = require("highlight.js").default
 const terser = require("terser")
 
-module.exports = { transformHTML }
+module.exports = {transformHTML}
 
 /**
  * Parent transform for manipulating HTML pages.
@@ -18,7 +18,7 @@ function transformHTML(content, outputPath) {
   }
 
   const dom = new JSDOM(content)
-  const { window } = dom
+  const {window} = dom
 
   // Apply sub-transforms to pages
   autoLinkLessonHeadings(window, outputPath)
@@ -57,13 +57,13 @@ function transformHTML(content, outputPath) {
  *
  * @type {HTMLSubTransform}
  */
-function autoLinkLessonHeadings({ document }, outputPath) {
+function autoLinkLessonHeadings({document}, outputPath) {
   if (!outputPath.includes("/lessons/")) return
 
   document.querySelectorAll("h2, h3").forEach((heading) => {
     // Slugify the heading text
     const slugger = new GithubSlugger()
-    heading.id = heading.id || slugger.slug(heading.textContent)
+    heading.id = heading.id || slugger.slug(heading.textContent.trim())
 
     // Link an anchor to the heading
     const anchor = document.createElement("a")
@@ -81,7 +81,7 @@ function autoLinkLessonHeadings({ document }, outputPath) {
  * (Reveal will handle syntax highlighting in decks at runtime.)
  * @type {HTMLSubTransform}
  */
-function syntaxHighlightNonDecks({ document }, outputPath) {
+function syntaxHighlightNonDecks({document}, outputPath) {
   if (outputPath.includes("/decks/")) return
 
   const codes = /** @type {NodeListOf<HTMLElement>} */ (
@@ -95,7 +95,7 @@ function syntaxHighlightNonDecks({ document }, outputPath) {
  * Insert copy buttons next to all code blocks in the non-deck pages.
  * (I don't want copy buttons in decks because it's distracting while presenting.)
  */
-function insertCopyCodeButtonsInNonDecks({ document }, outputPath) {
+function insertCopyCodeButtonsInNonDecks({document}, outputPath) {
   if (outputPath.includes("/decks/")) return
 
   document.querySelectorAll("pre code").forEach((code) => {
@@ -143,7 +143,7 @@ function insertCopyCodeButtonsInNonDecks({ document }, outputPath) {
  *
  * @type {HTMLSubTransform}
  */
-function preventCharacterComposition({ document }, outputPath) {
+function preventCharacterComposition({document}, outputPath) {
   document.querySelectorAll("code").forEach((code) => {
     code.innerHTML = code.innerHTML.replace(
       /`/g,
@@ -167,7 +167,7 @@ function preventCharacterComposition({ document }, outputPath) {
  *
  * @type {HTMLSubTransform}
  */
-function wrapScriptsInIIFE({ document }) {
+function wrapScriptsInIIFE({document}) {
   document.querySelectorAll("script:not([src], [type])").forEach((script) => {
     script.innerHTML = `(function() {${script.innerHTML}})();`
   })
