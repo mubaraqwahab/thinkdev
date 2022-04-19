@@ -4,8 +4,6 @@ layout: layouts/base
 
 {% from "macros.njk" import icon, script %}
 
-<style>{% include "css/lite-yt-embed.css" %}</style>
-
 {% include "header.njk" %}
 
 <div class="container pt-10 pb-12 lg:pt-12 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
@@ -86,4 +84,3 @@ layout: layouts/base
 {% include "footer.njk" %}
 
 {{ script("toggle-outline.js") }}
-{{ script("lite-yt-embed.js") }}

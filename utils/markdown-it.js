@@ -10,9 +10,9 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItBracketedSpans = require("markdown-it-bracketed-spans")
 
-const { requiredEnv } = require("./shared")
+const {requiredEnv} = require("./shared")
 
-const markdownLib = markdownIt({ html: true, typographer: true })
+const markdownLib = markdownIt({html: true, typographer: true})
   .use(markdownItBracketedSpans)
   .use(markdownItAttrs)
   .use(markdownItYouTubeEmbed)
@@ -46,21 +46,9 @@ function markdownItYouTubeEmbed(md) {
       textToken.content = ""
       nextNextToken.attrSet("data-yt-ignore", "")
 
-      const ytPlayerParams = new URLSearchParams({
-        // Hide YouTube logo when playing video (for cleaner UI)
-        modestbranding: "1",
-        // Show related videos, if at all, from the same channel
-        rel: "0",
-        origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
-      })
-
-      return html`
-        <lite-youtube
-          videoid="${ytVideoId}"
-          params="${ytPlayerParams}"
-          style="background-image: url('https://i.ytimg.com/vi/${ytVideoId}/sddefault.jpg');"
-        ></lite-youtube>
-      `
+      return html`<div class="youtube-player-wrapper">
+        ${ytPlayerMarkup(ytVideoId)}
+      </div>`
     } else {
       return self.renderToken(tokens, idx, options)
     }
@@ -73,5 +61,45 @@ function markdownItYouTubeEmbed(md) {
     } else {
       return self.renderToken(tokens, idx, options)
     }
+  }
+}
+
+/**
+ * @param {string} ytVideoId
+ * @returns {string}
+ */
+function ytPlayerMarkup(ytVideoId) {
+  if (process.env.NODE_ENV === "production") {
+    const ytPlayerParams = new URLSearchParams({
+      // Hide YouTube logo when playing video (for cleaner UI)
+      modestbranding: "1",
+      // Show related videos, if at all, from the same channel
+      rel: "0",
+      origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
+    })
+
+    return html`<iframe
+      width="560"
+      height="315"
+      src="https://www.youtube-nocookie.com/embed/${ytVideoId}?${ytPlayerParams}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      class="youtube-player"
+    ></iframe>`
+  } else {
+    // Return a placeholder in dev to minimize data usage
+    return html`<div class="youtube-player bg-[#0a0918] py-3 px-8">
+      <p class="text-xl mb-3 text-gray-300"><b>Video placeholder</b></p>
+      <p class="text-gray-300">
+        You're seeing this because you're in development mode.
+      </p>
+      <p>
+        <a class="text-gray-300" href="https://youtu.be/${ytVideoId}">
+          Watch on YouTube</a
+        >
+      </p>
+    </div>`
   }
 }
