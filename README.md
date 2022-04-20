@@ -29,7 +29,8 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 
 * Avoid heading levels `h4` and lower; stick to `h1`, `h2`, and `h3`.
 
-* Horizontal slides should be separated by two lines, but vertical slides by a single line. For example:
+* Horizontal slides should be separated by three empty lines, but vertical slides by two lines.
+  Consecutive opening or closing slide tags should be separated by a single line. For example:
    ```md
    <section>
 
@@ -39,6 +40,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 
    </section>
 
+
    <section>
 
    ### Slide 1.1
@@ -46,6 +48,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
    </section>
 
    </section>
+
 
 
    <section>
