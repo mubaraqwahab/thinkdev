@@ -9,19 +9,6 @@
         <a class="footer-nav-item underline" href="{{ site.repoUrl }}/tree/{{ site.deployBranch }}">
           Source
         </a>
-        {% set contextSource = site.repoUrl ~ '/blob/' ~ site.deployBranch ~ '/' ~ page.inputPath %}
-        {% set issueParams = {
-          'body': (
-            '<!-- Ignore the next line -->'
-            ~ '\n'
-            ~ '**Context:** [' ~ page.inputPath ~ '](' ~ contextSource ~ ')'
-            ~ '\n\n'
-            ~ '**Please describe the issue:**'
-          )
-        } %}
-        <a class="footer-nav-item underline" href="{{ site.repoUrl }}/issues/new?{{ issueParams | querystr }}">
-          Report a problem
-        </a>
       </nav>
     </div>
   </div>

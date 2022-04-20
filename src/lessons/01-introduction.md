@@ -34,7 +34,7 @@ You'll find an "extras" section like this one in the lesson pages. This is where
 
 I mentioned that we'd be using Node.js to run our JavaScript code. We don't actually _need_ Node for this; our computers already have browsers that can run JavaScript. However, I feel it would be distracting working in the browser, since we won't be building a web app. (We may build _parts_ of a web app though 🙃.) Also, one of the goals of this course is to learn to work in a terminal, and using Node forces us to do so.
 
-Outside the browser, Node isn't the only tool that can run JavaScript. There's also [Deno](https://deno.land/). It's new, and it was created by Node's creator, Ryan Dahl, to address some of Node's issues. (You can watch Ryan's [initial announcement of Deno](https://youtu.be/M3BM9TB-8yA), if you're curious.) We're preferring Node over Deno for this course because it's more mature and better-known; Node was released in 2009, whereas Deno was released in 2018.
+Outside the browser, Node isn't the only tool that can run JavaScript. There's also [Deno](https://deno.land/). It's new, and it was created by Node's creator, Ryan Dahl, to address some of his regrets with Node. (You can watch his [initial announcement of Deno](https://youtu.be/M3BM9TB-8yA) if you're curious.) We're choosing Node over Deno for this course because it's more mature and better-known; Node was released in 2009, whereas Deno was released in 2018.
 
 ### Why programming anyway? 🤔
 
