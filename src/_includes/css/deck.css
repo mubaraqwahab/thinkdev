@@ -51,11 +51,13 @@ section.has-light-background :is(h1, h2, h3) {
   color: var(--r-main-color);
 }
 
-/*
-  Hey, learnt something new: :is() and :where() are forgiving!
-  See https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#selector_list_invalidation
-*/
-.reveal :is(::selection, ::-moz-selection) {
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
   color: var(--r-selection-color);
   background: var(--r-selection-background-color);
   text-shadow: none;
