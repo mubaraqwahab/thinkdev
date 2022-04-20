@@ -8,7 +8,6 @@ const resolveTailwindConfig = require("tailwindcss/resolveConfig")
 const autoprefixer = require("autoprefixer")
 const kebabCase = require("kebab-case")
 const terser = require("terser")
-const GithubSlugger = require("github-slugger")
 
 /**
  * @template T
@@ -25,7 +24,7 @@ module.exports = {
         [
           "@babel/preset-env",
           // Don't transform ES import/export
-          { modules: false },
+          {modules: false},
         ],
       ],
     })
@@ -58,7 +57,7 @@ module.exports = {
    *  If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
-    const { fontFamily } = require("tailwindcss/defaultTheme")
+    const {fontFamily} = require("tailwindcss/defaultTheme")
 
     const deckTailwindConfig = resolveTailwindConfig({
       content: [
@@ -175,24 +174,15 @@ module.exports = {
   },
 
   /**
-   * Know that this *will* fail if a page has multiple headings
-   * with the same text content.
-   */
-  hashlink(text) {
-    const slugger = new GithubSlugger()
-    return "#" + slugger.slug(text)
-  },
-
-  /**
    * Serialize an object into a URL search (query) string.
    * @param {Record<string, string>} obj
    * @returns {string}
    *
    * @example
-   * queryString({ foo: "bar", baz: "qux" })
+   * queryStr({ foo: "bar", baz: "qux" })
    * //=> "?foo=bar&baz=qux"
    */
-  querystr(obj) {
+  queryStr(obj) {
     const searchParams = new URLSearchParams(obj)
     return searchParams.toString()
   },
@@ -205,7 +195,7 @@ module.exports = {
   },
 
   inspect(obj, depth = 3) {
-    return util.inspect(obj, { depth })
+    return util.inspect(obj, {depth})
   },
 }
 
