@@ -6,73 +6,79 @@ title: Collections
 
 <section>
 
-## The store example
+Let's revisit the FutureLearn courses example:
 
-![Screenshot of Microsoft Store]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){width=700}
-
-</section>
-
-<section data-auto-animate>
-
-### How to represent in code?
-
-<pre data-id="entvars"><code data-line-numbers data-trim class="language-js">
-let appName = 'WhatsApp Desktop'
-let appRating = 4
-let appReviewsCount = 70
-let appPrice = 0
-let appStatus = 'Owned' // or 'Installed' or 'Not Owned'
-</code></pre>
+![]({{ '/assets/images/futurelearn-featured.webp' | url }}){aria-labelledby="futureLearnFeaturedLabel"}
 
 </section>
 
-<section data-auto-animate>
-
-### How to represent in code?
-
-<pre data-id="entvars"><code data-line-numbers="1-11|13-23" data-trim class="language-js">
-let appName = 'WhatsApp Desktop'
-let appRating = 4
-let appReviewsCount = 70
-let appPrice = 0
-let appStatus = 'Owned' // or 'Installed' or 'Not Owned'
-
-let app2Name = 'World of Tank Blitz'
-let app2Rating = 5
-let app2ReviewsCount = 2
-let app2Price = 0
-let app2Status = 'Not Owned'
-
-let app3Name = 'Films & TV'
-let app3Rating = 4.8
-let app3ReviewsCount = 237
-let app3Price = 0
-let app3Status = 'Installed'
-
-let app4Name = 'Microsoft Flight Simulator'
-let app4Rating = 5
-let app4ReviewsCount = 1
-let app4Price = 24999
-let app4Status = 'Not Owned'
-</code></pre>
-
-</section>
-
-<section data-auto-animate>
-
-### How to represent in code?
-
-Problem: so many variables that aren't tied together
-
-</section>
 
 <section>
 
-### We need a way to represent entities with different parts
+## How do we represent it in code?
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="entvars"><code data-line-numbers data-trim class="language-js">
+let courseTitle = 'The Museum as a Site ...'
+let courseRating = 4.6
+let courseReviewsCount = 75
+let courseIsNew = false
+let courseIsPartOfAnExpertTrack = false
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="entvars"><code data-line-numbers="1-11|13-23" data-trim class="language-js">
+let courseTitle = 'The Museum as a Site ...'
+let courseRating = 4.6
+let courseReviewsCount = 75
+let courseIsNew = false
+let courseIsPartOfAnExpertTrack = false
+
+let course2Title = 'Fundamentals of ...'
+let course2Rating = 0
+let course2ReviewsCount = 0
+let course2IsNew = true
+let course2IsPartOfAnExpertTrack = false
+
+let course3Title = 'Young People and ...'
+let course3Rating = 4.7
+let course3ReviewsCount = 649
+let course3IsNew = false
+let course3IsPartOfAnExpertTrack = false
+
+let course4Title = 'International Logistics: ...'
+let course4Rating = 0
+let course4ReviewsCount = 0
+let course4IsNew = false
+let course4IsPartOfAnExpertTrack = true
+</code></pre>
+
+</section>
+
+
+<section>
+
+Things are getting unwieldy already; we have so many related variables that&nbsp;are&nbsp;not&nbsp;tied together ☹. {.h3}
+
+</section>
+
+
+<section>
+
+We need a better way to represent "entities" that&nbsp;have&nbsp;different "attributes". {.h3}
 
 </section>
 
 </section>
+
 
 
 <section>
@@ -81,79 +87,81 @@ Problem: so many variables that aren't tied together
 
 ## Objects
 
+</section>
+
+<section>
+
 <pre data-id="obj"><code data-line-numbers data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop',
-  rating: 4,
-  reviewsCount: 70,
-  price: 0,
-  status: 'Owned',
+const course = {
+  title: 'The Museum as a Site ...',
+  rating: 4.6,
+  reviewsCount: 75,
+  isNew: false,
+  isPartOfAnExpertTrack: false,
 }
 </code></pre>
 
 </section>
 
-<section data-auto-animate>
+
+<section>
 
 ### Let's break it down
 
 </section>
 
+
 <section data-auto-animate>
 
-### Let's break it down
-
-Start with curly brackets
+Start with curly brackets:
 
 <pre data-id="obj"><code data-line-numbers data-trim class="language-js">
-const app = {}
+const course = {}
 </code></pre>
 
 </section>
 
+
 <section data-auto-animate>
 
-### Let's break it down
-
-Add a property (`key: value`)
+Add a property (a `key: value` pair):
 
 <pre data-id="obj"><code data-line-numbers data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop'
+const course = {
+  title: 'The Museum as a Site ...',
 }
 </code></pre>
 
 </section>
 
+
 <section data-auto-animate>
 
-### Let's break it down
-
-Add more properties, separated by commas (last comma is optional)
+Add more properties; separate by commas (last comma is optional):
 
 <pre data-id="obj"><code data-line-numbers data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop',
-  rating: 4,
-  reviewsCount: 70,
-  price: 0,
-  status: 'Owned',
+const course = {
+  title: 'The Museum as a Site ...',
+  rating: 4.6,
+  reviewsCount: 75,
+  isNew: false,
+  isPartOfAnExpertTrack: false,
 }
 </code></pre>
 
 </section>
+
+
+<section>
+
+### How to name properties
+
+</section>
+
 
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-### How to name a property?
-
-</section>
-
-<section data-auto-animate data-auto-animate-id='nameprops'>
-
-### How to name a property?
-
-Use a string
+Use strings:
 
 <pre data-id="objprop"><code data-line-numbers data-trim class="language-js">
 const obj = {
@@ -166,11 +174,10 @@ const obj = {
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-### How to name a property?
-
-Quotes are optional if the name is a valid variable name (i.e. an <i>identifier</i>) or a number.
+The quotes are optional if the name is a valid variable name (i.e.&nbsp;an&nbsp;<i>identifier</i>) or a number:
 
 <pre data-id="objprop"><code data-line-numbers="2,5" data-trim class="language-js">
 const obj = {
@@ -183,11 +190,10 @@ const obj = {
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-### How to name a property?
-
-The JavaScript way is also `camelCase`
+The JavaScript way is also `camelCase`:
 
 <pre data-id="objprop"><code data-line-numbers data-trim class="language-js">
 const obj = {
@@ -198,11 +204,10 @@ const obj = {
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id='nameprops'>
 
-### How to name a property?
-
-Property names must be unique.
+Property names must be unique:
 
 <pre data-id="objprop"><code data-line-numbers="1-4|6-9" data-trim class="language-js">
 const obj = {
@@ -221,6 +226,7 @@ const obj = {
 </section>
 
 
+
 <section>
 
 <section>
@@ -229,86 +235,128 @@ const obj = {
 
 </section>
 
+
 <section data-auto-animate>
 
-### Get/set a property {data-id="useobjHeading"}
+### Access a property {data-id="useobjHeading"}
 
-<b>Dot notation</b>
+Get the value of a property using the dot notation:
 
-<pre data-id="useobj"><code data-line-numbers="1-5|7-8|10-11|13" data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop',
-  status: 'Owned',
-  123: null,
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: true,
 }
 
-// Get a prop
-console.log(app.name) // 'WhatsApp Desktop'
+console.log(course.title) // The Fundamentals of...
+</code></pre>
 
-// Set (i.e. change) a prop
-app.status = 'Installed'
+</section>
 
-app.123 // Error
+
+<section data-auto-animate>
+
+Set the value of a property too with the dot notation:
+
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: true,
+}
+
+course.isNew = false
+
+console.log(course.isNew) // false
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Be careful with property names that aren't identifiers:
+
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: false,
+}
+
+app.'reviews count'++ // Error
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Use the bracket notation instead for such properties:
+
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: false,
+}
+
+app['reviews count']++
+
+console.log(app['reviews count']) // 1
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+You can add a property:
+
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: false,
+}
+
+app.rating = 0
+
+console.log(app.rating) // 0
 </code></pre>
 
 </section>
 
 <section data-auto-animate>
 
-### Get/set a property {data-id="useobjHeading"}
+And delete a property too:
 
-<b>Bracket notation.</b> For property names that aren't valid identifiers
-
-<pre data-id="useobj"><code data-line-numbers="13|7-11" data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop',
-  status: 'Owned',
-  123: null,
+<pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
+const course = {
+  title: 'The Fundamentals of Business Strategy',
+  'reviews count': 0,
+  isNew: false,
 }
 
-// Get a prop
-console.log(app['name']) // 'WhatsApp Desktop'
+delete app['reviews count']
 
-// Set (i.e. change) a prop
-app['status'] = 'Installed'
-
-app[123] // Works, result is null
+console.log(app['reviews count']) // undefined
 </code></pre>
 
 </section>
 
-<section data-auto-animate>
 
-### Add/remove a property {data-id="useobjHeading"}
-
-<pre data-id="useobj"><code data-line-numbers="7-8|10-11" data-trim class="language-js">
-const app = {
-  name: 'WhatsApp Desktop',
-  status: 'Owned',
-  123: null,
-}
-
-// Add a prop
-app.rating = 4
-
-// Remove a prop
-delete app[123]
-</code></pre>
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="mutable">
+<section>
 
 ### Objects are <i>mutable</i>
 
-* You can't change a number, string, or boolean intrinsically, because they are <i>immutable</i>.
-* But you can change "parts" of an object!
-
 </section>
 
-<section data-auto-animate data-auto-animate-id="mutable">
 
-### Objects are <i>mutable</i>
+<section>
+
+In contrast, numbers, strings, and booleans, are <i>immutable</i>:
 
 ```js
 const str = "Strings are immutable"
@@ -316,11 +364,11 @@ const str = "Strings are immutable"
 // Try to change 'Strings' to 'Springs'
 str[1] = 'p' // No error, but it doesn't work
 
-// Still "Strings are immutable"
-console.log(str)
+console.log(str) // Strings are immutable
 ```
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -343,6 +391,7 @@ console.log("downloadsCount" in app) // false
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Pack variables into an object {data-id="useobjHeading"}
@@ -358,6 +407,7 @@ const status = 'Owned'
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -383,6 +433,7 @@ const app = {
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Pack variables into an object {data-id="useobjHeading"}
@@ -407,6 +458,7 @@ const app = {
 
 </section>
 
+
 <section data-auto-animate>
 
 ### How about unpacking? {data-id="useobjHeading"}
@@ -424,6 +476,7 @@ const app = {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -447,6 +500,7 @@ const rating = app.rating
 
 </section>
 
+
 <section data-auto-animate>
 
 ### How about unpacking? {data-id="useobjHeading"}
@@ -466,6 +520,7 @@ const { name, rating } = app
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -488,6 +543,7 @@ const app = {
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Reuse an object to create another {data-id="useobjHeading"}
@@ -509,6 +565,7 @@ const app = {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -534,6 +591,7 @@ const app = {
 </section>
 
 
+
 <section>
 
 <section>
@@ -542,11 +600,13 @@ const app = {
 
 </section>
 
+
 <section>
 
 ### &hellip; but how do we deal with so many similar entities?
 
 </section>
+
 
 <section>
 
@@ -586,6 +646,7 @@ const app4 = {
 
 </section>
 
+
 <section>
 
 ### We need a "list" of some sort &hellip;
@@ -595,6 +656,7 @@ const app4 = {
 </section>
 
 
+
 <section>
 
 <section data-auto-animate>
@@ -602,6 +664,7 @@ const app4 = {
 ## Arrays
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -614,6 +677,7 @@ const people = ["Amal", "Isa", "Mubaraq"]
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -633,6 +697,7 @@ people[1] = "Elleman"
 
 </section>
 
+
 <section data-auto-animate>
 
 ## Arrays
@@ -644,6 +709,7 @@ const arr = ["string", 12.34, true]
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -658,6 +724,7 @@ people.length // 3
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -678,6 +745,7 @@ console.log(people) // ["Amal", "Isa", "Ibrahim"]
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Shift, unshift {data-id="usearrHeading"}
@@ -697,6 +765,7 @@ console.log(people) // ["Aisha", "Isa", "Mubaraq"]
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Does an array have an element? {data-id="usearrHeading"}
@@ -711,6 +780,7 @@ people.includes("Ibrahim") // false
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -731,6 +801,7 @@ people.slice() // ["Amal", "Isa", "Mubaraq"]
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Spread an array into another {data-id="usearrHeading"}
@@ -744,6 +815,7 @@ console.log(people)
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -759,6 +831,7 @@ const second = people[1] // "Isa"
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -782,6 +855,7 @@ const [, , third] = people
 </section>
 
 
+
 <section>
 
 <section>
@@ -790,11 +864,13 @@ const [, , third] = people
 
 </section>
 
+
 <section data-auto-animate>
 
 ### &hellip; because they are objects
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -809,11 +885,13 @@ typeof people
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="isarr">
 
 ### How do we check if something is an array?
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="isarr">
 
@@ -831,6 +909,7 @@ Array.isArray(people)
 </section>
 
 </section>
+
 
 
 <section>
@@ -869,14 +948,5 @@ const apps = [
   }
 ]
 ```
-
-</section>
-
-
-<section>
-
-## Exercises
-
-Check the [website]({{ '/lessons/03-collections/' | url }})
 
 </section>
