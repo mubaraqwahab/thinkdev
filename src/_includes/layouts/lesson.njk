@@ -6,6 +6,12 @@ layout: layouts/base
 
 {% include "header.njk" %}
 
+{% set lessons = collections.all | eleventyNavigation %}
+{# Don't list drafts in production. #}
+{% if site.environment == 'production' %}
+  {% set lessons = lessons | rejectattr('draft', true) %}
+{% endif %}
+
 <div class="container pt-10 pb-12 lg:pt-12 lg:grid lg:grid-cols-[minmax(220px,1fr),minmax(640px,2fr),1fr] lg:gap-10">
   <nav
     class="
@@ -23,7 +29,7 @@ layout: layouts/base
   >
     <b id="lessonsNavLabel" class="block mb-3 font-semibold dark:text-gray-100">Lessons</b>
     <ol class="list-none my-0 pl-0">
-      {% for lesson in collections.all | eleventyNavigation %}
+      {% for lesson in lessons %}
         <li class="py-1.5 border-l">
           <a
             href="{{ lesson.url | url }}"
@@ -40,7 +46,7 @@ layout: layouts/base
   <main id="main">
     <article class="prose prose-indigo max-w-[640px] mx-auto lg:max-w-none lg:mx-0 dark:prose-invert">
       <header>
-        <h1>{{ title }}</h1>
+        <h1>{{ title }}{{ ' (Draft)' if draft }}</h1>
         <p><b class="lead">{{ excerpt | safe }}</b></p>
         {% if collections.deck | find("data.order", eleventyNavigation.order) %}
           <p>
@@ -61,7 +67,6 @@ layout: layouts/base
       {{ content | safe }}
 
       <nav aria-label="Previous/next lesson" class="flex justify-between mt-10">
-        {% set lessons = collections.all | eleventyNavigation %}
         {% set prevLesson = lessons | find("order", eleventyNavigation.order - 1) %}
         {% if prevLesson %}
           <a href="{{ prevLesson.url | url }}" rel="prev" class="inline-flex items-center mr-auto">
