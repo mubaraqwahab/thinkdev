@@ -128,7 +128,7 @@ Add a property (a `key: value` pair):
 
 <pre data-id="obj"><code data-line-numbers data-trim class="language-js">
 const course = {
-  title: 'The Museum as a Site ...',
+  title: 'The Museum as a Site ...'
 }
 </code></pre>
 
@@ -285,7 +285,7 @@ const course = {
   isNew: false,
 }
 
-app.'reviews count'++ // Error
+course.'reviews count'++ // SyntaxError
 </code></pre>
 
 </section>
@@ -302,9 +302,9 @@ const course = {
   isNew: false,
 }
 
-app['reviews count']++
+course['reviews count']++
 
-console.log(app['reviews count']) // 1
+console.log(course['reviews count']) // 1
 </code></pre>
 
 </section>
@@ -321,9 +321,9 @@ const course = {
   isNew: false,
 }
 
-app.rating = 0
+course.rating = 0
 
-console.log(app.rating) // 0
+console.log(course.rating) // 0
 </code></pre>
 
 </section>
