@@ -351,4 +351,16 @@ html.print-pdf .reveal pre code {
   }
 }
 
-@tailwind utilities;
+/*********************************************
+  * UTILITIES
+  *********************************************/
+
+/*
+  Nest inside .reveal-viewport.reveal to increase the specificity of utilities.
+  PostCSS Nested plugin will flatten the selectors for me.
+  See https://github.com/postcss/postcss-nested
+*/
+.reveal-viewport .reveal {
+  @tailwind utilities;
+  @tailwind variants;
+}

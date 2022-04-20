@@ -5,6 +5,7 @@ const babel = require("@babel/core")
 const postcss = require("postcss").default
 const tailwindcss = require("tailwindcss")
 const resolveTailwindConfig = require("tailwindcss/resolveConfig")
+const postcssNested = require("postcss-nested")
 const autoprefixer = require("autoprefixer")
 const kebabCase = require("kebab-case")
 const terser = require("terser")
@@ -82,7 +83,9 @@ module.exports = {
     })
 
     return postcss([
-      preset === "deck" ? tailwindcss(deckTailwindConfig) : tailwindcss,
+      ...(preset === "deck"
+        ? [tailwindcss(deckTailwindConfig), postcssNested()]
+        : [tailwindcss]),
       autoprefixer,
     ]).process(css).css
   },
