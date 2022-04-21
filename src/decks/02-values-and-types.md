@@ -55,8 +55,8 @@ Alternatives
 <section data-auto-animate>
 
 * We use <i>strings</i> for text:
-  * `"Most popular"`
-  * `'Installed'`
+  * `"Explore featured courses"`
+  * `'Find out more'`
 * We use <i>booleans</i> to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
@@ -68,8 +68,8 @@ Alternatives
 ### What about numbers?
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
-* <i>Integer</i> types (<i>int</i>) for 20, -7, &hellip; {.fragment .fade-up}
-* <i>Floating point</i> types (<i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
+* <i>Integer</i> types (<i>int</i>) for 75, -2, &hellip; {.fragment .fade-up}
+* <i>Floating point</i> types (<i>float</i>) for 4.6, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
