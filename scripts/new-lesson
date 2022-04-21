@@ -52,7 +52,8 @@ console.log(`Created '${deckPath}'`)
 console.log("Done!")
 
 function lessonBoilerplate(title) {
-  return `---
+  return `
+---
 title: ${title}
 excerpt: >
 ---
@@ -74,11 +75,12 @@ TODO
 ## Extras
 
 TODO
-`
+`.trimStart()
 }
 
 function deckBoilerplate(title) {
-  return `---
+  return `
+---
 title: ${title}
 ---
 
@@ -94,14 +96,17 @@ title: ${title}
 ## TODO: slide 2
 
 </section>
-`
+`.trimStart()
 }
 
 function showHelpMessage() {
-  console.log(`Usage: new-lesson [-h|--help|title]
+  console.log(
+    `
+Usage: new-lesson [-h|--help|title]
 
 Create a new lesson page and its slide deck.
 
 Example: new-lesson "Making decisions"
-`)
+`.trimStart()
+  )
 }
