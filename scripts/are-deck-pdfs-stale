@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+// @ts-check
+
+/**
+ * @file
+ * Use this script to check if the deck PDFs are not in sync
+ * with their respective source files.
+ */
+
+const fs = require("fs")
+const path = require("path")
+
+const DECKS_DIR = "src/decks/"
+const DECK_PDFS_DIR = "public/decks/"
+
+const deckPDFs = fs.readdirSync(DECK_PDFS_DIR)
+
+// There are a million things to consider to accurately determine
+// if a deck PDF is stale: Has its source (.md) file changed after it?
+// Has its layout changed? Its styles? Tailwind config? ...
+// However, I'm keeping things simple by checking only if its source
+// (.md) file has changed. That's the most accurate way to assert that
+// the *content* of a deck PDF is stale.
+deckPDFs.forEach((pdf) => {
+  const pdfStats = fs.statSync(path.join(DECK_PDFS_DIR, pdf))
+
+  const src = pdf.slice(0, -4) + ".md"
+  const srcStats = fs.statSync(path.join(DECKS_DIR, src))
+
+  if (pdfStats.mtime < srcStats.mtime) {
+    console.warn(`WARNING: ${pdf} is stale.`)
+  }
+})
