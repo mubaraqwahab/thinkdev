@@ -10,6 +10,7 @@
 
 const fs = require("fs")
 const path = require("path")
+const {execSync} = require("child_process")
 
 const DECKS_DIR = "src/decks/"
 const DECK_PDFS_DIR = "public/decks/"
@@ -19,16 +20,36 @@ const deckPDFs = fs.readdirSync(DECK_PDFS_DIR)
 // There are a million things to consider to accurately determine
 // if a deck PDF is stale: Has its source (.md) file changed after it?
 // Has its layout changed? Its styles? Tailwind config? ...
+//
 // However, I'm keeping things simple by checking only if its source
 // (.md) file has changed. That's the most accurate way to assert that
 // the *content* of a deck PDF is stale.
+//
+// Btw, I'm using the last commit timestamps of the PDF and .md files
+// instead of the their modified times on the system, because switching
+// switching between branches messes up the modified times.
 deckPDFs.forEach((pdf) => {
-  const pdfStats = fs.statSync(path.join(DECK_PDFS_DIR, pdf))
+  const pdfPath = path.join(DECK_PDFS_DIR, pdf)
+  const pdfModifiedTime = getLastCommitTimestamp(pdfPath)
 
   const src = pdf.slice(0, -4) + ".md"
-  const srcStats = fs.statSync(path.join(DECKS_DIR, src))
+  const srcPath = path.join(DECKS_DIR, src)
+  const srcModifiedTime = getLastCommitTimestamp(srcPath)
 
-  if (pdfStats.mtime < srcStats.mtime) {
+  if (pdfModifiedTime < srcModifiedTime) {
     console.warn(`WARNING: ${pdf} is stale.`)
   }
 })
+
+/**
+ * Get the last commit timestamp of a file.
+ * @param {string} filePath
+ * @returns {number}
+ */
+function getLastCommitTimestamp(filePath) {
+  // See https://stackoverflow.com/a/56373126/12695621
+  const stdout = execSync(`git log -1 --pretty="format:%ct" ${filePath}`, {
+    encoding: "utf8",
+  })
+  return Number(stdout)
+}
