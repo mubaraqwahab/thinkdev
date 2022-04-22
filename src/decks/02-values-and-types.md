@@ -1,134 +1,146 @@
 ---
-title: Values and Types
+title: Values and types
 ---
 
 <section>
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="fl">
 
-![]({{ '/assets/images/ms-store-screenshot.jpg?nf_resize=fit&w=700' | url }}){aria-labelledby="msStoreScreenshotLabel" width=700}
+![]({{ '/assets/images/futurelearn-featured.webp' | url }}){aria-labelledby="futureLearnFeaturedLabel"}
 
-Screenshot of Microsoft Store {id="msStoreScreenshotLabel" class="text-[60%]"}
-
-</section>
-
-<section data-auto-animate>
-
-### Text {data-id="storeLabelHeading"}
-
-![Microsoft Store screenshot with text highlighted]({{ '/assets/images/ms-store-screenshot-text-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+<small id="futureLearnFeaturedLabel" class="italic">A screenshot of the featured courses on [FutureLearn](https://www.futurelearn.com/).</small>
 
 </section>
 
-<section data-auto-animate>
 
-### Numbers  {data-id="storeLabelHeading"}
+<section data-auto-animate data-auto-animate-id="fl">
 
-![Microsoft Store screenshot with numbers highlighted]({{ '/assets/images/ms-store-screenshot-num-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+Text
 
-</section>
-
-<section data-auto-animate>
-
-### Alternatives  {data-id="storeLabelHeading"}
-
-![Microsoft Store screenshot with alternatives highlighted]({{ '/assets/images/ms-store-screenshot-bool-highlighted.jpg?nf_resize=fit&w=700' | url }}){width=700}
+![A screenshot highlighting some pieces of text in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-text.webp' | url }})
 
 </section>
 
+
+<section data-auto-animate data-auto-animate-id="fl">
+
+Numbers
+
+![A screenshot highlighting some numbers in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-nums.webp' | url }})
+
 </section>
+
+
+<section data-auto-animate data-auto-animate-id="fl">
+
+Alternatives
+
+![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
+
+</section>
+
+</section>
+
 
 
 <section>
 
 <section>
 
-## These have "formal" names
+## How do we represent these values?
 
-* We represent text with <i>strings</i> {.fragment .fade-up}
-  * `"Most popular"`
-  * `'Installed'`
-  * `'She\'s here'`
+</section>
+
+
+<section data-auto-animate>
+
+* We use <i>strings</i> for text:
+  * `"Explore featured courses"`
+  * `'Find out more'`
 * We use <i>booleans</i> to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
 </section>
+
 
 <section>
 
 ### What about numbers?
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
-* <i>Integer</i> types (or <i>int</i>) for 1, 20, -7, &hellip; {.fragment .fade-up}
-* <i>Floating point</i> types (or <i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
+* <i>Integer</i> types (<i>int</i>) for 75, -2, &hellip; {.fragment .fade-up}
+* <i>Floating point</i> types (<i>float</i>) for 4.6, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
+
 <section>
 
-### But in JavaScript ...
+But in JavaScript ... {.h3}
 
-... a number is just a <i>number</i>.
+... a number is just a <i>number</i>. {.fragment .fade-up}
 
 </section>
 
+</section>
+
+
+
 <section>
 
-### `typeof`
+<section>
 
-Use `typeof` keyword to get the type of a value:
+## `typeof` a value
+
+Use the `typeof` keyword to get the type of a value:
 
 ```js
-typeof "Hi" // "string"
-typeof 12.34 // "number"
-typeof 3_000_000 // "number"
-typeof false // "boolean"
+typeof "Hi"       // "string"
+typeof 12.34      // "number"
+typeof 3_000_000  // "number"
+typeof false      // "boolean"
 ```
 
 </section>
 
+
+<section>
+
+### Comments
+
+* Use comments to explain pieces of your code.
+* The language ignores them.
+
 </section>
 
 
-<section data-auto-animate>
-
-## Comments
-
-Messages ignored by the language, just for the developer
-
-</section>
-
-
-<section data-auto-animate>
-
-## Comments
-
-Messages ignored by the language, just for the developer
+<section data-auto-animate data-auto-animate-id=comments>
 
 ```js
 // Line comment
 
-/* Block comment */
-
-/*
-Multiline
-block
-comment
-*/
+/* Block comment
+can span
+multiple lines. */
 ```
 
 </section>
 
+</section>
 
-<section>
+
+<!-- <section>
 
 ## Operations on numbers
 
-* Values aren't so useful alone
-* We can do the usual arithmetics: (`+`, `-`, `/`, `*`) {.fragment .fade-up}
-* Modulus operator `%` (more on this later) {.fragment .fade-up}
+* Values aren't so useful alone.
+* Operations make them useful. {.fragment .fade-up}
+* We can do the usual arithmetics on numbers: {.fragment .fade-up}
+  * `+`, `-`, `/`, `*`
+* Precedence rules (BODMAS) applies.
 
-</section>
+</section> -->
+
 
 
 <section>
@@ -137,41 +149,73 @@ comment
 
 ## Expressions
 
-Things that have value. {data-id="exprDesc"}
-
-<pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-"Hi 👋🏾";
-20.9;
-50 * 70 / 67 + 9;
-typeof true;
-</code></pre>
-
 </section>
+
 
 <section data-auto-animate>
 
 ## Expressions
 
-You can wrap expressions in brackets. {data-id="exprDesc"}
+Things that have value.
+
+</section>
+
+
+<section>
+
+* The simplest expressions are literals:
+  * `1`, `"Hi"`, `true`.
+* But they're not so useful alone. {.fragment .fade-up}
+
+</section>
+
+
+<section data-auto-animate>
+
+You can use operators to build complex expressions:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-("Hi 👋🏾");
-(20.9);
-((50 * 70) / (67 + 9));
-(typeof true);
+1 - 2;            // -1
+50 * 70 / 67 + 9; // 61.2388&hellip;
+typeof true;      // "boolean"
 </code></pre>
 
 </section>
+
+
+<section data-auto-animate>
+
+Wrapping an expression in brackets doesn't change it's value:
+
+<pre data-id="expr"><code data-line-numbers data-trim class="language-js">
+(1 - 2);            // -1
+(50 * 70 / 67 + 9); // 61.2388&hellip;
+(typeof true);      // "boolean"
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Operator precedence rules apply, even to non-arithmetic operators:
+
+<pre data-id="expr"><code data-line-numbers data-trim class="language-js">
+(50 * 70 / 67 + 9); // 61.2388&hellip;
+50 * 70 / (67 + 9); // 46.0526&hellip;
+typeof (2 - 1);     // "number"
+</code></pre>
+
+</section>
+
 
 <section data-auto-animate data-auto-animate-duration="0.7">
 
-## Expressions
-
-Values and expressions can usually replace each other. {data-id="exprDesc"}
+You can use an expression where a value is expected:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
-typeof ((50 * 70) / (67 + 9));
-typeof typeof true
+typeof (50 * 70 / 67 + 9)
+console.log(typeof true)
 </code></pre>
 
 </section>
@@ -179,18 +223,25 @@ typeof typeof true
 </section>
 
 
+
 <section>
 
-## What if we wanted to store&nbsp;an&nbsp;expression?
+What if we wanted to store the&nbsp;value&nbsp;of an expression? {.h2}
 
 </section>
 
 
+
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## Variables
+
+</section>
+
+
+<section data-auto-animate>
 
 <pre data-id="vars"><code data-line-numbers="1,2" data-trim class="language-js">
 // Declare a variable
@@ -199,9 +250,8 @@ const costPerItem = 3000
 
 </section>
 
-<section data-auto-animate>
 
-## Variables
+<section data-auto-animate>
 
 <pre data-id="vars"><code data-line-numbers="4,5" data-trim class="language-js">
 // Declare a variable
@@ -213,145 +263,155 @@ console.log(costPerItem * 10)
 
 </section>
 
-<section data-auto-animate>
 
-## Variables
+<section>
 
-<pre data-id="vars"><code data-line-numbers="7,8" data-trim class="language-js">
-// Declare a variable
-const costPerItem = 3000
-
-// Use the variable
-console.log(costPerItem * 10)
-
-// The right-hand side is always an expression
-const costPer10Items = costPerItem * 10
-</code></pre>
-
-</section>
-
-<section data-auto-animate data-auto-animate-duration="0.7" data-auto-animate-id="nameVars">
-
-### How to name variables?
+### How to name variables
 
 * First character must be a letter, underscore `_`, or dollar sign `$`. {.fragment .fade-up}
-  * Valid: `x`, `$`, `_`
-  * Invalid: `0`, `1`
+  * E.g, `x`, `$`, `_`
 * Following characters may include numbers {.fragment .fade-up}
   * Valid: `y2`, `first_name`, `_LAST_NAME_`, `$10`
-  * Invalid: `2a`
+  * Invalid: `2a`, `middle name`
 * Names are case-sensitive {.fragment .fade-up}
   * `message`, `Message`, `MESSAGE` are different variables.
 
 </section>
 
-<section data-auto-animate data-auto-animate-duration="0.7" data-auto-animate-id="nameVars">
 
-### How to name variables?
+<section>
 
 The JavaScript convention is [`camelCase` 🐪]{.text-6xl .block .leading-normal}
 
 </section>
 
-<section data-auto-animate>
+
+<section>
 
 ### Variables that vary
 
-* `const` variables are <i>constant</i>; they always refer to the same value.
-* That's fine in many cases, but sometimes we need to change that reference. {.fragment .fade-up}
+* A `const` variable is <i>constant</i>; it always refers to the same value.
+* That's usually fine, but sometimes we'd like to reassign a variable to a different value. {.fragment .fade-up}
 
 </section>
 
-<section data-auto-animate>
 
-### Variables that vary
+<section>
 
-Consider an e-commerce app
+Consider an online shopping cart:
 
-![]({{ '/assets/images/cart-quantity.jpg?nf_resize=fit&w=460' | url }}){aria-labelledby="tarbiyahCartScreenshot" width=460}
+![]({{ '/assets/images/tarbiyah-cart.webp' | url }}){aria-labelledby="tarbiyahCartLabel"}
 
-Screenshot of cart from [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/) {class="text-[60%]" id="tarbiyahCartScreenshot"}
+<small id="tarbiyahCartLabel" class="italic">Screenshot of a cart item on [Tarbiyah Books Plus](https://tarbiyahbooksplus.com/).</small>
 
 </section>
 
-<section data-auto-animate>
 
-### Variables that vary
+<section data-auto-animate>
 
 <pre data-id="let"><code data-line-numbers data-trim class="language-js">
-const quantity = 0
+const quantity = 1
 
 // When the user clicks the plus button,
-// we should increase the quantity
+// increase the quantity.
+quantity = quantity + 1
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="let"><code data-line-numbers="5,6" data-trim class="language-js">
+const quantity = 1
+
+// When the user clicks the plus button,
+// increase the quantity.
 quantity = quantity + 1
 // Error: Assignment to constant variable
 </code></pre>
 
 </section>
 
+
 <section data-auto-animate>
 
-### Variables that vary
-
-Use the `let` keyword instead
+Use the `let` keyword instead:
 
 <pre data-id="let"><code data-line-numbers data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity = quantity + 1
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
 
-<section data-auto-animate>
 
-### Variables that vary
+<section data-auto-animate>
 
 Addition assignment operator
 
 <pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity += 1
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
 
-<section data-auto-animate>
 
-### Variables that vary
+<section data-auto-animate>
 
 Increment operator
 
 <pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
-let quantity = 0
+let quantity = 1
 
 quantity++
 
-console.log(quantity) // 1
+console.log(quantity) // 2
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
-### Variables that vary
-
-You don't have to initialize a `let` variable with a value immediately.
+You can initialize a `let` variable with a value after declaring it:
 
 <pre data-id="let"><code data-line-numbers="1,3,4" data-trim class="language-js">
-let quantity; // value is undefined
+let quantity;
 
 // initialize after declaring
-quantity = 0
+quantity = 1
 
 quantity++
 
-console.log(quantity) // 1
+console.log(quantity) // 2
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Its value will be `undefined` until you initialize it:
+
+<pre data-id="let"><code data-line-numbers="3" data-trim class="language-js">
+let quantity;
+
+console.log(quantity) // undefined
+
+// initialize after declaring
+quantity = 1
+
+quantity++
+
+console.log(quantity) // 2
 </code></pre>
 
 </section>
@@ -359,34 +419,16 @@ console.log(quantity) // 1
 </section>
 
 
-<section>
-
-## Empty values
-
-* `undefined` and `null`.
-* No hard rules on when to use which.
-* Some use `null` for intentionally empty variables.
-
-</section>
-
 
 <section>
 
-## Statements
+## Absence of value
 
-Not everything is an expression; some things don't produce value. E.g., variable declaration
-
-```js {data-line-numbers="1,2|4-7"}
-// This is wrong! Declaration is not an expression
-let a = const b = 10
-
-// But this is valid; assignment is an expression
-let a = 10
-const b = a = 15
-// a and b are now 15
-```
+* Special values: `undefined` and `null`.
+* `null` is often used for an intentionally absent value.
 
 </section>
+
 
 
 <section>
@@ -397,11 +439,12 @@ const b = a = 15
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Joining strings {data-id="strOpHeading"}
 
-Also known as <i>concatenation</i>
+Also known as <i>concatenation</i>:
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -413,11 +456,12 @@ const fullName = firstName + lastName
 
 </section>
 
+
 <section  data-auto-animate>
 
-### Joining strings {data-id="strOpHeading"}
+<!-- ### Joining strings {data-id="strOpHeading"} -->
 
-Also known as <i>concatenation</i>
+<!-- Also known as <i>concatenation</i>: -->
 
 <pre data-id="concatstr"><code data-line-numbers="4-6" data-trim class="language-js">
 const firstName = "Mubaraq"
@@ -430,13 +474,14 @@ const fullName = firstName + " " + lastName
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Interpolation {data-id="strOpHeading"}
 
-You can use special strings called <i>template literals</i> to interpolate.
+You can use special strings called <i>template literals</i> to interpolate:
 
-<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 const lastName = "Wahab"
 
@@ -446,16 +491,16 @@ const fullName = `${firstName} ${lastName}`
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Get a character from a string {data-id="strOpHeading"}
 
-Use square brackets to specify an <i>index</i> (starts from zero)
+Use square brackets to specify an <i>index</i> (starting from zero):
 
-<pre data-id="concatstr"><code data-line-numbers="1,2,5-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 //                 0123456
 const firstName = "Mubaraq"
-const lastName = "Wahab"
 
 const initial = firstName[0] // "M"
 const second = firstName[1] // "u"
@@ -464,16 +509,16 @@ const second = firstName[1] // "u"
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Get part of a string {data-id="strOpHeading"}
 
-Use the `slice` method
+Use the `slice` method:
 
-<pre data-id="concatstr"><code data-line-numbers="5-8" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 //                 0123456
 const firstName = "Mubaraq"
-const lastName = "Wahab"
 
 const firstThreeLetters = firstName.slice(0, 3)
 // "Mub"
@@ -483,15 +528,15 @@ const thirdToEnd = firstName.slice(2)
 
 </section>
 
+
 <section data-auto-animate>
 
-### Is this part of a string? {data-id="strOpHeading"}
+### Does a string include this? {data-id="strOpHeading"}
 
-Use the `includes` method to check if a string includes another.
+Use the `includes` method to check if a string includes another:
 
-<pre data-id="concatstr"><code data-line-numbers="4-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
-const lastName = "Wahab"
 
 firstName.includes('ba')
 // true
@@ -501,15 +546,15 @@ firstName.includes('ab')
 
 </section>
 
+
 <section data-auto-animate>
 
 ### How long is a string? {data-id="strOpHeading"}
 
-Use the `length` property to get the length of a string.
+Use the `length` property to get the length of a string:
 
-<pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
-const lastName = "Wahab"
 
 firstName.length
 // 7
@@ -517,11 +562,12 @@ firstName.length
 
 </section>
 
+
 <section data-auto-animate>
 
 ### String to number {data-id="strOpHeading"}
 
-You need to convert a string to a number sometimes, such as when working with user input.
+You need to convert a string to a number sometimes, [such as when working with user input:]{.block} {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 // Assume this is from user input
@@ -533,11 +579,10 @@ input + 3
 
 </section>
 
+
 <section data-auto-animate>
 
-### String to number {data-id="strOpHeading"}
-
-You need to convert a string to a number sometimes, such as when working with user input.
+Use the `Number` function to convert a string to a number: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="4-8" data-trim class="language-js">
 // Assume this is from user input
@@ -552,11 +597,10 @@ inputAsNumber + 3
 
 </section>
 
+
 <section data-auto-animate>
 
-### String to number {data-id="strOpHeading"}
-
-You need to convert a string to a number sometimes, such as when working with user input.
+Or use the `+` operator: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="4-5" data-trim class="language-js">
 // Assume this is from user input
@@ -571,11 +615,12 @@ inputAsNumber + 3
 
 </section>
 
+
 <section data-auto-animate>
 
 ### Number to string {data-id="strOpHeading"}
 
-The other way round works too!
+The opposite is possible too, using the `String` function: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers data-trim class="language-js">
 const num = 20
@@ -588,9 +633,7 @@ const numAsString = String(num)
 
 <section data-auto-animate>
 
-### Number to string {data-id="strOpHeading"}
-
-The other way round works too!
+Or the `toString` method: {data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
 const num = 20
@@ -603,9 +646,7 @@ const numAsString = num.toString()
 
 <section data-auto-animate>
 
-### Number to string {data-id="strOpHeading"}
-
-The other way round works too!
+Or even concatenating with an empty string:{data-id=strOpDesc}
 
 <pre data-id="concatstr"><code data-line-numbers="3-4" data-trim class="language-js">
 const num = 20
@@ -620,7 +661,7 @@ const numAsString = "" + num
 
 ### UPPERCASE, lowercase {data-id="strOpHeading"}
 
-<pre data-id="concatstr"><code data-line-numbers="3-4|6-7" data-trim class="language-js">
+<pre data-id="concatstr"><code data-line-numbers="" data-trim class="language-js">
 const firstName = "Mubaraq"
 
 firstName.toUpperCase()
@@ -635,19 +676,84 @@ firstName.toLowerCase()
 </section>
 
 
+
 <section>
 
-## See also
+<section data-auto-animate data-auto-animate-id=stmts>
 
-* The [MDN Web Docs](https://developer.mozilla.org/){rel="noopener"}
+## Statements
 
 </section>
 
 
-<section>
+<section data-auto-animate data-auto-animate-id=stmts>
 
-## Exercise
+## Statements
 
-Check the [website]({{ '/lessons/02-values-and-types' | url }})
+* A program is a sequence of statements.
+* Statements are executed one after another.
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="stmtcode"><code data-line-numbers="" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+A variable declaration is a statement:
+
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+An expression can act as a statement too:
+
+<pre data-id="stmtcode"><code data-line-numbers="3" data-trim class="language-js">
+const name = 'Mubaraq'
+const message = 'Hello ' + name
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+You can't use a statement as an expression:
+
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+// Error!
+const message = 'Hello ' + (const name = 'Mubaraq')
+typeof message
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+An assignment is an expression:
+
+<pre data-id="stmtcode"><code data-line-numbers="1,2" data-trim class="language-js">
+let name
+const message = 'Hello ' + (name = 'Mubaraq')
+typeof message
+</code></pre>
 
 </section>

@@ -31,13 +31,9 @@
         }
       </style>
     {% endif %}
+    {# Place after all 3rd-party stylesheets #}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
     {% include "meta.njk" %}
-    <script>
-      if (new URL(window.location.href).searchParams.has('edit') {
-        window.location.href = "{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}"
-      }
-    </script>
   </head>
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">

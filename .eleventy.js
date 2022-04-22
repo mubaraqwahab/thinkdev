@@ -11,7 +11,7 @@ const transforms = require("./utils/transforms.js")
 const markdownLib = require("./utils/markdown-it.js")
 
 /**
- * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
+ * @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig
  * @returns {Partial<ReturnType<import('@11ty/eleventy/src/defaultConfig')>>}
  */
 module.exports = function (eleventyConfig) {

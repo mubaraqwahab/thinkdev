@@ -10,6 +10,7 @@ self.addEventListener("install", (event) => {
         cache.addAll([
           OFFLINE_PAGE,
           "/main.css",
+          "/assets/images/thinkdev.svg",
           "/reveal/dist/reveal.css",
           "/reveal/plugin/highlight/github.css",
           "/reveal/plugin/highlight/github-dark-dimmed.css",

@@ -8,7 +8,7 @@ excerpt: >
 
 ## Video
 
-https://youtu.be/xjaPC_B2okk
+https://youtu.be/CVbQcXXQ_3k
 
 ## Exercises
 
