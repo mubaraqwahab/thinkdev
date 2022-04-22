@@ -45,7 +45,7 @@ Alternatives
 
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## How do we represent these values?
 
@@ -54,11 +54,9 @@ Alternatives
 
 <section data-auto-animate>
 
-## How do we represent these values?
-
 * We use <i>strings</i> for text:
-  * `"Most popular"`
-  * `'Installed'`
+  * `"Explore featured courses"`
+  * `'Find out more'`
 * We use <i>booleans</i> to choose between alternatives {.fragment .fade-up}
   * `true`, `false`
 
@@ -70,15 +68,15 @@ Alternatives
 ### What about numbers?
 
 * Many languages differentiate between types of numbers. {.fragment .fade-up}
-* <i>Integer</i> types (<i>int</i>) for 20, -7, &hellip; {.fragment .fade-up}
-* <i>Floating point</i> types (<i>float</i>) for 3.2, -0.789, &hellip; {.fragment .fade-up}
+* <i>Integer</i> types (<i>int</i>) for 75, -2, &hellip; {.fragment .fade-up}
+* <i>Floating point</i> types (<i>float</i>) for 4.6, -0.789, &hellip; {.fragment .fade-up}
 
 </section>
 
 
 <section>
 
-### But in JavaScript ...
+But in JavaScript ... {.h3}
 
 ... a number is just a <i>number</i>. {.fragment .fade-up}
 
@@ -106,7 +104,7 @@ typeof false      // "boolean"
 </section>
 
 
-<section data-auto-animate data-auto-animate-id=comments>
+<section>
 
 ### Comments
 
@@ -117,11 +115,6 @@ typeof false      // "boolean"
 
 
 <section data-auto-animate data-auto-animate-id=comments>
-
-### Comments
-
-* Use comments to explain pieces of your code.
-* The language ignores them.
 
 ```js
 // Line comment
@@ -163,14 +156,14 @@ multiple lines. */
 
 ## Expressions
 
-Things that have value. {data-id="exprDesc"}
+Things that have value.
 
 </section>
 
 
 <section>
 
-* The simplest expressions are literals: {data-id=exprDesc}
+* The simplest expressions are literals:
   * `1`, `"Hi"`, `true`.
 * But they're not so useful alone. {.fragment .fade-up}
 
@@ -179,7 +172,7 @@ Things that have value. {data-id="exprDesc"}
 
 <section data-auto-animate>
 
-You can use operators to build complex expressions: {data-id="exprDesc"}
+You can use operators to build complex expressions:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
 1 - 2;            // -1
@@ -192,7 +185,7 @@ typeof true;      // "boolean"
 
 <section data-auto-animate>
 
-Wrapping an expression in brackets doesn't change it's value: {data-id="exprDesc"}
+Wrapping an expression in brackets doesn't change it's value:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
 (1 - 2);            // -1
@@ -205,7 +198,7 @@ Wrapping an expression in brackets doesn't change it's value: {data-id="exprDesc
 
 <section data-auto-animate>
 
-Operator precedence rules apply, even to non-arithmetic operators: {data-id="exprDesc"}
+Operator precedence rules apply, even to non-arithmetic operators:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
 (50 * 70 / 67 + 9); // 61.2388&hellip;
@@ -218,7 +211,7 @@ typeof (2 - 1);     // "number"
 
 <section data-auto-animate data-auto-animate-duration="0.7">
 
-You can use an expression where a value is expected: {data-id="exprDesc"}
+You can use an expression where a value is expected:
 
 <pre data-id="expr"><code data-line-numbers data-trim class="language-js">
 typeof (50 * 70 / 67 + 9)
@@ -233,7 +226,7 @@ console.log(typeof true)
 
 <section>
 
-## What if we wanted to store the&nbsp;value&nbsp;of an expression?
+What if we wanted to store the&nbsp;value&nbsp;of an expression? {.h2}
 
 </section>
 
@@ -241,7 +234,7 @@ console.log(typeof true)
 
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## Variables
 
@@ -249,8 +242,6 @@ console.log(typeof true)
 
 
 <section data-auto-animate>
-
-## Variables
 
 <pre data-id="vars"><code data-line-numbers="1,2" data-trim class="language-js">
 // Declare a variable
@@ -261,8 +252,6 @@ const costPerItem = 3000
 
 
 <section data-auto-animate>
-
-## Variables
 
 <pre data-id="vars"><code data-line-numbers="4,5" data-trim class="language-js">
 // Declare a variable
