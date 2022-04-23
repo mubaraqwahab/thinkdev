@@ -7,9 +7,6 @@ References for the course content:
 
 {% set bindingsLesson = collections.all | eleventyNavigation | find('title', 'Bindings again') %}
 
-* [<cite>Think Python</cite> by Allen Downey](https://greenteapress.com/wp/think-python-2e/).
-  The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
-  Yes, it inspired this course's title 🙂.
 * The [<cite>MDN Web Docs</cite>](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
   My primary reference for this course. It's a great place to learn JavaScript and other things web-related.
 * [<cite>Eloquent JavaScript</cite>](https://eloquentjavascript.net).
@@ -21,3 +18,6 @@ References for the course content:
   The course focuses on building a good mental model of JavaScript.
   It inspired the fifth episode of this thinkdev course,
   [{{ bindingsLesson.title }}]({{ bindingsLesson.url | url }}).
+* [<cite>Think Python</cite> by Allen Downey](https://greenteapress.com/wp/think-python-2e/).
+  The book is also known by the title <i>How to Think Like a Computer Scientist</i>.
+  Yes, it inspired this course's title 🙂.
