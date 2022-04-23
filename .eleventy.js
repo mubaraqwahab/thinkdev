@@ -4,7 +4,18 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config()
 
 // For debugging; don't remove!
-console.log({env: process.env})
+const envVars = [
+  "REPOSITORY_URL",
+  "BRANCH",
+  "HEAD",
+  "URL",
+  "DEPLOY_URL",
+  "DEPLOY_PRIME_URL",
+]
+for (const envVar of envVars) {
+  console.log(`${envVar}=${process.env[envVar]}`)
+}
+// End for debugging
 
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 
