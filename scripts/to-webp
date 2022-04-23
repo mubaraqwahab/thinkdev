@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Use this script to convert images to WebP format.
+
 dest='public/assets/images/'
 
 read -r -d '' HELP << EOM
