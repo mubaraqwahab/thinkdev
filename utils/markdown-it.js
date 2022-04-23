@@ -72,6 +72,10 @@ function ytPlayerMarkup(ytVideoId) {
     modestbranding: "1",
     // Show related videos, if at all, from the same channel
     rel: "0",
+    // Play inline by default on iOS
+    playsinline: "1",
+    // Allow controlling the player via JS
+    enablejsapi: "1",
     origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
   })
 
@@ -84,6 +88,7 @@ function ytPlayerMarkup(ytVideoId) {
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
     class="youtube-player"
+    id="youtubePlayer"
   ></iframe>`
 
   if (process.env.NODE_ENV === "production") {
@@ -91,7 +96,10 @@ function ytPlayerMarkup(ytVideoId) {
   } else {
     // Return a placeholder in dev to minimize data usage
     return html`<div class="youtube-player-wrapper">
-      <div class="youtube-player bg-[#0a0918] p-8 not-prose">
+      <div
+        id="youtubePlaceholder"
+        class="youtube-player bg-[#0a0918] p-8 not-prose"
+      >
         <h3 class="text-xl font-semibold mb-3 text-gray-200">
           Video placeholder
         </h3>
@@ -101,15 +109,17 @@ function ytPlayerMarkup(ytVideoId) {
         <p class="mb-4">
           <button
             class="px-3 py-1 rounded border font-medium text-gray-300 border-gray-300"
-            onclick="ytDevPlacholderLoadPlayer(this);"
+            onclick="window.replaceYouTubePlaceholder(this);"
           >
             Load player
           </button>
         </p>
       </div>
       <script>
-        window.ytDevPlacholderLoadPlayer = function (button) {
+        window.replaceYouTubePlaceholder = function (button) {
           button.closest(".youtube-player-wrapper").innerHTML = \`${ytPlayer}\`
+          // Defined in src/_includes/js/yt-player.js
+          window.loadIframePlayerAPI()
         }
       </script>
     </div>`
