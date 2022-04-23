@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+dest='public/assets/images/'
+
+read -r -d '' HELP << EOM
+Usage: to-webp [path|glob|-h|--help]
+
+Convert images to webp. The destination is "$dest".
+
+Examples:
+  to-webp "public/assets/image.png"
+  to-webp "public/assets/*.jpg"
+EOM
+
+if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
+then
+  echo "$HELP" && exit 0
+fi
+
+npx imagemin "$1" --out-dir="$dest" --plugin=webp

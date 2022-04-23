@@ -69,7 +69,7 @@ module.exports = function (eleventyConfig) {
       ready: function (err, bs) {
         bs.addMiddleware("*", (req, res) => {
           const content_404 = fs.readFileSync("_site/404.html")
-          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" })
+          res.writeHead(404, {"Content-Type": "text/html; charset=UTF-8"})
           res.write(content_404)
           res.end()
         })
