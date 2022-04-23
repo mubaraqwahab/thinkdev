@@ -3,6 +3,9 @@
 // Read from .env in development. (Netlify will provide env vars elsewhere)
 if (process.env.NODE_ENV !== "production") require("dotenv").config()
 
+// For debugging; don't remove!
+console.log({env: process.env})
+
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 
 const filters = require("./utils/filters.js")
