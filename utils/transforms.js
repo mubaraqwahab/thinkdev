@@ -60,9 +60,10 @@ function transformHTML(content, outputPath) {
 function autoLinkLessonHeadings({document}, outputPath) {
   if (!outputPath.includes("/lessons/")) return
 
+  const slugger = new GithubSlugger()
+
   document.querySelectorAll("h2, h3").forEach((heading) => {
     // Slugify the heading text
-    const slugger = new GithubSlugger()
     heading.id = heading.id || slugger.slug(heading.textContent.trim())
 
     // Link an anchor to the heading
