@@ -565,14 +565,7 @@ const course = {
 
 <section>
 
-We've solved the issue of packing separate attributes into entities &hellip; {.h2}
-
-</section>
-
-
-<section>
-
-&hellip; but how do we deal with many similar entities? {.h2}
+## Let's update the original example to&nbsp;use objects
 
 </section>
 
@@ -618,7 +611,14 @@ const course4 = {
 
 <section>
 
-### We need a "list" of some sort &hellip;
+Now we have to deal with many separate&nbsp;but&nbsp;similar entities. {.h3}
+
+</section>
+
+
+<section>
+
+We need a "list" of some sort. {.h3}
 
 </section>
 
@@ -635,7 +635,7 @@ const course4 = {
 </section>
 
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-id="arrintro">
 
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
 const people = ["Amal", "Isa", "Khadija"]
@@ -644,11 +644,24 @@ const people = ["Amal", "Isa", "Khadija"]
 </section>
 
 
+<section data-auto-animate data-auto-animate-id="arrintro">
+
+The elements can be of different types:
+
+<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
+const arr = ["hi", 12.34, true]
+</code></pre>
+
+</section>
+
+
 <section data-auto-animate>
+
+### Access an array element {data-id="usearrHeading"}
 
 Arrays are ordered and can be indexed, like strings:
 
-<pre data-id="arrIntro"><code data-line-numbers="1-4|6,7" data-trim class="language-js">
+<pre data-id="arrIntro"><code data-line-numbers="1,2,4|1,2,6,7" data-trim class="language-js">
 //              0       1      2
 const people = ["Amal", "Isa", "Khadija"]
 
@@ -656,17 +669,6 @@ console.log(people[0]) // "Amal"
 
 // Replace "Isa" with "Elleman"
 people[1] = "Elleman"
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate>
-
-The elements can be of different types:
-
-<pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
-const arr = ["hi", 12.34, true]
 </code></pre>
 
 </section>
