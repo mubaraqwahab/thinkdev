@@ -6,8 +6,6 @@ excerpt: >
 
 ## Videos
 
-### Lesson session
-
 https://youtu.be/7ni9fGevUos
 
 ### Revision session

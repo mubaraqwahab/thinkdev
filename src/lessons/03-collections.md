@@ -9,8 +9,6 @@ excerpt: >
 
 ## Videos
 
-### Lesson session
-
 https://youtu.be/qQg4-Nx4ohk
 
 ### Revision session
