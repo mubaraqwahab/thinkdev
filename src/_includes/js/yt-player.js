@@ -1,41 +1,57 @@
 // @ts-check
 
-const SEEK_TIME_KEY = "ytSeekTime-" + window.location.pathname
+/**
+ * Just to silence TS. (This is defined in meta.njk btw)
+ * @type {Record<string, any>|undefined}
+ * @global
+ */
+var thinkdev
 
-// These aren't for debugging; they must be in the global scope!
-window.loadIframePlayerAPI = loadIframePlayerAPI
+// A map of iframe ids to players (for debugging)
+window.thinkdev.ytPlayers = {}
+// This is for the YouTube API to use
 window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady
 
-const playerIframeId = "youtubePlayer"
-if (document.getElementById(playerIframeId)) {
-  loadIframePlayerAPI()
-}
+const SEEK_TIME_KEY = "ytSeekTime--" + location.pathname
+
+loadIframePlayerAPI()
 
 /**
  * Load the IFrame Player API code asynchronously.
- *
- * This function allows me to choose to load the API
- * when I want and from where I want. This is important
- * for me because I only want to load the API in dev mode
- * when the "load player" btn is clicked (the one on the yt placeholder).
- * In prod however, the function will be called automatically.
- * @global
  */
 function loadIframePlayerAPI() {
-  const tag = document.createElement("script")
-  tag.src = "https://www.youtube.com/iframe_api"
-  const firstScriptTag = document.getElementsByTagName("script")[0]
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+  const script = document.createElement("script")
+  script.src = "https://www.youtube.com/iframe_api"
+  const firstScript = document.getElementsByTagName("script")[0]
+  firstScript.parentNode.insertBefore(script, firstScript)
 }
 
 /**
  * The YouTube Iframe API will call this automatically when it's ready.
- * @global
  */
 function onYouTubeIframeAPIReady() {
-  const player = new YT.Player(playerIframeId, {events: {onStateChange}})
-  // @ts-ignore
-  window.ytPlayer = player
+  const iframes = document.querySelectorAll("iframe.youtube-player")
+
+  iframes.forEach((iframe) => {
+    const player = new YT.Player(iframe.id, {events: {onStateChange, onReady}})
+
+    // Save player state before closing window, if playing
+    window.addEventListener("beforeunload", () => {
+      if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+        savePlayerState(player)
+      }
+    })
+  })
+}
+
+/**
+ * @type {YT.Events['onReady']}
+ */
+function onReady(e) {
+  // Record the player in the ytPlayers map
+  const player = e.target
+  const iframeId = player.getIframe().id
+  window.thinkdev.ytPlayers[iframeId] = player
 }
 
 /**
@@ -52,41 +68,56 @@ function onStateChange(e) {
   } else if (e.data === YT.PlayerState.UNSTARTED) {
     restorePlayerState(player)
   } else if (e.data === YT.PlayerState.ENDED) {
-    clearPlayerState()
+    clearPlayerState(player)
   }
 }
-
-// Save player state before closing window, if playing
-window.addEventListener("beforeunload", () => {
-  const player = /** @type {YT.Player} */ (window.ytPlayer)
-  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-    savePlayerState(player)
-  }
-})
 
 /**
  * Save the current seek time of the given player to local storage.
  * @param {YT.Player} player
  */
 function savePlayerState(player) {
-  const seekTime = player.getCurrentTime()
-  localStorage.setItem(SEEK_TIME_KEY, JSON.stringify(seekTime))
+  const store = loadStore()
+  store[player.getIframe().id] = player.getCurrentTime()
+  dumpStore(store)
 }
 
 /**
- * Restore the given player to its previous seek time, if any
+ * Restore the given player to its previous seek time, if any.
  * @param {YT.Player} player
  */
 function restorePlayerState(player) {
-  const seekTime = JSON.parse(localStorage.getItem(SEEK_TIME_KEY))
+  const store = loadStore()
+  const seekTime = store[player.getIframe().id]
   if (seekTime) {
     player.seekTo(seekTime, true)
   }
 }
 
 /**
- * Clear any previously saved seek time for the page's current player.
+ * Clear any previously saved seek time for the given player.
+ * @param {YT.Player} player
  */
-function clearPlayerState() {
-  localStorage.removeItem(SEEK_TIME_KEY)
+function clearPlayerState(player) {
+  const store = loadStore()
+  delete store[player.getIframe().id]
+  dumpStore(store)
 }
+
+/**
+ * @returns {Store}
+ */
+function loadStore() {
+  return JSON.parse(localStorage.getItem(SEEK_TIME_KEY)) ?? {}
+}
+
+/**
+ * @param {Store} store
+ */
+function dumpStore(store) {
+  localStorage.setItem(SEEK_TIME_KEY, JSON.stringify(store))
+}
+
+/**
+ * @typedef {Record<string, number>} Store
+ */
