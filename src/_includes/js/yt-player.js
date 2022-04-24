@@ -108,7 +108,14 @@ function clearPlayerState(player) {
  * @returns {Store}
  */
 function loadStore() {
-  return JSON.parse(localStorage.getItem(SEEK_TIME_KEY)) ?? {}
+  const store = JSON.parse(localStorage.getItem(SEEK_TIME_KEY))
+  if (typeof store === "number") {
+    // This takes care of the previous version of the store
+    // which was just a number.
+    return {}
+  } else {
+    return store ?? {}
+  }
 }
 
 /**
