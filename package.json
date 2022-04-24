@@ -10,7 +10,7 @@
     "build-html": "eleventy",
     "build-css": "tailwindcss -i src/main.css -o _site/main.css --minify",
     "purge-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
-    "clear": "shx rm -rf _site/ src/dist/",
+    "clear": "shx rm -rf _site/",
     "prepare": "husky install",
     "format": "prettier --write **/*.{js,html,css,json}"
   },
