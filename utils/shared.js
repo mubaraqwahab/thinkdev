@@ -8,6 +8,8 @@
 /**
  * Use this for required environment variables.
  * If the variable is not set, it will log a warning.
+ * This is only intended to remind me to set env vars in development
+ * that mimic the env vars in a Netlify environment.
  * @param {string} name
  * @returns {string|void}
  */

@@ -67,6 +67,12 @@ function markdownItYouTubeEmbed(md) {
  * @returns {string}
  */
 function ytPlayerMarkup(ytVideoId) {
+  const origin = /** @type {string} */ (
+    process.env.CONTEXT === "production"
+      ? process.env.URL
+      : requiredEnv("DEPLOY_PRIME_URL")
+  )
+
   const ytPlayerParams = new URLSearchParams({
     // Hide YouTube logo when playing video (for cleaner UI)
     modestbranding: "1",
@@ -76,7 +82,7 @@ function ytPlayerMarkup(ytVideoId) {
     playsinline: "1",
     // Allow controlling the player via JS
     enablejsapi: "1",
-    origin: /** @type {string} */ (requiredEnv("DEPLOY_PRIME_URL")),
+    origin,
   })
 
   const ytPlayer = html`<iframe
