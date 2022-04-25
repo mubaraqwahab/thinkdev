@@ -11,10 +11,6 @@ excerpt: >
 
 https://youtu.be/qQg4-Nx4ohk
 
-### Revision session
-
-https://youtu.be/NgxAcW7ppWo
-
 ## Exercises
 
 Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
