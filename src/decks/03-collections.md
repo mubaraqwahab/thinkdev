@@ -8,7 +8,7 @@ title: Collections
 
 Let's revisit the FutureLearn courses example:
 
-![]({{ '/assets/images/futurelearn-featured.webp' | url }}){aria-labelledby="futureLearnFeaturedLabel"}
+![A screenshot of the featured courses on FutureLearn]({{ '/assets/images/futurelearn-featured.webp' | url }})
 
 </section>
 
@@ -285,7 +285,7 @@ const course = {
   isNew: true,
 }
 
-course.'reviews count'++ // SyntaxError
+course.'reviews count'++ // Error
 </code></pre>
 
 </section>
