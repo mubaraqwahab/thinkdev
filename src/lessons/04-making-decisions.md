@@ -6,10 +6,6 @@ excerpt: >
 
 ## Videos
 
-https://youtu.be/7ni9fGevUos
-
-### Revision session
-
 TODO
 
 ## Exercise
