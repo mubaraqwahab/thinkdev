@@ -4,39 +4,33 @@ title: Making decisions
 
 <section>
 
-<section data-auto-animate>
+<section>
 
-![]({{ '/assets/images/yt-subscribe.webp' | url }}){width=660 data-id="yt-sub" aria-labelledby="ytSubLabel"}
-
-Screenshot of a YouTube video, showing the channel subscribe button {id="ytSubLabel" data-id=imglabel class="mt-0 text-[60%]"}
+![]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
 
 </section>
 
-<section data-auto-animate>
-
-![]({{ '/assets/images/yt-subscribed.webp' | url }}){width=660 data-id="yt-sub" aria-labelledby="ytSubedLabel"}
-
-Screenshot of a YouTube video, showing the channel subscribed and notification buttons {id="ytSubedLabel" data-id=imglabel class="mt-0 text-[60%]"}
-
-
-</section>
 
 <section>
+
+TODO: CHANGE
 
 ![]({{ '/assets/images/ussd-screenshot.webp' | url }}){width=400 aria-labelledby="ussdLabel"}
 
-A USSD application menu showing the different options a user can choose from. {id="ussdLabel" class="mt-0 text-[60%]"}
+<small id="ussdLabel" class="mt-0">A USSD application menu showing the different options a user can choose from.</small>
 
 </section>
 
 </section>
+
 
 
 <section>
 
-## First, let's learn how to do some basic comparison
+First, let's learn how to do some&nbsp;basic&nbsp;comparison {.h3}
 
 </section>
+
 
 
 <section>
@@ -45,52 +39,54 @@ A USSD application menu showing the different options a user can choose from. {i
 
 ## Relational operators
 
-```js
-3 > 2 // true
-8 < 5 // false
-9 >= 13 // false
-6 <= 6 // true
-```
-
 </section>
+
 
 <section data-auto-animate>
 
-### Equality
-
-Check if two values are equal with the strict equality operator `===`
-
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
-2 === 5 - 3 // true
-'hello' === 'hi' // false
-true === false // false
-'10' === 10 // false
-89.0 === 89 // true
+3 > 2    // true
+8 < 5    // false
+9 >= 13  // false
+6 <= 6   // true
 </code></pre>
 
 </section>
 
+
 <section data-auto-animate>
 
-### Inequality
-
-Check if two values are _not_ equal with the strict inequality operator `!==`
+Use the <i>strict equality operator</i> `===` to determine if two values are equal:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
-2 !== 5 - 3 // false
-'hello' !== 'hi' // true
-true !== false // true
-'10' !== 10 // true
-89.0 !== 89 // false
+2 === 5 - 3           // true
+89.0 === 89           // true
+10 === '10'           // false
+'hello' === 'Hello'   // false
+true === false        // false
 </code></pre>
 
 </section>
 
+
 <section data-auto-animate>
 
-### Equal objects?
+There's a strict inequality counterpart:
 
-No two objects have the same value, even if they look alike.
+<pre data-id="eq"><code data-line-numbers data-trim class="language-js">
+2 !== 5 - 3           // false
+89.0 !== 89           // false
+10 !== '10'           // true
+'hello' !== 'Hello'   // true
+true !== false        // true
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+No two objects have the same value, even if they look alike:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 const obj1 = { prop: "value" }
@@ -100,11 +96,10 @@ console.log(obj1 === obj2) // false 😕
 
 </section>
 
+
 <section data-auto-animate>
 
-### Equal objects?
-
-But, same object, same value.
+But, same object, same value:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 const obj1 = { prop: "value" }
@@ -115,6 +110,7 @@ console.log(obj1 === obj2) // true
 </section>
 
 </section>
+
 
 
 <section>
