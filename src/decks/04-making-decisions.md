@@ -123,6 +123,7 @@ We can classify values based on their "truth". {.fragment .fade-up}
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id=truthy>
 
 ## Truthy and falsy values
@@ -137,6 +138,7 @@ Boolean({ x: 5 }) // true
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id=truthy>
 
 ## Truthy and falsy values
@@ -150,6 +152,7 @@ Boolean("") // false
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
@@ -168,11 +171,13 @@ All values are truthy except a few which are falsy:
 </section>
 
 
+
 <section>
 
 ## Let's get to making decisions now
 
 </section>
+
 
 
 <section>
@@ -182,6 +187,7 @@ All values are truthy except a few which are falsy:
 ## The `if` statement
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -199,11 +205,13 @@ If `expression` is truthy, execute the statements in the curly brackets. {.fragm
 
 </section>
 
+
 <section>
 
 ### Let's consider the YouTube example
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="h">
 
@@ -218,6 +226,7 @@ const user = {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="h">
 
@@ -234,6 +243,7 @@ user.subscriptions.includes('National Geographic')
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="h">
 
@@ -252,6 +262,7 @@ if (user.subscriptions.includes('National Geographic')) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="h">
 
@@ -273,6 +284,7 @@ console.log('After decision')
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="h">
 
 Output if the user is subscribed to National Geographic:
@@ -283,6 +295,7 @@ After decision
 </samp></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="h">
 
@@ -304,6 +317,7 @@ console.log('After decision')
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="h">
 
 ... the output is just this
@@ -316,11 +330,13 @@ How do we print a different message? {.fragment}
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="else">
 
 ### `else`
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="else">
 
@@ -338,6 +354,7 @@ console.log('After decision')
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="else">
 
 ### `else`
@@ -350,6 +367,7 @@ After decision
 </samp></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="else">
 
@@ -366,6 +384,7 @@ if (n &gt; 0) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="else">
 
@@ -384,6 +403,7 @@ if (n &gt; 0) {
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="else">
 
 ### `else if`
@@ -399,6 +419,7 @@ if (n &gt; 0) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="else">
 
@@ -417,6 +438,7 @@ if (n &gt; 0) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="else">
 
@@ -440,13 +462,8 @@ if (n &gt; 0) {
 
 </section>
 
-<!-- <section>
-
-### Order of execution ("the control flow")
-
-</section> -->
-
 </section>
+
 
 
 <section>
@@ -456,6 +473,7 @@ if (n &gt; 0) {
 ## We can now make decisions based on simple conditions
 
 </section>
+
 
 <section>
 
@@ -468,6 +486,7 @@ if (n &gt; 0) {
 </section>
 
 
+
 <section>
 
 <section>
@@ -477,6 +496,7 @@ if (n &gt; 0) {
 [NOT]{.inline-block .fragment .fade-down}[, AND]{.inline-block .fragment .fade-up}[, and OR.]{.inline-block .fragment .fade-right}
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="not">
 
@@ -488,6 +508,7 @@ if (n &gt; 0) {
 * The result is `true` if `expr` is falsy.
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="not">
 
@@ -504,6 +525,7 @@ if (!arr.length) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="not">
 
@@ -522,6 +544,7 @@ Boolean(null) // false
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="and">
 
 ### AND
@@ -531,6 +554,7 @@ Boolean(null) // false
 Both expressions must be truthy for the result to be truthy.
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="and">
 
@@ -544,6 +568,7 @@ if (user && user.role === "ADMIN") {
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="or">
 
 ### OR
@@ -553,6 +578,7 @@ if (user && user.role === "ADMIN") {
 [At least one of the expressions must be truthy]{.block} [for the result to be truthy.]{.block}
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="or">
 
@@ -565,6 +591,7 @@ if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="or">
 
@@ -586,6 +613,7 @@ if (
 </section>
 
 
+
 <section>
 
 <section>
@@ -594,11 +622,13 @@ if (
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="ifIsStmt">
 
 ### Remember that `if` is a _statement_
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="ifIsStmt">
 
@@ -618,6 +648,7 @@ const remark = if (n % 2 === 0) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="ifIsStmt">
 
@@ -639,6 +670,7 @@ if (n % 2 === 0) {
 
 </section>
 
+
 <section>
 
 ### But JS has an "`if` expression" too &hellip;
@@ -648,6 +680,7 @@ if (n % 2 === 0) {
 </section>
 
 
+
 <section>
 
 <section data-auto-animate>
@@ -655,6 +688,7 @@ if (n % 2 === 0) {
 ## The conditional operator
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -665,6 +699,7 @@ if (n % 2 === 0) {
 [If `expr1` is truthy, the result is `expr2`.]{.block} [Otherwise, the result is `expr3`.]{.block}
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -678,6 +713,7 @@ console.log(remark) // "It is even"
 
 </section>
 
+
 <section data-auto-animate>
 
 ## The conditional operator
@@ -689,5 +725,3 @@ console.log(remark) // "It is even"
 </section>
 
 </section>
-
-
