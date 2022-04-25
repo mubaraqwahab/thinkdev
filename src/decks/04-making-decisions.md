@@ -27,7 +27,7 @@ TODO: CHANGE
 
 <section>
 
-First, let's learn how to do some&nbsp;basic&nbsp;comparison {.h3}
+First, let's learn how to do some&nbsp;basic&nbsp;comparison. {.h3}
 
 </section>
 
@@ -115,25 +115,31 @@ console.log(obj1 === obj2) // true
 
 <section>
 
-<section data-auto-animate data-auto-animate-id=truthy>
+<section>
 
-## Truthy and falsy values
+## Truthiness
 
-We can classify values based on their "truth". {.fragment .fade-up}
+</section>
+
+
+<section>
+
+* We can classify values as either <i>truthy</i> or <i>falsy</i>.
+* A truthy value can often act as the boolean `true`. {.fragment .fade-up}
+* A falsy value can often act as the boolean `false`. {.fragment .fade-up}
 
 </section>
 
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy values
-
-A value that converts to the boolean `true` is <i>truthy</i>.
+Truthy values convert to the boolean `true`.[Most values in JavaScript are truthy:]{.block}
 
 <pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
-Boolean(10) // true
-Boolean("think" + "dev") // true
-Boolean({ x: 5 }) // true
+Boolean(10)             // true
+Boolean("thinkdev")     // true
+Boolean({ x: 5 })       // true
+Boolean(['hi', 'hey'])  // true
 </code></pre>
 
 </section>
@@ -141,30 +147,15 @@ Boolean({ x: 5 }) // true
 
 <section data-auto-animate data-auto-animate-id=truthy>
 
-## Truthy and falsy values
-
-A value that converts to the boolean `false` is <i>falsy</i>.
+Only a few are falsy:
 
 <pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
-Boolean(0) // false
-Boolean(null) // false
-Boolean("") // false
+Boolean(0)          // false
+Boolean("")         // false
+Boolean(true)       // false
+Boolean(null)       // false
+Boolean(undefined)  // false
 </code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id=truthy>
-
-## Truthy and falsy values
-
-All values are truthy except a few which are falsy:
-
-* `false` {.fragment .fade-up}
-* `0` {.fragment .fade-up}
-* `""` (empty string) {.fragment .fade-up}
-* `null` {.fragment .fade-up}
-* `undefined` {.fragment .fade-up}
 
 </section>
 
@@ -174,7 +165,7 @@ All values are truthy except a few which are falsy:
 
 <section>
 
-## Let's get to making decisions now
+Let's get to making decisions now. {.h3}
 
 </section>
 
@@ -182,16 +173,16 @@ All values are truthy except a few which are falsy:
 
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## The `if` statement
 
 </section>
 
 
-<section data-auto-animate>
+<section>
 
-## The `if` statement
+If `expression` is truthy, execute the statements in the curly brackets. {.fragment}
 
 ```js
 if (expression) {
@@ -200,8 +191,6 @@ if (expression) {
   ...
 }
 ```
-
-If `expression` is truthy, execute the statements in the curly brackets. {.fragment}
 
 </section>
 
@@ -527,24 +516,6 @@ if (!arr.length) {
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="not">
-
-### NOT
-
-You can use it to convert a value to a boolean:
-
-<pre data-id="not"><code data-line-numbers="1|2|3|5-6" class="language-js" data-trim>
-null          // falsy value
-!null         // true
-!!null        // false
-
-// Same as:
-Boolean(null) // false
-</code></pre>
-
-</section>
-
-
 <section data-auto-animate data-auto-animate-id="and">
 
 ### AND
@@ -623,18 +594,16 @@ if (
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="ifIsStmt">
+<section>
 
-### Remember that `if` is a _statement_
+Remember that `if` is a _statement_. {.h3}
 
 </section>
 
 
 <section data-auto-animate data-auto-animate-id="ifIsStmt">
 
-### Remember that `if` is a _statement_
-
-So the following is invalid
+So the following is invalid:
 
 <pre data-id="ifIsStmt"><code data-line-numbers="" class="language-js" data-trim>
 const n = 8
@@ -652,9 +621,7 @@ const remark = if (n % 2 === 0) {
 
 <section data-auto-animate data-auto-animate-id="ifIsStmt">
 
-### Remember that `if` is a _statement_
-
-And we would have to do this instead
+And we would have to do this instead:
 
 <pre data-id="ifIsStmt"><code data-line-numbers="3|5-9" class="language-js" data-trim>
 const n = 8
@@ -673,7 +640,7 @@ if (n % 2 === 0) {
 
 <section>
 
-### But JS has an "`if` expression" too &hellip;
+But JavaScript has an "`if` expression" too &hellip; {.h3}
 
 </section>
 
@@ -683,16 +650,14 @@ if (n % 2 === 0) {
 
 <section>
 
-<section data-auto-animate>
+<section>
 
 ## The conditional operator
 
 </section>
 
 
-<section data-auto-animate>
-
-## The conditional operator
+<section>
 
 `expr1 ? expr2 : expr3`
 
@@ -701,9 +666,7 @@ if (n % 2 === 0) {
 </section>
 
 
-<section data-auto-animate>
-
-## The conditional operator
+<section>
 
 <pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
 const n = 8;
@@ -714,9 +677,7 @@ console.log(remark) // "It is even"
 </section>
 
 
-<section data-auto-animate>
-
-## The conditional operator
+<section>
 
 * It's called a <i>ternary</i> operator, because it operates on three expressions.
 
