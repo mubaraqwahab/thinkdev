@@ -134,7 +134,7 @@
   }
 
   .copy-code-button {
-    @apply absolute top-1.5 right-1.5 border rounded text-xs font-medium px-2 py-1;
+    @apply absolute top-1.5 right-1.5 border rounded text-xs font-medium px-2 py-1 select-none;
     @apply text-gray-600 dark:text-gray-400;
     @apply border-gray-300 dark:border-gray-600;
     @apply hover:text-gray-800 dark:hover:text-gray-200;
