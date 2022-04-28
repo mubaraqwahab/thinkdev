@@ -73,7 +73,7 @@ Things are getting unwieldy already; we have so many related variables that&nbsp
 
 <section>
 
-We need a better way to represent an "entity" that&nbsp;has&nbsp;different "attributes". {.h3}
+We need a better way to represent an "entity"&nbsp;that&nbsp;has&nbsp;different "attributes". {.h3}
 
 </section>
 
@@ -447,7 +447,7 @@ const course = {
 
 ### How about unpacking? {data-id="useobjHeading"}
 
-It may be tedious to type the `course.` prefix sometimes
+It may be tedious to type the `course.` prefix sometimes:
 
 <pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
 const course = {
@@ -455,6 +455,9 @@ const course = {
   reviewsCount: 0,
   isNew: true,
 }
+
+console.log(course.title)
+console.log(course.reviewsCount)
 </code></pre>
 
 </section>
@@ -464,7 +467,7 @@ const course = {
 
 You can unpack the properties you need into variables:
 
-<pre data-id="useobj"><code data-line-numbers="7-8" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="7-11" data-trim class="language-js">
 const course = {
   title: 'The Fundamentals of Business Strategy',
   reviewsCount: 0,
@@ -473,6 +476,9 @@ const course = {
 
 const title = course.title
 const reviewsCount = course.reviewsCount
+
+console.log(title)
+console.log(reviewsCount)
 </code></pre>
 
 </section>
@@ -482,7 +488,7 @@ const reviewsCount = course.reviewsCount
 
 There's also a shorter way; it's called <i>destructuring</i>:
 
-<pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="7" data-trim class="language-js">
 const course = {
   title: 'The Fundamentals of Business Strategy',
   reviewsCount: 0,
@@ -490,6 +496,9 @@ const course = {
 }
 
 const { title, reviewsCount } = course
+
+console.log(title)
+console.log(reviewsCount)
 </code></pre>
 
 </section>
@@ -611,7 +620,7 @@ const course4 = {
 
 <section>
 
-What if we could collect the courses in a "list" of some sort? {.h3}
+What if we could collect the courses in a "list"? {.h3}
 
 </section>
 
@@ -642,7 +651,7 @@ const people = ["Amal", "Isa", "Khadija"]
 The elements can be of different types:
 
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
-const arr = ["hi", 12.34, true]
+const arr = ["hi", 12.34, true, {}]
 </code></pre>
 
 </section>
