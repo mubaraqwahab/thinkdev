@@ -1,6 +1,6 @@
 // @ts-check
 
-const { requiredEnv } = require("../../utils/shared")
+const {requiredEnv} = require("../../utils/shared")
 
 module.exports = {
   title: "Think Like a Developer",

@@ -9,19 +9,13 @@ excerpt: >
 
 ## Videos
 
-### Lesson session
-
-https://youtu.be/qQg4-Nx4ohk
-
-### Revision session
-
-https://youtu.be/NgxAcW7ppWo
+https://youtu.be/ARqIaDcsrWg
 
 ## Exercises
 
 Do these exercises in a JavaScript file. (From now on, we won't be using the REPL so much.)
 
-1. I left some things out of the meeting to avoid bloating the slides. <i>What happens if you try to access a property that doesn't exist in an object? What about popping an empty array? Can you spread an object into an array or vice versa?</i> You may have your questions too. Try to get answers by experimenting.
+1. <i>What happens if you try to access a property that doesn't exist in an object? What about popping an empty array? Can you spread an object into an array or vice versa?</i> You may have your questions too. Try to get answers by experimenting.
 
 1. Pick any app or website (or some other software) of your choice and identify some entities and lists in it. Try representing those entities and lists using JavaScript objects and arrays.
 

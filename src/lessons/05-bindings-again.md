@@ -7,8 +7,6 @@ excerpt: >
 
 ## Video
 
-### Lesson session
-
 TODO
 
 ### Revision session

@@ -1,4 +1,15 @@
+{#
+  NOTES:
+  * This file is included in regular pages and deck pages.
+  * Include this file before any other first-party scripts.
+#}
+
 {% from "macros.njk" import script %}
+
+<script>
+  // Namespace to attach custom global values
+  window.thinkdev = {}
+</script>
 
 {# Load this early to avoid downloading all the meta resources below #}
 {% set contextSource = site.repoUrl ~ '/blob/' ~ site.deployBranch ~ '/' ~ page.inputPath %}
