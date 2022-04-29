@@ -9,7 +9,7 @@ excerpt: >
 
 ## Videos
 
-https://youtu.be/qQg4-Nx4ohk
+https://youtu.be/ARqIaDcsrWg
 
 ## Exercises
 
