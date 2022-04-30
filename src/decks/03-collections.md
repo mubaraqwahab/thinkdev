@@ -8,7 +8,7 @@ title: Collections
 
 Let's revisit the FutureLearn courses example:
 
-![]({{ '/assets/images/futurelearn-featured.webp' | url }}){aria-labelledby="futureLearnFeaturedLabel"}
+![A screenshot of the featured courses on FutureLearn]({{ '/assets/images/futurelearn-featured.webp' | url }})
 
 </section>
 
@@ -73,7 +73,7 @@ Things are getting unwieldy already; we have so many related variables that&nbsp
 
 <section>
 
-We need a better way to represent "entities" that&nbsp;have&nbsp;different "attributes". {.h3}
+We need a better way to represent an "entity"&nbsp;that&nbsp;has&nbsp;different "attributes". {.h3}
 
 </section>
 
@@ -215,7 +215,7 @@ const obj = {
   prop: 2, // this overrides the previous one
 }
 
-// same as
+// equivalent to
 const obj = {
   prop: 2
 }
@@ -285,7 +285,7 @@ const course = {
   isNew: true,
 }
 
-course.'reviews count'++ // SyntaxError
+course.'reviews count'++ // Error
 </code></pre>
 
 </section>
@@ -383,7 +383,7 @@ const course = {
   isNew: true,
 }
 
-console.log("title" in course) // true
+console.log("title" in course)  // true
 console.log("rating" in course) // false
 </code></pre>
 
@@ -447,7 +447,7 @@ const course = {
 
 ### How about unpacking? {data-id="useobjHeading"}
 
-It may be tedious to type the `course.` prefix sometimes
+It may be tedious to type the `course.` prefix sometimes:
 
 <pre data-id="useobj"><code data-line-numbers="" data-trim class="language-js">
 const course = {
@@ -455,6 +455,9 @@ const course = {
   reviewsCount: 0,
   isNew: true,
 }
+
+console.log(course.title)
+console.log(course.reviewsCount)
 </code></pre>
 
 </section>
@@ -464,7 +467,7 @@ const course = {
 
 You can unpack the properties you need into variables:
 
-<pre data-id="useobj"><code data-line-numbers="7-8" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="7-11" data-trim class="language-js">
 const course = {
   title: 'The Fundamentals of Business Strategy',
   reviewsCount: 0,
@@ -472,7 +475,10 @@ const course = {
 }
 
 const title = course.title
-const isNew = course.isNew
+const reviewsCount = course.reviewsCount
+
+console.log(title)
+console.log(reviewsCount)
 </code></pre>
 
 </section>
@@ -482,14 +488,17 @@ const isNew = course.isNew
 
 There's also a shorter way; it's called <i>destructuring</i>:
 
-<pre data-id="useobj"><code data-line-numbers="9" data-trim class="language-js">
+<pre data-id="useobj"><code data-line-numbers="7" data-trim class="language-js">
 const course = {
   title: 'The Fundamentals of Business Strategy',
   reviewsCount: 0,
   isNew: true,
 }
 
-const { title, isNew } = course
+const { title, reviewsCount } = course
+
+console.log(title)
+console.log(reviewsCount)
 </code></pre>
 
 </section>
@@ -611,14 +620,7 @@ const course4 = {
 
 <section>
 
-Now we have to deal with many separate&nbsp;but&nbsp;similar entities. {.h3}
-
-</section>
-
-
-<section>
-
-We need a "list" of some sort. {.h3}
+What if we could collect the courses in a "list"? {.h3}
 
 </section>
 
@@ -649,7 +651,7 @@ const people = ["Amal", "Isa", "Khadija"]
 The elements can be of different types:
 
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
-const arr = ["hi", 12.34, true]
+const arr = ["hi", 12.34, true, {}]
 </code></pre>
 
 </section>
@@ -698,10 +700,10 @@ Use the `push` method to add an item to the end of an array:
 <pre data-id="arrIntro"><code data-line-numbers="" data-trim class="language-js">
 const people = ["Amal", "Isa", "Khadija"]
 
-people.push("Mubaraq")
+people.push("Habeeb")
 
 console.log(people)
-// ["Amal", "Isa", "Khadija", "Mubaraq"]
+// ["Amal", "Isa", "Khadija", "Habeeb"]
 </code></pre>
 
 </section>
@@ -734,8 +736,8 @@ The `includes` method tells if an array contains a certain element:
 <pre data-id="arrIntro"><code data-line-numbers data-trim class="language-js">
 const people = ["Amal", "Isa", "Khadija"]
 
-people.includes("Isa") // true
-people.includes("Mubaraq") // false
+people.includes("Isa")      // true
+people.includes("Mubaraq")  // false
 </code></pre>
 
 </section>
@@ -751,8 +753,8 @@ Use the `slice` method:
 //              0       1      2
 const people = ["Amal", "Isa", "Khadija"]
 
-people.slice(0, 2) // ["Amal", "Isa"]
-people.slice(1) // ["Isa", "Khadija"]
+people.slice(0, 2)  // ["Amal", "Isa"]
+people.slice(1)     // ["Isa", "Khadija"]
 </code></pre>
 
 </section>
@@ -763,11 +765,11 @@ people.slice(1) // ["Isa", "Khadija"]
 ### Spread an array into another {data-id="usearrHeading"}
 
 <pre data-id="arrIntro"><code data-line-numbers="" data-trim class="language-js">
-const names = ["Aisha", "Mubaraq"]
+const names = ["Habeeb", "Mubaraq"]
 const people = ["Amal", "Isa", "Khadija", ...names]
 
 console.log(people)
-// ["Amal", "Isa", "Khadija", "Aisha", "Mubaraq"]
+// ["Amal", "Isa", "Khadija", "Habeeb", "Mubaraq"]
 </code></pre>
 
 </section>
@@ -795,7 +797,7 @@ console.log(people)
 <section data-auto-animate>
 
 <pre data-id="arrAsObj"><code data-line-numbers="" data-trim class="language-js">
-const people = ["Amal", "Isa", "Mubaraq"]
+const people = ["Amal", "Isa", "Khadija"]
 
 console.log(typeof people)
 // object 😲
