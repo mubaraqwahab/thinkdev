@@ -27,22 +27,16 @@ TODO: CHANGE
 
 <section>
 
-First, let's learn how to do some&nbsp;basic&nbsp;comparison. {.h3}
-
-</section>
-
-
-
 <section>
 
-<section>
-
-## Relational operators
+## First, let's learn how to do some&nbsp;basic&nbsp;comparison
 
 </section>
 
 
 <section data-auto-animate>
+
+The relational operators:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 3 > 2    // true
