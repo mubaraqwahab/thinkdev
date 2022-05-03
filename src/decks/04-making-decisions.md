@@ -413,7 +413,7 @@ But what if we have multiple conditions? {.h3}
 
 
 <section>
-  <iframe style="aspect-ratio: 16/9" width=100% src="/demos/index.html"></iframe>
+  <iframe style="aspect-ratio: 16/9" width=100% src="{{ '/demos/index.html' | url }}"></iframe>
 </section>
 
 </section>
