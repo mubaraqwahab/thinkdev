@@ -4,22 +4,7 @@ title: Making decisions
 
 <section>
 
-<section>
-
 ![]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
-
-</section>
-
-
-<section>
-
-TODO: CHANGE
-
-![]({{ '/assets/images/ussd-screenshot.webp' | url }}){width=400 aria-labelledby="ussdLabel"}
-
-<small id="ussdLabel" class="mt-0">A USSD application menu showing the different options a user can choose from.</small>
-
-</section>
 
 </section>
 
@@ -109,56 +94,6 @@ console.log(obj1 === obj2) // true
 
 <section>
 
-<section>
-
-## Truthiness
-
-</section>
-
-
-<section>
-
-* We can classify values as either <i>truthy</i> or <i>falsy</i>.
-* A truthy value can often act as the boolean `true`. {.fragment .fade-up}
-* A falsy value can often act as the boolean `false`. {.fragment .fade-up}
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id=truthy>
-
-Truthy values convert to the boolean `true`.[Most values in JavaScript are truthy:]{.block}
-
-<pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
-Boolean(10)             // true
-Boolean("thinkdev")     // true
-Boolean({ x: 5 })       // true
-Boolean(['hi', 'hey'])  // true
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id=truthy>
-
-Only a few are falsy:
-
-<pre data-id="truthy"><code data-line-numbers data-trim class="language-js">
-Boolean(0)          // false
-Boolean("")         // false
-Boolean(true)       // false
-Boolean(null)       // false
-Boolean(undefined)  // false
-</code></pre>
-
-</section>
-
-</section>
-
-
-
-<section>
-
 Let's get to making decisions now. {.h3}
 
 </section>
@@ -174,9 +109,7 @@ Let's get to making decisions now. {.h3}
 </section>
 
 
-<section>
-
-If `expression` is truthy, execute the statements in the curly brackets. {.fragment}
+<section data-auto-animate>
 
 ```js
 if (expression) {
@@ -189,78 +122,92 @@ if (expression) {
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-### Let's consider the YouTube example
+```js
+if (expression) {
+  statement1
+  statement2
+  ...
+}
+```
+
+If `expression` is `true`, execute the statements in the curly brackets. Otherwise, ignore the statements.
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section>
 
-We could represent a user like so:
+Let's consider the FutureLearn example. {.h3}
+
+</section>
+
+
+<section data-auto-animate>
+
+We represented a course like so in the previous lesson:
 
 <pre data-id="if"><code data-line-numbers="" data-trim class="language-js">
-const user = {
-  name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic", "Elleman10"],
-  // ...
+const course = {
+  title: 'The Museum as a Site and ...',
+  rating: 4.6,
+  reviewsCount: 75,
+  isNew: false,
+  isPartOfAnExpertTrack: false,
 }
 </code></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section data-auto-animate>
 
-And determine if they're subscribed to a certain channel.
+Let's determine if the course has a rating:
 
-<pre data-id="if"><code data-line-numbers="7" data-trim class="language-js">
-const user = {
-  name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic", "Elleman10"],
+<pre data-id="if"><code data-line-numbers="6" data-trim class="language-js">
+const course = {
+  rating: 4.6,
   // ...
 }
 
-user.subscriptions.includes('National Geographic')
+course.rating !== 0.0 // true
 </code></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section data-auto-animate>
 
-Then we can act accordingly:
+Now we can act accordingly:
 
-<pre data-id="if"><code data-line-numbers="7-9" data-trim class="language-js">
-const user = {
-  name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic", "Elleman10"],
+<pre data-id="if"><code data-line-numbers="6-8" data-trim class="language-js">
+const course = {
+  rating: 4.6,
   // ...
 }
 
-if (user.subscriptions.includes('National Geographic')) {
-  console.log('You are subscribed')
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
 }
 </code></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section data-auto-animate>
 
-Let's add some logs around the `if` statement for clarity.
+Let's add some logs around the `if` statement for clarity:
 
-<pre data-id="if"><code data-line-numbers="7-11" class="language-js" data-trim>
-const user = {
-  name: "Mubaraq Wahab",
-  subscriptions: ["National Geographic", "Elleman10"],
+<pre data-id="if"><code data-line-numbers="6-10" class="language-js" data-trim>
+const course = {
+  rating: 4.6,
   // ...
 }
 
 console.log('Before decision')
-if (user.subscriptions.includes('National Geographic')) {
-  console.log('You are subscribed')
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
 }
 console.log('After decision')
 </code></pre>
@@ -268,32 +215,33 @@ console.log('After decision')
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section>
 
-Output if the user is subscribed to National Geographic:
+Here's the output:
+
+TODO: Improve the CSS of the &lt;samp&gt;s
 
 <pre data-id="if"><samp>Before decision
-You are subscribed
+Rating: 4.6
 After decision
 </samp></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section>
 
-Otherwise, ...
+What if the rating is `0`?
 
-<pre data-id="if"><code data-line-numbers="3|7-11" class="language-js" data-trim>
-const user = {
-  name: "Mubaraq Wahab",
-  subscriptions: ["Elleman10"],
+<pre data-id="if"><code data-line-numbers="2" class="language-js" data-trim>
+const course = {
+  rating: 0,
   // ...
 }
 
 console.log('Before decision')
-if (user.subscriptions.includes('National Geographic')) {
-  console.log('You are subscribed')
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
 }
 console.log('After decision')
 </code></pre>
@@ -301,145 +249,133 @@ console.log('After decision')
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="h">
+<section>
 
-... the output is just this
+Then the output is just this:
 
 <pre data-id="if"><samp>Before decision
 After decision
 </samp></pre>
 
-How do we print a different message? {.fragment}
+</section>
+
+
+<section>
+
+How do we print a different message? {.h3}
+
+</section>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="else">
 
-### `else`
+<section>
+
+<section>
+
+## `else`
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="else">
+<section>
 
-### `else`
+<pre data-id="if"><code data-line-numbers="7-11|9-11" class="language-js" data-trim>
+const course = {
+  rating: 0,
+  // ...
+}
 
-<pre data-id="if"><code data-line-numbers="4-6|1-7" class="language-js" data-trim>
 console.log('Before decision')
-if (user.subscriptions.includes('National Geographic')) {
-  console.log('You are subscribed')
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
 } else {
-  console.log('You are not subscribed')
+  console.log('No rating')
 }
 console.log('After decision')
+
 </code></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="else">
+<section>
 
-### `else`
-
-The result?
+The result:
 
 <pre data-id="if"><samp>Before decision
-You are not subscribed
+No rating
 After decision
 </samp></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="else">
+<section>
 
-### Let's consider another example
+Let's consider another example. {.h3}
 
-<pre data-id="if"><code data-line-numbers="1-7" class="language-js" data-trim>
-const n = 3;
+</section>
 
-if (n &gt; 0) {
-  console.log(n, 'is positive')
-} else {
-  console.log(n, 'is negative')
-}
+
+<section>
+
+![]({{ '/assets/images/ussd-screenshot.webp' | url }}){width=400 aria-labelledby="ussdLabel"}
+
+<small id="ussdLabel" class="italic">A USSD menu with different options to choose from.</small>
+
+</section>
+
+
+<section>
+
+How do we express the several alternatives? {.h3}
+
+</section>
+
+</section>
+
+
+
+<section>
+
+<section>
+
+## `else if`
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="if"><code data-line-numbers="" class="language-js" data-trim>
+const choice = 1 // Could be any other number
+
+if (choice === 1) {
+  console.log('Open Account')
+} else if (choice === 2) {
+  console.log('Account Balance')
+} // ...
 </code></pre>
 
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="else">
+<section data-auto-animate>
 
-### Let's consider another example
+You can use a final `else` to handle any other choice.
 
-<pre data-id="if"><code data-line-numbers="5-8" class="language-js" data-trim>
-const n = 3;
+<pre data-id="if"><code data-line-numbers="8-10" class="language-js" data-trim>
+const choice = 1 // Could be any other number
 
-if (n &gt; 0) {
-  console.log(n, 'is positive')
-} else {
-  // Wrong: n could be zero.
-  console.log(n, 'is negative')
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="else">
-
-### `else if`
-
-<pre data-id="if"><code data-line-numbers="5-7" class="language-js" data-trim>
-const n = 3;
-
-if (n &gt; 0) {
-  console.log(n, 'is positive')
-} else if (n &lt; 0) {
-  console.log(n, 'is negative')
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="else">
-
-### `else if`
-
-<pre data-id="if"><code data-line-numbers="7-9" class="language-js" data-trim>
-const n = 3;
-
-if (n &gt; 0) {
-  console.log(n, 'is positive')
-} else if (n &lt; 0) {
-  console.log(n, 'is negative')
-} else {
-  console.log(n, 'is zero')
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="else">
-
-### `else if`
-
-We can have many `else if`s too.
-
-<pre data-id="if"><code data-line-numbers="5-8" class="language-js" data-trim>
-const n = 3;
-
-if (n &gt; 0) {
-  console.log(n, 'is positive')
-} else if (n &lt; 0) {
-  console.log(n, 'is negative')
-} else if (n === 0) {
-  console.log(n, 'is zero')
-} else {
-  // do something else
+if (choice === 1) {
+  console.log('Open Account')
+} else if (choice === 2) {
+  console.log('Account Balance')
+} // ...
+else {
+  console.log('Invalid choice')
 }
 </code></pre>
 
@@ -453,16 +389,25 @@ if (n &gt; 0) {
 
 <section>
 
-## We can now make decisions based on simple conditions
+TODO: Reduce this and the next slide to one.
+
+We can now make decisions based&nbsp;on&nbsp;single&nbsp;conditions {.h3}
 
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-### But what if we have complex conditions?
+But what if we have multiple conditions? {.h3}
 
-[E.g., accept an uploaded file if it's an image]{.block} [and it's not larger than 2MB]{.block} {.fragment .fade-up}
+</section>
+
+
+<section data-auto-animate>
+
+But what if we have multiple conditions? {.h3}
+
+[E.g., accept an uploaded file if it's an image]{.block} [and it's not larger than 2MB]{.block}
 
 </section>
 
@@ -487,8 +432,8 @@ if (n &gt; 0) {
 
 `!expr`
 
-* The result is `false` if `expr` is truthy.
-* The result is `true` if `expr` is falsy.
+* The result is `false` if `expr` is `true`.
+* The result is `true` if `expr` is `false`.
 
 </section>
 
@@ -516,7 +461,7 @@ if (!arr.length) {
 
 `expr1 && expr2`
 
-Both expressions must be truthy for the result to be truthy.
+Both expressions must be `true` for the result to be `true`.
 
 </section>
 
@@ -540,7 +485,7 @@ if (user && user.role === "ADMIN") {
 
 `expr1 || expr2`
 
-[At least one of the expressions must be truthy]{.block} [for the result to be truthy.]{.block}
+One expressions must be `true` for the result to be `true`.
 
 </section>
 
@@ -585,97 +530,7 @@ if (
 
 ## One final thing &hellip;
 
-</section>
-
-
-<section>
-
-Remember that `if` is a _statement_. {.h3}
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="ifIsStmt">
-
-So the following is invalid:
-
-<pre data-id="ifIsStmt"><code data-line-numbers="" class="language-js" data-trim>
-const n = 8
-
-// Error
-const remark = if (n % 2 === 0) {
-  "It is even"
-} else {
-  "It is odd"
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="ifIsStmt">
-
-And we would have to do this instead:
-
-<pre data-id="ifIsStmt"><code data-line-numbers="3|5-9" class="language-js" data-trim>
-const n = 8
-
-let remark
-
-if (n % 2 === 0) {
-  remark = "It is even"
-} else {
-  remark = "It is odd"
-}
-</code></pre>
-
-</section>
-
-
-<section>
-
-But JavaScript has an "`if` expression" too &hellip; {.h3}
-
-</section>
-
-</section>
-
-
-
-<section>
-
-<section>
-
-## The conditional operator
-
-</section>
-
-
-<section>
-
-`expr1 ? expr2 : expr3`
-
-[If `expr1` is truthy, the result is `expr2`.]{.block} [Otherwise, the result is `expr3`.]{.block}
-
-</section>
-
-
-<section>
-
-<pre data-id="ternary"><code data-line-numbers data-trim class="language-js">
-const n = 8;
-const remark = n % 2 === 0 ? "It is even" : "It is odd"
-console.log(remark) // "It is even"
-</code></pre>
-
-</section>
-
-
-<section>
-
-* It's called a <i>ternary</i> operator, because it operates on three expressions.
-
-* Similarly, the NOT operator is a <i>unary</i> operator because it operates on a single expression, while the AND and OR operators are <i>binary</i> because they operate on two expressions. {.fragment .fade-up}
+TODO: The final thing must be about truthiness. Move the conditional op and terms (unary, binary, binary) to extras.
 
 </section>
 

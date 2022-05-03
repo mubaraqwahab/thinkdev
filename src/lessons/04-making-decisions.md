@@ -46,8 +46,6 @@ TODO
 
     Now run the code to see if it works as you expect. If you're correct, then well done; you're starting to get a hold of the language. If you're not, don't worry; it's all part of the learning process; try to figure out where you went wrong.
 
-1. Rewrite the if statement in the code above using the conditional operator. Be sure that your new code gives the same result as before. (**Hint:** You might need to use two conditional operators, one within the other.)
-
 1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you'll notice that the URL domain begins with a two-letter (or three-letter) code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
 
     The following table lists some languages and their codes.
@@ -92,6 +90,13 @@ else
 ```
 
 The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
+
+
+### `if` expression
+
+Bla bla bla about conditional operator.
+
+Give a related note on the terms "ternary", "unary", and "binary".
 
 ### Loose equality
 

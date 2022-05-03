@@ -10,7 +10,7 @@ Usage: to-webp [path|glob|-h|--help]
 Convert images to webp. The destination is "$dest".
 
 Examples:
-  to-webp "public/assets/image.png"
+  to-webp "image.png"
   to-webp "public/assets/*.jpg"
 EOM
 
