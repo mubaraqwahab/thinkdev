@@ -78,7 +78,7 @@ if (!messageCount)
   notification = "You have no new messages."
 ```
 
-Of course, you can do the same with the `else if` and `else` branches:
+You can do the same with the `else if` and `else` branches:
 
 ```js
 if (!messageCount)
