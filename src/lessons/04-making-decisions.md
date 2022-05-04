@@ -94,6 +94,37 @@ The curly brackets actually create something called a <i>block statement</i> ("b
 
 ### `if` expression
 
+Remember that the `if` statement is a _statement_; it doesn't produce a value like an expression.
+Consider the following piece of code:
+
+```js
+let remark
+if (condition) {
+  remark = ""
+} else {
+  remark = ""
+}
+```
+
+Trying to rewrite it like this is invalid: (TODO: reword?) 
+
+```js
+let remark = if (condition) {
+  ""
+} else {
+  ""
+}
+```
+
+It is sometimes convenient to use an expression to make decisions.
+You can use JavaScript's conditional operator in such a case. It looks like this:
+
+```js
+expression1 ? expression2 : expression3
+```
+
+
+
 Bla bla bla about conditional operator.
 
 Give a related note on the terms "ternary", "unary", and "binary".
