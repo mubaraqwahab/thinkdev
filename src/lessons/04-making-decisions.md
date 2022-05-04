@@ -123,11 +123,16 @@ You can use JavaScript's conditional operator in such a case. It looks like this
 expression1 ? expression2 : expression3
 ```
 
-
+If `expression1` is truthy, then the result will be the value of `expression2`.
+If it's falsy, the result will be the value of `expression3`.
 
 Bla bla bla about conditional operator.
 
-Give a related note on the terms "ternary", "unary", and "binary".
+The conditional operator is often called the ternary operator because it's the only JavaScript operator that
+operates on three values.
+In contrast, operators that take a single value are called unary operators and those that operate on two values, binary operators.
+
+TODO: definitely reword the above.
 
 ### Loose equality
 
