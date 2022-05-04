@@ -18,7 +18,7 @@ TODO
     const newMessages = [
       {
         from: 'Amal',
-        body: 'Hello, how are you?',
+        body: 'When does it start?',
         time: '31 Dec 2021, 1:23 PM'
       },
       {
@@ -62,10 +62,10 @@ TODO
 
     {.w-auto}
 
-    Use what you learnt in this lesson to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+    Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
 1. Create a copy of the previous program and modify it so that it, instead, tells us the language a Wikipedia domain corresponds to.
-    For instance, the program should print <samp>Hausa</samp> if we give it the domain `"ha.wikipedia.org"`.
+    For instance, the program should print <samp>Hausa</samp> if you give it the domain `"ha.wikipedia.org"`.
 
 ## Extras
 
