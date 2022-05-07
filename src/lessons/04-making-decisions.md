@@ -94,6 +94,8 @@ The curly brackets actually create something called a <i>block statement</i> ("b
 
 ### `if` expression
 
+TODO: reword this section to make it clearer.
+
 Remember that the `if` statement is a _statement_; it doesn't produce a value like an expression.
 Consider the following piece of code:
 
@@ -126,13 +128,15 @@ expression1 ? expression2 : expression3
 If `expression1` is truthy, then the result will be the value of `expression2`.
 If it's falsy, the result will be the value of `expression3`.
 
-Bla bla bla about conditional operator.
+### Arity
 
-The conditional operator is often called the ternary operator because it's the only JavaScript operator that
-operates on three values.
-In contrast, operators that take a single value are called unary operators and those that operate on two values, binary operators.
+TODO: this section
 
-TODO: definitely reword the above.
+What is an operand first?
+
+How many operands can an operator have (arity)?
+
+Unary, binary, ternary; examples.
 
 ### Loose equality
 
