@@ -18,7 +18,7 @@ TODO
     const newMessages = [
       {
         from: 'Amal',
-        body: 'Hello, how are you?',
+        body: 'When does it start?',
         time: '31 Dec 2021, 1:23 PM'
       },
       {
@@ -62,10 +62,10 @@ TODO
 
     {.w-auto}
 
-    Use what you learnt in this lesson to write a program that tells us the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform us if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+    Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
 1. Create a copy of the previous program and modify it so that it, instead, tells us the language a Wikipedia domain corresponds to.
-    For instance, the program should print <samp>Hausa</samp> if we give it the domain `"ha.wikipedia.org"`.
+    For instance, the program should print <samp>Hausa</samp> if you give it the domain `"ha.wikipedia.org"`.
 
 ## Extras
 
@@ -78,7 +78,7 @@ if (!messageCount)
   notification = "You have no new messages."
 ```
 
-Of course, you can do the same with the `else if` and `else` branches:
+You can do the same with the `else if` and `else` branches:
 
 ```js
 if (!messageCount)
@@ -94,9 +94,45 @@ The curly brackets actually create something called a <i>block statement</i> ("b
 
 ### `if` expression
 
+Remember that the `if` statement is a _statement_; it doesn't produce a value like an expression.
+Consider the following piece of code:
+
+```js
+let remark
+if (condition) {
+  remark = ""
+} else {
+  remark = ""
+}
+```
+
+Trying to rewrite it like this is invalid: (TODO: reword?) 
+
+```js
+let remark = if (condition) {
+  ""
+} else {
+  ""
+}
+```
+
+It is sometimes convenient to use an expression to make decisions.
+You can use JavaScript's conditional operator in such a case. It looks like this:
+
+```js
+expression1 ? expression2 : expression3
+```
+
+If `expression1` is truthy, then the result will be the value of `expression2`.
+If it's falsy, the result will be the value of `expression3`.
+
 Bla bla bla about conditional operator.
 
-Give a related note on the terms "ternary", "unary", and "binary".
+The conditional operator is often called the ternary operator because it's the only JavaScript operator that
+operates on three values.
+In contrast, operators that take a single value are called unary operators and those that operate on two values, binary operators.
+
+TODO: definitely reword the above.
 
 ### Loose equality
 
