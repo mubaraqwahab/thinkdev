@@ -396,108 +396,53 @@ We can now make decisions based&nbsp;on&nbsp;single&nbsp;conditions {.h3}
 </section>
 
 
-<section data-auto-animate>
+<section>
 
 But what if we have multiple conditions? {.h3}
 
 </section>
 
 
+<section>
+
+TODO: Screenshot here
+
+</section>
+
+</section>
+
+
+
+<section>
+
+<section>
+
+## Logical operators
+
+[OR]{.inline-block .fragment .fade-up}[, AND]{.inline-block .fragment .fade-down}[, and NOT.]{.inline-block .fragment .fade-right}
+
+</section>
+
+
+<section>
+
+TODO: Screenshot demonstrating OR
+
+</section>
+
+
+<section>
+
+### OR
+
+`expression1 || expression2`
+
+One expression must be `true` for the result to be `true`.
+
+</section>
+
+
 <section data-auto-animate>
-
-But what if we have multiple conditions? {.h3}
-
-[E.g., accept an uploaded file if it's an image]{.block} [and it's not larger than 2MB]{.block}
-
-</section>
-
-
-<section>
-  <iframe style="aspect-ratio: 16/9" width=100% src="{{ '/demos/index.html' | url }}"></iframe>
-</section>
-
-</section>
-
-
-
-<section>
-
-<section>
-
-## We'll use logical operators
-
-[NOT]{.inline-block .fragment .fade-down}[, AND]{.inline-block .fragment .fade-up}[, and OR.]{.inline-block .fragment .fade-right}
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="not">
-
-### NOT
-
-`!expr`
-
-* The result is `false` if `expr` is `true`.
-* The result is `true` if `expr` is `false`.
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="not">
-
-### NOT
-
-<pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
-const arr = []
-
-console.log(arr.length) // 0, which is falsy
-
-if (!arr.length) {
-  console.log("The array is empty")
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="and">
-
-### AND
-
-`expr1 && expr2`
-
-Both expressions must be `true` for the result to be `true`.
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="and">
-
-### AND
-
-<pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
-if (user && user.role === "ADMIN") {
-  // Show something only admins should see
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="or">
-
-### OR
-
-`expr1 || expr2`
-
-One expressions must be `true` for the result to be `true`.
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="or">
-
-### OR
 
 <pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
 if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
@@ -508,18 +453,63 @@ if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="or">
+<section>
 
-### OR
+TODO: Screenshot demonstrating AND
 
-It's fine to break long lines
+</section>
 
-<pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
-if (
-  filename.endsWith(".docx") ||
-  filename.endsWith(".doc")
-) {
-  console.log(filename, "is a Word document")
+
+<section>
+
+### AND
+
+`expression1 && expression2`
+
+Both expressions must be `true` for the result to be `true`.
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
+if (user && user.role === "ADMIN") {
+  // Show something only admins should see
+}
+</code></pre>
+
+</section>
+
+
+<section>
+
+TODO: Screenshot demonstrating NOT
+
+</section>
+
+
+<section>
+
+### NOT
+
+`!expression`
+
+* The result is `false` if `expression` is `true`.
+* The result is `true` if `expression` is `false`.
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
+const arr = []
+
+console.log(arr.length) // 0, which is falsy
+
+if (!arr.length) {
+  console.log("The array is empty")
 }
 </code></pre>
 
@@ -535,7 +525,44 @@ if (
 
 ## One final thing &hellip;
 
-TODO: The final thing must be about truthiness. Move the conditional op and terms (unary, binary, binary) to extras.
+</section>
+
+
+<section>
+
+The expressions used in making decisions don't have to be boolean; JavaScript automatically converts them. {.h3}
+
+</section>
+
+
+<section data-auto-animate>
+
+TODO: Code sample demoing non-boolean conditions.
+
+</section>
+
+
+<section data-auto-animate>
+
+TODO: Code sample demoing non-boolean conditions with logical ops.
+
+</section>
+
+
+<section data-auto-animate>
+
+The following values convert to `false`. We call them <i>falsy</i> values:
+
+TODO: Code sample showing all falsy values.
+
+</section>
+
+
+<section data-auto-animate>
+
+All other values convert to `true`, so they are <i>truthy</i>:
+
+TODO: Code sample showing some truthy values.
 
 </section>
 
