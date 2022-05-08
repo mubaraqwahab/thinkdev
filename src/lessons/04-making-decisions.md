@@ -129,11 +129,7 @@ let remark = condition ? "yes" : "no"
 If the condition is truthy, the `remark` variable will be assigned the value `"yes"`;
 if it's falsy, `remark` will be assigned `"no"`.
 
-### Arity
-
-TODO: this section
-
-What is an operand first?
+### Unary, binary, ternary
 
 We've discussed several operators in JavaScript, such as `typeof`, `+`, and even the conditional operator `? :`.
 Each operator takes some values known as <i>operands</i>. For example, the operands of the
@@ -143,13 +139,9 @@ Each operator takes some values known as <i>operands</i>. For example, the opera
 3 + 4
 ```
 
-Some operators like the addition operator take two operands, so we call them <i>binary operators</i>.
+Many operators like the addition operator take two operands, so we call them <i>binary operators</i>.
 Others like `typeof` take a single operand, so we say that they are <i>unary operators</i>.
-There's only one <i>ternary operator</i> --- taking three operands --- in JavaScript, and it's the conditional operator.
-
-How many operands can an operator have (arity)?
-
-Unary, binary, ternary; examples.
+The conditional operator is the only <i>ternary operator</i>, taking three operands.
 
 ### Loose equality
 
