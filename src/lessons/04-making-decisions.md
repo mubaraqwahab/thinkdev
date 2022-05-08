@@ -75,18 +75,18 @@ You may omit the curly brackets in the `if` statement if there's only one statem
 
 ```js
 if (!messageCount)
-  notification = "You have no new messages."
+  notification = "You have no new messages.";
 ```
 
 You can do the same with the `else if` and `else` branches:
 
 ```js
 if (!messageCount)
-  notification = "You have no new messages."
+  notification = "You have no new messages.";
 else if (messageCount === 1)
-  notification = "You have a new message."
+  notification = "You have a new message.";
 else
-  notification = `You have ${messageCount} new messages.`
+  notification = `You have ${messageCount} new messages.`;
 ```
 
 The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
@@ -94,39 +94,40 @@ The curly brackets actually create something called a <i>block statement</i> ("b
 
 ### `if` expression
 
-TODO: reword this section to make it clearer.
-
-Remember that the `if` statement is a _statement_; it doesn't produce a value like an expression.
-Consider the following piece of code:
-
-```js
-let remark
-if (condition) {
-  remark = ""
-} else {
-  remark = ""
-}
-```
-
-Trying to rewrite it like this is invalid: (TODO: reword?) 
+Remember that the `if` statement is a _statement_. It's not an expression so it doesn't produce a value.
+Why's this important? Well, consider the following piece of code, where we assign a value to the `remark`
+variable depending on some condition (the condition doesn't really matter; what matters is how we write the code):
 
 ```js
-let remark = if (condition) {
-  ""
-} else {
-  ""
-}
+let remark;
+if (condition) remark = "yes";
+else remark = "no";
 ```
 
-It is sometimes convenient to use an expression to make decisions.
-You can use JavaScript's conditional operator in such a case. It looks like this:
+Rewriting it as follows is invalid because we're treating the `if` statement like an expression:
+
+```js
+let remark = if (condition) "yes"; else "no";
+```
+
+However, it is sometimes convenient to use an expression to make a decision.
+For this, JavaScript has a <i>conditional operator</i>. It looks like this:
 
 ```js
 expression1 ? expression2 : expression3
 ```
 
-If `expression1` is truthy, then the result will be the value of `expression2`.
-If it's falsy, the result will be the value of `expression3`.
+Here's how it works: if `expression1` is truthy, then the result of the operation
+will be the value of `expression2`. But if it's falsy, the result will be the value of `expression3`.
+
+We can rewrite the `if` statement example as below:
+
+```js
+let remark = condition ? "yes" : "no"
+```
+
+If the condition is truthy, the `remark` variable will be assigned the value `"yes"`;
+if it's falsy, `remark` will be assigned `"no"`.
 
 ### Arity
 
