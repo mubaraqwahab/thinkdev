@@ -14,7 +14,10 @@ window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady
 
 const SEEK_TIME_KEY = "ytSeekTime--" + location.pathname
 
-loadIframePlayerAPI()
+const iframes = document.querySelectorAll("iframe.youtube-player")
+if (iframes.length) {
+  loadIframePlayerAPI()
+}
 
 /**
  * Load the IFrame Player API code asynchronously.
@@ -30,8 +33,6 @@ function loadIframePlayerAPI() {
  * The YouTube Iframe API will call this automatically when it's ready.
  */
 function onYouTubeIframeAPIReady() {
-  const iframes = document.querySelectorAll("iframe.youtube-player")
-
   iframes.forEach((iframe) => {
     const player = new YT.Player(iframe.id, {events: {onStateChange, onReady}})
 
