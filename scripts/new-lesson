@@ -14,8 +14,9 @@
 
 const fs = require("fs")
 const path = require("path")
+const slugify = require("@sindresorhus/slugify")
 
-const title = process.argv[2].trim()
+const title = process.argv[2]?.trim()
 
 if (!title || title === "-h" || title === "--help") {
   showHelpMessage()
@@ -34,18 +35,16 @@ const existingLessonFiles = fs
 
 const lessonNum = existingLessonFiles.length + 1
 const slug =
-  lessonNum.toString().padStart(2, "0") +
-  "-" +
-  title.toLowerCase().replace(" ", "-") +
-  ".md"
+  lessonNum.toString().padStart(2, "0") + slugify(title, {decamelize: false})
+const lessonFilename = slug + ".md"
 
 // Create a lesson file
-const lessonPath = path.join(LESSONS_DIR, slug)
+const lessonPath = path.join(LESSONS_DIR, lessonFilename)
 fs.writeFileSync(lessonPath, lessonBoilerplate(title))
 console.log(`Created '${lessonPath}'`)
 
 // Create a deck file
-const deckPath = path.join(DECKS_DIR, slug)
+const deckPath = path.join(DECKS_DIR, lessonFilename)
 fs.writeFileSync(deckPath, deckBoilerplate(title))
 console.log(`Created '${deckPath}'`)
 
@@ -107,6 +106,6 @@ Usage: new-lesson [-h|--help|title]
 Create a new lesson page and its slide deck.
 
 Example: new-lesson "Making decisions"
-`.trimStart()
+`.trim()
   )
 }

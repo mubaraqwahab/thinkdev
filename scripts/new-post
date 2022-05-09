@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+// @ts-check
+
+/**
+ * @file
+ * Use this script to generate a new blog post.
+ * Run with no args or with `--help` (or `-h`) flag to see usage message.
+ * You can also @see {showHelpMessage} below.
+ *
+ * This file needs execute permission (e.g. by doing `chmod u+x <this file>`)
+ * if you want to run it without the `node ` prefix.
+ */
+
+const fs = require("fs")
+const path = require("path")
+const slugify = require("@sindresorhus/slugify")
+
+const title = process.argv[2]?.trim()
+
+if (!title || title === "-h" || title === "--help") {
+  showHelpMessage()
+  process.exit()
+}
+
+console.log("Generating post...")
+
+const BLOG_DIR = "src/blog/"
+
+const slug = slugify(title, {decamelize: false})
+const filename = slug + ".md"
+
+// Create a lesson file
+const postPath = path.join(BLOG_DIR, filename)
+fs.writeFileSync(postPath, postBoilerplate(title))
+console.log(`Created '${postPath}'`)
+
+console.log("Done!")
+
+function postBoilerplate(title) {
+  return `
+---
+title: ${title}
+---
+
+`.trimStart()
+}
+
+function showHelpMessage() {
+  console.log(
+    `
+Usage: new-lesson [-h|--help|title]
+
+Create a new blog post.
+
+Example: new-lesson "Making decisions"
+`.trim()
+  )
+}
