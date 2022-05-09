@@ -14,18 +14,12 @@
 {# Load this early to avoid downloading all the meta resources below #}
 {% set pageSourceUrl = site.repoUrl ~ '/blob/' ~ site.deployBranch ~ '/' ~ page.inputPath %}
 {% set issueParams = {
-  'body': (
-    '<!-- Ignore the next line -->'
-    ~ '\n'
-    ~ '**Context:** [' ~ page.inputPath ~ '](' ~ pageSourceUrl ~ ')'
-    ~ '\n\n'
-    ~ '**Please describe the issue:**'
-  )
+  'body': '**Context:** [' ~ page.inputPath ~ '](' ~ pageSourceUrl ~ ')\n\n'
 } %}
 <script>
   const searchParams = new URL(window.location.href).searchParams;
   if (searchParams.has('src')) {
-    // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621) 
+    // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
     window.location.replace("{{ pageSourceUrl }}")
   } else if (searchParams.has('edit')) {
     window.location.replace("{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}")
