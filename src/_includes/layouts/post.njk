@@ -1,0 +1,27 @@
+---
+layout: layouts/base
+---
+
+{% include "header.njk" %}
+
+<main id="main" class="shrink-0 grow">
+  <div class="container pt-10 pb-12 lg:pt-12">
+    <article class="prose prose-indigo text-[18px] max-w-[640px] mx-auto dark:prose-invert">
+      <header>
+        {# TODO: Work on heading size #}
+        <h1>{{ title }}</h1>
+        {# TODO: Work on spacing btw heading and date #}
+        <p class="text-gray-600 dark:text-gray-400">
+          {% if draft %}
+            Draft
+          {% else %}
+            Published <time>{{ page.date | shortdate }}</time>
+          {% endif %}
+        </p>
+      </header>
+      {{ content | safe }}
+    </article>
+  </div>
+</main>
+
+{% include "footer.njk" %}

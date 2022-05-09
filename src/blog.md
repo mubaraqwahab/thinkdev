@@ -5,6 +5,11 @@ title: Blog
 
 Yayy, you found the blog!
 
-{% for post in collections.post %}
+{% set posts = collections.post %}
+{% if site.context == 'production' %}
+  {% set posts = posts | rejectattr('draft', true) %}
+{% endif %}
+
+{% for post in posts | reverse -%}
 1. [{{ post.data.title }}]({{ post.url }})
 {% endfor %}

@@ -1,6 +1,6 @@
 // @ts-check
 
 module.exports = {
-  layout: "layouts/auxiliary",
+  layout: "layouts/post",
   tags: ["post"],
 }
