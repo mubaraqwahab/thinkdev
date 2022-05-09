@@ -29,7 +29,7 @@ permalink: site.webmanifest
 }
 {%- endset -%}
 
-{%- if site.environment === "production" -%}
+{%- if site.context -%}
   {# Minify the manifest #}
   {{- manifest | load | dump | safe -}}
 {%- else -%}
