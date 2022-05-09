@@ -38,9 +38,13 @@ console.log(`Created '${postPath}'`)
 console.log("Done!")
 
 function postBoilerplate(title) {
+  const date = new Date().toISOString().slice(0, 10)
   return `
 ---
 title: ${title}
+# Update these before publishing
+date: ${date}
+draft: true
 ---
 
 `.trimStart()
