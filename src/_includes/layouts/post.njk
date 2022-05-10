@@ -6,16 +6,19 @@ layout: layouts/base
 
 <main id="main" class="shrink-0 grow">
   <div class="container pt-10 pb-12 lg:pt-12">
-    <article class="prose prose-indigo text-[18px] max-w-[640px] mx-auto dark:prose-invert">
-      <header>
-        {# TODO: Work on heading size #}
-        <h1>{{ title }}</h1>
-        {# TODO: Work on spacing btw heading and date #}
+    <article
+      class="
+        prose prose-indigo max-w-[640px] mx-auto dark:prose-invert
+        lg:text-[18px] lg:prose-h1:text-[2.25rem] lg:prose-h2:text-[1.5rem]
+      "
+    >
+      <header class="mb-8">
+        <h1 class="mb-0">{{ title }}</h1>
         <p class="text-gray-600 dark:text-gray-400">
           {% if draft %}
             Draft
           {% else %}
-            Published <time>{{ page.date | shortdate }}</time>
+            Published <time datetime="{{ page.date | isodatestring }}">{{ page.date | shortdate }}</time>
           {% endif %}
         </p>
       </header>

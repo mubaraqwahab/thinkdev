@@ -109,6 +109,13 @@ module.exports = {
   },
 
   /**
+   * @param {Date} dateObj
+   */
+  isoDateString(dateObj) {
+    return dateObj.toISOString().slice(0, 10)
+  },
+
+  /**
    * Sort an array in ascending order. Doesn't modify the array.
    * To sort in descending order, reverse the return value
    *
