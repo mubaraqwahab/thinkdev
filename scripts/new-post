@@ -14,7 +14,7 @@
 
 const fs = require("fs")
 const path = require("path")
-const slugify = require("@sindresorhus/slugify")
+const slugify = require("github-slugger").slug
 
 const title = process.argv[2]?.trim()
 
@@ -27,7 +27,7 @@ console.log("Generating post...")
 
 const BLOG_DIR = "src/blog/"
 
-const slug = slugify(title, {decamelize: false})
+const slug = slugify(title)
 const filename = slug + ".md"
 
 // Create a lesson file
