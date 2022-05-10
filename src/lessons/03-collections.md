@@ -1,6 +1,6 @@
 ---
 title: Collections
-excerpt: >
+excerpt: >-
   It's common to have different values that describe
   an entity or that suggest a list of items.
   We'll look at two data structures in JavaScript that

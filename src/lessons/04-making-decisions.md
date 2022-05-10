@@ -1,6 +1,6 @@
 ---
 title: Making decisions
-excerpt: >
+excerpt: >-
   Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn some JavaScript constructs that we can use to make such decisions.
 ---
 
@@ -108,7 +108,7 @@ if (condition) {
 }
 ```
 
-Trying to rewrite it like this is invalid: (TODO: reword?) 
+Trying to rewrite it like this is invalid: (TODO: reword?)
 
 ```js
 let remark = if (condition) {
