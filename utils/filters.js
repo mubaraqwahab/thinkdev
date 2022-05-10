@@ -92,8 +92,9 @@ module.exports = {
 
   /**
    * @param {Date} dateObj
+   * @returns {string}
    */
-  shortDate(dateObj) {
+  shortdate(dateObj) {
     return Intl.DateTimeFormat(["en-GB"], {
       day: "2-digit",
       month: "short",
@@ -103,21 +104,23 @@ module.exports = {
 
   /**
    * @param {Date} dateObj
+   * @returns {string}
    */
-  isoString(dateObj) {
+  isostring(dateObj) {
     return dateObj.toISOString()
   },
 
   /**
    * @param {Date} dateObj
+   * @returns {string}
    */
-  isoDateString(dateObj) {
+  isodatestring(dateObj) {
     return dateObj.toISOString().slice(0, 10)
   },
 
   /**
    * Sort an array in ascending order. Doesn't modify the array.
-   * To sort in descending order, reverse the return value
+   * To sort in descending order, reverse the return value.
    *
    * @param {Array} array
    * @param {string} path
@@ -128,10 +131,15 @@ module.exports = {
    *   { name: { first: 'Wahab', ... }, ... },
    *   { name: { first: 'Mubaraq', ... }, ... },
    * ]
-   * const sorted = arraySort(array, "name.first")
+   * const sorted = arraysort(array, "name.first")
+   * //=> [
+   * //=>   { name: { first: 'Mubaraq', ... }, ... },
+   * //=>   { name: { first: 'Wahab', ... }, ... },
+   * //=> ]
    */
-  arraySort(array, path) {
+  arraysort(array, path) {
     const key = pathkey(path)
+    // TODO: confirm that this sorts strings correctly.
     return array.slice().sort((a, b) => key(a) - key(b))
   },
 
@@ -142,6 +150,7 @@ module.exports = {
    *   { name: { first: 'Mubaraq', ... }, ... },
    * ]
    * const elem = find(array, "name.first", "Mubaraq")
+   * //=> { name: { first: 'Mubaraq', ... }, ... }
    */
   find(array, path, value) {
     const key = pathkey(path)
@@ -152,7 +161,6 @@ module.exports = {
    * Opposite of Nunjucks `dump`.
    * Convert a JSON string into an object.
    * @param {string} text
-   * @return {any}
    */
   load(text) {
     return JSON.parse(text)
@@ -171,10 +179,10 @@ module.exports = {
    * @param {Record<string, string|number>} obj
    *
    * @example
-   * htmlAttrs({ module: "", href: "hey.html", ariaHidden: "true" })
-   * //=> module="" href="hey.html" aria-hidden="true"
+   * htmlattrs({ module: "", href: "hey.html", ariaHidden: "true" })
+   * //=> 'module="" href="hey.html" aria-hidden="true"'
    */
-  htmlAttrs(obj) {
+  htmlattrs(obj) {
     let result = ""
     for (const prop in obj) {
       const attr = kebabCase(prop)
@@ -189,10 +197,10 @@ module.exports = {
    * @returns {string}
    *
    * @example
-   * queryStr({ foo: "bar", baz: "qux" })
+   * querystr({ foo: "bar", baz: "qux" })
    * //=> "?foo=bar&baz=qux"
    */
-  queryStr(obj) {
+  querystr(obj) {
     const searchParams = new URLSearchParams(obj)
     return searchParams.toString()
   },
@@ -201,14 +209,14 @@ module.exports = {
    * Extract the `path` value from all objects in an array.
    * @param {Array<Record<string, any>>} array
    * @param {string} path
-   * @returns {Array<any>}
+   * @returns {Array}
    *
    * @example
    * const array = [{ foo: 'bar' }, { foo: 'qux' }]
-   * mapProp(array, 'foo')
+   * mapprop(array, 'foo')
    * //=> ['bar', 'qux']
    */
-  mapProp(array, path) {
+  mapprop(array, path) {
     return array.map(pathkey(path))
   },
 

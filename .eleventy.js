@@ -32,11 +32,11 @@ module.exports = function (eleventyConfig) {
   for (const filter in filters) {
     if (filter.endsWith("Async")) {
       eleventyConfig.addNunjucksAsyncFilter(
-        filter.slice(0, -5).toLowerCase(),
+        filter.slice(0, -5),
         filters[filter]
       )
     } else {
-      eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
+      eleventyConfig.addNunjucksFilter(filter, filters[filter])
     }
   }
 
