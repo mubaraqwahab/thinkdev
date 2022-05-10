@@ -441,9 +441,7 @@ One expression must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
-if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
-  console.log(filename, "is a Word document")
-}
+TODO: Code sample demonstrating OR
 </code></pre>
 
 </section>
@@ -470,9 +468,7 @@ Both expressions must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
-if (user && user.role === "ADMIN") {
-  // Show something only admins should see
-}
+TODO: Code sample demonstrating AND
 </code></pre>
 
 </section>
@@ -500,13 +496,7 @@ TODO: Screenshot demonstrating NOT
 <section data-auto-animate>
 
 <pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
-const arr = []
-
-console.log(arr.length) // 0, which is falsy
-
-if (!arr.length) {
-  console.log("The array is empty")
-}
+TODO: Code sample demonstrating NOT
 </code></pre>
 
 </section>
@@ -533,23 +523,50 @@ The expressions used in making decisions don't have to be boolean; JavaScript au
 
 <section data-auto-animate>
 
-TODO: Code sample demoing non-boolean conditions.
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
+}
+</code></pre>
 
 </section>
 
 
 <section data-auto-animate>
 
-TODO: Code sample demoing non-boolean conditions with logical ops.
+<pre data-id="truthy"><code data-line-numbers="1" class="language-js" data-trim>
+if (course.rating) {
+  console.log(`Rating: ${course.rating}`)
+}
+</code></pre>
 
 </section>
 
 
 <section data-auto-animate>
 
-The following values convert to `false`. We call them <i>falsy</i> values:
+Same applies to logical operators:
 
-TODO: Code sample showing all falsy values.
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+if (course.rating && course.reviewsCount) {
+  console.log('Course has both rating and reviews.')
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The following values convert to `false`; we call them <i>falsy</i> values:
+
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+Boolean(0)          // false
+Boolean("")         // false
+Boolean(null)       // false
+Boolean(undefined)  // false
+Boolean(false)      // false
+</code></pre>
 
 </section>
 
@@ -558,7 +575,15 @@ TODO: Code sample showing all falsy values.
 
 All other values convert to `true`, so they are <i>truthy</i>:
 
-TODO: Code sample showing some truthy values.
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+Boolean(3.4)              // true
+Boolean("thinkdev")       // true
+Boolean({ key: 'value' }) // true
+Boolean({})               // true
+Boolean([1, 2])           // true
+Boolean([])               // true
+Boolean(true)             // true
+</code></pre>
 
 </section>
 
