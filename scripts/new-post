@@ -45,6 +45,7 @@ title: ${title}
 # Update these before publishing
 date: ${date}
 draft: true
+excerpt: >-
 ---
 
 `.trimStart()
