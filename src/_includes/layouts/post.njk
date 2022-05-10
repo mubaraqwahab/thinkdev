@@ -15,11 +15,7 @@ layout: layouts/base
       <header class="mb-8">
         <h1 class="mb-0">{{ title }}</h1>
         <p class="text-gray-600 dark:text-gray-400">
-          {% if draft %}
-            Draft
-          {% else %}
-            Published <time datetime="{{ page.date | isodatestring }}">{{ page.date | shortdate }}</time>
-          {% endif %}
+          Published <time datetime="{{ page.date | isodatestring }}">{{ page.date | shortdate }}</time>
         </p>
       </header>
       {{ content | safe }}

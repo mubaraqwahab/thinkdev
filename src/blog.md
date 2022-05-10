@@ -5,11 +5,11 @@ title: Blog
 
 Yayy, you found the blog!
 
-{% set posts = collections.post %}
+{% set postDataList = collections.post | mapprop('data') %}
 {% if site.context == 'production' %}
-  {% set posts = posts | rejectattr('draft', true) %}
+  {% set postDataList = postDataList | rejectattr('draft', true) %}
 {% endif %}
 
-{% for post in posts | reverse -%}
-1. [{{ post.data.title }}]({{ post.url }})
+{% for postData in postDataList | reverse -%}
+1. [{{ postData.title }}]({{ postData.page.url }})
 {% endfor %}
