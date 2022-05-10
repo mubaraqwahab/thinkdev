@@ -4,7 +4,7 @@ title: Making decisions
 
 <section>
 
-![]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
+![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
 
 </section>
 
