@@ -197,6 +197,21 @@ module.exports = {
     return searchParams.toString()
   },
 
+  /**
+   * Extract the `path` value from all objects in an array.
+   * @param {Array<Record<string, any>>} array
+   * @param {string} path
+   * @returns {Array<any>}
+   *
+   * @example
+   * const array = [{ foo: 'bar' }, { foo: 'qux' }]
+   * mapProp(array, 'foo')
+   * //=> ['bar', 'qux']
+   */
+  mapProp(array, path) {
+    return array.map(pathkey(path))
+  },
+
   // FOR DEBUGGING
 
   /** Get a property value from an object given it's path. */
