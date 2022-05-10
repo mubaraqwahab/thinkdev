@@ -3,6 +3,7 @@ title: Why thinkdev?
 # Update these before publishing
 date: 2022-06-10
 draft: true
+excerpt: >-
 ---
 
 It started the semester after the COVID lockdown, in our final year. I got worried that some of us still weren't comfortable writing simple programs. One of my regrets then (and more so now) was that I wasn't so proactive. If someone met me with a problem, I would help with what I could; but I never _offered_ to help unless I was asked. I was "minding my business" too much. It wasn't a healthy attitude, so I wanted to do things differently by volunteering to teach a programming course.
@@ -22,3 +23,5 @@ After yet another episode of hesitation, I proposed the course to two people. Th
 How I began the course, in its form today, was quite unusual of me. I really wanted to just get it started. I built a very simple site quickly and prepared the introductory slides. I only planned (vague) the first few topics we would cover. I chose the title "thinkdev" as a placeholder, hoping to change it sometime later.
 
 I think it was good I did as i did though.
+
+Bla bla ... it's weird ... thoughts ... I had to get this off my chest.
