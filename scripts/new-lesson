@@ -54,7 +54,8 @@ function lessonBoilerplate(title) {
   return `
 ---
 title: ${title}
-excerpt: >
+draft: true
+excerpt: >-
 ---
 
 ## Video
