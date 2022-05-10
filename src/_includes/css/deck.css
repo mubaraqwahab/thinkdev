@@ -204,14 +204,19 @@ section.has-light-background :is(h1, h2, h3) {
 
 .reveal pre :is(code, samp) {
   display: block;
-  padding: 5px;
+  padding: 1em;
   overflow: auto;
   max-height: 400px;
   word-wrap: normal;
   font-variant: none;
 }
 
-html.print-pdf .reveal pre code {
+.reveal pre samp {
+  /* Handpicked to be darker than slate.800 but lighter than slate.900 */
+  background-color: #131d34;
+}
+
+html.print-pdf .reveal pre :is(code, samp) {
   font-family: var(--r-code-font) !important;
 }
 

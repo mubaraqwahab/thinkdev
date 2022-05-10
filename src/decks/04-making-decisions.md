@@ -219,8 +219,6 @@ console.log('After decision')
 
 Here's the output:
 
-TODO: Improve the CSS of the &lt;samp&gt;s
-
 <pre data-id="if"><samp>Before decision
 Rating: 4.6
 After decision
@@ -389,16 +387,14 @@ else {
 
 <section>
 
-TODO: Reduce this and the next slide to one.
-
-We can now make decisions based&nbsp;on&nbsp;single&nbsp;conditions {.h3}
+We can now make decisions based on single&nbsp;conditions. {.h3}
 
 </section>
 
 
 <section>
 
-But what if we have multiple conditions? {.h3}
+What if we have many conditions? {.h3}
 
 </section>
 
