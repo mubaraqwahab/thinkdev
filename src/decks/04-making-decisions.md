@@ -401,7 +401,7 @@ What if we have many conditions? {.h3}
 
 <section>
 
-TODO: Screenshot here
+![A screenshot of a hypothetical e-commerce app showing a list of laptops for sale and several options to filter the laptops.]({{ '/assets/images/laptop-filters.webp' | url }})
 
 </section>
 
@@ -422,7 +422,7 @@ TODO: Screenshot here
 
 <section>
 
-TODO: Screenshot demonstrating OR
+![The e-commerce laptop list filtered to show only Apple and Microsoft laptops.]({{ '/assets/images/laptop-filters-or.webp' | url }})
 
 </section>
 
@@ -441,7 +441,10 @@ One expression must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
-TODO: Code sample demonstrating OR
+const { brand } = laptop
+if (brand === 'Apple' || brand === 'Microsoft') {
+  console.log('Laptop is an Apple/Microsoft device.')
+}
 </code></pre>
 
 </section>
@@ -449,7 +452,7 @@ TODO: Code sample demonstrating OR
 
 <section>
 
-TODO: Screenshot demonstrating AND
+![The e-commerce laptop list filtered to show only 14-inch Apple laptops.]({{ '/assets/images/laptop-filters-and.webp' | url }})
 
 </section>
 
@@ -468,7 +471,10 @@ Both expressions must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
-TODO: Code sample demonstrating AND
+const { brand, screenSize } = laptop
+if (brand === 'Apple' && screenSize === 14) {
+  console.log('Laptop is a 14-inch Apple device.')
+}
 </code></pre>
 
 </section>
@@ -476,7 +482,7 @@ TODO: Code sample demonstrating AND
 
 <section>
 
-TODO: Screenshot demonstrating NOT
+![The e-commerce laptop list filtered to show all but the 13-inch laptops.]({{ '/assets/images/laptop-filters-not.webp' | url }})
 
 </section>
 
@@ -495,8 +501,11 @@ TODO: Screenshot demonstrating NOT
 
 <section data-auto-animate>
 
-<pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
-TODO: Code sample demonstrating NOT
+<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (!(brand === 'Apple' && screenSize === 14)) {
+  console.log('Laptop is not a 14-inch Apple device.')
+}
 </code></pre>
 
 </section>
