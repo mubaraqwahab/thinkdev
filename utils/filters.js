@@ -119,11 +119,15 @@ module.exports = {
   },
 
   /**
-   * Sort an array in ascending order. Doesn't modify the array.
+   * Sort an array of objects (in asc order) with a property path.
+   * The path must evaluate to one of these:
+   *  * a string for every object
+   *  * a number for every object.
+   * This returns the sorted array; it doesn't sort in-place.
    * To sort in descending order, reverse the return value.
    *
    * @param {Array} array
-   * @param {string} path
+   * @param {string} path - The
    * @return {Array} The sorted array
    *
    * @example
@@ -139,8 +143,22 @@ module.exports = {
    */
   arraysort(array, path) {
     const key = pathkey(path)
-    // TODO: confirm that this sorts strings correctly.
-    return array.slice().sort((a, b) => key(a) - key(b))
+    return array.slice().sort((a, b) => {
+      const keyA = key(a)
+      const keyB = key(b)
+      if (typeof keyA === "string" && typeof keyB === "string") {
+        return keyA.localeCompare(keyB)
+      } else if (typeof keyA === "number" && typeof keyB === "number") {
+        return keyA - keyB
+      } else {
+        const diagnostics = {a, b, keyA, keyB}
+        console.error(
+          `path '${path}' must evaluate to a number or string!\n`,
+          diagnostics
+        )
+        return 0
+      }
+    })
   },
 
   /**
