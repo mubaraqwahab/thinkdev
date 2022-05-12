@@ -320,8 +320,7 @@ Let's consider another example. {.h3}
 <section>
 
 ![]({{ '/assets/images/ussd-screenshot.webp' | url }}){width=400 aria-labelledby="ussdLabel"}
-
-<small id="ussdLabel" class="italic">A USSD menu with different options to choose from.</small>
+<small id="ussdLabel">A USSD menu with different options to choose from.</small>
 
 </section>
 
@@ -401,7 +400,8 @@ What if we have many conditions? {.h3}
 
 <section>
 
-![A screenshot of a hypothetical e-commerce app showing a list of laptops for sale and several options to filter the laptops.]({{ '/assets/images/laptop-filters.webp' | url }})
+![]({{ '/assets/images/laptop-filters.webp' | url }}){aria-labelledby=laptopFiltersLabel}
+<small id="laptopFiltersLabel">A hypothetical e-commerce app with a list of laptops for sale and several&nbsp;options&nbsp;to&nbsp;filter&nbsp;the laptops.</small>
 
 </section>
 

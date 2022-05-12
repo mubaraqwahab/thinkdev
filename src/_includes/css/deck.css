@@ -282,6 +282,13 @@ html.print-pdf .reveal pre :is(code, samp) {
   margin: 0;
 }
 
+/* Visible image label */
+.reveal img + small {
+  display: block;
+  margin-top: calc(var(--r-block-margin) / 2);
+  font-style: italic;
+}
+
 /*********************************************
   * SYNTAX HIGHLIGHTING OVERRIDES
   *********************************************/
