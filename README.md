@@ -74,3 +74,5 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Use `console.log` in sample codes to indicate what to output. Also use an adjacent comment (on the same line or a different line) to indicate what the output should be. Doing these ensures that the code "makes sense" in a JavaScript file and in the Node REPL. You may omit the `console.log` if you specify that the code should be run in the REPL. However, never use the prompt symbol!
 
 * Prefer WebP and SVG images to other formats for their quality and small file size.
+
+* Use absolute URLs for internal pages, with both leading and trailing slashes, as in `/decks/01-introduction/`. The trailing slash must be present because `/decks/01-introduction` and `/decks/01-introduction/` are treated differently in some contexts (e.g. service worker cache). Also, use the [Eleventy `url` filter](https://www.11ty.dev/docs/filters/url/) for all internal resource URLs.
