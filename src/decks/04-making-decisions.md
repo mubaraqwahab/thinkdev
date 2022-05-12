@@ -171,7 +171,7 @@ const course = {
   // ...
 }
 
-course.rating !== 0.0 // true
+course.rating !== 0 // true
 </code></pre>
 
 </section>
@@ -279,7 +279,7 @@ How do we print a different message? {.h3}
 
 <section>
 
-<pre data-id="if"><code data-line-numbers="7-11|9-11" class="language-js" data-trim>
+<pre data-id="if"><code data-line-numbers="9-11|7-11" class="language-js" data-trim>
 const course = {
   rating: 0,
   // ...
@@ -361,7 +361,7 @@ if (choice === 1) {
 
 <section data-auto-animate>
 
-You can use a final `else` to handle any other choice.
+You can use a final `else` to handle any other choice:
 
 <pre data-id="if"><code data-line-numbers="8-10" class="language-js" data-trim>
 const choice = 1 // Could be any other number
@@ -435,6 +435,8 @@ What if we have many conditions? {.h3}
 
 
 <section data-auto-animate>
+
+TODO
 
 Let's assume each laptop looks like this:
 
@@ -523,6 +525,8 @@ if (brand === 'Apple' && screenSize === 14) {
 
 <section>
 
+TODO
+
 ![The e-commerce laptop list filtered to show all but the 13-inch laptops.]({{ '/assets/images/laptop-filters-not.webp' | url }})
 
 </section>
@@ -543,6 +547,8 @@ NOT syntax:
 
 
 <section data-auto-animate>
+
+TODO
 
 <pre data-id="not"><code data-line-numbers="|2" class="language-js" data-trim>
 const { brand, screenSize } = laptop
@@ -600,6 +606,8 @@ if (course.rating) {
 
 
 <section data-auto-animate>
+
+TODO
 
 Same applies when using logical operators:
 

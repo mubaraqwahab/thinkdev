@@ -46,7 +46,7 @@ TODO
 
     Now run the code to see if it works as you expect. If you're correct, then well done; you're starting to get a hold of the language. If you're not, don't worry; it's all part of the learning process; try to figure out where you went wrong.
 
-1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you'll notice that the URL domain begins with a two-letter (or three-letter) code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
+1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you might notice that the URL domain begins with a two-letter (or three-letter) code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
 
     The following table lists some languages and their codes.
 
@@ -62,7 +62,7 @@ TODO
 
     {.w-auto}
 
-    Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+    Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown language code</samp>.
 
 1. Create a copy of the previous program and modify it so that it, instead, tells the language that a Wikipedia domain corresponds to.
     For instance, the program should print <samp>Hausa</samp> if you give it the domain `"ha.wikipedia.org"`.
@@ -71,7 +71,7 @@ TODO
 
 ### A shorter `if`
 
-You may omit the curly brackets in the `if` statement if there's only one statement within them. So, you can write:
+You may omit the curly brackets in the `if` statement if there's only one statement within them. So, you may write:
 
 ```js
 if (!messageCount)
