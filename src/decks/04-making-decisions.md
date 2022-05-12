@@ -4,7 +4,7 @@ title: Making decisions
 
 <section>
 
-![]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
+![A screenshot highlighting some alternative elements in the featured courses section on FutureLearn.]({{ '/assets/images/futurelearn-featured-alts.webp' | url }})
 
 </section>
 
@@ -219,8 +219,6 @@ console.log('After decision')
 
 Here's the output:
 
-TODO: Improve the CSS of the &lt;samp&gt;s
-
 <pre data-id="if"><samp>Before decision
 Rating: 4.6
 After decision
@@ -322,8 +320,7 @@ Let's consider another example. {.h3}
 <section>
 
 ![]({{ '/assets/images/ussd-screenshot.webp' | url }}){width=400 aria-labelledby="ussdLabel"}
-
-<small id="ussdLabel" class="italic">A USSD menu with different options to choose from.</small>
+<small id="ussdLabel">A USSD menu with different options to choose from.</small>
 
 </section>
 
@@ -389,23 +386,22 @@ else {
 
 <section>
 
-TODO: Reduce this and the next slide to one.
-
-We can now make decisions based&nbsp;on&nbsp;single&nbsp;conditions {.h3}
+We can now make decisions based on single&nbsp;conditions. {.h3}
 
 </section>
 
 
 <section>
 
-But what if we have multiple conditions? {.h3}
+What if we have many conditions? {.h3}
 
 </section>
 
 
 <section>
 
-TODO: Screenshot here
+![]({{ '/assets/images/laptop-filters.webp' | url }}){aria-labelledby=laptopFiltersLabel}
+<small id="laptopFiltersLabel">A hypothetical e-commerce app with a list of laptops for sale and several&nbsp;options&nbsp;to&nbsp;filter&nbsp;the laptops.</small>
 
 </section>
 
@@ -426,16 +422,41 @@ TODO: Screenshot here
 
 <section>
 
-TODO: Screenshot demonstrating OR
+### OR
 
 </section>
 
 
 <section>
 
-### OR
+![The e-commerce laptop list filtered to show only Apple and Microsoft laptops.]({{ '/assets/images/laptop-filters-or.webp' | url }})
 
-`expression1 || expression2`
+</section>
+
+
+<section data-auto-animate>
+
+Let's assume each laptop looks like this:
+
+<pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
+const laptop = {
+  title: '',
+  brand: '',
+  screenSize: 0,
+  // ...
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+OR syntax:
+
+<pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
+expression1 || expression2
+</code></pre>
 
 One expression must be `true` for the result to be `true`.
 
@@ -445,8 +466,9 @@ One expression must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
-if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
-  console.log(filename, "is a Word document")
+const { brand } = laptop
+if (brand === 'Apple' || brand === 'Microsoft') {
+  console.log("It's an Apple or Microsoft laptop.")
 }
 </code></pre>
 
@@ -455,16 +477,25 @@ if (filename.endsWith(".docx") || filename.endsWith(".doc")) {
 
 <section>
 
-TODO: Screenshot demonstrating AND
+### AND
 
 </section>
 
 
 <section>
 
-### AND
+![The e-commerce laptop list filtered to show only 14-inch Apple laptops.]({{ '/assets/images/laptop-filters-and.webp' | url }})
 
-`expression1 && expression2`
+</section>
+
+
+<section data-auto-animate>
+
+AND syntax:
+
+<pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
+expression1 && expression2
+</code></pre>
 
 Both expressions must be `true` for the result to be `true`.
 
@@ -474,8 +505,9 @@ Both expressions must be `true` for the result to be `true`.
 <section data-auto-animate>
 
 <pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
-if (user && user.role === "ADMIN") {
-  // Show something only admins should see
+const { brand, screenSize } = laptop
+if (brand === 'Apple' && screenSize === 14) {
+  console.log("It's a 14-inch Apple laptop.")
 }
 </code></pre>
 
@@ -484,32 +516,38 @@ if (user && user.role === "ADMIN") {
 
 <section>
 
-TODO: Screenshot demonstrating NOT
+### NOT
 
 </section>
 
 
 <section>
 
-### NOT
-
-`!expression`
-
-* The result is `false` if `expression` is `true`.
-* The result is `true` if `expression` is `false`.
+![The e-commerce laptop list filtered to show all but the 13-inch laptops.]({{ '/assets/images/laptop-filters-not.webp' | url }})
 
 </section>
 
 
 <section data-auto-animate>
 
-<pre data-id="not"><code data-line-numbers="1|3|5-8" class="language-js" data-trim>
-const arr = []
+NOT syntax:
 
-console.log(arr.length) // 0, which is falsy
+<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+!expression
+</code></pre>
 
-if (!arr.length) {
-  console.log("The array is empty")
+* If `expression` is `true`, the result is `false`.
+* If `expression` is `false`, the result is `true`.
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="not"><code data-line-numbers="|2" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (!(brand === 'Apple' && screenSize === 14)) {
+  console.log("It's not a 14-inch Apple laptop.")
 }
 </code></pre>
 
@@ -537,23 +575,54 @@ The expressions used in making decisions don't have to be boolean; JavaScript au
 
 <section data-auto-animate>
 
-TODO: Code sample demoing non-boolean conditions.
+We did this before:
+
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+if (course.rating !== 0) {
+  console.log(`Rating: ${course.rating}`)
+}
+</code></pre>
 
 </section>
 
 
 <section data-auto-animate>
 
-TODO: Code sample demoing non-boolean conditions with logical ops.
+We could write it this way too:
+
+<pre data-id="truthy"><code data-line-numbers="1" class="language-js" data-trim>
+if (course.rating) {
+  console.log(`Rating: ${course.rating}`)
+}
+</code></pre>
 
 </section>
 
 
 <section data-auto-animate>
 
-The following values convert to `false`. We call them <i>falsy</i> values:
+Same applies when using logical operators:
 
-TODO: Code sample showing all falsy values.
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+if (course.rating && course.reviewsCount) {
+  console.log('Course has both rating and reviews.')
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The following values convert to `false`; we call them <i>falsy</i> values:
+
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+Boolean(0)          // false
+Boolean("")         // false
+Boolean(null)       // false
+Boolean(undefined)  // false
+Boolean(false)      // false
+</code></pre>
 
 </section>
 
@@ -562,7 +631,15 @@ TODO: Code sample showing all falsy values.
 
 All other values convert to `true`, so they are <i>truthy</i>:
 
-TODO: Code sample showing some truthy values.
+<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
+Boolean(3.4)              // true
+Boolean("thinkdev")       // true
+Boolean({ key: 'value' }) // true
+Boolean({})               // true
+Boolean([1, 2])           // true
+Boolean([])               // true
+Boolean(true)             // true
+</code></pre>
 
 </section>
 
