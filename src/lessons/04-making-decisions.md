@@ -64,7 +64,7 @@ TODO
 
     Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
 
-1. Create a copy of the previous program and modify it so that it, instead, tells us the language a Wikipedia domain corresponds to.
+1. Create a copy of the previous program and modify it so that it, instead, tells the language that a Wikipedia domain corresponds to.
     For instance, the program should print <samp>Hausa</samp> if you give it the domain `"ha.wikipedia.org"`.
 
 ## Extras
@@ -100,14 +100,19 @@ variable depending on some condition (the condition doesn't really matter; what 
 
 ```js
 let remark;
-if (condition) remark = "yes";
-else remark = "no";
+if (condition)
+  remark = "yes";
+else
+  remark = "no";
 ```
 
 Rewriting it as follows is invalid because we're treating the `if` statement like an expression:
 
 ```js
-let remark = if (condition) "yes"; else "no";
+let remark = if (condition)
+  "yes";
+else
+  "no";
 ```
 
 However, it is sometimes convenient to use an expression to make a decision.
@@ -131,7 +136,7 @@ if it's falsy, `remark` will be assigned `"no"`.
 
 ### Unary, binary, ternary
 
-We've discussed several operators in JavaScript, such as `typeof`, `+`, and even the conditional operator `? :`.
+We've discussed several operators in JavaScript, such as `typeof`, `+`, and even the conditional operator (`? :`).
 Each operator takes some values known as <i>operands</i>. For example, the operands of the
 `+` operator in the following addition are `3` and `4`:
 
@@ -140,7 +145,7 @@ Each operator takes some values known as <i>operands</i>. For example, the opera
 ```
 
 Many operators like the addition operator take two operands, so we call them <i>binary operators</i>.
-Others like `typeof` take a single operand, so we say that they are <i>unary operators</i>.
+Others like `typeof` that take a single operand are <i>unary operators</i>.
 The conditional operator is the only <i>ternary operator</i>, taking three operands.
 
 ### Loose equality
