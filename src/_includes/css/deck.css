@@ -372,7 +372,7 @@ html.print-pdf .reveal pre :is(code, samp) {
   PostCSS Nested plugin will flatten the selectors for me.
   See https://github.com/postcss/postcss-nested
 */
-.reveal-viewport .reveal {
+.reveal-viewport .reveal .slides {
   @tailwind utilities;
   @tailwind variants;
 }
