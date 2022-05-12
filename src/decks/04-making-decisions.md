@@ -422,16 +422,41 @@ What if we have many conditions? {.h3}
 
 <section>
 
-![The e-commerce laptop list filtered to show only Apple and Microsoft laptops.]({{ '/assets/images/laptop-filters-or.webp' | url }})
+### OR
 
 </section>
 
 
 <section>
 
-### OR
+![The e-commerce laptop list filtered to show only Apple and Microsoft laptops.]({{ '/assets/images/laptop-filters-or.webp' | url }})
 
-`expression1 || expression2`
+</section>
+
+
+<section data-auto-animate>
+
+Let's assume each laptop looks like this:
+
+<pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
+const laptop = {
+  title: '',
+  brand: '',
+  screenSize: 0,
+  // ...
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+OR syntax:
+
+<pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
+expression1 || expression2
+</code></pre>
 
 One expression must be `true` for the result to be `true`.
 
@@ -443,9 +468,16 @@ One expression must be `true` for the result to be `true`.
 <pre data-id="or"><code data-line-numbers="" class="language-js" data-trim>
 const { brand } = laptop
 if (brand === 'Apple' || brand === 'Microsoft') {
-  console.log('Laptop is an Apple/Microsoft device.')
+  console.log("It's an Apple or Microsoft laptop.")
 }
 </code></pre>
+
+</section>
+
+
+<section>
+
+### AND
 
 </section>
 
@@ -457,11 +489,13 @@ if (brand === 'Apple' || brand === 'Microsoft') {
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-### AND
+AND syntax:
 
-`expression1 && expression2`
+<pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
+expression1 && expression2
+</code></pre>
 
 Both expressions must be `true` for the result to be `true`.
 
@@ -473,9 +507,16 @@ Both expressions must be `true` for the result to be `true`.
 <pre data-id="and"><code data-line-numbers="" class="language-js" data-trim>
 const { brand, screenSize } = laptop
 if (brand === 'Apple' && screenSize === 14) {
-  console.log('Laptop is a 14-inch Apple device.')
+  console.log("It's a 14-inch Apple laptop.")
 }
 </code></pre>
+
+</section>
+
+
+<section>
+
+### NOT
 
 </section>
 
@@ -487,24 +528,26 @@ if (brand === 'Apple' && screenSize === 14) {
 </section>
 
 
-<section>
+<section data-auto-animate>
 
-### NOT
+NOT syntax:
 
-`!expression`
+<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+!expression
+</code></pre>
 
-* The result is `false` if `expression` is `true`.
-* The result is `true` if `expression` is `false`.
+* If `expression` is `true`, the result is `false`.
+* If `expression` is `false`, the result is `true`.
 
 </section>
 
 
 <section data-auto-animate>
 
-<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+<pre data-id="not"><code data-line-numbers="|2" class="language-js" data-trim>
 const { brand, screenSize } = laptop
 if (!(brand === 'Apple' && screenSize === 14)) {
-  console.log('Laptop is not a 14-inch Apple device.')
+  console.log("It's not a 14-inch Apple laptop.")
 }
 </code></pre>
 
@@ -532,6 +575,8 @@ The expressions used in making decisions don't have to be boolean; JavaScript au
 
 <section data-auto-animate>
 
+We did this before:
+
 <pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
 if (course.rating !== 0) {
   console.log(`Rating: ${course.rating}`)
@@ -542,6 +587,8 @@ if (course.rating !== 0) {
 
 
 <section data-auto-animate>
+
+We could write it this way too:
 
 <pre data-id="truthy"><code data-line-numbers="1" class="language-js" data-trim>
 if (course.rating) {
@@ -554,7 +601,7 @@ if (course.rating) {
 
 <section data-auto-animate>
 
-Same applies to logical operators:
+Same applies when using logical operators:
 
 <pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
 if (course.rating && course.reviewsCount) {
