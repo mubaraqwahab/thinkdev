@@ -436,15 +436,13 @@ What if we have many conditions? {.h3}
 
 <section data-auto-animate>
 
-TODO
-
 Let's assume each laptop looks like this:
 
 <pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
 const laptop = {
-  title: '',
-  brand: '',
-  screenSize: 0,
+  title: 'MacBook Pro 13"',
+  brand: 'Apple',
+  screenSize: 13,
   // ...
 }
 </code></pre>
@@ -525,8 +523,6 @@ if (brand === 'Apple' && screenSize === 14) {
 
 <section>
 
-TODO
-
 ![The e-commerce laptop list filtered to show all but the 13-inch laptops.]({{ '/assets/images/laptop-filters-not.webp' | url }})
 
 </section>
@@ -548,9 +544,23 @@ NOT syntax:
 
 <section data-auto-animate>
 
-TODO
+We wrote this previously:
 
-<pre data-id="not"><code data-line-numbers="|2" class="language-js" data-trim>
+<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (brand === 'Apple' && screenSize === 14) {
+  console.log("It's a 14-inch Apple laptop.")
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Let's invert it:
+
+<pre data-id="not"><code data-line-numbers="2|3" class="language-js" data-trim>
 const { brand, screenSize } = laptop
 if (!(brand === 'Apple' && screenSize === 14)) {
   console.log("It's not a 14-inch Apple laptop.")
