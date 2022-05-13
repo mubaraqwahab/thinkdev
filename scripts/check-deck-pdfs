@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+
+// @ts-check
+
+/**
+ * @file
+ * Use this script to check for stale or missing deck PDFs.
+ */
+
+const fs = require("fs")
+const path = require("path")
+const {execSync} = require("child_process")
+
+const option = process.argv[2]?.trim()
+if (option === "-h" || option === "--help") {
+  showHelpMessage()
+  process.exit()
+}
+
+const VERBOSE = option === "--verbose"
+
+const DECKS_DIR = "src/decks/"
+const DECK_PDFS_DIR = "public/decks/"
+
+const decks = fs
+  .readdirSync(DECKS_DIR)
+  .filter((filename) => filename.endsWith(".md"))
+
+// Compare the last commit timestamps of the deck PDFs and their .md files
+// to determine if the deck PDFs are stale. This is better than using the
+// modified times on the file system, because switching between branches
+// messes up the modified times.
+decks.forEach((deck) => {
+  const deckPath = path.join(DECKS_DIR, deck)
+  const deckModifiedTime = getLastCommitTimestamp(deckPath)
+
+  const pdf = deck.replace(".md", ".pdf")
+  const pdfPath = path.join(DECK_PDFS_DIR, pdf)
+
+  if (!fs.existsSync(pdfPath)) {
+    console.warn(`WARNING: ${pdf} is missing.`)
+  } else if (getLastCommitTimestamp(pdfPath) < deckModifiedTime) {
+    console.warn(`WARNING: ${pdf} is stale.`)
+  } else if (VERBOSE) {
+    console.log(`INFO: ${pdf} is up to date.`)
+  }
+})
+
+/**
+ * Get the last commit timestamp of a file.
+ * @param {string} filePath
+ * @returns {number}
+ */
+function getLastCommitTimestamp(filePath) {
+  // See https://stackoverflow.com/a/56373126/12695621
+  const stdout = execSync(`git log -1 --pretty="format:%ct" ${filePath}`, {
+    encoding: "utf8",
+  })
+  return Number(stdout)
+}
+
+function showHelpMessage() {
+  console.log(
+    `
+Usage:
+  check-deck-pdfs [-h|--help|--verbose]
+
+Check for stale or missing deck PDFs.
+
+Example:
+  check-deck-pdfs
+  check-deck-pdfs --verbose
+`.trim()
+  )
+}
