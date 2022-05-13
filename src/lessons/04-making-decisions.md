@@ -242,9 +242,9 @@ Now try this AND operation:
 false && word
 ```
 
-There will be no error and the result will be `false`. That's because the first operand (i.e., `false`) is falsy; it is the result so JavaScript won't try to evaluate the other operand.
+There will be no error and the result will be `false`, though `word` is still not defined. That's because the first operand (`false`) is falsy; it is the result so JavaScript won't try to evaluate the second operand (`word`).
 
-However, switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
+Switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
 
 ```js
 word && false
