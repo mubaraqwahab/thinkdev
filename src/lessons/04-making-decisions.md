@@ -48,7 +48,7 @@ TODO
 
 {% set valuesLesson = collections.all | eleventyNavigation | find('title', 'Values and types') -%}
 
-1. Identify the expressions and statements in the code of the previous question. (You may need to review [{{ valuesLesson.title }}]({{ valuesLesson.url | url }}) for this.)
+1. Identify as many expressions and statements as you can in the code of the previous question. (You may need to review [{{ valuesLesson.title }}]({{ valuesLesson.url | url }}) for this.)
 
 1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you might notice that the URL domain begins with a two-letter code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
 

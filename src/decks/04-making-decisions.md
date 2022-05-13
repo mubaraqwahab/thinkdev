@@ -35,7 +35,7 @@ The relational operators:
 
 <section data-auto-animate>
 
-Use the <i>strict equality operator</i> `===` to determine if two values are equal:
+Use the <i>strict equality operator</i> to determine if two values are equal:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 2 === 5 - 3           // true
