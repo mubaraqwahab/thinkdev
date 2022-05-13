@@ -44,5 +44,3 @@ const a = 1, b = 2;
 ### Keywords and reserved words
 
 A word with a special meaning in a programming language is called a <i>keyword</i>. Most keywords in JavaScript are also reserved words&mdash;that is, they're not valid identifiers. Examples are `if`, `else`, `typeof`, and `null`.
-
-However, some keywords are allowed as identifiers in certain contexts, and some reserved words have no special meanings.
