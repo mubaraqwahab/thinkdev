@@ -164,7 +164,7 @@ console.log(2 === '2') // false
 console.log(2 == '2') // true
 ```
 
-It's discouraged to use this operator because of it's confusing behavior:
+It's discouraged to use this operator because of [it's confusing behavior](https://dorey.github.io/JavaScript-Equality-Table/):
 
 ```js
 console.log(false == null) // false
