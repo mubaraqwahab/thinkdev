@@ -12,6 +12,14 @@ const fs = require("fs")
 const path = require("path")
 const {execSync} = require("child_process")
 
+const option = process.argv[2]?.trim()
+if (option === "-h" || option === "--help") {
+  showHelpMessage()
+  process.exit()
+}
+
+const VERBOSE = option === "--verbose"
+
 const DECKS_DIR = "src/decks/"
 const DECK_PDFS_DIR = "public/decks/"
 
@@ -38,6 +46,8 @@ deckPDFs.forEach((pdf) => {
 
   if (pdfModifiedTime < srcModifiedTime) {
     console.warn(`WARNING: ${pdf} is stale.`)
+  } else if (VERBOSE) {
+    console.log(`INFO: ${pdf} is up to date.`)
   }
 })
 
@@ -52,4 +62,19 @@ function getLastCommitTimestamp(filePath) {
     encoding: "utf8",
   })
   return Number(stdout)
+}
+
+function showHelpMessage() {
+  console.log(
+    `
+Usage:
+  are-deck-pdfs-stale [-h|--help|--verbose]
+
+Check for stale deck PDFs.
+
+Example:
+  are-deck-pdfs-stale
+  are-deck-pdfs-stale --verbose
+`.trim()
+  )
 }
