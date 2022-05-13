@@ -69,29 +69,6 @@ TODO
 
 ## Extras
 
-### A shorter `if`
-
-You may omit the curly brackets in the `if` statement if there's only one statement within them. So, you may write:
-
-```js
-if (!messageCount)
-  notification = "You have no new messages.";
-```
-
-You can do the same with the `else if` and `else` branches:
-
-```js
-if (!messageCount)
-  notification = "You have no new messages.";
-else if (messageCount === 1)
-  notification = "You have a new message.";
-else
-  notification = `You have ${messageCount} new messages.`;
-```
-
-The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
-
-
 ### `if` expression
 
 Remember that the `if` statement is a _statement_. It's not an expression so it doesn't produce a value.
