@@ -617,21 +617,6 @@ if (course.rating) {
 
 <section data-auto-animate>
 
-TODO
-
-Same applies when using logical operators:
-
-<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
-if (course.rating && course.reviewsCount) {
-  console.log('Course has both rating and reviews.')
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate>
-
 The following values convert to `false`; we call them <i>falsy</i> values:
 
 <pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
