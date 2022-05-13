@@ -205,7 +205,7 @@ console.log("hi" || "hey" || "hello")
 
 [A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
 
-Start the Node REPL, type a word there, then hit <kbd class="key">Enter</kbd>:
+Start the Node REPL by typing `node` in your terminal and pressing <kbd class="key">Enter</kbd>. Then type any word in the REPL and press <kbd class="key">Enter</kbd>:
 
 ```js
 word
