@@ -1,6 +1,6 @@
 # thinkdev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9ddd2dd2-868a-4d60-bd4b-ea7bf90df7e8/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db23d46a-8a76-4c38-8b08-b513ed6298c3/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
 
 Source code for the [<i>Think Like a Developer</i> course website](https://thinkdev.netlify.app/).
 
