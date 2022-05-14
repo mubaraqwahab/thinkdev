@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slides: {{ title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/reveal/dist/reveal.css' | url }}">
-  {% set css %}{% include "css/deck.css" %}{% endset %}
-  <style>{{ css | postcss('deck') | safe }}</style>
   <link rel="stylesheet" href="{{ '/reveal/plugin/highlight/github-dark-dimmed.css' | url }}">
   {% include "meta.njk" %}
+  {% set css %}{% include "css/deck.css" %}{% endset %}
+  <style>{{ css | postcss('deck') | safe }}</style>
 </head>
 <body>
   <div class="reveal">

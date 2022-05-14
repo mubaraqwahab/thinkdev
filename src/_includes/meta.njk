@@ -1,7 +1,7 @@
 {#
   NOTES:
   * This file is included in regular pages and deck pages.
-  * Include this file before any other first-party scripts.
+  * Include this file before any other first-party scripts or styles.
 #}
 
 {% from "macros.njk" import script %}
@@ -25,7 +25,7 @@
 <script>
   const searchParams = new URL(window.location.href).searchParams;
   if (searchParams.has('src')) {
-    // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621) 
+    // Simulate HTTP redirect (see https://stackoverflow.com/a/506004/12695621)
     window.location.replace("{{ pageSourceUrl }}")
   } else if (searchParams.has('edit')) {
     window.location.replace("{{ site.repoUrl }}/edit/{{ site.deployBranch }}/{{ page.inputPath }}")
@@ -34,22 +34,10 @@
   }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="stylesheet"
-  href="{{
-    'https://fonts.googleapis.com/css2'
-    ~ '?family=Red+Hat+Text:ital,wght@0,400..700;1,400..700'
-    ~ '&family=Red+Hat+Mono:ital,wght@0,400;0,600;1,600'
-    ~ '&family=Red+Hat+Display:wght@900'
-    ~ '&display=swap'
-  }}"
-/>
-
 {#
+  SEO and PWA stuff.
   Used https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
-  and https://realfavicongenerator.net/ and https://www.pwabuilder.com/ to generate what's below.
+  and https://realfavicongenerator.net/ and https://www.pwabuilder.com/ to generate.
 #}
 <link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />
 <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml" />
@@ -60,3 +48,6 @@
 <meta name="description" content="{{ excerpt or site.description }}" />
 <meta name="author" content="{{ site.author.name }}" />
 {{ script("register-sw.js") if site.environment == "production" }}
+
+{% set fontsCSS %}{%- include "css/fonts.css" -%}{% endset %}
+<style>{{ fontsCSS | safe }}</style>
