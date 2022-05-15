@@ -132,7 +132,7 @@ if (expression) {
 }
 ```
 
-If `expression` is `true`, execute the statements in the curly brackets. Otherwise, ignore the statements.
+If `expression` is `true`, execute the statements in the braces. Otherwise, ignore the statements.
 
 </section>
 
