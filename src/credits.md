@@ -1,5 +1,5 @@
 ---
-layout: layouts/auxiliary
+layout: layouts/page
 title: Credits
 ---
 
