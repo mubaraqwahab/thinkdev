@@ -3,7 +3,20 @@
 // Read from .env in development. (Netlify will provide env vars elsewhere)
 if (process.env.NODE_ENV !== "production") require("dotenv").config()
 
-const fs = require("fs")
+// For debugging; don't remove!
+const envVars = [
+  "REPOSITORY_URL",
+  "BRANCH",
+  "HEAD",
+  "URL",
+  "DEPLOY_URL",
+  "DEPLOY_PRIME_URL",
+]
+for (const envVar of envVars) {
+  console.log(`${envVar}=${process.env[envVar]}`)
+}
+// End for debugging
+
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 
 const filters = require("./utils/filters.js")
@@ -11,16 +24,13 @@ const transforms = require("./utils/transforms.js")
 const markdownLib = require("./utils/markdown-it.js")
 
 /**
- * @param {import('@11ty/eleventy/src/EleventyConfig')} eleventyConfig
+ * @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig
  * @returns {Partial<ReturnType<import('@11ty/eleventy/src/defaultConfig')>>}
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
   eleventyConfig.setLibrary("md", markdownLib)
-
-  // See https://www.11ty.dev/docs/data-deep-merge/
-  eleventyConfig.setDataDeepMerge(true)
 
   for (const transform in transforms) {
     eleventyConfig.addTransform(transform.toLowerCase(), transforms[transform])
@@ -60,22 +70,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/main.css")
   // This doesn't appear to work :(
   eleventyConfig.addWatchTarget("tailwind.config.js")
-
-  eleventyConfig.setBrowserSyncConfig({
-    // Watch and serve even when offline
-    online: false,
-    // 404 page routing (see https://www.11ty.dev/docs/quicktips/not-found/)
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync("_site/404.html")
-          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" })
-          res.write(content_404)
-          res.end()
-        })
-      },
-    },
-  })
 
   return {
     dir: {

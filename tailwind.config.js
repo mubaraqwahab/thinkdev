@@ -1,6 +1,6 @@
 // @ts-check
 
-const { fontFamily } = require("tailwindcss/defaultTheme")
+const {fontFamily} = require("tailwindcss/defaultTheme")
 
 const codeLike = (theme) => ({
   color: "var(--tw-prose-code)",
@@ -23,7 +23,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      container: ({ theme }) => ({
+      container: ({theme}) => ({
         center: true,
         padding: {
           DEFAULT: theme("spacing.4"),
@@ -37,7 +37,7 @@ module.exports = {
         mono: ["'Red Hat Mono'", ...fontFamily.mono],
         display: ["'Red Hat Display'", "'Red Hat Text'", ...fontFamily.sans],
       },
-      typography: ({ theme }) => ({
+      typography: ({theme}) => ({
         DEFAULT: {
           css: {
             "--tw-prose-body": theme("colors.gray.700"),

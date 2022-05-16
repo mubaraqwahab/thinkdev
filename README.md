@@ -1,6 +1,6 @@
 # thinkdev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9ddd2dd2-868a-4d60-bd4b-ea7bf90df7e8/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db23d46a-8a76-4c38-8b08-b513ed6298c3/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
 
 Source code for the [<i>Think Like a Developer</i> course website](https://thinkdev.netlify.app/).
 
@@ -29,7 +29,8 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 
 * Avoid heading levels `h4` and lower; stick to `h1`, `h2`, and `h3`.
 
-* Horizontal slides should be separated by two lines, but vertical slides by a single line. For example:
+* Horizontal slides should be separated by three empty lines, but vertical slides by two lines.
+  Consecutive opening or closing slide tags should be separated by a single line. For example:
    ```md
    <section>
 
@@ -39,6 +40,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 
    </section>
 
+
    <section>
 
    ### Slide 1.1
@@ -46,6 +48,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
    </section>
 
    </section>
+
 
 
    <section>
@@ -69,3 +72,7 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Mark up text input with the [`<kbd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd). For example, <i>Type \<kbd>Hello\</kbd></i>. However, for actual keys, add `.key` to the `<kbd>` element, as in <i>Press \<kbd class="key">Enter\</kbd></i>.
 
 * Use `console.log` in sample codes to indicate what to output. Also use an adjacent comment (on the same line or a different line) to indicate what the output should be. Doing these ensures that the code "makes sense" in a JavaScript file and in the Node REPL. You may omit the `console.log` if you specify that the code should be run in the REPL. However, never use the prompt symbol!
+
+* Prefer WebP and SVG images to other formats for their quality and small file size.
+
+* Use absolute URLs for internal pages, with both leading and trailing slashes, as in `/decks/01-introduction/`. The trailing slash must be present because `/decks/01-introduction` and `/decks/01-introduction/` are treated differently in some contexts (e.g. service worker cache). Also, use the [Eleventy `url` filter](https://www.11ty.dev/docs/filters/url/) for all internal resource URLs.

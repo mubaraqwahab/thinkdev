@@ -80,12 +80,19 @@ layout: layouts/base
 
   <section class="py-24 border-b">
     <h2 id="lessons">The lessons</h2>
+
+    {% set lessons = collections.all | eleventyNavigation %}
+    {# Don't list drafts in production. #}
+    {% if site.environment == 'production' %}
+      {% set lessons = lessons | rejectattr('draft', true) %}
+    {% endif %}
+
     {#
       Tangent! Read this on aligning columns:
       https://blog.room34.com/archives/5454/some-problems-just-never-go-away-especially-where-css3-multi-columns-are-concerned/
     #}
     <ol>
-      {% for lesson in collections.all | eleventyNavigation %}
+      {% for lesson in lessons %}
         <li>
           <a href="{{ lesson.url | url }}">{{ lesson.title }}</a>
         </li>

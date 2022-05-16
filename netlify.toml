@@ -2,8 +2,19 @@
   publish = "_site"
   command = "npm run build"
 
+[build.processing.html]
+  pretty_urls = true
+
 [context.production]
   environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }
 
 [context.deploy-preview]
   environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }
+
+[[redirects]]
+  from = "/lessons/:slug/deck.pdf"
+  to = "/decks/:slug.pdf"
+
+[[redirects]]
+  from = "/lessons/:slug/deck"
+  to = "/decks/:slug"

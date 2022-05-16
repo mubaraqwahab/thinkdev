@@ -15,8 +15,7 @@
 const fs = require("fs")
 const path = require("path")
 
-const title = process.argv[2]
-
+const title = process.argv[2]?.trim()
 if (!title || title === "-h" || title === "--help") {
   showHelpMessage()
   process.exit()
@@ -52,7 +51,8 @@ console.log(`Created '${deckPath}'`)
 console.log("Done!")
 
 function lessonBoilerplate(title) {
-  return `---
+  return `
+---
 title: ${title}
 excerpt: >
 ---
@@ -74,11 +74,12 @@ TODO
 ## Extras
 
 TODO
-`
+`.trimStart()
 }
 
 function deckBoilerplate(title) {
-  return `---
+  return `
+---
 title: ${title}
 ---
 
@@ -94,14 +95,20 @@ title: ${title}
 ## TODO: slide 2
 
 </section>
-`
+`.trimStart()
 }
 
 function showHelpMessage() {
-  console.log(`Usage: new-lesson [-h|--help|title]
+  console.log(
+    `
+Usage:
+  new-lesson [-h|--help]
+  new-lesson <title>
 
 Create a new lesson page and its slide deck.
 
-Example: new-lesson "Making decisions"
-`)
+Example:
+  new-lesson "Making decisions"
+`.trim()
+  )
 }

@@ -5,10 +5,10 @@ const babel = require("@babel/core")
 const postcss = require("postcss").default
 const tailwindcss = require("tailwindcss")
 const resolveTailwindConfig = require("tailwindcss/resolveConfig")
+const postcssNested = require("postcss-nested")
 const autoprefixer = require("autoprefixer")
 const kebabCase = require("kebab-case")
 const terser = require("terser")
-const GithubSlugger = require("github-slugger")
 
 /**
  * @template T
@@ -25,7 +25,7 @@ module.exports = {
         [
           "@babel/preset-env",
           // Don't transform ES import/export
-          { modules: false },
+          {modules: false},
         ],
       ],
     })
@@ -58,10 +58,14 @@ module.exports = {
    *  If this is omitted, the default config is used.
    */
   postcss(css, preset = "default") {
-    const { fontFamily } = require("tailwindcss/defaultTheme")
+    const {fontFamily} = require("tailwindcss/defaultTheme")
 
     const deckTailwindConfig = resolveTailwindConfig({
-      content: ["src/_includes/layouts/deck.njk", "src/decks/**/*.md"],
+      content: [
+        "src/_includes/layouts/deck.njk",
+        "src/decks/**/*.md",
+        "utils/**/*.js",
+      ],
       theme: {
         extend: {
           fontFamily: {
@@ -79,7 +83,9 @@ module.exports = {
     })
 
     return postcss([
-      preset === "deck" ? tailwindcss(deckTailwindConfig) : tailwindcss,
+      ...(preset === "deck"
+        ? [tailwindcss(deckTailwindConfig), postcssNested()]
+        : [tailwindcss]),
       autoprefixer,
     ]).process(css).css
   },
@@ -171,12 +177,17 @@ module.exports = {
   },
 
   /**
-   * Know that this *will* fail if a page has multiple headings
-   * with the same text content.
+   * Serialize an object into a URL search (query) string.
+   * @param {Record<string, string>} obj
+   * @returns {string}
+   *
+   * @example
+   * queryStr({ foo: "bar", baz: "qux" })
+   * //=> "?foo=bar&baz=qux"
    */
-  hashlink(text) {
-    const slugger = new GithubSlugger()
-    return "#" + slugger.slug(text)
+  queryStr(obj) {
+    const searchParams = new URLSearchParams(obj)
+    return searchParams.toString()
   },
 
   // FOR DEBUGGING
@@ -187,7 +198,7 @@ module.exports = {
   },
 
   inspect(obj, depth = 3) {
-    return util.inspect(obj, { depth })
+    return util.inspect(obj, {depth})
   },
 }
 

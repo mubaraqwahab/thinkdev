@@ -1,3 +1,7 @@
+// @ts-check
+
+const {requiredEnv} = require("../../utils/shared")
+
 module.exports = {
   title: "Think Like a Developer",
   shortTitle: "thinkdev",
@@ -7,7 +11,8 @@ module.exports = {
     name: "Mubaraq Wahab",
     url: "https://github.com/mubaraqwahab",
   },
-  repoUrl: process.env.REPOSITORY_URL,
-  deployBranch: process.env.HEAD,
+  url: requiredEnv("URL"),
+  repoUrl: requiredEnv("REPOSITORY_URL"),
+  deployBranch: requiredEnv("HEAD"),
   environment: process.env.NODE_ENV,
 }

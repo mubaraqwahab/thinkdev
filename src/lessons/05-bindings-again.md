@@ -1,12 +1,11 @@
 ---
 title: Bindings again
+draft: true
 excerpt: >
   We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
 ---
 
 ## Video
-
-### Lesson session
 
 TODO
 
