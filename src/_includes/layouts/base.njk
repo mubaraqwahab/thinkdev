@@ -31,9 +31,9 @@
         }
       </style>
     {% endif %}
+    {% include "meta.njk" %}
     {# Place after all 3rd-party stylesheets #}
     <link rel="stylesheet" href="{{ '/main.css' | url }}" />
-    {% include "meta.njk" %}
   </head>
   {# The flex and flex col class allows the main body to stretch vertically #}
   <body class="flex flex-col min-h-screen text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">

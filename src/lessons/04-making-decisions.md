@@ -26,29 +26,33 @@ TODO
         body: "I'm just going there now",
         time: '31 Dec 2021, 10:16 AM'
       },
-    ]
+    ];
 
-    const messageCount = newMessages.length
-    let notification
+    const messageCount = newMessages.length;
+    let notification;
 
     if (!messageCount) {
-      notification = "You have no new messages."
+      notification = "You have no new messages.";
     } else if (messageCount === 1) {
-      notification = "You have a new message."
+      notification = "You have a new message.";
     } else {
-      notification = `You have ${messageCount} new messages.`
+      notification = `You have ${messageCount} new messages.`;
     }
 
-    console.log(notification)
+    console.log(notification);
     ```
 
     What does the code do? What output do you expect? Observe that the `newMessages` array has two objects in it. If you removed one of the objects or both, or you added a new one, how would it affect the output of the code?
 
     Now run the code to see if it works as you expect. If you're correct, then well done; you're starting to get a hold of the language. If you're not, don't worry; it's all part of the learning process; try to figure out where you went wrong.
 
-1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you'll notice that the URL domain begins with a two-letter (or three-letter) code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
+{% set valuesLesson = collections.all | eleventyNavigation | find('title', 'Values and types') -%}
 
-    The following table lists some languages and their codes.
+1. Identify as many expressions and statements as you can in the code of the previous question. (You may need to review [{{ valuesLesson.title }}]({{ valuesLesson.url | url }}) for this.)
+
+1. [Language codes](https://en.wikipedia.org/wiki/Language_code) are codes used to identify human languages. They're often used in websites to organise content into different languages. An example of such a website is [Wikipedia](https://www.wikipedia.org). If you visit a Wikipedia page, you might notice that the URL domain begins with a two-letter code, as in "<b>en</b>.wikipedia.org". The "en" indicates that the page is in English. Similarly, an Arabic page would have the domain "<b>ar</b>.wikipedia.org".
+
+    The following table lists some languages and their codes:
 
     | Language | Code |
     | --- | --- |
@@ -62,35 +66,17 @@ TODO
 
     {.w-auto}
 
-    Write a program that tells the name of a language, given its code. The program should work correctly for the language codes in the table. It should also inform you if a given code is not in the table. For instance, if the code is `"en"`, the program should print <samp>English</samp>, but if it's `"it"`, it should print <samp>Unknown</samp>.
+    Complete the following program so that it prints the language that the `languageCode` variable corresponds to. The variable is currently set to `"en"`, so the program should print <samp>English</samp>. If you change the value to a different language code from the above table, like `"ha"`, the program should still work correctly.
 
-1. Create a copy of the previous program and modify it so that it, instead, tells the language that a Wikipedia domain corresponds to.
-    For instance, the program should print <samp>Hausa</samp> if you give it the domain `"ha.wikipedia.org"`.
+    ```js
+    const languageCode = 'en';
+
+    // Your task: complete the program.
+    ```
+
+    (**Hint:** use the `if` statement and its branches to decide what language to print.)
 
 ## Extras
-
-### A shorter `if`
-
-You may omit the curly brackets in the `if` statement if there's only one statement within them. So, you can write:
-
-```js
-if (!messageCount)
-  notification = "You have no new messages.";
-```
-
-You can do the same with the `else if` and `else` branches:
-
-```js
-if (!messageCount)
-  notification = "You have no new messages.";
-else if (messageCount === 1)
-  notification = "You have a new message.";
-else
-  notification = `You have ${messageCount} new messages.`;
-```
-
-The curly brackets actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
-
 
 ### `if` expression
 
@@ -150,7 +136,7 @@ The conditional operator is the only <i>ternary operator</i>, taking three opera
 
 ### Loose equality
 
-Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, which we call the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison (the formal term is <i>abstract equality comparison</i>).
+Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, which we call the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison.
 
 The double equals operator works like the triple equals; it's difference is that it converts the types of it's operands, if they're different, before comparing them. Let's take an example:
 
@@ -164,7 +150,7 @@ console.log(2 === '2') // false
 console.log(2 == '2') // true
 ```
 
-It's discouraged to use this operator because of it's confusing behavior:
+It's discouraged to use this operator because of [it's confusing behavior](https://dorey.github.io/JavaScript-Equality-Table/):
 
 ```js
 console.log(false == null) // false
@@ -228,7 +214,7 @@ console.log("hi" || "hey" || "hello")
 
 [A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
 
-Start the Node REPL, type a word there, then hit <kbd class="key">Enter</kbd>:
+Start the Node REPL by typing `node` in your terminal and pressing <kbd class="key">Enter</kbd>. Then type any word in the REPL and press <kbd class="key">Enter</kbd>:
 
 ```js
 word
@@ -242,9 +228,9 @@ Now try this AND operation:
 false && word
 ```
 
-There will be no error and the result will be `false`. That's because the first operand (i.e., `false`) is falsy; it is the result so JavaScript won't try to evaluate the other operand.
+There will be no error and the result will be `false`, though `word` is still not defined. That's because the first operand (`false`) is falsy; it is the result so JavaScript won't try to evaluate the second operand (`word`).
 
-However, switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
+Switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
 
 ```js
 word && false

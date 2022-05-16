@@ -1,6 +1,6 @@
 # thinkdev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9ddd2dd2-868a-4d60-bd4b-ea7bf90df7e8/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db23d46a-8a76-4c38-8b08-b513ed6298c3/deploy-status)](https://app.netlify.com/sites/thinkdev/deploys)
 
 Source code for the [<i>Think Like a Developer</i> course website](https://thinkdev.netlify.app/).
 
@@ -76,3 +76,5 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Prefer WebP and SVG images to other formats for their quality and small file size.
 
 * Use the Netlify `CONTEXT` environment variable to determine the context of a build (e.g. `production` or `deploy-preview`). Set this variable to an empty string in development, or omit it altogether. On a related note, **don't use the `NODE_ENV` variable to determine the context of a build**. (For now, I'm only using `NODE_ENV` to determine whether npm should install dev-dependencies.)
+
+* Use absolute URLs for internal pages, with both leading and trailing slashes, as in `/decks/01-introduction/`. The trailing slash must be present because `/decks/01-introduction` and `/decks/01-introduction/` are treated differently in some contexts (e.g. service worker cache). Also, use the [Eleventy `url` filter](https://www.11ty.dev/docs/filters/url/) for all internal resource URLs.

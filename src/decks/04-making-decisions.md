@@ -35,7 +35,7 @@ The relational operators:
 
 <section data-auto-animate>
 
-Use the <i>strict equality operator</i> `===` to determine if two values are equal:
+Use the <i>strict equality operator</i> to determine if two values are equal:
 
 <pre data-id="eq"><code data-line-numbers data-trim class="language-js">
 2 === 5 - 3           // true
@@ -132,7 +132,7 @@ if (expression) {
 }
 ```
 
-If `expression` is `true`, execute the statements in the curly brackets. Otherwise, ignore the statements.
+If `expression` is `true`, execute the statements in the braces. Otherwise, ignore the statements.
 
 </section>
 
@@ -171,7 +171,7 @@ const course = {
   // ...
 }
 
-course.rating !== 0.0 // true
+course.rating !== 0 // true
 </code></pre>
 
 </section>
@@ -279,7 +279,7 @@ How do we print a different message? {.h3}
 
 <section>
 
-<pre data-id="if"><code data-line-numbers="7-11|9-11" class="language-js" data-trim>
+<pre data-id="if"><code data-line-numbers="9-11|7-11" class="language-js" data-trim>
 const course = {
   rating: 0,
   // ...
@@ -361,7 +361,7 @@ if (choice === 1) {
 
 <section data-auto-animate>
 
-You can use a final `else` to handle any other choice.
+You can use a final `else` to handle any other choice:
 
 <pre data-id="if"><code data-line-numbers="8-10" class="language-js" data-trim>
 const choice = 1 // Could be any other number
@@ -440,9 +440,9 @@ Let's assume each laptop looks like this:
 
 <pre data-id=or><code data-line-numbers="" class="language-js" data-trim>
 const laptop = {
-  title: '',
-  brand: '',
-  screenSize: 0,
+  title: 'MacBook Pro 13"',
+  brand: 'Apple',
+  screenSize: 13,
   // ...
 }
 </code></pre>
@@ -544,7 +544,23 @@ NOT syntax:
 
 <section data-auto-animate>
 
-<pre data-id="not"><code data-line-numbers="|2" class="language-js" data-trim>
+We wrote this previously:
+
+<pre data-id="not"><code data-line-numbers="" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (brand === 'Apple' && screenSize === 14) {
+  console.log("It's a 14-inch Apple laptop.")
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Let's invert it:
+
+<pre data-id="not"><code data-line-numbers="2|3" class="language-js" data-trim>
 const { brand, screenSize } = laptop
 if (!(brand === 'Apple' && screenSize === 14)) {
   console.log("It's not a 14-inch Apple laptop.")
@@ -593,19 +609,6 @@ We could write it this way too:
 <pre data-id="truthy"><code data-line-numbers="1" class="language-js" data-trim>
 if (course.rating) {
   console.log(`Rating: ${course.rating}`)
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate>
-
-Same applies when using logical operators:
-
-<pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
-if (course.rating && course.reviewsCount) {
-  console.log('Course has both rating and reviews.')
 }
 </code></pre>
 

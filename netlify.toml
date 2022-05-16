@@ -2,6 +2,9 @@
   publish = "_site"
   command = "npm run build"
 
+[build.processing.html]
+  pretty_urls = true
+
 [context.production]
   environment = { NODE_ENV = "production", NODE_VERSION = "14.15.3" }
 
