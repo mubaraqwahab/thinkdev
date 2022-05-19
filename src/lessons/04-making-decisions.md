@@ -4,9 +4,9 @@ excerpt: >
   Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn some JavaScript constructs that we can use to make such decisions.
 ---
 
-## Videos
+## Video
 
-TODO
+https://youtu.be/1wru0BTXcJ4
 
 ## Exercise
 
