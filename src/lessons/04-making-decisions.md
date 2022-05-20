@@ -6,7 +6,7 @@ excerpt: >
 
 ## Video
 
-TODO
+https://youtu.be/1wru0BTXcJ4
 
 ## Exercise
 
