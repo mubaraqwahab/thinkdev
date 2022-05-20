@@ -7,7 +7,7 @@ excerpt: >-
   we can use to conveniently represent entities and lists.
 ---
 
-## Videos
+## Video
 
 https://youtu.be/cAH743q8keE
 

@@ -1,10 +1,10 @@
 ---
 title: Making decisions
-excerpt: >-
-  Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn some JavaScript constructs that we can use to make such decisions.
+excerpt: >
+  Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn how to write programs that can make decisions.
 ---
 
-## Videos
+## Video
 
 TODO
 
@@ -31,7 +31,7 @@ TODO
     const messageCount = newMessages.length;
     let notification;
 
-    if (!messageCount) {
+    if (messageCount === 0) {
       notification = "You have no new messages.";
     } else if (messageCount === 1) {
       notification = "You have a new message.";
@@ -78,6 +78,88 @@ TODO
 
 ## Extras
 
+### Loose equality
+
+Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, which we call the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison.
+
+The double equals operator works like the triple equals; it's difference is that it converts the types of it's operands, if they're different, before comparing them. Let's take an example:
+
+```js
+// Strict equality
+// Different types, different values
+console.log(2 === '2') // false
+
+// Loose equality
+// The string will be converted to a number before comparing
+console.log(2 == '2') // true
+```
+
+It's discouraged to use this operator because of [it's confusing behavior](https://dorey.github.io/JavaScript-Equality-Table/):
+
+```js
+console.log(false == null) // false
+console.log(false == '')   // true
+console.log([1] == '1')    // true
+console.log([[]] == 0)     // true
+```
+
+There's a `!=` counterpart for loose inequality too.
+
+### A shorter `if`
+
+You may omit the braces in the `if` statement if there's only one statement within them. Take the following `if` statement for example:
+
+```js
+if (messageCount === 0) {
+  notification = "You have no new messages.";
+}
+```
+
+There's only one statement in the braces, so you may write it as:
+
+```js
+if (messageCount === 0)
+  notification = "You have no new messages.";
+```
+
+If you have more than one statement, then you must use the braces:
+
+```js
+if (messageCount === 0) {
+  notification = "You have no new messages.";
+  console.log(notification)
+}
+```
+
+Omitting the braces otherwise changes the meaning of the program:
+
+```js
+if (messageCount === 0)
+  notification = "You have no new messages.";
+  console.log(notification)
+
+// The above is equivalent to:
+if (messageCount === 0) {
+  notification = "You have no new messages.";
+}
+console.log(notification)
+```
+
+You may also omit the braces in the `else if` and `else branches` if they contain only one statement:
+
+```js
+if (messageCount === 0)
+  notification = "You have no new messages.";
+else if (messageCount === 1)
+  notification = "You have a new message.";
+else
+  notification = `You have ${messageCount} new messages.`;
+```
+
+The braces actually create something called a <i>block statement</i> ("block" for short), which is just a way to group other statements.
+
+Anyway, when you're not sure, always use the braces.
+
 ### `if` expression
 
 Remember that the `if` statement is a _statement_. It's not an expression so it doesn't produce a value.
@@ -119,130 +201,3 @@ let remark = condition ? "yes" : "no"
 
 If the condition is truthy, the `remark` variable will be assigned the value `"yes"`;
 if it's falsy, `remark` will be assigned `"no"`.
-
-### Unary, binary, ternary
-
-We've discussed several operators in JavaScript, such as `typeof`, `+`, and even the conditional operator (`? :`).
-Each operator takes some values known as <i>operands</i>. For example, the operands of the
-`+` operator in the following addition are `3` and `4`:
-
-```js
-3 + 4
-```
-
-Many operators like the addition operator take two operands, so we call them <i>binary operators</i>.
-Others like `typeof` that take a single operand are <i>unary operators</i>.
-The conditional operator is the only <i>ternary operator</i>, taking three operands.
-
-### Loose equality
-
-Many programming languages use the double equals symbol `==` to compare if two values are equal. We've seen that JavaScript uses the triple equals `===` instead, which we call the strict equality operator. However, JavaScript also supports the `==` operator for "loose" equality comparison.
-
-The double equals operator works like the triple equals; it's difference is that it converts the types of it's operands, if they're different, before comparing them. Let's take an example:
-
-```js
-// Strict equality
-// Different types, different values
-console.log(2 === '2') // false
-
-// Loose equality
-// The string will be converted to a number before comparing
-console.log(2 == '2') // true
-```
-
-It's discouraged to use this operator because of [it's confusing behavior](https://dorey.github.io/JavaScript-Equality-Table/):
-
-```js
-console.log(false == null) // false
-console.log(false == '')   // true
-console.log([1] == '1')    // true
-console.log([[]] == 0)     // true
-```
-
-There's a `!=` counterpart for loose inequality too.
-
-### Short-circuit evaluation
-
-When you use the NOT operator, the result is always a boolean:
-
-```js
-console.log(!0)    // true
-console.log(!"hi") // false
-```
-
-This is not always the case with the AND and OR operators:
-
-```js
-console.log(0 && null) // 0
-console.log([] && '')  // ''
-console.log("hi" && "hey" && "hello") // "hello"
-
-console.log(0 || null) // null
-console.log([] || '')  // []
-console.log("hi" || "hey" || "hello") // "hi"
-```
-
-How they work is fairly straightforward though.
-
-The result of an AND operation is the value of its first falsy operand. When there's no falsy operand, the result is the last operand.
-
-```js
-console.log(0 && null)
-// The result is 0 because it's the first falsy operand
-
-console.log([] && '')
-// The first falsy operand here is '', so it's the result
-
-console.log("hi" && "hey" && "hello")
-// There's no falsy operand here,
-// so the result is the last operand, "hello"
-```
-
-The OR operation works in the opposite way. Its result is the value of its first truthy operand, but when there's no truthy operand, its result is the last operand.
-
-```js
-console.log(0 || null)
-// There's no truthy operand here,
-// so the result is the last operand, null
-
-console.log([] || '')
-// The first truthy operand here is [], so it's the result
-
-console.log("hi" || "hey" || "hello")
-// The result is "hi" because it's the first truthy operand
-```
-
-[A]{id=virtue style="scroll-margin-top: 5rem;"} virtue of this is that there is no need to evaluate subsequent operands once the result operand is known. We call this <i>short-circuit evaluation</i>, and it is indeed how the AND and OR operations work in JavaScript. Let's test it.
-
-Start the Node REPL by typing `node` in your terminal and pressing <kbd class="key">Enter</kbd>. Then type any word in the REPL and press <kbd class="key">Enter</kbd>:
-
-```js
-word
-```
-
-You'll get an <samp>Uncaught ReferenceError: word is not defined</samp>. That's because JavaScript tried to evaluate what you typed, but it couldn't find any <i>reference</i> (e.g., a variable) called "word".
-
-Now try this AND operation:
-
-```js
-false && word
-```
-
-There will be no error and the result will be `false`, though `word` is still not defined. That's because the first operand (`false`) is falsy; it is the result so JavaScript won't try to evaluate the second operand (`word`).
-
-Switching the operands results in the same error since the first operand becomes an undefined reference that cannot be evaluated:
-
-```js
-word && false
-// Uncaught ReferenceError: word is not defined
-```
-
-You'll observe this in the OR operation too:
-
-```js
-true || word
-// true
-
-word || true
-// Uncaught ReferenceError: word is not defined
-```
