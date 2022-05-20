@@ -353,6 +353,8 @@ if (choice === 1) {
   console.log('Open Account')
 } else if (choice === 2) {
   console.log('Account Balance')
+} else if (choice === 3) {
+  console.log('Airtime/Data')
 } // ...
 </code></pre>
 
@@ -364,12 +366,12 @@ if (choice === 1) {
 You can use a final `else` to handle any other choice:
 
 <pre data-id="if"><code data-line-numbers="8-10" class="language-js" data-trim>
-const choice = 1 // Could be any other number
-
 if (choice === 1) {
   console.log('Open Account')
 } else if (choice === 2) {
   console.log('Account Balance')
+} else if (choice === 3) {
+  console.log('Airtime/Data')
 } // ...
 else {
   console.log('Invalid choice')
