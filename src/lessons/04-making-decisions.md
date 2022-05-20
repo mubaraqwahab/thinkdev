@@ -8,7 +8,7 @@ excerpt: >
 
 TODO
 
-## Exercise
+## Exercises
 
 1. This exercise is to help you get familiar with reading and understanding code.
 

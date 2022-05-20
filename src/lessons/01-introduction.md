@@ -16,7 +16,7 @@ excerpt: >-
 
 https://youtu.be/B5mqMzbsG8A
 
-## Exercise
+## Exercises
 
 1. Install these software on your computer; they'll provide us the environment to write and run JavaScript programs.
    * [Node.js v14+](https://nodejs.org/en/)
