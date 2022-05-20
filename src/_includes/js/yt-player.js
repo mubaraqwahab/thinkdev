@@ -122,7 +122,12 @@ function loadStore() {
  * @param {Store} store
  */
 function dumpStore(store) {
-  localStorage.setItem(SEEK_TIME_KEY, JSON.stringify(store))
+  if (!Object.keys(store).length) {
+    // Clear store if it's empty (just to keep things clean)
+    localStorage.removeItem(SEEK_TIME_KEY)
+  } else {
+    localStorage.setItem(SEEK_TIME_KEY, JSON.stringify(store))
+  }
 }
 
 /**

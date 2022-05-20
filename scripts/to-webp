@@ -5,13 +5,19 @@
 dest='public/assets/images/'
 
 read -r -d '' HELP << EOM
-Usage: to-webp [path|glob|-h|--help]
+Usage:
+  to-webp [-h|--help]
+  to-webp <path|glob> [--clean]
 
-Convert images to webp. The destination is "$dest".
+Convert images to WebP format and save them to "$dest".
+
+Options:
+  -h, --help  Show this message.
+  --clean     Delete the source images after converting.
 
 Examples:
-  to-webp "public/assets/image.png"
-  to-webp "public/assets/*.jpg"
+  to-webp "image.png"
+  to-webp "public/assets/*.jpg" --clean
 EOM
 
 if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
@@ -20,3 +26,10 @@ then
 fi
 
 npx imagemin "$1" --out-dir="$dest" --plugin=webp
+
+if [ "$2" = "--clean" ]
+then
+  # Let the shell expand the (maybe) glob;
+  # rm accepts multiple paths but not globs.
+  rm --verbose $1
+fi
