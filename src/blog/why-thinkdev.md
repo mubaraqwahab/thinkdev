@@ -1,6 +1,6 @@
 ---
 title: Why thinkdev?
-# Update these before publishing
+# TODO: Update these before publishing
 date: 2022-06-10
 draft: true
 excerpt: >-

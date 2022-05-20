@@ -100,12 +100,8 @@ Usage:
 
 Create a new lesson page and its slide deck.
 
-<<<<<<< HEAD
-Example: new-lesson "Making decisions"
-=======
 Example:
   new-lesson "Making decisions"
->>>>>>> new-04
 `.trim()
   )
 }

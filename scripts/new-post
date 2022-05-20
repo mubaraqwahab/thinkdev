@@ -42,7 +42,7 @@ function postBoilerplate(title) {
   return `
 ---
 title: ${title}
-# Update these before publishing
+# TODO: Update these before publishing
 date: ${date}
 draft: true
 excerpt: >-
@@ -54,11 +54,14 @@ excerpt: >-
 function showHelpMessage() {
   console.log(
     `
-Usage: new-lesson [-h|--help|title]
+Usage:
+  new-post [-h|--help]
+  new-post <title>
 
 Create a new blog post.
 
-Example: new-lesson "Making decisions"
+Example:
+  new-post "Why thinkdev?"
 `.trim()
   )
 }
