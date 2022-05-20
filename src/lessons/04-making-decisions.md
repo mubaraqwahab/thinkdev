@@ -168,19 +168,21 @@ variable depending on some condition (the condition doesn't really matter; what 
 
 ```js
 let remark;
-if (condition)
+if (condition) {
   remark = "yes";
-else
+} else {
   remark = "no";
+}
 ```
 
 Rewriting it as follows is invalid because we're treating the `if` statement like an expression:
 
 ```js
-let remark = if (condition)
+let remark = if (condition) {
   "yes";
-else
+} else {
   "no";
+}
 ```
 
 However, it is sometimes convenient to use an expression to make a decision.
