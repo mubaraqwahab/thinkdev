@@ -47,6 +47,29 @@ let x = "Hey there"
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="j">
+
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+  <path style="fill:none" d="M0 0h1280v800H0z"/>
+  <rect x=>
+  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" transform="matrix(1.42857 0 0 1.45802 -378.4 -81.23)"/>
+  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
+  <path d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+</svg>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="j">
+
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+  <path style="fill:none" d="M0 0h1280v800H0z"/>
+  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" transform="matrix(1.42857 0 0 1.45802 -378.4 -81.23)"/>
+  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
+  <path d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+</svg>
+
+</section>
+
 <section data-auto-animate>
 
 Think of it this way: we're binding the name `x` to the string value `"Hey there"`, so that we can refer to it later as `x`. {data-id="varbindDesc"}
