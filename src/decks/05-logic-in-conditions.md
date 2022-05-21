@@ -226,14 +226,14 @@ if (!(brand === 'Apple' && screenSize === 14)) {
 
 <section>
 
-The expressions used in making decisions don't have to be boolean; JavaScript automatically converts them. {.h3}
+The conditions don't have to be boolean; JavaScript automatically converts them. {.h3}
 
 </section>
 
 
 <section data-auto-animate>
 
-We did this before:
+We did this in the previous lesson:
 
 <pre data-id="truthy"><code data-line-numbers="" class="language-js" data-trim>
 if (course.rating !== 0) {
@@ -285,6 +285,15 @@ Boolean([1, 2])           // true
 Boolean([])               // true
 Boolean(true)             // true
 </code></pre>
+
+</section>
+
+
+<section>
+
+TODO: truthy/falsy with logical ops.
+
+Consider something like `obj.prop && obj.prop.inner`
 
 </section>
 
