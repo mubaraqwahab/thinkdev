@@ -6,14 +6,14 @@ title: Logic in conditions
 
 <section>
 
-We can now make decisions based on single&nbsp;conditions. {.h3}
+We learnt how to make decisions from single&nbsp;conditions. {.h3}
 
 </section>
 
 
 <section>
 
-What if we have many conditions? {.h3}
+But what if we have _many_ conditions? {.h3}
 
 </section>
 
@@ -31,18 +31,30 @@ What if we have many conditions? {.h3}
 
 <section>
 
-<section>
+<section data-auto-animate>
 
 ## Logical operators
-
-[OR]{.inline-block .fragment .fade-up}[, AND]{.inline-block .fragment .fade-down}[, and NOT.]{.inline-block .fragment .fade-right}
 
 </section>
 
 
+<section data-auto-animate>
+
+## Logical operators
+
+OR[, AND]{.inline-block .fragment .fade-down}[, and NOT.]{.inline-block .fragment .fade-right}
+
+</section>
+
+</section>
+
+
+
 <section>
 
-### OR
+<section>
+
+## OR
 
 </section>
 
@@ -94,10 +106,15 @@ if (brand === 'Apple' || brand === 'Microsoft') {
 
 </section>
 
+</section>
+
+
 
 <section>
 
-### AND
+<section>
+
+## AND
 
 </section>
 
@@ -133,10 +150,15 @@ if (brand === 'Apple' && screenSize === 14) {
 
 </section>
 
+</section>
+
+
 
 <section>
 
-### NOT
+<section>
+
+## NOT
 
 </section>
 

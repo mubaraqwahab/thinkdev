@@ -14,8 +14,6 @@ TODO
 
 ## Extras
 
-TODO: review
-
 ### `if` expression
 
 Remember that the `if` statement is a _statement_. It's not an expression so it doesn't produce a value.
