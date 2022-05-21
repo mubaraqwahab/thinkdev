@@ -1,5 +1,5 @@
 ---
-title: Compound conditions
+title: Logic in conditions
 ---
 
 <section>
