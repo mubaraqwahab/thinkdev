@@ -145,7 +145,7 @@ if (messageCount === 0) {
 console.log(notification)
 ```
 
-You may also omit the braces in the `else if` and `else branches` if they contain only one statement:
+You may also omit the braces in the `else if` and `else` branches if they contain only one statement:
 
 ```js
 if (messageCount === 0)
