@@ -1,5 +1,5 @@
 ---
-title: Logical operations
+title: Logical operators
 ---
 
 <section>
