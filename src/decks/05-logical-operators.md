@@ -6,14 +6,14 @@ title: Logical operators
 
 <section>
 
-We learnt how to make decisions from single&nbsp;conditions. {.h3}
+We learnt how to make decisions based&nbsp;on&nbsp;single&nbsp;conditions. {.h3}
 
 </section>
 
 
 <section>
 
-But what if we have _many_ conditions? {.h3}
+But what if we have many conditions? {.h3}
 
 </section>
 
@@ -38,7 +38,7 @@ But what if we have _many_ conditions? {.h3}
 </section>
 
 
-<section data-auto-animate>
+<section data-auto-animate data-auto-animate-duration=0.6>
 
 ## Logical operators
 
