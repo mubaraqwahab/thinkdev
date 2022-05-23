@@ -25,6 +25,11 @@
   :not(pre[tabindex="-1"]):focus {
     @apply focused;
   }
+
+  ::selection {
+    @apply text-white bg-[#3390ff];
+    @apply dark:bg-[#0362d4];
+  }
 }
 
 @layer components {
