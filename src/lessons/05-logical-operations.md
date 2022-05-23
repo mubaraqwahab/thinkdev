@@ -1,7 +1,7 @@
 ---
 title: Logical operations
 draft: true
-excerpt: >
+excerpt: >-
 ---
 
 ## Video

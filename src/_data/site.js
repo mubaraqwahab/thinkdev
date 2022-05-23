@@ -14,6 +14,5 @@ module.exports = {
   url: requiredEnv("URL"),
   repoUrl: requiredEnv("REPOSITORY_URL"),
   deployBranch: requiredEnv("HEAD"),
-  environment: process.env.NODE_ENV,
-  context: process.env.CONTEXT,
+  context: requiredEnv("CONTEXT"),
 }

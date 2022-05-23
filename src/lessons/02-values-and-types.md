@@ -1,6 +1,6 @@
 ---
 title: Values and types
-excerpt: >
+excerpt: >-
   Values lie at the heart of programming.
   In this lesson, we'll look at some of JavaScript's primitive types of values and how to manipulate them.
   We'll also discuss related concepts like expressions, statements, and variables.
