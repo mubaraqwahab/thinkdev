@@ -1,5 +1,5 @@
 ---
-title: Logic in conditions
+title: Logical operations
 ---
 
 <section>
