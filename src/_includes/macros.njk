@@ -49,7 +49,7 @@
   {% set js %}
     {% include "js/" ~ path %}
   {% endset %}
-  {% if site.environment == "production" -%}
+  {% if site.context -%}
     <script {{ attrs | htmlattrs | safe }}>{{ js | babel | safe }}</script>
   {% else -%}
     <script {{ attrs | htmlattrs | safe }}>{{ js | safe }}</script>
