@@ -8,7 +8,7 @@ layout: layouts/base
 
 {% set lessons = collections.all | eleventyNavigation %}
 {# Don't list drafts in production. #}
-{% if site.environment == 'production' %}
+{% if site.context == 'production' %}
   {% set lessons = lessons | rejectattr('draft', true) %}
 {% endif %}
 

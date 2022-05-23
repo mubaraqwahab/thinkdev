@@ -29,7 +29,7 @@ function transformHTML(content, outputPath) {
 
   const html = dom.serialize()
 
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.CONTEXT) {
     return htmlmin.minify(html, {
       useShortDoctype: true,
       removeComments: true,
