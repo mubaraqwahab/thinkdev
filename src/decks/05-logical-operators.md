@@ -150,6 +150,49 @@ if (brand === 'Apple' && screenSize === 14) {
 
 </section>
 
+
+<section>
+
+![The e-commerce laptop list filtered to show only 13 or 14-inch Apple or Microsoft laptops.]({{ '/assets/images/laptop-filters-and-or.webp' | url }})
+
+</section>
+
+
+<section data-auto-animate>
+
+<pre data-id="and"><code data-line-numbers="2-5" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (
+  brand === 'Apple' || brand === 'Microsoft'
+  <span class="inline-block fragment fade-down">screenSize === 13 || screenSize === 14</span>
+) {
+  console.log(
+    "It's a 13 or 14-inch Apple or Microsoft laptop."
+  )
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+AND has higher precedence than OR:
+
+<pre data-id="and"><code data-line-numbers="2-5|6-8" class="language-js" data-trim>
+const { brand, screenSize } = laptop
+if (
+  (brand === 'Apple' || brand === 'Microsoft') &&
+  (screenSize === 13 || screenSize === 14)
+) {
+  console.log(
+    "It's a 13 or 14-inch Apple or Microsoft laptop."
+  )
+}
+</code></pre>
+
+</section>
+
 </section>
 
 
@@ -200,7 +243,7 @@ if (brand === 'Apple' && screenSize === 14) {
 
 <section data-auto-animate>
 
-Let's invert it:
+Let's invert it (NOT has higher precedence than AND):
 
 <pre data-id="not"><code data-line-numbers="2|3" class="language-js" data-trim>
 const { brand, screenSize } = laptop
@@ -219,14 +262,14 @@ if (!(brand === 'Apple' && screenSize === 14)) {
 
 <section>
 
-## One final thing &hellip;
+## "Truthiness"
 
 </section>
 
 
 <section>
 
-The conditions don't have to be boolean; JavaScript automatically converts them. {.h3}
+Conditions don't have to be boolean; JavaScript automatically converts them. {.h3}
 
 </section>
 
@@ -288,12 +331,111 @@ Boolean(true)             // true
 
 </section>
 
+</section>
+
+
 
 <section>
 
-TODO: truthy/falsy with logical ops.
+<section>
 
-Consider something like `obj.prop && obj.prop.inner`
+## Let's redefine the logical operations
+
+</section>
+
+
+<section data-auto-animate>
+
+The NOT operation returns `true` if the <i>operand</i> is falsy, [and `false` if the operand is truthy.]{.block}
+
+<pre data-id="redef-log-ops"><code data-line-numbers="" class="language-js" data-trim>
+!true   // false
+!0      // true
+!"hi"   // false
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The OR operation returns the first truthy operand. [If there's none, it returns the last operand.]{.block}
+
+<pre data-id="redef-log-ops"><code data-line-numbers="" class="language-js" data-trim>
+true || false;            // true
+0 || null;                // null
+"hi" || "hey" || "hello"; // "hi"
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The AND operation returns the first falsy operand. [If there's none, it returns the last operand.]{.block}
+
+<pre data-id="redef-log-ops"><code data-line-numbers="" class="language-js" data-trim>
+true && false;            // false
+0 && null;                // 0
+"hi" && "hey" && "hello"; // "hello"
+</code></pre>
+
+</section>
+
+
+<section>
+
+### Short-circuit evaluation
+
+</section>
+
+
+<section data-auto-animate>
+
+Open your REPL and type:
+
+<pre data-id="circuit"><code data-line-numbers="" class="language-js" data-trim>
+abc && false;
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+There's no reference (i.e. variable) called `abc`:
+
+<pre data-id="circuit"><code data-line-numbers="" class="language-js" data-trim>
+abc && false;
+// Uncaught ReferenceError: abc is not defined
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+Rearrange and `abc` will be ignored:
+
+<pre data-id="circuit"><code data-line-numbers="" class="language-js" data-trim>
+false && abc;
+// false
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+It applies to the OR operation too:
+
+<pre data-id="circuit"><code data-line-numbers="" class="language-js" data-trim>
+abc || true;
+// Uncaught ReferenceError: abc is not defined
+
+true || abc;
+// true
+</code></pre>
 
 </section>
 
