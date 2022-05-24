@@ -6,14 +6,14 @@ title: Logical operators
 
 <section>
 
-We learnt how to make decisions based&nbsp;on&nbsp;single&nbsp;conditions. {.h3}
+We learnt how to make decisions based&nbsp;on&nbsp;simple&nbsp;conditions. {.h3}
 
 </section>
 
 
 <section>
 
-But what if we have many conditions? {.h3}
+But what if we have complex conditions? {.h3}
 
 </section>
 
@@ -147,6 +147,13 @@ if (brand === 'Apple' && screenSize === 14) {
   console.log("It's a 14-inch Apple laptop.")
 }
 </code></pre>
+
+</section>
+
+
+<section>
+
+### Let's take a more complex example
 
 </section>
 
@@ -339,7 +346,7 @@ Boolean(true)             // true
 
 <section>
 
-## Let's redefine the logical operations
+## Redefining the logical operations
 
 </section>
 
