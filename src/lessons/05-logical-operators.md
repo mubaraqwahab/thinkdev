@@ -2,6 +2,7 @@
 title: Logical operators
 draft: true
 excerpt: >-
+  We sometimes have to make decisions based on complex conditions. We'll discuss how to use logical operators to express these complex conditions. We'll also learn how the concept of truthy and falsy values relates to these operators.
 ---
 
 ## Video
