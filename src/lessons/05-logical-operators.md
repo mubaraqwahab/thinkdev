@@ -27,9 +27,9 @@ TODO
 
     {.w-auto}
 
-    Using the table, complete the following program so that it prints the file type of the `filename` variable. The variable is currently set to `'slides.pptx'`, so the program should print something like <samp>slides.pptx is a PowerPoint presentation</samp>. If you set the value of `filename` to a different string like `'ebook.pdf'`, then the program should print something like <samp>ebook.xls is an Excel worksheet</samp>.
+    Using the table, complete the following program so that it prints the file type of the `filename` variable. The variable is currently set to `'slides.pptx'`, so the program should print something like <samp>slides.pptx is a PowerPoint presentation</samp>. If you set the value of `filename` to a different string like `'ebook.pdf'`, then the program should print something like <samp>ebook.pdf is a PDF document</samp>.
 
-    You should use a logical operator to test for file types like "Word document" that have several extensions.
+    Ensure to use a logical operator to test for file types like "Word document" that have multiple extensions.
 
     ```js
     const filename = 'slides.pptx'
