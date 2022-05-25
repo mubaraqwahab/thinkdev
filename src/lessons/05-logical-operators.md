@@ -10,7 +10,34 @@ TODO
 
 ## Exercises
 
-TODO
+1. TODO: Reading exercise.
+
+1. Filenames typically end in suffixes like ".pdf". These suffixes are called <i>file extensions</i> and they're used to indicate the type of file. The ".pdf" in "logic.pdf" indicates that logic.pdf is a PDF document.
+
+    Some file types have several file extensions. A Word document may have a ".doc" extension or a ".docx" extension.
+
+    The following table lists some file types and their associated file extension(s):
+
+    | File type | File extension(s) |
+    | --- | --- |
+    | Word document | .doc, .docx |
+    | Excel worksheet | .xls, .xlsx |
+    | PowerPoint presentation | .ppt, .pptx |
+    | PDF document | .pdf |
+
+    {.w-auto}
+
+    Using the table, complete the following program so that it prints the file type of the `filename` variable. The variable is currently set to `'slides.pptx'`, so the program should print something like <samp>slides.pptx is a PowerPoint presentation</samp>. If you set the value of `filename` to a different string like `'ebook.pdf'`, then the program should print something like <samp>ebook.xls is an Excel worksheet</samp>.
+
+    You should use a logical operator to test for file types like "Word document" that have several extensions.
+
+    ```js
+    const filename = 'slides.pptx'
+
+    // Your task: complete the program.
+    ```
+
+    **Hint:** You can test if a string has a given suffix with the [string `.endsWith` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith).
 
 ## Extras
 
