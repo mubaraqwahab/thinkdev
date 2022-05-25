@@ -99,3 +99,26 @@ Thus we call them <i>binary operators</i>.
 
 Others like `typeof` and NOT (`!`) that take a single operand are <i>unary operators</i>.
 The conditional operator (`? :`) is the only <i>ternary operator</i>, taking three operands.
+
+### De Morgan's laws
+
+Expressions involving NOT and OR operations may be rewritten using NOT and AND operations. Similarly, expressions involving NOT and AND operations may be rewritten using NOT and OR operations.
+
+The rules for rewriting them follow:
+
+* `!(expression1 || expression2)` is equivalent to `!expression1 && !expression2`
+* `!(expression1 && expression2)` is equivalent to `!expression1 || !expression2`
+
+What this means is that this:
+
+```js
+!(string.includes('Apple') || string.includes('Microsoft'))
+```
+
+is essentially the same as:
+
+```js
+!string.includes('Apple') && !string.includes('Microsoft')
+```
+
+The rules are based on [De Morgan's laws from mathematical logic]().
