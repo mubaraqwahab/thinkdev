@@ -11,7 +11,27 @@ TODO
 
 ## Exercises
 
-1. TODO: Reading exercise.
+1. This exercise tests your understanding of how logical operators work with truthy and falsy values. Read the following code and try to answer what each `console.log` will output **without running the code**:
+
+    ```js
+    const user = {
+      username: 'khadija.g',
+      name: 'Khadija',
+      bio: null,
+      bookmarks: [],
+    };
+
+    console.log(!user.bookmarks);
+    console.log(!(!user.bookmarks));
+
+    console.log(user.name && user.name.toUpperCase());
+    console.log(user.address && user.address.city);
+
+    console.log(user.username || user.name);
+    console.log(user.bio || 'No bio');
+    ```
+
+    Run the code afterwards to verify your answers.
 
 1. Filenames typically end in suffixes like ".pdf". These suffixes are called <i>file extensions</i> and they're used to indicate the type of file. The ".pdf" in "logic.pdf" indicates that logic.pdf is a PDF document.
 
