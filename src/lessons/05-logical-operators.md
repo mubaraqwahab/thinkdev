@@ -28,7 +28,7 @@ TODO
 
     {.w-auto}
 
-    Using the table, complete the following program so that it prints the file type of the `filename` variable. The variable is currently set to `'slides.pptx'`, so the program should print something like <samp>slides.pptx is a PowerPoint presentation</samp>. If you set the value of `filename` to a different string like `'ebook.pdf'`, then the program should print something like <samp>ebook.pdf is a PDF document</samp>.
+    Using the table, complete the following program so that it prints the file type of the `filename` variable. The variable is currently set to `'slides.pptx'`, so the program should print a message like <samp>slides.pptx is a PowerPoint presentation</samp>. If you change the value of `filename` to a different string like `'ebook.pdf'`, then the program should print something like <samp>ebook.pdf is a PDF document</samp>. However, if you change `filename` to a value like `'photo.jpg'` which has a file extension that's not in the above table, then your program should output a message like <samp>The file type of 'photo.jpg' is not known</samp>.
 
     Ensure to use a logical operator to test for file types like "Word document" that have multiple extensions.
 
