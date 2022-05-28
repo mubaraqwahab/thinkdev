@@ -1,6 +1,6 @@
 ---
 title: Making decisions
-excerpt: >
+excerpt: >-
   Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn how to write programs that can make decisions.
 ---
 

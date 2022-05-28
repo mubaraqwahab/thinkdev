@@ -1,5 +1,5 @@
 ---
-layout: layouts/auxiliary
+layout: layouts/page
 title: You're offline
 permalink: offline.html
 ---

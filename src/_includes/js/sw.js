@@ -1,5 +1,5 @@
-// CACHE_NAME will be automatically added to the top of this script
-
+const CACHE_PREFIX = "{{ site.shortTitle }}-"
+const CACHE_NAME = CACHE_PREFIX + "{% now %}"
 const OFFLINE_PAGE = "/offline.html"
 
 self.addEventListener("install", (event) => {

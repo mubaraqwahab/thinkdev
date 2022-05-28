@@ -68,8 +68,8 @@ function markdownItYouTubeEmbed(md) {
  */
 function ytPlayerMarkup(ytVideoId) {
   const origin = /** @type {string} */ (
-    process.env.CONTEXT === "production"
-      ? process.env.URL
+    requiredEnv("CONTEXT") === "production"
+      ? requiredEnv("URL")
       : requiredEnv("DEPLOY_PRIME_URL")
   )
 

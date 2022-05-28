@@ -1,17 +1,10 @@
 // @ts-check
 
 // Read from .env in development. (Netlify will provide env vars elsewhere)
-if (process.env.NODE_ENV !== "production") require("dotenv").config()
+if (!process.env.CONTEXT) require("dotenv").config()
 
 // For debugging; don't remove!
-const envVars = [
-  "REPOSITORY_URL",
-  "BRANCH",
-  "HEAD",
-  "URL",
-  "DEPLOY_URL",
-  "DEPLOY_PRIME_URL",
-]
+const envVars = ["REPOSITORY_URL", "CONTEXT", "HEAD", "URL", "DEPLOY_PRIME_URL"]
 for (const envVar of envVars) {
   console.log(`${envVar}=${process.env[envVar]}`)
 }
@@ -39,11 +32,11 @@ module.exports = function (eleventyConfig) {
   for (const filter in filters) {
     if (filter.endsWith("Async")) {
       eleventyConfig.addNunjucksAsyncFilter(
-        filter.slice(0, -5).toLowerCase(),
+        filter.slice(0, -5),
         filters[filter]
       )
     } else {
-      eleventyConfig.addNunjucksFilter(filter.toLowerCase(), filters[filter])
+      eleventyConfig.addNunjucksFilter(filter, filters[filter])
     }
   }
 

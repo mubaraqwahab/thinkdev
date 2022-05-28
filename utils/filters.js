@@ -93,7 +93,7 @@ module.exports = {
   /**
    * @param {Date} dateObj
    */
-  shortDate(dateObj) {
+  shortdate(dateObj) {
     return Intl.DateTimeFormat(["en-GB"], {
       day: "2-digit",
       month: "short",
@@ -104,16 +104,20 @@ module.exports = {
   /**
    * @param {Date} dateObj
    */
-  isoString(dateObj) {
+  isostring(dateObj) {
     return dateObj.toISOString()
   },
 
   /**
-   * Sort an array in ascending order. Doesn't modify the array.
-   * To sort in descending order, reverse the return value
+   * Sort an array of objects (in asc order) with a property path.
+   * The path must evaluate to one of these:
+   *  * a string for every object
+   *  * a number for every object.
+   * This returns the sorted array; it doesn't sort in-place.
+   * To sort in descending order, reverse the return value.
    *
    * @param {Array} array
-   * @param {string} path
+   * @param {string} path - The
    * @return {Array} The sorted array
    *
    * @example
@@ -121,11 +125,30 @@ module.exports = {
    *   { name: { first: 'Wahab', ... }, ... },
    *   { name: { first: 'Mubaraq', ... }, ... },
    * ]
-   * const sorted = arraySort(array, "name.first")
+   * const sorted = arraysort(array, "name.first")
+   * //=> [
+   * //=>   { name: { first: 'Mubaraq', ... }, ... },
+   * //=>   { name: { first: 'Wahab', ... }, ... },
+   * //=> ]
    */
-  arraySort(array, path) {
+  arraysort(array, path) {
     const key = pathkey(path)
-    return array.slice().sort((a, b) => key(a) - key(b))
+    return array.slice().sort((a, b) => {
+      const keyA = key(a)
+      const keyB = key(b)
+      if (typeof keyA === "string" && typeof keyB === "string") {
+        return keyA.localeCompare(keyB)
+      } else if (typeof keyA === "number" && typeof keyB === "number") {
+        return keyA - keyB
+      } else {
+        const diagnostics = {a, b, keyA, keyB}
+        console.error(
+          `path '${path}' must evaluate to a number or string!\n`,
+          diagnostics
+        )
+        return 0
+      }
+    })
   },
 
   /**
@@ -135,6 +158,7 @@ module.exports = {
    *   { name: { first: 'Mubaraq', ... }, ... },
    * ]
    * const elem = find(array, "name.first", "Mubaraq")
+   * //=> { name: { first: 'Mubaraq', ... }, ... }
    */
   find(array, path, value) {
     const key = pathkey(path)
@@ -164,10 +188,10 @@ module.exports = {
    * @param {Record<string, string|number>} obj
    *
    * @example
-   * htmlAttrs({ module: "", href: "hey.html", ariaHidden: "true" })
-   * //=> module="" href="hey.html" aria-hidden="true"
+   * htmlattrs({ module: "", href: "hey.html", ariaHidden: "true" })
+   * //=> 'module="" href="hey.html" aria-hidden="true"'
    */
-  htmlAttrs(obj) {
+  htmlattrs(obj) {
     let result = ""
     for (const prop in obj) {
       const attr = kebabCase(prop)
@@ -182,10 +206,10 @@ module.exports = {
    * @returns {string}
    *
    * @example
-   * queryStr({ foo: "bar", baz: "qux" })
+   * querystr({ foo: "bar", baz: "qux" })
    * //=> "?foo=bar&baz=qux"
    */
-  queryStr(obj) {
+  querystr(obj) {
     const searchParams = new URLSearchParams(obj)
     return searchParams.toString()
   },
@@ -195,6 +219,21 @@ module.exports = {
   /** Get a property value from an object given it's path. */
   prop(obj, path) {
     return pathkey(path)(obj)
+  },
+
+  /**
+   * Extract the `path` value from all objects in an array.
+   * @param {Array<Record<string, any>>} array
+   * @param {string} path
+   * @returns {Array}
+   *
+   * @example
+   * const array = [{ foo: 'bar' }, { foo: 'qux' }]
+   * mapprop(array, 'foo')
+   * //=> ['bar', 'qux']
+   */
+  mapprop(array, path) {
+    return array.map(pathkey(path))
   },
 
   inspect(obj, depth = 3) {
