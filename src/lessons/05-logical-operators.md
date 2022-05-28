@@ -1,13 +1,14 @@
 ---
 title: Logical operators
-draft: true
 excerpt: >-
-  We sometimes have to make decisions based on complex conditions. We'll discuss how to use logical operators to express these complex conditions. We'll also learn how the concept of truthy and falsy values relates to these operators.
+  We sometimes have to make decisions based on complex conditions.
+  We'll discuss how to use logical operators to express these complex conditions.
+  We'll also learn how the concept of truthy and falsy values relates to these operators.
 ---
 
 ## Video
 
-TODO
+https://youtu.be/1Wjm_p7d7Uw
 
 ## Exercises
 
