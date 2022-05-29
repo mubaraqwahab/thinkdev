@@ -364,6 +364,16 @@ html.print-pdf .reveal pre :is(code, samp) {
 }
 
 /*********************************************
+  * REDUCED MOTION
+  *********************************************/
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section .fragment {
+    transition: none !important;
+  }
+}
+
+/*********************************************
   * UTILITIES
   *********************************************/
 
