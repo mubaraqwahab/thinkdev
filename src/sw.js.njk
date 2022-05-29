@@ -2,12 +2,9 @@
 permalink: sw.js
 ---
 
-{%- if site.environment == "production" -%}
+{%- if site.context -%}
   {%- set js -%}
-    const CACHE_PREFIX = "{{ site.shortTitle }}-"
-    const CACHE_NAME = CACHE_PREFIX + "{% now %}";
     {% include "js/sw.js" %}
   {%- endset -%}
-
   {{- js | babel | terser | safe -}}
 {%- endif -%}

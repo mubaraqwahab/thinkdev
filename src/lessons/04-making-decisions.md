@@ -1,6 +1,6 @@
 ---
 title: Making decisions
-excerpt: >
+excerpt: >-
   Programs behave differently in different conditions. For example, some features of an app may only be available when a premium user is logged in. In this episode, we'll learn how to write programs that can make decisions.
 ---
 
@@ -145,7 +145,7 @@ if (messageCount === 0) {
 console.log(notification)
 ```
 
-You may also omit the braces in the `else if` and `else branches` if they contain only one statement:
+You may also omit the braces in the `else if` and `else` branches if they contain only one statement:
 
 ```js
 if (messageCount === 0)
