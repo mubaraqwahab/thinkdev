@@ -2,7 +2,7 @@
 title: Bindings again
 draft: true
 excerpt: >
-  We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
+  TODO: We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
 ---
 
 ## Video
@@ -19,10 +19,6 @@ TODO
 
 ## Extras
 
-### `if` expression
-
-TODO
-
 ### One declaration, many variables
 
 We know how to declare many variables:
@@ -32,7 +28,7 @@ let a = 1;
 let b = 2;
 ```
 
-We can also declare them in the same statement (note the use of the comma `,`):
+We can also do this in the same declaration (note the use of the comma `,`):
 
 ```js
 let a = 1, b = 2;
