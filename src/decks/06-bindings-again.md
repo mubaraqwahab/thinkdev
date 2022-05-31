@@ -4,21 +4,21 @@ title: Bindings again
 
 <section>
 
-<section data-auto-animate data-auto-animate-id="bindings">
+<section>
 
-## "Bindings"?
-
-</section>
-
-<section data-auto-animate data-auto-animate-id="bindings">
-
-## "Bindings"?
-
-We've used them before&mdash;variables are bindings.
+Bindings _again_? {.h3}
 
 </section>
 
+
+<section>
+
+We've used them before; variables&nbsp;are&nbsp;bindings. {.h3}
+
 </section>
+
+</section>
+
 
 
 <section>
@@ -29,6 +29,7 @@ We've used them before&mdash;variables are bindings.
 
 </section>
 
+
 <section data-auto-animate>
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
@@ -36,6 +37,7 @@ let x = "Hey there"
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -47,28 +49,34 @@ let x = "Hey there"
 
 </section>
 
-<section data-auto-animate data-auto-animate-id="j">
-
-<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
-  <path style="fill:none" d="M0 0h1280v800H0z"/>
-  <rect x=>
-  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" transform="matrix(1.42857 0 0 1.45802 -378.4 -81.23)"/>
-  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
-  <path d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
-</svg>
-
-</section>
 
 <section data-auto-animate data-auto-animate-id="j">
 
 <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+  <g>
   <path style="fill:none" d="M0 0h1280v800H0z"/>
   <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" transform="matrix(1.42857 0 0 1.45802 -378.4 -81.23)"/>
   <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
-  <path d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+  <path data-id="wire" d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+  </g>
 </svg>
 
 </section>
+
+
+<section data-auto-animate data-auto-animate-id="j">
+
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+  <g>
+  <path style="fill:none" d="M0 0h1280v800H0z"/>
+  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" />
+  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
+  <path data-id="wire" d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+  </g>
+</svg>
+
+</section>
+
 
 <section data-auto-animate>
 
@@ -79,6 +87,7 @@ let x = "Hey there"
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -91,6 +100,7 @@ x = "Hi"
 
 </section>
 
+
 <section data-auto-animate>
 
 [We can't do this with `const` because it creates]{.block} a _constant_ binding that cannot be changed. {data-id="varbindDesc"}
@@ -101,6 +111,7 @@ x = "Hi" // TypeError!
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -113,6 +124,7 @@ console.log(x)
 
 </section>
 
+
 <section data-auto-animate>
 
 Since the name just refers to a value, we can operate on the name as we would on the value. {data-id="varbindDesc"}
@@ -123,6 +135,7 @@ console.log(x.length)
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -135,6 +148,7 @@ let y = x
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -150,6 +164,7 @@ x = "Hi"
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="bindName">
 
 ### Reserved names
@@ -158,11 +173,13 @@ We learnt some rules on naming variables before. [But there's more.]{.block .fra
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="bindName">
 
 Some words are <i>reserved</i> in JavaScript, usually because they have special meanings. We can't use these words as identifiers (i.e. binding names). {data-id=bindNameDesc}
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="bindName">
 
@@ -218,6 +235,7 @@ These are the reserved words in JavaScript today: {data-id=bindNameDesc}
 
 </section>
 
+
 <section data-auto-animate data-auto-animate-id="bindName">
 
 You don't have to memorise these invalid names however. If you try to you use one of them as a binding name, JavaScript will complain. {data-id=bindNameDesc}
@@ -231,6 +249,7 @@ let if = 5 // SyntaxError: Unexpected token 'if'
 </section>
 
 
+
 <section>
 
 <section>
@@ -239,6 +258,7 @@ let if = 5 // SyntaxError: Unexpected token 'if'
 
 </section>
 
+
 <section data-auto-animate>
 
 <pre data-id="diff"><code data-line-numbers data-trim class="language-js">
@@ -246,6 +266,7 @@ let x = 5
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -257,6 +278,7 @@ let x = 6
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -273,6 +295,7 @@ let x = 6
 </section>
 
 
+
 <section>
 
 <section>
@@ -280,6 +303,7 @@ let x = 6
 ## Scope
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -294,6 +318,7 @@ if (true) {
 
 </section>
 
+
 <section data-auto-animate>
 
 This is allowed because the curly brackets create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block} {data-id="scopeDesc"}
@@ -306,6 +331,7 @@ if (true) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -320,6 +346,7 @@ if (true) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -336,6 +363,7 @@ console.log(x) // 5
 
 </section>
 
+
 <section data-auto-animate>
 
 We call the outermost scope <i>the global scope</i> [and variables declared there, <i>global variables</i>.]{.block} {data-id="scopeDesc"}
@@ -349,6 +377,7 @@ if (true) {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -364,11 +393,13 @@ if (true) {
 
 </section>
 
+
 <section data-auto-animate>
 
 We have some global bindings already available to us. For example, `Number`, `String`, `Boolean`, `Object`, `Array`, `console`, and even `undefined`. {data-id="scopeDesc"}
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -383,6 +414,7 @@ if (true) {
 
 </section>
 
+
 <section data-auto-animate>
 
 You can't access a variable where it's not visible. {data-id="scopeDesc"}
@@ -395,6 +427,7 @@ console.log(x) // ReferenceError: x is not defined
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -416,6 +449,7 @@ if (true) {
 
 </section>
 
+
 <section data-auto-animate>
 
 Note that you can't use a variable before it is declared, [even in the same scope.]{.block} {data-id="scopeDesc"}
@@ -428,27 +462,8 @@ let x = 5
 
 </section>
 
-<section data-auto-animate>
-
-You can also use a block on its own, though this is very rare. {data-id="scopeDesc"}
-
-<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
-let x = 5
-{
-  let x = 6
-  console.log(x) // 6
-}
-</code></pre>
-
 </section>
 
-<section data-auto-animate>
-
-A block is really just a statement [that's used to group other statements.]{.block} {data-id="scopeDesc"}
-
-</section>
-
-</section>
 
 
 <section>
@@ -458,6 +473,7 @@ A block is really just a statement [that's used to group other statements.]{.blo
 ## Any other binding?
 
 </section>
+
 
 <section data-auto-animate data-auto-animate-id="otherbind">
 
@@ -469,6 +485,7 @@ Yes, the properties of an object.
 
 </section>
 
+
 <section data-auto-animate>
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
@@ -478,6 +495,7 @@ const user = {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -491,6 +509,7 @@ const user = {
 
 </section>
 
+
 <section data-auto-animate>
 
 We're creating an object with a property called `name` that is bound to the string `'Isa'`. The object doesn't "contain" the string; it merely has something linking it to the string. {data-id="objbindDesc"}
@@ -502,6 +521,7 @@ const user = {
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -519,6 +539,7 @@ delete user.email
 
 </section>
 
+
 <section data-auto-animate>
 
 You'll get `undefined` if you try to access a property that doesn't exist. {data-id="objbindDesc"}
@@ -532,6 +553,7 @@ console.log(user.phoneNumber) // undefined
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -552,6 +574,7 @@ user2.address.city = 'Gwarinpa'
 
 </section>
 
+
 <section data-auto-animate>
 
 Both will change to `'Gwarinpa'` because the two [`address` properties refer to the same object.]{.block} {data-id="objbindDesc"}
@@ -570,6 +593,7 @@ user2.address.city = 'Gwarinpa'
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 
@@ -592,6 +616,7 @@ console.log(user2.address.city) // 'Gwarinpa'
 </code></pre>
 
 </section>
+
 
 <section data-auto-animate>
 

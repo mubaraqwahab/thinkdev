@@ -1,8 +1,7 @@
 // @ts-check
 
-const copyCodeButtons =
-  /** @type {NodeListOf<HTMLButtonElement>} */
-  (document.querySelectorAll(".copy-code-button"))
+/** @type {NodeListOf<HTMLButtonElement>} */
+const copyCodeButtons = document.querySelectorAll(".copy-code-button")
 
 copyCodeButtons.forEach((copyButton) => {
   if (!navigator?.clipboard?.writeText) return

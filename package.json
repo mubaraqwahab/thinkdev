@@ -52,8 +52,9 @@
     "terser": "^5.9.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
+    "@types/reveal": "^4.2.0",
     "@types/youtube": "0.0.46",
+    "dotenv": "^16.0.0",
     "husky": "^7.0.0",
     "imagemin-cli": "^7.0.0",
     "imagemin-webp": "^7.0.0",

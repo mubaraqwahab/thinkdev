@@ -1,9 +1,12 @@
+// @ts-check
+
 const windowURL = new URL(window.location.href)
 if (windowURL.searchParams.has("print-pdf")) {
   // Just so I don't have to manually rename the pdf
   document.title = "{{ page.fileSlug }}"
 
   // Rewrite all local anchor URLs to prod site URL when printing.
+  /** @type {NodeListOf<HTMLAnchorElement>} */
   const localAnchors = document.querySelectorAll('a[href^="/"]')
 
   localAnchors.forEach((anchor) => {
