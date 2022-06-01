@@ -78,9 +78,3 @@ x = "Hello";
 ```
 
 We say that these languages are <i>statically typed</i>. On the other hand, languages like JavaScript that don't have these constraints are <i>dynamically typed</i>.
-
-Which brings me to a final point &hellip;
-
-### <q>JavaScript is an interpreted language</q>
-
-I mentioned before that code in a programming language needs to be translated to machine language before it can be run. When we run Node, however, we see no translation taking place; all we see is the output of our code. That's because Node _interprets_ our code. For some languages, such as C++, we must first compile our code to generate an <i>executable</i> (which is basically a file containing machine code) before running the executable.
