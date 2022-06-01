@@ -26,7 +26,6 @@ Reveal.initialize({
 })
 
 prefersReducedMotion.addEventListener("change", () => {
-  console.log("change")
   if (prefersReducedMotion.matches) {
     Reveal.configure(reducedMotionConfig)
   } else {
