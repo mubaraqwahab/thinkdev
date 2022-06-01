@@ -2,6 +2,12 @@
 title: Bindings again
 ---
 
+{% from "macros.njk" import script %}
+
+<script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js"></script>
+
+{{ script('animate-paths.js') }}
+
 <section>
 
 <section>
@@ -27,6 +33,50 @@ What does this do again?
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = 5
 </code></pre>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="j">
+
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-miterlimit="10">
+  <style>
+  .fragment.draw-path.visible {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  </style>
+  <rect width="800" height="600" fill="#fff" />
+  <g class="fragment">
+    <path d="M222.4 274.3c0-5.7-4.62-10.33-10.32-10.33H91.9c-5.7 0-10.33 4.62-10.33 10.33v108.46c0 5.7 4.63 10.33 10.33 10.33h120.17c5.7 0 10.32-4.63 10.32-10.33V274.3Z" fill="#ebebeb"/>
+    <!-- <text x="151.43" y="360" class="font-mono" font-size="64">x</text> -->
+  </g>
+  <g class="fragment">
+    <path d="M718.42 218.95c0-6.65-5.4-12.04-12.04-12.04h-220c-6.64 0-12.03 5.4-12.03 12.04v130.24c0 6.64 5.4 12.04 12.04 12.04h220c6.64 0 12.03-5.4 12.03-12.04V218.95Z" fill="#ebebeb"/>
+    <!-- <text x="475.28" y="242.47" class="font-mono" font-size="64">&quot;Hi&quot;</text> -->
+  </g>
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10"
+          refX="1" refY="5"
+          orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g fill="none" stroke="#000" stroke-width="4.94">
+    <path d="M222.4 328.53s75.37-51.45 247.5-44.65" stroke-linejoin="round" stroke-miterlimit="1.5" marker-end="url(#arrowhead)" pathLength=1 class="fragment draw-path" />
+    <!-- <path d="m459.1 276 10.8 7.88-11.42 6.94" /> -->
+  </g>
+</svg>
 
 </section>
 
