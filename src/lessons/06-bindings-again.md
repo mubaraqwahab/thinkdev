@@ -9,10 +9,6 @@ excerpt: >
 
 TODO
 
-### Revision session
-
-TODO
-
 ## Exercises
 
 TODO
