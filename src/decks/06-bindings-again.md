@@ -52,26 +52,42 @@ let x = "Hey there"
 
 <section data-auto-animate data-auto-animate-id="j">
 
-<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
-  <g>
-  <path style="fill:none" d="M0 0h1280v800H0z"/>
-  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" transform="matrix(1.42857 0 0 1.45802 -378.4 -81.23)"/>
-  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
-  <path data-id="wire" d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-miterlimit="10">
+  <style>
+  .fragment.draw-path.visible {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  </style>
+  <rect width="800" height="600" fill="#fff" />
+  <g class="fragment">
+    <path d="M222.4 274.3c0-5.7-4.62-10.33-10.32-10.33H91.9c-5.7 0-10.33 4.62-10.33 10.33v108.46c0 5.7 4.63 10.33 10.33 10.33h120.17c5.7 0 10.32-4.63 10.32-10.33V274.3Z" fill="#ebebeb"/>
+    <!-- <text x="151.43" y="360" class="font-mono" font-size="64">x</text> -->
   </g>
-</svg>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="j">
-
-<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
-  <g>
-  <path style="fill:none" d="M0 0h1280v800H0z"/>
-  <path data-id="right" d="M1096.26 342.42c0-31.78-26.33-57.59-58.76-57.59H822.73c-32.44 0-58.77 25.8-58.77 57.59 0 31.78 26.33 57.58 58.76 57.58h214.78c32.43 0 58.76-25.8 58.76-57.58Z" style="fill:#e5f20d" />
-  <path data-id="left" d="M371.87 326.48c0-13.52-13.9-24.5-31.04-24.5h-175.3c-17.12 0-31.03 10.98-31.03 24.5v49.01c0 13.53 13.91 24.51 31.04 24.51h175.3c17.12 0 31.03-10.98 31.03-24.5v-49.02Z" style="fill:#f20d0d" transform="matrix(1.37037 0 0 1.73543 -95.53 -155.27)"/>
-  <path data-id="wire" d="M414.07 453.85s135.38-60.88 298.9-35.83" style="fill:none;stroke:#00daff;stroke-width:14.69px"/>
+  <g class="fragment">
+    <path d="M718.42 218.95c0-6.65-5.4-12.04-12.04-12.04h-220c-6.64 0-12.03 5.4-12.03 12.04v130.24c0 6.64 5.4 12.04 12.04 12.04h220c6.64 0 12.03-5.4 12.03-12.04V218.95Z" fill="#ebebeb"/>
+    <!-- <text x="475.28" y="242.47" class="font-mono" font-size="64">&quot;Hi&quot;</text> -->
+  </g>
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10"
+          refX="1" refY="5"
+          orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g fill="none" stroke="#000" stroke-width="4.94">
+    <path d="M222.4 328.53s75.37-51.45 247.5-44.65" stroke-linejoin="round" stroke-miterlimit="1.5" marker-end="url(#arrowhead)" pathLength=1 class="fragment draw-path" />
+    <!-- <path d="m459.1 276 10.8 7.88-11.42 6.94" /> -->
   </g>
 </svg>
 
