@@ -58,6 +58,9 @@ module.exports = function (eleventyConfig) {
       "reveal/plugin/highlight/github.css",
     "node_modules/highlight.js/styles/github-dark-dimmed.css":
       "reveal/plugin/highlight/github-dark-dimmed.css",
+
+    // Stuff for SVG.js
+    "node_modules/@svgdotjs/svg.js/dist/svg.min.js": "svgdotjs/svg.min.js",
   })
 
   eleventyConfig.addWatchTarget("src/main.css")

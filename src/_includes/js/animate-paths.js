@@ -1,47 +1,31 @@
 // @ts-check
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
+  const revealConfig = Reveal.getConfig()
+
   Reveal.addEventListener("autoanimate", (e) => {
-    const fromSVG = e.fromSlide.querySelector("svg")
-    const toSVG = e.toSlide.querySelector("svg")
-    if (fromSVG && toSVG) {
-      /** @type {Svg} */
-      const fromS = SVG(fromSVG)
-      /** @type {Svg} */
-      const toS = SVG(toSVG)
+    const prevSVGNode = e.fromSlide.querySelector("svg")
+    const nextSVGNode = e.toSlide.querySelector("svg")
 
-      const fromPath = fromS.findOne("[data-path-id]")
-      const toPath = toS.findOne("[data-path-id]")
+    const prevPathNode = prevSVGNode.querySelector("path[data-id]")
+    const pathId = prevPathNode.dataset.id
+    const nextPathNode = nextSVGNode.querySelector(`path[data-id="${pathId}"]`)
 
-      toPath.node.style.setProperty("transform", "none", "important")
+    if (!(prevPathNode && nextPathNode)) return
 
-      const fromAttributes = fromPath.attr(["d"])
-      const toAttributes = toPath.attr(["d"])
+    const prevPath = SVG(prevPathNode)
+    const nextPath = SVG(nextPathNode)
 
-      toPath.attr(fromAttributes)
+    // Disable the unnecessary default transform so that the next
+    // path node starts in the same position as the prev path node.
+    nextPath.node.style.setProperty("transform", "none", "important")
 
-      toPath
-        .animate({
-          duration: 1000,
-          delay: 500,
-        })
-        .attr(toAttributes)
+    const prevAttributes = prevPath.attr(["d"])
+    const nextAttributes = nextPath.attr(["d"])
 
-      console.log({fromAttributes, toAttributes})
-
-      // TODO: Set the path attrs to match the one in the from slide
-      // (Do you need a reference to the paths?)
-
-      // TODO: Animate to the actual attrs in toSVG slide.
-      // (What's the duration?)
-    }
+    nextPath
+      .attr(prevAttributes)
+      .animate({duration: revealConfig.autoAnimateDuration * 1000})
+      .attr(nextAttributes)
   })
 })
-
-/**
- * @typedef {import("@svgdotjs/svg.js").Svg} Svg
- */
-
-/**
- * @typedef {import("@svgdotjs/svg.js").Path} Path
- */
