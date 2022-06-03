@@ -5,6 +5,7 @@ title: Bindings again
 {% from "macros.njk" import script %}
 
 <script src="{{ '/svgdotjs/svg.min.js' | url }}" defer></script>
+{# <script src="{{ '/svgdotjs/svg.pathmorphing.min.js' | url }}" defer></script> #}
 {{ script('animate-paths.js') }}
 
 <section>
@@ -39,12 +40,12 @@ let x = 5
 <section data-auto-animate data-auto-animate-id="j">
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-miterlimit="10">
+  <rect x="35.99" y="88.46" width="96.15" height="76.37" fill="#33b1cc" data-id="rect1" class="fragment" />
+  <rect x="250.8" y="70.3" width="96.15" height="76.37" fill="#e5f20d" data-id="rect2" class="fragment" />
   <g>
     <path d="m238.3 106.51 9.38 2.93-6.3 7.53" fill="none" stroke="#f25e0d" stroke-width="3.63" class="hidden" />
-    <path d="M132.14 126.65s40.62 4.54 115.54-17.21" fill="none" stroke="#f25e0d" stroke-width="3.63" stroke-linejoin="round" stroke-miterlimit="1.5" data-id="wire" />
+    <path d="M132.14 126.65s40.62 4.54 115.54-17.21" fill="none" stroke="#f25e0d" stroke-width="3.63" stroke-linejoin="round" stroke-miterlimit="1.5" data-id="wire" class="fragment draw-path" pathLength=1 />
   </g>
-  <rect x="35.99" y="88.46" width="96.15" height="76.37" fill="#33b1cc" data-id="rect1" />
-  <rect x="250.8" y="70.3" width="96.15" height="76.37" fill="#e5f20d" data-id="rect2" />
 </svg>
 
 </section>
@@ -53,12 +54,12 @@ let x = 5
 <section data-auto-animate data-auto-animate-id="j">
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-miterlimit="10">
-  <g>
-    <path d="m238.3 106.51 9.38 2.93-6.3 7.53" fill="none" stroke="#f25e0d" stroke-width="3.63" class="hidden" />
-    <path d="M132.14 126.65s40.59-27.5 115.44-18.54" fill="none" stroke="#f25e0d" stroke-width="3.63" stroke-linejoin="round" stroke-miterlimit="1.5" data-id="wire" />
-  </g>
   <rect x="35.99" y="88.46" width="96.15" height="76.37" fill="#33b1cc" data-id="rect1" />
   <rect x="250.8" y="70.3" width="96.15" height="76.37" fill="#e5f20d" data-id="rect2" />
+  <g>
+    <path d="m238.3 106.51 9.38 2.93-6.3 7.53" fill="none" stroke="#f25e0d" stroke-width="3.63" class="hidden" />
+    <path d="M132.14 126.65s37.45-63.4 115.52-85.4" fill="none" stroke="#f25e0d" stroke-width="3.63" stroke-linejoin="round" stroke-miterlimit="1.5" data-id="wire" />
+  </g>
 </svg>
 
 </section>

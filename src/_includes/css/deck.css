@@ -374,6 +374,25 @@ html.print-pdf .reveal pre :is(code, samp) {
 }
 
 /*********************************************
+  * FRAGMENTS
+  *********************************************/
+
+.reveal .slides section .fragment.draw-path.visible {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: slide-dash-in 0.6s linear forwards;
+}
+
+@keyframes slide-dash-in {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*********************************************
   * UTILITIES
   *********************************************/
 
