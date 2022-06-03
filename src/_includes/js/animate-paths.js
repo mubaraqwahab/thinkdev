@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const prevAttributes = prevPath.attr(["d"])
         const nextAttributes = nextPath.attr(["d"])
 
-        // console.log({pathId, prevAttributes, nextAttributes})
+        console.log({pathId, prevAttributes, nextAttributes})
 
         nextPath
           .attr(prevAttributes)
