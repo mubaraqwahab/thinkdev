@@ -37,57 +37,22 @@ let x = 5
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="j">
+<section data-transition="fade">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5">
-  <g data-id="var-x" class="fragment fade-up">
-    <circle cx="107.28" cy="112.03" r="17.45" fill="#e5f20d" stroke="#000"/>
-    <text x="101.28" y="116.91" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">x</text>
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path class="fragment draw-path" pathLength=1 data-fragment-index=2 data-id="wire-x" d="M142.03 138.68s20.55 1.96 46.5-6.66c22.47-7.47 27.14-10.34 60.92-11.74" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <g class="fragment" data-fragment-index=1 data-id="val-5">
+    <path d="M292.86 107.03c0-2.85-2.31-5.16-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.84 2.31 5.15 5.15 5.15h33.1c2.85 0 5.16-2.3 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="265.32" y="127.17" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
-  <g data-id="val-5" class="fragment">
-    <path d="M275.55 72.37c0-2.84-2.31-5.15-5.15-5.15h-33.1a5.16 5.16 0 0 0-5.16 5.15v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#000"/>
-    <text x="248.02" y="92.51" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">5</text>
-  </g>
-  <path data-id="wire-x" class="fragment draw-path" pathLength="1" d="M124.72 112.03s12.38 3.55 37.18-8c22.46-10.46 36.13-18.67 70.24-18.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt"/>
-  <g data-id="val-6" class="fragment">
-    <path d="M282.7 134.63c0-2.85-2.32-5.16-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#000"/>
-    <text x="255.16" y="154.77" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">6</text>
-  </g>
-</svg>
-
-</section>
-
-
-<section data-auto-animate data-auto-animate-id="j">
-
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5">
   <g data-id="var-x">
-    <circle cx="107.28" cy="112.03" r="17.45" fill="#e5f20d" stroke="#000"/>
-    <text x="101.28" y="116.91" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">x</text>
-  </g>
-  <g data-id="val-5">
-    <path d="M275.55 72.37c0-2.84-2.31-5.15-5.15-5.15h-33.1a5.16 5.16 0 0 0-5.16 5.15v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#000"/>
-    <text x="248.02" y="92.51" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">5</text>
-  </g>
-  <path data-id="wire-x" d="M124.72 112.03s23.1-1.8 45.68 6.97c17.07 6.63 23.77 29.11 68.89 28.88" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt"/>
-  <g data-id="val-6">
-    <path d="M282.7 134.63c0-2.85-2.32-5.16-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#000"/>
-    <text x="255.16" y="154.77" font-family="'RedHatMono-Regular','Red Hat Mono',monospace" font-size="20">6</text>
+    <circle cx="124.59" cy="138.68" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="118.59" y="143.56" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
 </svg>
 
 </section>
-
-
-<!-- <section data-auto-animate>
-
-Think of it this way: we're binding the name `x` to the string value `"Hey there"`, so that we can refer to it later as `x`.
-
-<pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
-let x = "Hey there"
-</code></pre>
-
-</section> -->
 
 
 <section data-auto-animate>
@@ -102,9 +67,46 @@ x = 6
 </section>
 
 
-<section>
+<section data-auto-animate data-auto-animate-id="let" data-transition="fade">
 
-TODO: image
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <g data-id="val-5">
+    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="val-6" class="fragment">
+    <path d="M296.43 142.88a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
+  </g>
+  <g data-id="var-x">
+    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+</svg>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="let" data-transition="fade">
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" d="M138.46 120.28s23.1-1.8 45.67 6.97c17.08 6.63 23.78 29.11 68.9 28.88" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <g data-id="val-5">
+    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="val-6">
+    <path d="M296.43 142.88a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
+  </g>
+  <g data-id="var-x">
+    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+</svg>
 
 </section>
 
