@@ -5,7 +5,6 @@ title: Bindings again
 {% from "macros.njk" import script %}
 
 <script src="{{ '/svgdotjs/svg.min.js' | url }}" defer></script>
-{# <script src="{{ '/svgdotjs/svg.pathmorphing.min.js' | url }}" defer></script> #}
 {{ script('animate-paths.js') }}
 
 <section>
@@ -39,16 +38,20 @@ let x = 5
 
 <section data-transition="fade-in slide-out">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-declare-var">
+
+  <text id="svglabel-declare-var" class="sr-only" font-size="0">
+    Think of it the code this way: First, we ask JavaScript to create a name x. Then we ask if to give us the number value 5 and attach the name x to it. Thus we can refer to the value 5 later by the name x.
+  </text>
 
   <path class="fragment draw-path" pathLength=1 data-fragment-index=2 data-id="wire-x" d="M142.03 138.68s20.55 1.96 46.5-6.66c22.47-7.47 27.14-10.34 60.92-11.74" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g class="fragment" data-fragment-index=1 data-id="val-5">
     <path d="M292.86 107.03c0-2.85-2.31-5.16-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.84 2.31 5.15 5.15 5.15h33.1c2.85 0 5.16-2.3 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="265.32" y="127.17" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="265.32" y="127.17" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="var-x">
     <circle cx="124.59" cy="138.68" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="118.59" y="143.56" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="118.59" y="143.56" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
 </svg>
 
@@ -69,20 +72,24 @@ x = 6
 
 <section data-auto-animate data-auto-animate-id="let">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-reassign-var1">
+
+  <text id="svglabel-reassign-var1" class="sr-only" font-size="0">
+    To reassign the name x to 6, we must first detach x from its current value 5.
+  </text>
 
   <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g data-id="val-5">
     <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="val-6" class="fragment">
     <path d="M296.43 142.88a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
+    <text aria-hidden="true" x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
   </g>
   <g data-id="var-x">
     <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
 </svg>
 
@@ -91,20 +98,24 @@ x = 6
 
 <section data-auto-animate data-auto-animate-id="let">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-reassign-var2">
+
+  <text id="svglabel-reassign-var2" class="sr-only" font-size="0">
+    Next, we attach x to the number 6. A name is always attached to at most one value, never two.
+  </text>
 
   <path data-id="wire-x" d="M138.46 120.28s22.47-2.63 42.67 10.72c14.58 9.63 26.28 30.86 71.9 25.13" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g data-id="val-5">
     <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="val-6">
     <path d="M296.43 142.88a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.31 5.16 5.16 5.16h33.1c2.84 0 5.15-2.31 5.15-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
+    <text aria-hidden="true" x="268.89" y="163.02" class="font-mono text-xl" fill="#0a0918">6</text>
   </g>
   <g data-id="var-x">
     <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
 </svg>
 
@@ -161,21 +172,25 @@ let y = x
 
 <section>
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-multinames">
+
+  <text id="svglabel-multinames" class="sr-only" font-size="0">
+    We declare x as 5. Then we create the name y. The right hand side of the assignment says x, so we ask for the value of x, which is 5. Next, we attach y to that value 5. x and y are now bound to the same value, 5. We see that a value may have multiple names, and a name is never attached to another name.
+  </text>
 
   <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2" class="fragment highlight-current-stroke" data-fragment-index=3 />
   <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=5 />
   <g data-id="val-5">
     <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round" class="fragment highlight-current-stroke" data-fragment-index=4 />
-    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="var-x">
     <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round" class="fragment highlight-current-stroke" data-fragment-index=2 />
-    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
   <g data-id="var-y" class="fragment" data-fragment-index=1>
     <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
+    <text aria-hidden="true" x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
   </g>
 </svg>
 
@@ -197,25 +212,29 @@ x = 6
 
 <section data-auto-animate data-auto-animate-id="twovars">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-twovars1">
+
+  <text id="svglabel-twovars1" class="sr-only" font-size="0">
+    We ask JavaScript to give us the value 6.
+  </text>
 
   <path data-id="wire-x" d="M142.03 134.93s12.38 3.55 37.17-8c22.47-10.46 36.14-18.67 70.25-18.4" fill="none" stroke="#ec4899" stroke-width="2"/>
   <path data-id="wire-y" d="M188.03 171.42s14.8.3 29.67-6.56c22.22-10.23 9.14-50.1 31.75-56.33" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g data-id="val-5">
     <path d="M292.86 95.27c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.15 5.15h33.1a5.16 5.16 0 0 0 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="val-6" class="fragment">
     <path d="M239.15 65.77c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.16 5.15H234a5.16 5.16 0 0 0 5.15-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
+    <text aria-hidden="true" x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
   </g>
   <g data-id="var-x">
     <circle cx="124.59" cy="134.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
   <g data-id="var-y">
     <circle cx="170.59" cy="171.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
+    <text aria-hidden="true" x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
   </g>
 </svg>
 
@@ -224,25 +243,29 @@ x = 6
 
 <section data-auto-animate data-auto-animate-id="twovars">
 
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5" aria-labelledby="svglabel-twovars2">
+
+  <text id="svglabel-twovars2" class="sr-only">
+    Then we detach x from 5 and attach it to 6. Now, x is bound to 6, but y is still bound to 5.
+  </text>
 
   <path data-id="wire-x" d="M142.03 134.42s10.41 1.97 19.17-9.42c18.56-29.82 12.43-36.24 34.54-45.97" fill="none" stroke="#ec4899" stroke-width="2"/>
   <path data-id="wire-y" d="M188.03 171.42s14.8.3 29.67-6.56c22.22-10.23 9.14-50.1 31.75-56.33" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g data-id="val-5">
     <path d="M292.86 95.27c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.15 5.15h33.1a5.16 5.16 0 0 0 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
+    <text aria-hidden="true" x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="val-6">
     <path d="M239.15 65.77c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.16 5.15H234a5.16 5.16 0 0 0 5.15-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
+    <text aria-hidden="true" x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
   </g>
   <g data-id="var-x">
     <circle cx="124.59" cy="134.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
+    <text aria-hidden="true" x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
   <g data-id="var-y">
     <circle cx="170.59" cy="171.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
+    <text aria-hidden="true" x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
   </g>
 </svg>
 
