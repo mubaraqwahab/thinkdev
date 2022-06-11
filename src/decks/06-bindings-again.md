@@ -403,7 +403,7 @@ if (true) {
 
 <section data-auto-animate>
 
-This is allowed because the curly brackets create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block}
+This is allowed because the braces create a <i>block</i> [and the block in turn creates a new <i>scope</i> for its variables.]{.block}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
