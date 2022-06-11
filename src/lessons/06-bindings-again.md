@@ -38,6 +38,10 @@ const a = 1, b = 2;
 
 ### Keywords and reserved words
 
-TODO: introduce the two terms; differentiate btw them; their similarities for our purposes.
+You might come across these two terms, keyword and reserved word. How are they different? Let's define them:
 
-A word with a special meaning in a programming language is called a <i>keyword</i>. Most keywords in JavaScript are also reserved words &mdash; that is, they're not valid identifiers. Examples are `if`, `else`, `typeof`, and `null`.
+A <dfn>keyword</dfn> is a word in a programming language that has a special meaning. The word `if` in JavaScript is a keyword because it's used to start an `if` statement.
+
+A <dfn>reserved word</dfn> is a word that is not a valid name. The word `if` in JavaScript is also a reserved word because you can't use it as a (variable) name.
+
+Most keywords in JavaScript are also reserved words, and vice versa, so we'll use the two terms interchangeably for our purposes.
