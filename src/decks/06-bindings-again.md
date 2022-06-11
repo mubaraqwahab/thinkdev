@@ -37,7 +37,7 @@ let x = 5
 </section>
 
 
-<section data-transition="fade">
+<section data-transition="fade-in slide-out">
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
 
@@ -163,39 +163,17 @@ let y = x
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
 
-  <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
-  <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=2 />
+  <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2" class="fragment highlight-current-stroke" data-fragment-index=3 />
+  <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=5 />
   <g data-id="val-5">
-    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round" class="fragment highlight-current-stroke" data-fragment-index=4 />
     <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
   </g>
   <g data-id="var-x">
-    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round" class="fragment highlight-current-stroke" data-fragment-index=2 />
     <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
   <g data-id="var-y" class="fragment" data-fragment-index=1>
-    <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
-    <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
-  </g>
-</svg>
-
-</section>
-
-<section data-background-color="white">
-
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
-
-  <path data-id="wire-x" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=2 d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
-  <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=4 />
-  <g data-id="val-5" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=3>
-    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
-    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
-  </g>
-  <g data-id="var-x" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=1>
-    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round" class="drop-shadow-2xl"/>
-    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
-  </g>
-  <g data-id="var-y">
     <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
     <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
   </g>
@@ -285,7 +263,7 @@ x = 6
 
 <section>
 
-You can't use some words as names because they are reserved for special use in JavaScript. {.h3}
+You can't use some words as names because they are reserved for special use in JavaScript. {.h4}
 
 </section>
 
@@ -470,22 +448,7 @@ console.log(x) // 5
 
 <section data-auto-animate>
 
-We call the outermost scope <i>the global scope</i> [and variables declared there, <i>global variables</i>:]{.block}
-
-<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
-let x = 5 // x is a global variable
-if (true) {
-  let x = 6
-  console.log(x)
-}
-</code></pre>
-
-</section>
-
-
-<section data-auto-animate>
-
-Conversely, variables declared in a block are <i>local</i> to the block:
+We say that variables declared in a block are <i>local</i> to the block:
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -500,7 +463,7 @@ if (true) {
 
 <section>
 
-JavaScript has some built-in global bindings. For example, `console`, `Number`, `String`, and `Boolean`. {.h3}
+JavaScript also has a <i>global scope</i> containing several built-in bindings. Some global bindings we've already used are `console`, `Number`, `String`, and `Boolean`. {.h4}
 
 </section>
 

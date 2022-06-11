@@ -30,7 +30,7 @@ section.has-light-background :is(h1, h2, h3) {
   --r-heading1-size: 2.3em;
   --r-heading2-size: 1.85em;
   --r-heading3-size: 1.5em;
-  --r-heading4-size: 1em;
+  --r-heading4-size: 1.2em;
   --r-code-font: theme("fontFamily.mono");
   --r-link-color: theme("colors.pink.500");
   --r-link-color-dark: theme("colors.pink.600");
@@ -73,7 +73,7 @@ section.has-light-background :is(h1, h2, h3) {
   * HEADERS
   *********************************************/
 
-.reveal :is(h1, h2, h3, .h2, .h3) {
+.reveal :is(h1, h2, h3, .h2, .h3, .h4) {
   margin: var(--r-heading-margin);
   color: var(--r-heading-color);
   font-family: var(--r-heading-font);
@@ -96,6 +96,10 @@ section.has-light-background :is(h1, h2, h3) {
 
 .reveal :is(h3, .h3) {
   font-size: var(--r-heading3-size);
+}
+
+.reveal :is(.h4) {
+  font-size: var(--r-heading4-size);
 }
 
 /*********************************************
@@ -392,13 +396,14 @@ html.print-pdf .reveal pre :is(code, samp) {
   }
 }
 
-.reveal .slides section .fragment.highlight-glow {
+.reveal .slides section .fragment.highlight-current-stroke {
   opacity: 1;
   visibility: inherit;
 }
 
-.reveal .slides section .fragment.highlight-glow.visible {
-  /* box-shadow: theme("ringWidth.2"); */
+.reveal .slides section .fragment.highlight-current-stroke.current-fragment {
+  stroke: theme("stroke.orange.600");
+  stroke-width: 2px;
 }
 
 /*********************************************
