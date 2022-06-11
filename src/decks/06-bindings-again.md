@@ -67,7 +67,7 @@ x = 6
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="let" data-transition="fade">
+<section data-auto-animate data-auto-animate-id="let">
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
 
@@ -89,11 +89,11 @@ x = 6
 </section>
 
 
-<section data-auto-animate data-auto-animate-id="let" data-transition="fade">
+<section data-auto-animate data-auto-animate-id="let">
 
 <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
 
-  <path data-id="wire-x" d="M138.46 120.28s23.1-1.8 45.67 6.97c17.08 6.63 23.78 29.11 68.9 28.88" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <path data-id="wire-x" d="M138.46 120.28s22.47-2.63 42.67 10.72c14.58 9.63 26.28 30.86 71.9 25.13" fill="none" stroke="#ec4899" stroke-width="2"/>
   <g data-id="val-5">
     <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
     <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
@@ -149,7 +149,7 @@ console.log(x + 2) // 7
 
 <section data-auto-animate>
 
-We can also bind multiple names to the same value:
+We can also bind a name to the value of another name:
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 let x = 5
@@ -161,7 +161,23 @@ let y = x
 
 <section>
 
-TODO: image
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=2 />
+  <g data-id="val-5">
+    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="var-x">
+    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+  <g data-id="var-y" class="fragment" data-fragment-index=1>
+    <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
+  </g>
+</svg>
 
 </section>
 
@@ -179,9 +195,56 @@ x = 6
 </section>
 
 
-<section>
+<section data-auto-animate data-auto-animate-id="twovars">
 
-TODO: image
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" d="M142.03 134.93s12.38 3.55 37.17-8c22.47-10.46 36.14-18.67 70.25-18.4" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <path data-id="wire-y" d="M188.03 171.42s14.8.3 29.67-6.56c22.22-10.23 9.14-50.1 31.75-56.33" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <g data-id="val-5">
+    <path d="M292.86 95.27c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.15 5.15h33.1a5.16 5.16 0 0 0 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="val-6" class="fragment">
+    <path d="M239.15 65.77c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.16 5.15H234a5.16 5.16 0 0 0 5.15-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
+  </g>
+  <g data-id="var-x">
+    <circle cx="124.59" cy="134.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+  <g data-id="var-y">
+    <circle cx="170.59" cy="171.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
+  </g>
+</svg>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="twovars">
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" d="M142.03 134.42s10.41 1.97 19.17-9.42c18.56-29.82 12.43-36.24 34.54-45.97" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <path data-id="wire-y" d="M188.03 171.42s14.8.3 29.67-6.56c22.22-10.23 9.14-50.1 31.75-56.33" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <g data-id="val-5">
+    <path d="M292.86 95.27c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.15 5.15h33.1a5.16 5.16 0 0 0 5.16-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="265.32" y="115.42" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="val-6">
+    <path d="M239.15 65.77c0-2.84-2.31-5.15-5.16-5.15h-33.1a5.16 5.16 0 0 0-5.15 5.15v26.51c0 2.84 2.31 5.15 5.16 5.15H234a5.16 5.16 0 0 0 5.15-5.15v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="211.62" y="85.92" class="font-mono text-xl" fill="#0a0918">6</text>
+  </g>
+  <g data-id="var-x">
+    <circle cx="124.59" cy="134.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="118.59" y="139.81" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+  <g data-id="var-y">
+    <circle cx="170.59" cy="171.93" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="164.66" y="174.62" class="font-mono text-xl" fill="#0a0918">y</text>
+  </g>
+</svg>
 
 </section>
 
@@ -200,14 +263,12 @@ TODO: image
 
 <section>
 
-* We learnt some rules on naming variables before, but there's one more rule you should know.
-* Some words are <i>reserved</i> in JavaScript, usually because they have special meanings. {.fragment .fade-up}
-* You can't use these words as names. {.fragment .fade-up}
+You can't use some words as names because they are reserved for special use in JavaScript. {.h3}
 
 </section>
 
 
-<section>
+<section data-transition="slide-in zoom-out">
 
 * `await`
 * `break`
@@ -417,7 +478,7 @@ if (true) {
 
 <section>
 
-JavaScript has some built-in global bindings. For example, `console`, `Number`, `String`, and `Boolean`.
+JavaScript has some built-in global bindings. For example, `console`, `Number`, `String`, and `Boolean`. {.h3}
 
 </section>
 
@@ -473,7 +534,7 @@ if (true) {
 
 <section data-auto-animate>
 
-Note that you can't use a variable before it is declared, [even in the same scope:]{.block}
+A final note is that you can't use a variable [before it is declared, even in the same scope:]{.block}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
 console.log(x) // Error

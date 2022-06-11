@@ -26,8 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
         const prevAttributes = prevPath.attr(["d"])
         const nextAttributes = nextPath.attr(["d"])
 
-        console.log({pathId, prevAttributes, nextAttributes})
-
         nextPath
           .attr(prevAttributes)
           .animate({duration: revealConfig.autoAnimateDuration * 1000})
