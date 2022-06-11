@@ -11,7 +11,58 @@ TODO
 
 ## Exercises
 
-TODO
+The exercises below are reading exercises. Study the programs given and try to determine their outputs, **without running them**. You might find it helpful to draw how the variables are attached to values with a pen and paper.
+
+Confirm your answers by running each program, only after you've attempted to guess its output.
+
+1. ```js
+   let text = "JavaScript";
+   let language = text;
+   text = text.toUpperCase();
+
+   console.log(text);
+   console.log(language);
+   ```
+
+2. ```js
+   let x = 10;
+   if (true) {
+     console.log(x);
+     let x = 30;
+   }
+   ```
+
+3. ```js
+   let y = 10;
+   if (true) {
+     y = 20;
+   }
+   if (true) {
+     let y = 30;
+   }
+   console.log(y);
+   ```
+
+4. ```js
+   const person = {
+     firstName: "Mubaraq",
+     lastName: "Wahab",
+     address: {
+       state: "Lagos",
+       country: "Nigeria"
+     }
+   };
+
+   person.firstName = "Isa";
+   console.log(person);
+
+   const address = person.address;
+   address.state = "Abuja";
+   console.log(person);
+
+   person = "Elleman";
+   console.log(person);
+   ```
 
 ## Extras
 
