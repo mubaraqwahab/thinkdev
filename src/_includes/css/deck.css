@@ -392,6 +392,15 @@ html.print-pdf .reveal pre :is(code, samp) {
   }
 }
 
+.reveal .slides section .fragment.highlight-glow {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.reveal .slides section .fragment.highlight-glow.visible {
+  /* box-shadow: theme("ringWidth.2"); */
+}
+
 /*********************************************
   * UTILITIES
   *********************************************/

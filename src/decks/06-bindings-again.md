@@ -117,7 +117,7 @@ x = 6
 
 <pre data-id="varbind"><code data-line-numbers data-trim class="language-js">
 const x = 5
-x = 6 // Error!
+x = 6 // TypeError: Assignment to constant variable
 </code></pre>
 
 </section>
@@ -174,6 +174,28 @@ let y = x
     <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
   </g>
   <g data-id="var-y" class="fragment" data-fragment-index=1>
+    <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
+    <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
+  </g>
+</svg>
+
+</section>
+
+<section data-background-color="white">
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+
+  <path data-id="wire-x" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=2 d="M138.46 120.28s12.38 3.55 37.17-8c22.47-10.47 36.14-18.68 70.25-18.41" fill="none" stroke="#ec4899" stroke-width="2"/>
+  <path data-id="wire-y" d="M184.46 156.76s14.8.3 29.67-6.55c22.22-10.24 9.14-50.1 31.75-56.34" fill="none" stroke="#ec4899" stroke-width="2" class="fragment draw-path" pathLength=1 data-fragment-index=4 />
+  <g data-id="val-5" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=3>
+    <path d="M289.29 80.62a5.16 5.16 0 0 0-5.16-5.16h-33.1a5.16 5.16 0 0 0-5.15 5.16v26.5c0 2.85 2.3 5.16 5.15 5.16h33.1c2.85 0 5.16-2.31 5.16-5.16v-26.5Z" fill="#1ae6c1" stroke="#1ae6c1" stroke-linecap="round"/>
+    <text x="261.75" y="100.76" class="font-mono text-xl" fill="#0a0918">5</text>
+  </g>
+  <g data-id="var-x" class="fragment highlight-glow drop-shadow-2xl" data-fragment-index=1>
+    <circle cx="121.02" cy="120.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round" class="drop-shadow-2xl"/>
+    <text x="115.02" y="125.16" class="font-mono text-xl" fill="#0a0918">x</text>
+  </g>
+  <g data-id="var-y">
     <circle cx="167.02" cy="157.28" r="17.45" fill="#fffb46" stroke="#fffb46" stroke-linecap="round"/>
     <text x="161.09" y="159.97" class="font-mono text-xl" fill="#0a0918">y</text>
   </g>
@@ -371,7 +393,7 @@ You can't redeclare an existing variable _in the same scope_.
 
 <pre data-id="diff"><code data-line-numbers data-trim class="language-js">
 let x = 5
-let x = 6 // Error
+let x = 6 // SyntaxError
 </code></pre>
 
 </section>
@@ -505,7 +527,7 @@ You can't access a variable where it's not visible:
 if (true) {
   let x = 6
 }
-console.log(x) // Error
+console.log(x) // ReferenceError
 </code></pre>
 
 </section>
@@ -515,7 +537,49 @@ console.log(x) // Error
 
 The same rules apply to deeper scopes:
 
-<pre data-id="scope"><code data-line-numbers data-trim class="language-js">
+<pre data-id="scope"><code data-line-numbers="1-11|6|5-9|3,4,10,11" data-trim class="language-js">
+let x = 5
+let y = 7
+if (true) {
+  let x = 6
+  if (true) {
+    console.log(x)
+    console.log(y)
+    let z = 8
+  }
+  console.log(z)
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The same rules apply to deeper scopes:
+
+<pre data-id="scope"><code data-line-numbers="6|7|5-9|3,4,10,11|1,2" data-trim class="language-js">
+let x = 5
+let y = 7
+if (true) {
+  let x = 6
+  if (true) {
+    console.log(x) // 6
+    console.log(y)
+    let z = 8
+  }
+  console.log(z)
+}
+</code></pre>
+
+</section>
+
+
+<section data-auto-animate>
+
+The same rules apply to deeper scopes:
+
+<pre data-id="scope"><code data-line-numbers="7|1-11|10|3,4,10,11|1,2" data-trim class="language-js">
 let x = 5
 let y = 7
 if (true) {
@@ -525,7 +589,7 @@ if (true) {
     console.log(y) // 7
     let z = 8
   }
-  console.log(z) // Error
+  console.log(z)
 }
 </code></pre>
 
@@ -534,10 +598,31 @@ if (true) {
 
 <section data-auto-animate>
 
+The same rules apply to deeper scopes:
+
+<pre data-id="scope"><code data-line-numbers="10" data-trim class="language-js">
+let x = 5
+let y = 7
+if (true) {
+  let x = 6
+  if (true) {
+    console.log(x) // 6
+    console.log(y) // 7
+    let z = 8
+  }
+  console.log(z) // ReferenceError
+}
+</code></pre>
+
+</section>
+
+
+<section>
+
 A final note is that you can't use a variable [before it is declared, even in the same scope:]{.block}
 
 <pre data-id="scope"><code data-line-numbers data-trim class="language-js">
-console.log(x) // Error
+console.log(x) // ReferenceError
 let x = 5
 </code></pre>
 
