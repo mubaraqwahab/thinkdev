@@ -2,7 +2,7 @@
 title: Bindings again
 draft: true
 excerpt: >
-  TODO: We'll discuss the concept of bindings in JavaScript and how it relates to variables and objects.
+  This lesson explores how the concepts of bindings and scopes relate to variables in JavaScript.
 ---
 
 ## Video
