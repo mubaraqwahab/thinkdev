@@ -78,3 +78,5 @@ Run each script with <code>npm run <var>&lt;script&gt;</var></code>.
 * Use absolute URLs for internal pages, with both leading and trailing slashes, as in `/decks/01-introduction/`. The trailing slash must be present because `/decks/01-introduction` and `/decks/01-introduction/` are treated differently in some contexts (e.g. service worker cache). Also, use the [Eleventy `url` filter](https://www.11ty.dev/docs/filters/url/) for all internal resource URLs.
 
 * Use the Netlify `CONTEXT` environment variable to determine the context of a build (e.g. `production` or `deploy-preview`). Set this variable to an empty string in development, or omit it altogether. On a related note, **don't use the `NODE_ENV` variable to determine the context of a build**. (For now, I'm only using `NODE_ENV` to determine whether npm should install dev-dependencies.)
+
+* Prefer the term "brace" to "curly bracket". The former is easier to type and pronounce 🙂

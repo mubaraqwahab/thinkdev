@@ -12,6 +12,7 @@ module.exports = {
         order: data.page.filePathStem.slice(base.length, base.length + 2) - 1,
         excerpt: data.excerpt,
         draft: !!data.draft, // could be true, false, or missing (undefined)
+        title: data.draft ? `${data.title} (draft)` : data.title,
       }
     },
   },

@@ -14,19 +14,33 @@
           padding: 0;
         }
 
+        /*
+          See https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+          for the list of available highlight.js classes.
+        */
+
         @media (prefers-color-scheme: light) {
           .hljs-doctag,
           .hljs-keyword,
           .hljs-meta .hljs-keyword,
           .hljs-template-tag,
           .hljs-template-variable,
-          .hljs-type,
-          .hljs-variable.language_ {
+          .hljs-type {
             color: #cf222e;
           }
 
-          .hljs-built_in, .hljs-symbol {
+          .hljs-built_in,
+          .hljs-symbol,
+          .hljs-variable.language_ {
             color: #b74f07;
+          }
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .hljs-built_in,
+          .hljs-symbol,
+          .hljs-variable.language_ {
+            color: #f69d50;
           }
         }
       </style>

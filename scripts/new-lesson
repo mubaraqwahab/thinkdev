@@ -33,7 +33,7 @@ const existingLessonFiles = fs
   .filter((filename) => /^\d{2}-.+\.md$/.test(filename))
 
 const lessonNum = existingLessonFiles.length + 1
-const slug = lessonNum.toString().padStart(2, "0") + slugify(title)
+const slug = lessonNum.toString().padStart(2, "0") + "-" + slugify(title)
 const lessonFilename = slug + ".md"
 
 // Create a lesson file

@@ -10,6 +10,7 @@
     "build-html": "eleventy",
     "build-css": "tailwindcss -i src/main.css -o _site/main.css --minify",
     "purge-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
+    "serve": "serve _site",
     "clear": "shx rm -rf _site/",
     "prepare": "husky install",
     "format": "prettier --write **/*.{js,html,css,json}"
@@ -30,6 +31,7 @@
     "@11ty/eleventy-navigation": "^0.3.2",
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
+    "@svgdotjs/svg.js": "^3.1.2",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.2",
     "bootstrap-icons": "^1.8.1",
@@ -52,11 +54,13 @@
     "terser": "^5.9.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
+    "@types/reveal": "^4.2.0",
     "@types/youtube": "0.0.46",
+    "dotenv": "^16.0.0",
     "husky": "^7.0.0",
     "imagemin-cli": "^7.0.0",
     "imagemin-webp": "^7.0.0",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "serve": "^13.0.2"
   }
 }

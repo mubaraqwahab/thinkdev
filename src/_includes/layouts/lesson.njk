@@ -46,7 +46,7 @@ layout: layouts/base
   <main id="main">
     <article class="prose prose-indigo max-w-[640px] mx-auto lg:max-w-none lg:mx-0 dark:prose-invert">
       <header>
-        <h1>{{ title }}</h1>
+        <h1>{{ title }}{{ " (draft)" if draft }}</h1>
         <p><b class="lead">{{ excerpt | safe }}</b></p>
         {% if collections.deck | find("data.order", eleventyNavigation.order) %}
           <p>
