@@ -1,6 +1,5 @@
 ---
 title: Bindings again
-draft: true
 excerpt: >
   This lesson explores how the concepts of bindings and scopes relate to variables in JavaScript.
 ---
