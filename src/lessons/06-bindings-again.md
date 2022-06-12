@@ -7,7 +7,7 @@ excerpt: >
 
 ## Video
 
-TODO
+https://youtu.be/enDtGqY2b7c
 
 ## Exercises
 
