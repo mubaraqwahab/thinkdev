@@ -24,7 +24,7 @@ Confirm your answers by running each program, only after you've attempted to gue
    console.log(language);
    ```
 
-2. ```js
+1. ```js
    let x = 10;
    if (true) {
      console.log(x);
@@ -32,7 +32,7 @@ Confirm your answers by running each program, only after you've attempted to gue
    }
    ```
 
-3. ```js
+1. ```js
    let y = 10;
    if (true) {
      y = 20;
@@ -43,7 +43,7 @@ Confirm your answers by running each program, only after you've attempted to gue
    console.log(y);
    ```
 
-4. ```js
+1. ```js
    const person = {
      firstName: "Mubaraq",
      lastName: "Wahab",
@@ -62,6 +62,11 @@ Confirm your answers by running each program, only after you've attempted to gue
 
    person = "Elleman";
    console.log(person);
+   ```
+
+1. ```js
+   const console = "🎮";
+   console.log(console);
    ```
 
 ## Extras
