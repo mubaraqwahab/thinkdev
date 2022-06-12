@@ -10,6 +10,7 @@
     "build-html": "eleventy",
     "build-css": "tailwindcss -i src/main.css -o _site/main.css --minify",
     "purge-svg": "purge-svg-sprite -c \"src/**/*.njk\" -i _site/assets/images/bootstrap-icons.svg -o _site/assets/images/bootstrap-icons.svg",
+    "serve": "serve _site",
     "clear": "shx rm -rf _site/",
     "prepare": "husky install",
     "format": "prettier --write **/*.{js,html,css,json}"
@@ -59,6 +60,7 @@
     "husky": "^7.0.0",
     "imagemin-cli": "^7.0.0",
     "imagemin-webp": "^7.0.0",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "serve": "^13.0.2"
   }
 }
