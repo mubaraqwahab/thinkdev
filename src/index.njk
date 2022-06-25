@@ -98,7 +98,30 @@ layout: layouts/base
         </li>
       {%- endfor %}
     </ol>
-    <p>I'll add a new lesson weekly.</p>
+
+    <section class="mt-11">
+      <details>
+        <summary>
+          <h3>Upcoming</h3>
+        </summary>
+        <ol class="mt-5 md:columns-2 md:gap-x-16" start="{{ (lessons | length) + 1 }}">
+          <li>Reusing functionality</li>
+          <li>Testing</li>
+          <li>Debugging</li>
+          <li>The developer experience</li>
+          <li>Working in the terminal</li>
+          <li>Modules</li>
+          <li>Iteration</li>
+          <li>The functional side of arrays</li>
+          <li>Matching string patterns</li>
+          <li>Stacks</li>
+          <li>Observable stacks</li>
+          <li>Sets and maps</li>
+          <li>Trees</li>
+          <li>Asynchronous I/O</li>
+          <li>JavaScript quirks</li>
+        </ol>
+    </section>
   </section>
 
   <footer class="py-16">
