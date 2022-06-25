@@ -46,10 +46,11 @@
     @apply hidden;
   }
 
+  /* You might need to adjust the size of this if you use it on non-home pages */
   details > summary::before {
     content: "";
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111827' viewBox='0 0 16 16'%3E%3Cpath d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/%3E%3C/svg%3E");
-    @apply inline-block mr-1 h-4 w-4 bg-contain;
+    @apply inline-block mr-1 h-3 w-3 md:h-4 md:w-4 bg-contain;
     @apply duration-200 transition-transform;
   }
 
