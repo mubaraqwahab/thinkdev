@@ -14,7 +14,8 @@
   }
 
   a,
-  button {
+  button,
+  details > summary {
     @apply rounded-sm;
   }
 
@@ -29,6 +30,41 @@
   ::selection {
     @apply text-white bg-[#3390ff];
     @apply dark:bg-[#0362d4];
+  }
+
+  details > summary {
+    @apply inline-block;
+    list-style-image: url(right-arrow.svg);
+  }
+
+  details > summary {
+    @apply inline-block cursor-pointer list-none;
+  }
+
+  /* Credit: https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/ */
+  details > summary::-webkit-details-marker {
+    @apply hidden;
+  }
+
+  details > summary::before {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111827' viewBox='0 0 16 16'%3E%3Cpath d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/%3E%3C/svg%3E");
+    @apply inline-block mr-1 h-4 w-4 bg-contain;
+    @apply duration-200 transition-transform;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    details > summary::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f3f4f6' viewBox='0 0 16 16'%3E%3Cpath d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/%3E%3C/svg%3E");
+    }
+  }
+
+  details[open] > summary::before {
+    @apply rotate-90;
+  }
+
+  details > summary > * {
+    @apply inline;
   }
 }
 
@@ -179,6 +215,10 @@
 
   .home :where(h2) {
     @apply text-3xl md:text-4xl mb-8 scroll-mt-20;
+  }
+
+  .home :where(h3) {
+    @apply text-2xl mb-5;
   }
 
   .home :where(p) {
