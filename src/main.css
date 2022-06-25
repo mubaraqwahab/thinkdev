@@ -218,7 +218,7 @@
   }
 
   .home :where(h3) {
-    @apply text-2xl mb-5;
+    @apply text-xl md:text-2xl mb-5;
   }
 
   .home :where(p) {
