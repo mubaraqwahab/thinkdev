@@ -51,7 +51,7 @@
     "reveal.js": "^4.3.0",
     "shx": "^0.3.3",
     "tailwindcss": "^3.0.23",
-    "terser": "^5.9.0"
+    "terser": "^5.14.2"
   },
   "devDependencies": {
     "@types/reveal": "^4.2.0",
